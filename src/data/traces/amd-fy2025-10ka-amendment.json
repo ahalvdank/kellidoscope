@@ -1,0 +1,1078 @@
+{
+  "answer_md": "The amended FY2025 10-K/A corrected the description of Client segment revenue growth drivers [1][2]. The original FY2025 10-K attributed the growth to \"a 31% increase in unit shipments of processors and a 15% increase in average selling price of processors [1]\". The amended 10-K/A instead attributes the growth to \"a 15% increase in unit shipments of processors and a 31% increase in average selling price of processors\", swapping the two percentages [2].\n\nThe amended 10-K/A reports Client net revenue of $10.6 billion in 2025, up from $7.1 billion in 2024, with total Client and Gaming net revenue of $14.6 billion in 2025, up 51% from $9.6 billion in 2024 [2]. The amended filing also reports Client and Gaming operating income of $2.9 billion in 2025, compared to $1.2 billion in 2024 [2].\n\nThe amended 10-K/A states that research and development expenses were $8.1 billion in 2025, increasing by $1.6 billion, or 25%, compared to $6.5 billion in 2024 [3]. The amended filing describes an October 2025 agreement with OpenAI to deploy 6 gigawatts of AMD GPUs, with AMD issuing a warrant to purchase up to 160 million shares at an exercise price of $0.01 per share [4].",
+  "audit_note_md": "# What AMD changed in its amended FY2025 10-K\n\nQuestion: What did AMD change in its amended FY2025 10-K?\n\n## Companies\n\n- [[ADVANCED MICRO DEVICES INC]] (AMD): [1], [2], [3], [4]\n\n## Claims\n\n- [[AMD Data Center Segment]] (RevenueSegment, AMD) on [[ADVANCED MICRO DEVICES INC]]: [1] (superseded by the amendment)\n- [[AMD Client and Gaming Segment]] (RevenueSegment, AMD) on [[ADVANCED MICRO DEVICES INC]]: [1] (superseded by the amendment)\n- [[AMD Client Sub-Segment]] (RevenueSegment, AMD) on [[ADVANCED MICRO DEVICES INC]]: [1] (superseded by the amendment)\n- [[AMD Gaming Sub-Segment]] (RevenueSegment, AMD) on [[ADVANCED MICRO DEVICES INC]]: [1] (superseded by the amendment)\n- [[AMD Embedded Segment]] (RevenueSegment, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD FY2025 Stock Repurchase ($1.3B)]] (CapitalReturn, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD Acquisition of ZT Systems]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD Divestiture of ZT Manufacturing Business to Sanmina]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD MI308 U.S. Export Control Inventory Charges]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: [1] (superseded by the amendment)\n- [[AMD MI308 China Revenue Sharing Obligation Risk]] (Risk, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD March 2025 $1.5B Notes Issuance]] (CapitalStructureEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD OpenAI Warrant Issuance (160M Shares at $0.01)]] (CapitalStructureEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD Acquisition of ZT Group Int'l]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD Divestiture of AMD Design Assets to Sanmina]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD March 2025 Second Supplemental Indenture]] (CapitalStructureEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD October 2025 Warrant Issuance to OpenAI OpCo]] (CapitalStructureEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD Emily Ellis Executive Hire]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited (superseded by the amendment)\n- [[AMD Data Center Segment]] (RevenueSegment, AMD) on [[ADVANCED MICRO DEVICES INC]]: [2]\n- [[AMD Client and Gaming Segment]] (RevenueSegment, AMD) on [[ADVANCED MICRO DEVICES INC]]: [2]\n- [[AMD Embedded Segment]] (RevenueSegment, AMD) on [[ADVANCED MICRO DEVICES INC]]: [2]\n- [[AMD Acquisition of ZT Systems]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: [4]\n- [[AMD Divestiture of ZT Manufacturing Business]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: [4]\n- [[AMD OpenAI GPU Deployment Agreement]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: [4]\n- [[AMD MI308 U.S. Export Control Restriction]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: [2]\n- [[AMD IRS Dual Consolidated Loss Relief]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited\n- [[One Big Beautiful Bill Act Impact on AMD]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited\n- [[AMD 2025 Share Repurchase Activity]] (CapitalReturn, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited\n- [[AMD March 2025 $1.5B Notes Issuance]] (CapitalStructureEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: [3]\n- [[AMD OpenAI Warrant Issuance]] (CapitalStructureEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: [4]\n- [[AMD MI308 U.S. Government Revenue Share Requirement]] (Risk, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited\n- [[AMD OECD Pillar Two Global Minimum Tax Exposure]] (Risk, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited\n- [[AMD Acquisition of ZT Group Int'l]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited\n- [[AMD Divestiture of AMD Design to Sanmina]] (MaterialEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited\n- [[AMD OpenAI Warrant Issuance October 2025]] (CapitalStructureEvent, AMD) on [[ADVANCED MICRO DEVICES INC]]: none cited\n",
+  "category": "risk_shift",
+  "claims": [
+    {
+      "cite": 1,
+      "claim_type": "RevenueSegment",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Data Center Segment.",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 1,
+      "claim_type": "RevenueSegment",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "restructure_effective": "2025-Q1",
+        "restructured_from": [
+          "Client Segment",
+          "Gaming Segment"
+        ]
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Client and Gaming Segment (restructure effective 2025-Q1; restructured from [\"Client Segment\", \"Gaming Segment\"]).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 1,
+      "claim_type": "RevenueSegment",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Client Sub-Segment.",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 1,
+      "claim_type": "RevenueSegment",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Gaming Sub-Segment.",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Embedded Segment.",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalReturn",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "amount_usd": 1300000000,
+        "remaining_authorization_usd": 9400000000,
+        "return_type": "buyback",
+        "shares_repurchased": 12400000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD FY2025 Stock Repurchase ($1.3B) (amount usd 1300000000; remaining authorization usd 9400000000; return type buyback; shares repurchased 12400000).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "consideration_amd_shares": 8300000,
+        "consideration_cash_usd": 3200000000,
+        "effective_date": "2025-03",
+        "event_type": "acquisition",
+        "target_company": "ZT Systems"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Acquisition of ZT Systems (consideration amd shares 8300000; consideration cash usd 3200000000; effective date 2025-03; event type acquisition).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "buyer": "Sanmina Corporation",
+        "contingent_consideration_max_usd": 450000000,
+        "effective_date": "2025-10",
+        "event_type": "divestiture",
+        "proceeds_cash_usd": 2400000000,
+        "proceeds_sanmina_shares": 1200000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Divestiture of ZT Manufacturing Business to Sanmina (buyer Sanmina Corporation; contingent consideration max usd 450000000; effective date 2025-10; event type divestiture).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 1,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "event_type": "regulatory_action",
+        "geography": "China",
+        "gross_charges_usd": 800000000,
+        "net_charges_usd": 440000000,
+        "product": "AMD Instinct MI308",
+        "reversed_charges_usd": 360000000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD MI308 U.S. Export Control Inventory Charges (event type regulatory_action; geography China; gross charges usd 800000000; net charges usd 440000000).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "regulatory",
+        "geography": "China",
+        "product": "AMD Instinct MI308"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD MI308 China Revenue Sharing Obligation Risk (category regulatory; geography China; product AMD Instinct MI308).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "coupons": [
+          "4.212%",
+          "4.319%"
+        ],
+        "instrument_type": "notes",
+        "issuance_date": "2025-03",
+        "principal_usd": 1500000000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD March 2025 $1.5B Notes Issuance (coupons [\"4.212%\", \"4.319%\"]; instrument type notes; issuance date 2025-03; principal usd 1500000000).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "counterparty": "OpenAI OpCo, LLC",
+        "exercise_price_usd": 0.01,
+        "expiration_date": "2030-10-05",
+        "instrument_type": "equity_issuance",
+        "shares": 160000000,
+        "vesting_conditions": "AMD Instinct GPU purchase milestones and AMD stock price targets"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD OpenAI Warrant Issuance (160M Shares at $0.01) (counterparty OpenAI OpCo, LLC; exercise price usd 0.01; expiration date 2030-10-05; instrument type equity_issuance).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "effective_date": "2024-08-17",
+        "event_type": "acquisition",
+        "target_company": "ZT Group Int'l, Inc."
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Acquisition of ZT Group Int'l (effective date 2024-08-17; event type acquisition; target company ZT Group Int'l, Inc.).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "buyer": "Sanmina Corporation",
+        "effective_date": "2025-05-18",
+        "event_type": "divestiture"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Divestiture of AMD Design Assets to Sanmina (buyer Sanmina Corporation; effective date 2025-05-18; event type divestiture).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "effective_date": "2025-03-24",
+        "instrument_type": "notes",
+        "trustee": "U.S. Bank Trust Company, National Association"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD March 2025 Second Supplemental Indenture (effective date 2025-03-24; instrument type notes; trustee U.S. Bank Trust Company, National Association).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "counterparty": "OpenAI OpCo, LLC",
+        "effective_date": "2025-10-05",
+        "instrument_type": "equity_issuance"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD October 2025 Warrant Issuance to OpenAI OpCo (counterparty OpenAI OpCo, LLC; effective date 2025-10-05; instrument type equity_issuance).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "effective_date": "2025-11-12",
+        "event_type": "management_change",
+        "person": "Emily Ellis"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Emily Ellis Executive Hire (effective date 2025-11-12; event type management_change; person Emily Ellis).",
+      "superseded": true,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 2,
+      "claim_type": "RevenueSegment",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Data Center Segment.",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 2,
+      "claim_type": "RevenueSegment",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Client and Gaming Segment.",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 2,
+      "claim_type": "RevenueSegment",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Embedded Segment.",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 4,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "effective_date": "2025-03",
+        "event_type": "acquisition",
+        "net_cash_paid_usd": 2000000000,
+        "stated_consideration_cash_usd": 3200000000,
+        "stated_consideration_shares": 8300000,
+        "target_company": "ZT Systems",
+        "total_shares_issued": 9100000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Acquisition of ZT Systems (effective date 2025-03; event type acquisition; net cash paid usd 2000000000; stated consideration cash usd 3200000000).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 4,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "buyer": "Sanmina Corporation",
+        "contingent_consideration_max_usd": 450000000,
+        "effective_date": "2025-10",
+        "event_type": "divestiture",
+        "gross_proceeds_cash_usd": 2400000000,
+        "net_proceeds_cash_usd": 1400000000,
+        "sanmina_shares_received": 1200000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Divestiture of ZT Manufacturing Business (buyer Sanmina Corporation; contingent consideration max usd 450000000; effective date 2025-10; event type divestiture).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 4,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "counterparty": "OpenAI OpCo, LLC",
+        "effective_date": "2025-10",
+        "event_type": "joint_venture",
+        "lead_product": "AMD Instinct MI450 series",
+        "scope_gigawatts": 6
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD OpenAI GPU Deployment Agreement (counterparty OpenAI OpCo, LLC; effective date 2025-10; event type joint_venture; lead product AMD Instinct MI450 series).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 2,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "affected_geography": "China",
+        "event_type": "regulatory_action",
+        "gross_charge_usd": 800000000,
+        "net_charge_usd": 440000000,
+        "product": "AMD Instinct MI308 Data Center GPU",
+        "reversal_usd": 360000000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD MI308 U.S. Export Control Restriction (affected geography China; event type regulatory_action; gross charge usd 800000000; net charge usd 440000000).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "effective_date": "2025-04",
+        "event_type": "regulatory_action",
+        "tax_benefit_usd": 853000000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD IRS Dual Consolidated Loss Relief (effective date 2025-04; event type regulatory_action; tax benefit usd 853000000).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "effective_date": "2025-07",
+        "event_type": "regulatory_action",
+        "primary_impact": "accelerated expensing of domestic R&D activities"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: One Big Beautiful Bill Act Impact on AMD (effective date 2025-07; event type regulatory_action; primary impact accelerated expensing of domestic R&D activities).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalReturn",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "amount_usd": 1300000000,
+        "period": "FY2025",
+        "remaining_authorization_usd": 9400000000,
+        "return_type": "buyback",
+        "shares_repurchased": 12400000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD 2025 Share Repurchase Activity (amount usd 1300000000; period FY2025; remaining authorization usd 9400000000; return type buyback).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 3,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "coupon_rates": [
+          "4.212%",
+          "4.319%"
+        ],
+        "instrument_type": "notes",
+        "issuance_date": "2025-03",
+        "principal_usd": 1500000000
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD March 2025 $1.5B Notes Issuance (coupon rates [\"4.212%\", \"4.319%\"]; instrument type notes; issuance date 2025-03; principal usd 1500000000).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": 4,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "counterparty": "OpenAI OpCo, LLC",
+        "exercise_price_usd": 0.01,
+        "expiration_date": "2030-10-05",
+        "fy2025_financial_impact": "none",
+        "instrument_type": "equity_issuance",
+        "shares_authorized": 160000000,
+        "vesting_conditions": "GPU purchase milestones and AMD stock price targets"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD OpenAI Warrant Issuance (counterparty OpenAI OpCo, LLC; exercise price usd 0.01; expiration date 2030-10-05; fy2025 financial impact none).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "regulatory",
+        "geography": "China",
+        "product": "AMD Instinct MI308"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD MI308 U.S. Government Revenue Share Requirement (category regulatory; geography China; product AMD Instinct MI308).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "regulatory",
+        "geography": "global"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD OECD Pillar Two Global Minimum Tax Exposure (category regulatory; geography global).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "consideration": "stock_purchase",
+        "effective_date": "2024-08-17",
+        "event_type": "acquisition",
+        "target_company": "ZT Group Int'l, Inc."
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Acquisition of ZT Group Int'l (consideration stock_purchase; effective date 2024-08-17; event type acquisition; target company ZT Group Int'l, Inc.).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "counterparty": "Sanmina Corporation",
+        "divested_entities": "AMD Design, LLC; ZT Group Int'l, Inc.",
+        "effective_date": "2025-05-18",
+        "event_type": "divestiture"
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD Divestiture of AMD Design to Sanmina (counterparty Sanmina Corporation; divested entities AMD Design, LLC; ZT Group Int'l, Inc.; effective date 2025-05-18; event type divestiture).",
+      "superseded": false,
+      "ticker": "AMD"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "ADVANCED MICRO DEVICES INC",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "counterparty": "OpenAI OpCo, LLC",
+        "instrument_type": "equity_issuance",
+        "issuance_date": "2025-10-05",
+        "registration_rights": true
+      },
+      "statement": "ADVANCED MICRO DEVICES INC: AMD OpenAI Warrant Issuance October 2025 (counterparty OpenAI OpCo, LLC; instrument type equity_issuance; issuance date 2025-10-05; registration rights true).",
+      "superseded": false,
+      "ticker": "AMD"
+    }
+  ],
+  "meta": {
+    "build_commit": "2a37b2c99c8b773872793843d52124ed6b77d2ac",
+    "display_cutoff": 0.35,
+    "max_passages": 40,
+    "max_rejected": 10,
+    "models": {
+      "embedding": "Qwen/Qwen3-Embedding-0.6B",
+      "extraction": "claude-sonnet-4-6",
+      "sentiment": "ProsusAI/finbert",
+      "synthesis": "claude-sonnet-4-6"
+    },
+    "run_timestamp": "2026-11-23T10:29:40Z",
+    "top_k": 20
+  },
+  "passages": [
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " Client and Gaming segment net revenue of $14.6 billion in 2025 increased by 51% compared to $9.6 billion in 2024, primarily driven by strong demand for our AMD Ryzen™ processors, semi-custom game consoles SoCs and Radeon™ gaming GPUs. The increase in annual net revenue was partially offset by a decrease in net revenue in our Embedded segment. Embedded net revenue of $3.5 billion decreased by 3% compared to net revenue of $3.6 billion in 2024, as certain end market demand remained mixed.\n\nGross margin of 50% increased by 1% compared to 49% in 2024, primarily due to product mix partially offset by approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products. \n\nCash, cash equivalents and short-term investments as of December 27, 2025 were $10.6 billion, compared to $5.1 billion at the end of 2024. Our aggregate principal amount of total debt as of December 27, 2025 was $3.3 billion, compared to $1.8 billion as of December 28, 2024.",
+        "before": "",
+        "match": "Table of Contents\n\nITEM 7.       MANAGEMENT’S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS\n\nThe following discussion should be read in conjunction with the Consolidated Financial Statements as of December 27, 2025 and December 28, 2024 and for each of the three years in the period ended December 27, 2025 and related notes, which are included in this Annual Report on Form 10-K as well as with the other sections of this Annual Report on Form 10-K, “Part II, Item 8: Financial Statements and Supplementary Data.”\n\nIntroduction\n\nIn this section, we will describe the general financial condition and the results of operations of Advanced Micro Devices, Inc. and its wholly-owned subsidiaries (collectively, “us,” “our” or “AMD”), including a discussion of our results of operations for 2025 compared to 2024, an analysis of changes in our financial condition and a discussion of our off-balance sheet arrangements. Discussions of 2023 items and year-to-year comparisons between 2024 and 2023 that are not included in this Form 10-K can be found in “Management’s Discussion and Analysis of Financial Condition and Results of Operations” in Part II, Item 7 of our Annual Report on Form 10-K for the fiscal year ended December 28, 2024.\n\nBeginning in the first quarter of fiscal year 2025, we combined the Client and Gaming segments into one reportable segment to align with how we manage our business. All prior period segment data were retrospectively adjusted. \n\nOverview\n\nIn 2025, we delivered strong annual revenue growth with net revenue increasing 34% to $34.6 billion, compared to $25.8 billion in 2024. This growth was driven by the performance of our Data Center and Client and Gaming segments. Data Center net revenue of $16.6 billion increased by 32% compared to $12.6 billion in 2024, primarily driven by strong demand for our 5th generation AMD EPYC™ processors and AMD Instinct™ MI350 Series GPUs."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.631345,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " Client and Gaming segment net revenue of $14.6 billion in 2025 increased by 51% compared to $9.6 billion in 2024, primarily driven by strong demand for our AMD Ryzen™ processors, semi-custom game consoles SoCs and Radeon™ gaming GPUs. The increase in annual net revenue was partially offset by a decrease in net revenue in our Embedded segment. Embedded net revenue of $3.5 billion decreased by 3% compared to net revenue of $3.6 billion in 2024, as certain end market demand remained mixed.\n\nGross margin of 50% increased by 1% compared to 49% in 2024, primarily due to product mix partially offset by approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products.\n\nCash, cash equivalents and short-term investments as of December 27, 2025 were $10.6 billion, compared to $5.1 billion at the end of 2024. Our aggregate principal amount of total debt as of December 27, 2025 was $3.3 billion, compared to $1.8 billion as of December 28, 2024.",
+        "before": "",
+        "match": "ITEM 7. MANAGEMENT’S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS\n\nThe following discussion should be read in conjunction with the Consolidated Financial Statements as of December 27, 2025 and December 28, 2024 and for each of the three years in the period ended December 27, 2025 and related notes, which are included in this Annual Report on Form 10-K as well as with the other sections of this Annual Report on Form 10-K, “Part II, Item 8: Financial Statements and Supplementary Data.”\n\nIntroduction\n\nIn this section, we will describe the general financial condition and the results of operations of Advanced Micro Devices, Inc. and its wholly-owned subsidiaries (collectively, “us,” “our” or “AMD”), including a discussion of our results of operations for 2025 compared to 2024, an analysis of changes in our financial condition and a discussion of our off-balance sheet arrangements. Discussions of 2023 items and year-to-year comparisons between 2024 and 2023 that are not included in this Form 10-K can be found in “Management’s Discussion and Analysis of Financial Condition and Results of Operations” in Part II, Item 7 of our Annual Report on Form 10-K for the fiscal year ended December 28, 2024.\n\nBeginning in the first quarter of fiscal year 2025, we combined the Client and Gaming segments into one reportable segment to align with how we manage our business. All prior period segment data were retrospectively adjusted.\n\nOverview\n\nIn 2025, we delivered strong annual revenue growth with net revenue increasing 34% to $34.6 billion, compared to $25.8 billion in 2024. This growth was driven by the performance of our Data Center and Client and Gaming segments. Data Center net revenue of $16.6 billion increased by 32% compared to $12.6 billion in 2024, primarily driven by strong demand for our 5th generation AMD EPYC™ processors and AMD Instinct™ MI350 Series GPUs."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.615494,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": 3,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nWe recorded an income tax benefit of $103 million and an income tax provision of $381 million in 2025 and 2024, respectively, representing effective tax rates of (2.5%) and 19%, respectively. The decrease in income tax provision in 2025 was primarily driven by an $853 million benefit related to the release of uncertain tax positions pertaining to the reasonable cause relief for dual consolidated losses approved by the Internal Revenue Service (IRS) in April 2025, whereas the income tax provision in 2024 included $373 million tax effect from an intercompany integration transaction.\n\nIn July 2025, the One Big Beautiful Bill Act (OBBBA) was enacted into law. For fiscal year 2025, the primary impact of the OBBBA to our tax provision was the accelerated expensing of domestic R&D activities which decreased our income eligible for FDII, reduced our deferred tax assets, and reduced our current income tax liability. Other OBBBA changes did not have a material impact on the financial statements.",
+        "before": "December 27, 2025                  December 28, 2024              \n                                                       (In millions, except for percentages)                                                 \n ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n  Net revenue                                                                              $      34,639                      $      25,785  \n  Cost of sales                                                                                   16,456                             12,114  \n  Amortization of acquisition-related intangibles                                                  1,031                    946              \n  Gross profit                                                                                    17,152                             12,725  \n  Gross margin                                                                            50                                 49              \n  Research and development                                                                         8,091                              6,456  \n  Marketing, general and administrative                                                            4,144                              2,735  \n  Amortization of acquisition-related intangibles                                                  1,223                              1,448  \n  Interest expense                                                                     (131)                               (92)              \n  Other income (expense), net                                                            577                                181              \n  Income tax provision (benefit)                                                       (103)                                381              \n  Income from discontinued operations, net of tax                                         66                                  —              \n\nGross Margin\n\n",
+        "match": "Gross margin of 50% increased by 1% compared to 49% in 2024, primarily due to product mix, partially offset by approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products.\n\nExpenses\n\nResearch and Development Expenses\n\nResearch and development expenses of $8.1 billion in 2025 increased by $1.6 billion, or 25%, compared to $6.5 billion in 2024. The increase was primarily due to higher employee-related costs from an increase in headcount in support of our continued focus on our AI strategy.\n\nMarketing, General and Administrative Expenses\n\nMarketing, general and administrative expenses of $4.1 billion in 2025 increased by $1.4 billion, or 52%, compared to $2.7 billion in 2024. The increase was primarily due to an increase in go-to-market activities to support our revenue growth.\n\nAmortization of Acquisition-Related Intangibles\n\nAmortization of acquisition-related intangibles of $2.3 billion for 2025 decreased by $140 million, or 6%, compared to $2.4 billion in 2024, primarily due to a lower balance of amortizable acquisition-related intangibles compared to the prior year.\n\nInterest Expense\n\nInterest expense of $131 million in 2025 increased by $39 million compared to $92 million in 2024, primarily due to the issuance of $1.5 billion in aggregate principal amount of 4.212% Notes and 4.319% Notes in March 2025.\n\nOther Income (expense), net\n\nOther income (expense), net is primarily comprised of interest income from short-term investments, changes in valuation of long-term investments and foreign currency transaction gains and losses.\n\nOther income (expense), net of $577 million in 2025 increased by $396 million compared to $181 million in 2024, primarily due to higher unrealized gains from long-term investments compared to the prior year.\n\nIncome Tax Provision (Benefit)"
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.588976,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " Beyond GPUs, we launched the 5th Gen AMD EPYC family of server processors in 2025, which deliver leadership performance and capabilities for a wide range of data center workloads, including AI. We also expanded the data center portfolio with new networking solutions, including the AMD Pensando™ “Pollara” 400 AI NICs and “Vulcano” AI NICs, which deliver high-speed connectivity across GPU clusters providing high-performance, AI-ready, flexible solutions for scale-out networking. In addition, we previewed our Helios AI rack-scale platform solution that incorporates all of our data center products (CPUs, GPUs and Networking) to address the growing AI compute requirements.\n\nAcross Client and Gaming, we continued to strengthen our leadership with expanding enterprise adoption and a growing portfolio of AMD Ryzen processors. For gamers, creators and developers, we brought to market AMD Radeon 9000 Series GPUs and Radeon AI PRO 9700 GPUs based on the AMD RDNA 4 graphics architecture to market along new high-performance Ryzen Threadripper™ 9000 Series processors. Our x86 Embedded portfolio continued to expand in 2025 with the introduction of three new AMD EPYC embedded processor series: AMD EPYC Embedded 9005 Series, EPYC Embedded 4005 Series and EPYC Embedded 2005 Series.\n\nWe also made strategic investments through acquisitions to further advance our software capabilities including compiler and AI expertise in machine learning, inference and performance optimization, and enable highly optimized solutions across the stack; to scale our ability to support and develop a variety of photonics and co-packaged optics solutions across next-gen AI systems; and to bring deep expertise in high-speed inference and reasoning-based AI technologies for large-scale deployments, reinforcing our enterprise AI software stack.",
+        "before": "Beginning in the first quarter of fiscal year 2025, we combined the Client and Gaming segments into one reportable segment to align with how we manage our business. All prior period segment data were retrospectively adjusted. \n\nOverview\n\nIn 2025, we delivered strong annual revenue growth with net revenue increasing 34% to $34.6 billion, compared to $25.8 billion in 2024. This growth was driven by the performance of our Data Center and Client and Gaming segments. Data Center net revenue of $16.6 billion increased by 32% compared to $12.6 billion in 2024, primarily driven by strong demand for our 5th generation AMD EPYC™ processors and AMD Instinct™ MI350 Series GPUs. ",
+        "match": "Client and Gaming segment net revenue of $14.6 billion in 2025 increased by 51% compared to $9.6 billion in 2024, primarily driven by strong demand for our AMD Ryzen™ processors, semi-custom game consoles SoCs and Radeon™ gaming GPUs. The increase in annual net revenue was partially offset by a decrease in net revenue in our Embedded segment. Embedded net revenue of $3.5 billion decreased by 3% compared to net revenue of $3.6 billion in 2024, as certain end market demand remained mixed.\n\nGross margin of 50% increased by 1% compared to 49% in 2024, primarily due to product mix partially offset by approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products. \n\nCash, cash equivalents and short-term investments as of December 27, 2025 were $10.6 billion, compared to $5.1 billion at the end of 2024. Our aggregate principal amount of total debt as of December 27, 2025 was $3.3 billion, compared to $1.8 billion as of December 28, 2024.\n\nIn 2025, we returned a total of $1.3 billion to shareholders through the repurchase of 12.4 million shares of common stock under our stock repurchase program. As of December 27, 2025, $9.4 billion remained available for future stock repurchases under this program. The stock repurchase program does not obligate us to acquire any common stock, has no termination date and may be suspended or discontinued at any time.\n\nDuring 2025, we launched multiple leadership products and made significant progress executing our AI strategy. A priority in 2025 was accelerating growth in the Data Center segment. Demand for our data center AI GPU products was strong as large hyperscale customers, OEMs and ODMs deployed our AMD Instinct MI350X Series GPUs. We advanced our AMD AI GPU roadmap to deliver an annual cadence of leadership for AMD Instinct solutions, beginning with the AMD Instinct MI350 Series GPUs in 2025."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.588126,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " Beyond GPUs, we launched the 5th Gen AMD EPYC family of server processors in 2025, which deliver leadership performance and capabilities for a wide range of data center workloads, including AI. We also expanded the data center portfolio with new networking solutions, including the AMD Pensando™ “Pollara” 400 AI NICs and “Vulcano” AI NICs, which deliver high-speed connectivity across GPU clusters providing high-performance, AI-ready, flexible solutions for scale-out networking. In addition, we previewed our Helios AI rack-scale platform solution that incorporates all of our data center products (CPUs, GPUs and Networking) to address the growing AI compute requirements.\n\nAcross Client and Gaming, we continued to strengthen our leadership with expanding enterprise adoption and a growing portfolio of AMD Ryzen processors. For gamers, creators and developers, we brought to market AMD Radeon 9000 Series GPUs and Radeon AI PRO 9700 GPUs based on the AMD RDNA 4 graphics architecture to market along new high-performance Ryzen Threadripper™ 9000 Series processors. Our x86 Embedded portfolio continued to expand in 2025 with the introduction of three new AMD EPYC embedded processor series: AMD EPYC Embedded 9005 Series, EPYC Embedded 4005 Series and EPYC Embedded 2005 Series.\n\nWe also made strategic investments through acquisitions to further advance our software capabilities including compiler and AI expertise in machine learning, inference and performance optimization, and enable highly optimized solutions across the stack; to scale our ability to support and develop a variety of photonics and co-packaged optics solutions across next-gen AI systems; and to bring deep expertise in high-speed inference and reasoning-based AI technologies for large-scale deployments, reinforcing our enterprise AI software stack.",
+        "before": "Beginning in the first quarter of fiscal year 2025, we combined the Client and Gaming segments into one reportable segment to align with how we manage our business. All prior period segment data were retrospectively adjusted.\n\nOverview\n\nIn 2025, we delivered strong annual revenue growth with net revenue increasing 34% to $34.6 billion, compared to $25.8 billion in 2024. This growth was driven by the performance of our Data Center and Client and Gaming segments. Data Center net revenue of $16.6 billion increased by 32% compared to $12.6 billion in 2024, primarily driven by strong demand for our 5th generation AMD EPYC™ processors and AMD Instinct™ MI350 Series GPUs. ",
+        "match": "Client and Gaming segment net revenue of $14.6 billion in 2025 increased by 51% compared to $9.6 billion in 2024, primarily driven by strong demand for our AMD Ryzen™ processors, semi-custom game consoles SoCs and Radeon™ gaming GPUs. The increase in annual net revenue was partially offset by a decrease in net revenue in our Embedded segment. Embedded net revenue of $3.5 billion decreased by 3% compared to net revenue of $3.6 billion in 2024, as certain end market demand remained mixed.\n\nGross margin of 50% increased by 1% compared to 49% in 2024, primarily due to product mix partially offset by approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products.\n\nCash, cash equivalents and short-term investments as of December 27, 2025 were $10.6 billion, compared to $5.1 billion at the end of 2024. Our aggregate principal amount of total debt as of December 27, 2025 was $3.3 billion, compared to $1.8 billion as of December 28, 2024.\n\nIn 2025, we returned a total of $1.3 billion to shareholders through the repurchase of 12.4 million shares of common stock under our stock repurchase program. As of December 27, 2025, $9.4 billion remained available for future stock repurchases under this program. The stock repurchase program does not obligate us to acquire any common stock, has no termination date and may be suspended or discontinued at any time.\n\nDuring 2025, we launched multiple leadership products and made significant progress executing our AI strategy. A priority in 2025 was accelerating growth in the Data Center segment. Demand for our data center AI GPU products was strong as large hyperscale customers, OEMs and ODMs deployed our AMD Instinct MI350X Series GPUs. We advanced our AMD AI GPU roadmap to deliver an annual cadence of leadership for AMD Instinct solutions, beginning with the AMD Instinct MI350 Series GPUs in 2025."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.586186,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nWe recorded an income tax benefit of $103 million and an income tax provision of $381 million in 2025 and 2024, respectively, representing effective tax rates of (2.5%) and 19%, respectively. The decrease in income tax provision in 2025 was primarily driven by an $853 million benefit related to the release of uncertain tax positions pertaining to the reasonable cause relief for dual consolidated losses approved by the Internal Revenue Service (IRS) in April 2025, whereas the income tax provision in 2024 included $373 million tax effect from an intercompany integration transaction.\n\nIn July 2025, the One Big Beautiful Bill Act (OBBBA) was enacted into law. For fiscal year 2025, the primary impact of the OBBBA to our tax provision was the accelerated expensing of domestic R&D activities which decreased our income eligible for FDII, reduced our deferred tax assets, and reduced our current income tax liability. Other OBBBA changes did not have a material impact on the financial statements.",
+        "before": "Other income (expense), net577 181 \n\nIncome tax provision (benefit)\n\n",
+        "match": "(103)381 \n\nIncome from discontinued operations, net of tax\n\n66 — \n\nGross Margin\n\nGross margin of 50% increased by 1% compared to 49% in 2024, primarily due to product mix, partially offset by approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products.\n\nExpenses\n\nResearch and Development Expenses\n\nResearch and development expenses of $8.1 billion in 2025 increased by $1.6 billion, or 25%, compared to $6.5 billion in 2024. The increase was primarily due to higher employee-related costs from an increase in headcount in support of our continued focus on our AI strategy. \n\nMarketing, General and Administrative Expenses\n\nMarketing, general and administrative expenses of $4.1 billion in 2025 increased by $1.4 billion, or 52%, compared to $2.7 billion in 2024. The increase was primarily due to an increase in go-to-market activities to support our revenue growth. \n\nAmortization of Acquisition-Related Intangibles\n\nAmortization of acquisition-related intangibles of $2.3 billion for 2025 decreased by $140 million, or 6%, compared to $2.4 billion in 2024, primarily due to a lower balance of amortizable acquisition-related intangibles compared to the prior year.\n\nInterest Expense\n\nInterest expense of $131 million in 2025 increased by $39 million compared to $92 million in 2024, primarily due to the issuance of $1.5 billion in aggregate principal amount of 4.212% Notes and 4.319% Notes in March 2025.\n\nOther Income (expense), net\n\nOther income (expense), net is primarily comprised of interest income from short-term investments, changes in valuation of long-term investments and foreign currency transaction gains and losses.\n\nOther income (expense), net of $577 million in 2025 increased by $396 million compared to $181 million in 2024,  primarily due to higher unrealized gains from long-term investments compared to the prior year.\n\nIncome Tax Provision (Benefit)"
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.582724,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " We retained select intellectual property and employees associated with the design operations (ZT Design Business), and in October 2025, we sold the ZT data center infrastructure manufacturing business (ZT Manufacturing Business) to Sanmina Corporation (Sanmina) for $2.4 billion in cash, subject to certain purchase price adjustments, and 1.2 million shares of Sanmina common stock. We are eligible to receive additional contingent cash consideration of up to $450 million from Sanmina to the extent certain conditions are met. Sanmina will also be our preferred partner for manufacturing capabilities in building complex AI solutions. Following the close of the sale of the ZT Manufacturing Business to Sanmina, we retained certain intellectual property and former employees of ZT Systems (ZT Design Business) and settled the contingent consideration liability with the former ZT shareholders and warrant holders.\n\nIn October 2025, we entered into a product purchase agreement with OpenAI OpCo, LLC, (OpenAI) to deploy 6 gigawatts of AMD GPUs, with the deployment of the first gigawatt of capacity powered by our AMD Instinct MI450 series products. Concurrent with the agreement, we issued to OpenAI a warrant to purchase up to an aggregate of 160 million shares of AMD’s common stock at an exercise price of $0.01 per share. The warrant shares will vest in tranches based on certain AMD Instinct GPU purchase milestones by OpenAI, or its affiliates, or indirectly through third parties, and achievement of specified AMD stock price targets and stock performance. Each vested tranche is further subject to the fulfillment of certain other technical and commercial conditions prior to exercise. Subject to certain conditions, the warrant is exercisable through October 5, 2030. None of the warrant shares met the vesting or exercise conditions and the warrant had no impact to our financial statements for the year ended December 27, 2025. \n\nDuring the second quarter of fiscal year 2025, the Company recorded approximately $800 million of inventory and related charges on AMD Instinct MI308 Data Center GPU products due to new U.S. export restrictions on certain semiconductors to China. We applied for and were granted some licenses by the U.S. government that allow us to ship MI308 products to certain China-based customers. During the fourth quarter of fiscal year 2025, we began shipping products and reversed approximately $360 million of the inventory and related charges recorded earlier in the year. U.S. government officials have expressed an expectation that the U.S. government will receive 15% of the revenue generated from licensed MI308 sales to China; however, to date, the U.S. government has not published a regulation establishing such requirement.",
+        "before": "Cash, cash equivalents and short-term investments as of December 27, 2025 were $10.6 billion, compared to $5.1 billion at the end of 2024. Our aggregate principal amount of total debt as of December 27, 2025 was $3.3 billion, compared to $1.8 billion as of December 28, 2024.\n\nIn 2025, we returned a total of $1.3 billion to shareholders through the repurchase of 12.4 million shares of common stock under our stock repurchase program. As of December 27, 2025, $9.4 billion remained available for future stock repurchases under this program. The stock repurchase program does not obligate us to acquire any common stock, has no termination date and may be suspended or discontinued at any time.\n\nDuring 2025, we launched multiple leadership products and made significant progress executing our AI strategy. A priority in 2025 was accelerating growth in the Data Center segment. Demand for our data center AI GPU products was strong as large hyperscale customers, OEMs and ODMs deployed our AMD Instinct MI350X Series GPUs. We advanced our AMD AI GPU roadmap to deliver an annual cadence of leadership for AMD Instinct solutions, beginning with the AMD Instinct MI350 Series GPUs in 2025. ",
+        "match": "Beyond GPUs, we launched the 5th Gen AMD EPYC family of server processors in 2025, which deliver leadership performance and capabilities for a wide range of data center workloads, including AI. We also expanded the data center portfolio with new networking solutions, including the AMD Pensando™ “Pollara” 400 AI NICs and “Vulcano” AI NICs, which deliver high-speed connectivity across GPU clusters providing high-performance, AI-ready, flexible solutions for scale-out networking. In addition, we previewed our Helios AI rack-scale platform solution that incorporates all of our data center products (CPUs, GPUs and Networking) to address the growing AI compute requirements.\n\nAcross Client and Gaming, we continued to strengthen our leadership with expanding enterprise adoption and a growing portfolio of AMD Ryzen processors. For gamers, creators and developers, we brought to market AMD Radeon 9000 Series GPUs and Radeon AI PRO 9700 GPUs based on the AMD RDNA 4 graphics architecture to market along new high-performance Ryzen Threadripper™ 9000 Series processors. Our x86 Embedded portfolio continued to expand in 2025 with the introduction of three new AMD EPYC embedded processor series: AMD EPYC Embedded 9005 Series, EPYC Embedded 4005 Series and EPYC Embedded 2005 Series.\n\nWe also made strategic investments through acquisitions to further advance our software capabilities including compiler and AI expertise in machine learning, inference and performance optimization, and enable highly optimized solutions across the stack; to scale our ability to support and develop a variety of photonics and co-packaged optics solutions across next-gen AI systems; and to bring deep expertise in high-speed inference and reasoning-based AI technologies for large-scale deployments, reinforcing our enterprise AI software stack. \n\nTo execute our AI strategy, we brought in multiple AI teams across AMD to drive development of a comprehensive software ecosystem spanning our full product portfolio. We delivered key optimizations and expanded framework and library support in the latest version of  AMD ROCm™ software, improving performance for generative AI workloads and simplifying the developer experience across training and inference.\n\nIn March 2025, we completed the acquisition of ZT Systems for $3.2 billion in cash and 8.3 million shares of our common stock."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.568749,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " We retained select intellectual property and employees associated with the design operations (ZT Design Business), and in October 2025, we sold the ZT data center infrastructure manufacturing business (ZT Manufacturing Business) to Sanmina Corporation (Sanmina) for $2.4 billion in cash, subject to certain purchase price adjustments, and 1.2 million shares of Sanmina common stock. We are eligible to receive additional contingent cash consideration of up to $450 million from Sanmina to the extent certain conditions are met. Sanmina will also be our preferred partner for manufacturing capabilities in building complex AI solutions. Following the close of the sale of the ZT Manufacturing Business to Sanmina, we retained certain intellectual property and former employees of ZT Systems (ZT Design Business) and settled the contingent consideration liability with the former ZT shareholders and warrant holders.\n\nIn October 2025, we entered into a product purchase agreement with OpenAI OpCo, LLC, (OpenAI) to deploy 6 gigawatts of AMD GPUs, with the deployment of the first gigawatt of capacity powered by our AMD Instinct MI450 series products. Concurrent with the agreement, we issued to OpenAI a warrant to purchase up to an aggregate of 160 million shares of AMD’s common stock at an exercise price of $0.01 per share. The warrant shares will vest in tranches based on certain AMD Instinct GPU purchase milestones by OpenAI, or its affiliates, or indirectly through third parties, and achievement of specified AMD stock price targets and stock performance. Each vested tranche is further subject to the fulfillment of certain other technical and commercial conditions prior to exercise. Subject to certain conditions, the warrant is exercisable through October 5, 2030. None of the warrant shares met the vesting or exercise conditions and the warrant had no impact to our financial statements for the year ended December 27, 2025.\n\nDuring the second quarter of fiscal year 2025, the Company recorded approximately $800 million of inventory and related charges on AMD Instinct MI308 Data Center GPU products due to new U.S. export restrictions on certain semiconductors to China. We applied for and were granted some licenses by the U.S. government that allow us to ship MI308 products to certain China-based customers. During the fourth quarter of fiscal year 2025, we began shipping products and reversed approximately $360 million of the inventory and related charges recorded earlier in the year. U.S. government officials have expressed an expectation that the U.S. government will receive 15% of the revenue generated from licensed MI308 sales to China; however, to date, the U.S. government has not published a regulation establishing such requirement.",
+        "before": "Cash, cash equivalents and short-term investments as of December 27, 2025 were $10.6 billion, compared to $5.1 billion at the end of 2024. Our aggregate principal amount of total debt as of December 27, 2025 was $3.3 billion, compared to $1.8 billion as of December 28, 2024.\n\nIn 2025, we returned a total of $1.3 billion to shareholders through the repurchase of 12.4 million shares of common stock under our stock repurchase program. As of December 27, 2025, $9.4 billion remained available for future stock repurchases under this program. The stock repurchase program does not obligate us to acquire any common stock, has no termination date and may be suspended or discontinued at any time.\n\nDuring 2025, we launched multiple leadership products and made significant progress executing our AI strategy. A priority in 2025 was accelerating growth in the Data Center segment. Demand for our data center AI GPU products was strong as large hyperscale customers, OEMs and ODMs deployed our AMD Instinct MI350X Series GPUs. We advanced our AMD AI GPU roadmap to deliver an annual cadence of leadership for AMD Instinct solutions, beginning with the AMD Instinct MI350 Series GPUs in 2025. ",
+        "match": "Beyond GPUs, we launched the 5th Gen AMD EPYC family of server processors in 2025, which deliver leadership performance and capabilities for a wide range of data center workloads, including AI. We also expanded the data center portfolio with new networking solutions, including the AMD Pensando™ “Pollara” 400 AI NICs and “Vulcano” AI NICs, which deliver high-speed connectivity across GPU clusters providing high-performance, AI-ready, flexible solutions for scale-out networking. In addition, we previewed our Helios AI rack-scale platform solution that incorporates all of our data center products (CPUs, GPUs and Networking) to address the growing AI compute requirements.\n\nAcross Client and Gaming, we continued to strengthen our leadership with expanding enterprise adoption and a growing portfolio of AMD Ryzen processors. For gamers, creators and developers, we brought to market AMD Radeon 9000 Series GPUs and Radeon AI PRO 9700 GPUs based on the AMD RDNA 4 graphics architecture to market along new high-performance Ryzen Threadripper™ 9000 Series processors. Our x86 Embedded portfolio continued to expand in 2025 with the introduction of three new AMD EPYC embedded processor series: AMD EPYC Embedded 9005 Series, EPYC Embedded 4005 Series and EPYC Embedded 2005 Series.\n\nWe also made strategic investments through acquisitions to further advance our software capabilities including compiler and AI expertise in machine learning, inference and performance optimization, and enable highly optimized solutions across the stack; to scale our ability to support and develop a variety of photonics and co-packaged optics solutions across next-gen AI systems; and to bring deep expertise in high-speed inference and reasoning-based AI technologies for large-scale deployments, reinforcing our enterprise AI software stack.\n\nTo execute our AI strategy, we brought in multiple AI teams across AMD to drive development of a comprehensive software ecosystem spanning our full product portfolio. We delivered key optimizations and expanded framework and library support in the latest version of AMD ROCm™ software, improving performance for generative AI workloads and simplifying the developer experience across training and inference.\n\nIn March 2025, we completed the acquisition of ZT Systems for $3.2 billion in cash and 8.3 million shares of our common stock."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.568172,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": 1,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nEmbedded net revenue of $3.5 billion in 2025 decreased by 3%, compared to net revenue of $3.6 billion in 2024. Net revenue decreased as certain end market demand remained mixed. \n\nEmbedded operating income was $1.2 billion in 2025, compared to operating income of $1.4 billion in 2024. The decrease in operating income was primarily driven by lower revenue.",
+        "before": "$30,945 $23,885 \n\nOperating income (loss):\n\n",
+        "match": "Data Center$3,603 $3,482 \n\nClient and Gaming2,855 1,187 \n\nEmbedded1,243 1,421 \n\nAll other\n\n(4,007)(4,190)\n\nTotal operating income\n\n$3,694 $1,900 \n\nData Center\n\nData Center net revenue of $16.6 billion in 2025 increased by 32%, compared to net revenue of $12.6 billion in 2024. The increase was primarily driven by strong demand for our AMD EPYC™ processors and AMD Instinct™ GPU accelerators.\n\nData Center operating income was $3.6 billion in 2025, compared to operating income of $3.5 billion in 2024. The increase in operating income was primarily due to higher revenue, partially offset by higher cost of sales, approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products and higher operating expenses. \n\nClient and Gaming\n\nClient and Gaming net revenue of $14.6 billion in 2025 increased by 51%, compared to net revenue of $9.6 billion in 2024. \n\nClient net revenue of $10.6 billion in 2025 increased by 51%, compared to net revenue of $7.1 billion in 2024, primarily driven by a 31% increase in unit shipments of processors and a 15% increase in average selling price of processors, reflecting strong demand for AMD desktop and mobile Ryzen processors. \n\nGaming net revenue of $3.9 billion in 2025 increased by 51%, compared to net revenue of $2.6 billion in 2024. The increase was primarily driven by higher semi-custom revenue and strong demand of our Radeon™ gaming GPUs. \n\nClient and Gaming operating income was $2.9 billion in 2025, compared to operating income of $1.2 billion in 2024. The increase in operating income was primarily driven by higher revenue, partially offset by higher cost of sales and operating expenses. \n\nEmbedded"
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.538081,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": 2,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " All Other operating loss of $4.2 billion in 2024 primarily consisted of $2.4 billion of amortization of acquisition-related intangibles and $1.4 billion of stock-based compensation expense.\n\nInternational Sales\n\nInternational sales as a percentage of net revenue were67% in 2025 and 66% in 2024. We expect that international sales will continue to be a significant portion of total sales in the foreseeable future. Substantially all of our sales transactions are denominated in U.S. dollars.",
+        "before": "Data Center\n\nData Center net revenue of $16.6 billion in 2025 increased by 32%, compared to net revenue of $12.6 billion in 2024. The increase was primarily driven by strong demand for our AMD EPYC™ processors and AMD Instinct™ GPU accelerators.\n\n",
+        "match": "Data Center operating income was $3.6 billion in 2025, compared to operating income of $3.5 billion in 2024. The increase in operating income was primarily due to higher revenue, partially offset by higher cost of sales, approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products and higher operating expenses.\n\nClient and Gaming\n\nClient and Gaming net revenue of $14.6 billion in 2025 increased by 51%, compared to net revenue of $9.6 billion in 2024.\n\nClient net revenue of $10.6 billion in 2025 increased by 51%, compared to net revenue of $7.1 billion in 2024, primarily driven by a 15% increase in unit shipments of processors and a 31% increase in average selling price of processors, reflecting strong demand for AMD desktop and mobile Ryzen processors.\n\nGaming net revenue of $3.9 billion in 2025 increased by 51%, compared to net revenue of $2.6 billion in 2024. The increase was primarily driven by higher semi-custom revenue and strong demand of our Radeon™ gaming GPUs.\n\nClient and Gaming operating income was $2.9 billion in 2025, compared to operating income of $1.2 billion in 2024. The increase in operating income was primarily driven by higher revenue, partially offset by higher cost of sales and operating expenses.\n\nEmbedded\n\nEmbedded net revenue of $3.5 billion in 2025 decreased by 3%, compared to net revenue of $3.6 billion in 2024. Net revenue decreased as certain end market demand remained mixed.\n\nEmbedded operating income was $1.2 billion in 2025, compared to operating income of $1.4 billion in 2024. The decrease in operating income was primarily driven by lower revenue.\n\nAll Other\n\nAll Other operating loss of $4.0 billion in 2025 primarily consisted of $2.3 billion of amortization of acquisition-related intangibles and $1.6 billion of stock-based compensation expense."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.536905,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": 4,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " During the fourth quarter of fiscal year 2025, we began shipping products and reversed approximately $360 million of the inventory and related charges recorded earlier in the year. U.S. government officials have expressed an expectation that the U.S. government will receive 15% of the revenue generated from licensed MI308 sales to China; however, to date, the U.S. government has not published a regulation establishing such requirement.\n\nWe intend the discussion of our financial condition and results of operations that follows to provide information that will assist in understanding our financial statements, the changes in certain key items in those financial statements from period to period, the primary factors that resulted in those changes, and how certain accounting principles, policies and estimates affect our financial statements.\n\nCritical Accounting Estimates",
+        "before": "We also made strategic investments through acquisitions to further advance our software capabilities including compiler and AI expertise in machine learning, inference and performance optimization, and enable highly optimized solutions across the stack; to scale our ability to support and develop a variety of photonics and co-packaged optics solutions across next-gen AI systems; and to bring deep expertise in high-speed inference and reasoning-based AI technologies for large-scale deployments, reinforcing our enterprise AI software stack.\n\nTo execute our AI strategy, we brought in multiple AI teams across AMD to drive development of a comprehensive software ecosystem spanning our full product portfolio. We delivered key optimizations and expanded framework and library support in the latest version of AMD ROCm™ software, improving performance for generative AI workloads and simplifying the developer experience across training and inference.\n\nIn March 2025, we completed the acquisition of ZT Systems for $3.2 billion in cash and 8.3 million shares of our common stock. ",
+        "match": "We retained select intellectual property and employees associated with the design operations (ZT Design Business), and in October 2025, we sold the ZT data center infrastructure manufacturing business (ZT Manufacturing Business) to Sanmina Corporation (Sanmina) for $2.4 billion in cash, subject to certain purchase price adjustments, and 1.2 million shares of Sanmina common stock. We are eligible to receive additional contingent cash consideration of up to $450 million from Sanmina to the extent certain conditions are met. Sanmina will also be our preferred partner for manufacturing capabilities in building complex AI solutions. Following the close of the sale of the ZT Manufacturing Business to Sanmina, we retained certain intellectual property and former employees of ZT Systems (ZT Design Business) and settled the contingent consideration liability with the former ZT shareholders and warrant holders.\n\nIn October 2025, we entered into a product purchase agreement with OpenAI OpCo, LLC, (OpenAI) to deploy 6 gigawatts of AMD GPUs, with the deployment of the first gigawatt of capacity powered by our AMD Instinct MI450 series products. Concurrent with the agreement, we issued to OpenAI a warrant to purchase up to an aggregate of 160 million shares of AMD’s common stock at an exercise price of $0.01 per share. The warrant shares will vest in tranches based on certain AMD Instinct GPU purchase milestones by OpenAI, or its affiliates, or indirectly through third parties, and achievement of specified AMD stock price targets and stock performance. Each vested tranche is further subject to the fulfillment of certain other technical and commercial conditions prior to exercise. Subject to certain conditions, the warrant is exercisable through October 5, 2030. None of the warrant shares met the vesting or exercise conditions and the warrant had no impact to our financial statements for the year ended December 27, 2025.\n\nDuring the second quarter of fiscal year 2025, the Company recorded approximately $800 million of inventory and related charges on AMD Instinct MI308 Data Center GPU products due to new U.S. export restrictions on certain semiconductors to China. We applied for and were granted some licenses by the U.S. government that allow us to ship MI308 products to certain China-based customers."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.48765,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nData Center operating income was $3.6 billion in 2025, compared to operating income of $3.5 billion in 2024. The increase in operating income was primarily due to higher revenue, partially offset by higher cost of sales, approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products and higher operating expenses.\n\nClient and Gaming",
+        "before": "Our operating results tend to vary seasonally. Historically, our net revenue has been generally higher in the second half of the year than in the first half of the year, although market conditions and product transitions could impact these trends.\n\nThe following table provides a summary of net revenue, cost of sales and operating expenses, and operating income (loss) by segment for 2025 and 2024:\n\n                                                  ",
+        "match": "Year Ended                                                 \n                                                  December 27,                    December 28,               \n                                                  2025                            2024                       \n                                                  (In millions)                                              \n ─────────────────────────────────────────────────────────────────────────────────────────────────────────────\n  Net revenue:                                                                                               \n  Data Center                                     $                   16,635      $                  12,579  \n  Client and Gaming                                                                                          \n  Client                                                              10,640                          7,054  \n  Gaming                                                               3,910                          2,595  \n  Total Client and Gaming                                             14,550                          9,649  \n  Embedded                                                             3,454                          3,557  \n  Total net revenue                               $                   34,639      $                  25,785  \n  Cost of sales and operating expenses:                                                                      \n  Data Center                                     $                   13,032      $                   9,097  \n  Client and Gaming                                                   11,695                          8,462  \n  Embedded                                                             2,211                          2,136  \n  All other                                                            4,007                          4,190  \n  Total cost of sales and operating expenses      $                   30,945      $                  23,885  \n  Operating income (loss):                                                                                   \n  Data Center                                     $                    3,603      $                   3,482  \n  Client and Gaming                                                    2,855                          1,187  \n  Embedded                                                             1,243                          1,421  \n  All other                                                          (4,007)                        (4,190)  \n  Total operating income                          $                    3,694      $                   1,900  \n\nData Center\n\nData Center net revenue of $16.6 billion in 2025 increased by 32%, compared to net revenue of $12.6 billion in 2024. The increase was primarily driven by strong demand for our AMD EPYC™ processors and AMD Instinct™ GPU accelerators."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.486614,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " During the fourth quarter of fiscal year 2025, we began shipping products and reversed approximately $360 million of the inventory and related charges recorded earlier in the year. U.S. government officials have expressed an expectation that the U.S. government will receive 15% of the revenue generated from licensed MI308 sales to China; however, to date, the U.S. government has not published a regulation establishing such requirement.\n\nWe intend the discussion of our financial condition and results of operations that follows to provide information that will assist in understanding our financial statements, the changes in certain key items in those financial statements from period to period, the primary factors that resulted in those changes, and how certain accounting principles, policies and estimates affect our financial statements. \n\nCritical Accounting Estimates",
+        "before": "We also made strategic investments through acquisitions to further advance our software capabilities including compiler and AI expertise in machine learning, inference and performance optimization, and enable highly optimized solutions across the stack; to scale our ability to support and develop a variety of photonics and co-packaged optics solutions across next-gen AI systems; and to bring deep expertise in high-speed inference and reasoning-based AI technologies for large-scale deployments, reinforcing our enterprise AI software stack. \n\nTo execute our AI strategy, we brought in multiple AI teams across AMD to drive development of a comprehensive software ecosystem spanning our full product portfolio. We delivered key optimizations and expanded framework and library support in the latest version of  AMD ROCm™ software, improving performance for generative AI workloads and simplifying the developer experience across training and inference.\n\nIn March 2025, we completed the acquisition of ZT Systems for $3.2 billion in cash and 8.3 million shares of our common stock. ",
+        "match": "We retained select intellectual property and employees associated with the design operations (ZT Design Business), and in October 2025, we sold the ZT data center infrastructure manufacturing business (ZT Manufacturing Business) to Sanmina Corporation (Sanmina) for $2.4 billion in cash, subject to certain purchase price adjustments, and 1.2 million shares of Sanmina common stock. We are eligible to receive additional contingent cash consideration of up to $450 million from Sanmina to the extent certain conditions are met. Sanmina will also be our preferred partner for manufacturing capabilities in building complex AI solutions. Following the close of the sale of the ZT Manufacturing Business to Sanmina, we retained certain intellectual property and former employees of ZT Systems (ZT Design Business) and settled the contingent consideration liability with the former ZT shareholders and warrant holders.\n\nIn October 2025, we entered into a product purchase agreement with OpenAI OpCo, LLC, (OpenAI) to deploy 6 gigawatts of AMD GPUs, with the deployment of the first gigawatt of capacity powered by our AMD Instinct MI450 series products. Concurrent with the agreement, we issued to OpenAI a warrant to purchase up to an aggregate of 160 million shares of AMD’s common stock at an exercise price of $0.01 per share. The warrant shares will vest in tranches based on certain AMD Instinct GPU purchase milestones by OpenAI, or its affiliates, or indirectly through third parties, and achievement of specified AMD stock price targets and stock performance. Each vested tranche is further subject to the fulfillment of certain other technical and commercial conditions prior to exercise. Subject to certain conditions, the warrant is exercisable through October 5, 2030. None of the warrant shares met the vesting or exercise conditions and the warrant had no impact to our financial statements for the year ended December 27, 2025. \n\nDuring the second quarter of fiscal year 2025, the Company recorded approximately $800 million of inventory and related charges on AMD Instinct MI308 Data Center GPU products due to new U.S. export restrictions on certain semiconductors to China. We applied for and were granted some licenses by the U.S. government that allow us to ship MI308 products to certain China-based customers."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.485067,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nNet cash used in investing activities was $1.1 billion in 2024, which primarily consisted of cash used for purchases of short-term investments of $1.5 billion, purchases of property and equipment of $636 million, and cash used in acquisitions, net of cash acquired of $548 million, partially offset by proceeds from maturities of short-term investments of $1.4 billion and sale of short-term investments of $616 million.\n\nFinancing Activities",
+        "before": "Operating Activities\n\nOur working capital cash inflows and outflows from operations consist primarily of cash collections from our customers, payments for inventory purchases and payments for employee-related expenditures.\n\n",
+        "match": "Net cash provided by operating activities of continuing operations was $6.5 billion in 2025, primarily due to our net income of $4.3 billion in 2025, adjusted for non-cash adjustments of $4.6 billion and net cash outflows of $2.4 billion from changes in our operating assets and liabilities. The primary drivers of the changes in operating assets and liabilities included a $2.2 billion increase in inventory primarily to support the continued ramp of Data Center products in advanced process technology nodes. Net cash provided by operating activities of the ZT Manufacturing Business, classified as discontinued operations, was $1.2 billion.\n\nNet cash provided by operating activities was $3.0 billion in 2024, primarily due to our net income of $1.6 billion in 2024, adjusted for non-cash adjustments of $3.5 billion and net cash outflows of $2.1 billion from changes in our operating assets and liabilities. The primary drivers of the changes in operating assets and liabilities included a $1.9 billion increase in accounts receivable driven primarily by higher revenue in the last month of 2024 compared to the last month of 2023, and a $1.5 billion increase in inventories driven primarily by a build of inventory to support the ramp of new products in advanced process nodes.\n\nInvesting Activities\n\nNet cash used in investing activities of continuing operations was $6.9 billion in 2025, which primarily consisted of $5.5 billion of cash used for purchases of short-term investments, $1.8 billion of cash used in acquisitions, net of cash acquired and $1.0 billion for purchases of property and equipment, partially offset by $1.8 billion proceeds from maturities of short-term investments. Net cash provided by investing activities of discontinued operations in 2025 was $1.3 billion, primarily from the sale of the ZT Manufacturing Business."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.395105,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " \n\nAs of December 27, 2025, our aggregate principal debt was $3.3 billion, with short-term and long-term debt obligations of $874 million and $2.3 billion, respectively.\n\nWe have $3.0 billion available under an unsecured revolving credit facility that expires on April 29, 2027. No funds were drawn from this credit facility during the year ended December 27, 2025.",
+        "before": "In January 2026, the OECD released a \"side-by-side\" package introducing new safe harbors and providing an exemption for U.S.-based multinational companies from parts of the global minimum tax framework. We continue to evaluate the impact of proposed and enacted legislative changes to our effective tax rate and cash flows as new guidance becomes available in each country.\n\nDiscontinued Operations\n\n",
+        "match": "Net income from discontinued operations for 2025 was $66 million, net of tax expense of $54 million. This includes the results of operations of the ZT Manufacturing Business and the change in fair value of contingent consideration liability of $121 million. \n\nFINANCIAL CONDITION\n\nLiquidity and Capital Resources\n\nAs of December 27, 2025, our cash, cash equivalents and short-term investments were $10.6 billion compared to $5.1 billion as of December 28, 2024. \n\nOur operating, investing and financing cash flow activities for 2025 and 2024 were as follows:\n\nDecember 27, 2025December 28, 2024\n\n (In millions)\n\nNet cash provided by (used in):\n\nNet cash provided by operating activities of continuing operations$6,493 $3,041 \n\nNet cash provided by operating activities of discontinued operations1,216 — \n\nOperating activities7,709 3,041 \n\nNet cash (used in) provided by investing activities of continuing operations(6,851)(1,101)\n\nNet cash provided by investing activities of discontinued operations1,318 — \n\nInvesting activities(5,533)(1,101)\n\nFinancing activities (431)(2,062)\n\nNet increase (decrease) in cash, cash equivalents and restricted cash\n\n$1,745 $(122)\n\nIn March and October 2025, we paid a total of $2.0 billion in cash, net of cash acquired, and issued 9.1 million shares of our common stock in the acquisition of ZT Systems. \n\nIn October 2025, upon completion of the sale of the ZT Manufacturing Business to Sanmina Corporation (Sanmina), we received a total of $1.4 billion in cash, net of cash divested, and 1.2 million shares of Sanmina common stock valued at $154 million. We are eligible to receive additional cash consideration of up to $450 million to the extent certain conditions are met following the close of the sale through 2028 (Sanmina Earn-out)."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.394714,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nIn October 2025, upon completion of the sale of the ZT Manufacturing Business to Sanmina Corporation (Sanmina), we received a total of $1.4 billion in cash, net of cash divested, and 1.2 million shares of Sanmina common stock valued at $154 million. We are eligible to receive additional cash consideration of up to $450 million to the extent certain conditions are met following the close of the sale through 2028 (Sanmina Earn-out).\n\nAs of December 27, 2025, our aggregate principal debt was $3.3 billion, with short-term and long-term debt obligations of $874 million and $2.3 billion, respectively.",
+        "before": "In January 2026, the OECD released a \"side-by-side\" package introducing new safe harbors and providing an exemption for U.S.-based multinational companies from parts of the global minimum tax framework. We continue to evaluate the impact of proposed and enacted legislative changes to our effective tax rate and cash flows as new guidance becomes available in each country.\n\nDiscontinued Operations\n\n",
+        "match": "Net income from discontinued operations for 2025 was $66 million, net of tax expense of $54 million. This includes the results of operations of the ZT Manufacturing Business and the change in fair value of contingent consideration liability of $121 million.\n\nFINANCIAL CONDITION\n\nLiquidity and Capital Resources\n\nAs of December 27, 2025, our cash, cash equivalents and short-term investments were $10.6 billion compared to $5.1 billion as of December 28, 2024.\n\nOur operating, investing and financing cash flow activities for 2025 and 2024 were as follows:\n\n                                                                                    December 27, 2025                   December 28, 2024               \n                                                                                    (In millions)                                                       \n ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n  Net cash provided by (used in):                                                                                                                       \n  Net cash provided by operating activities of continuing operations                $                        6,493      $                        3,041  \n  Net cash provided by operating activities of discontinued operations                                       1,216      —                               \n  Operating activities                                                                                       7,709                               3,041  \n  Net cash (used in) provided by investing activities of continuing operations                             (6,851)                             (1,101)  \n  Net cash provided by investing activities of discontinued operations                                       1,318      —                               \n  Investing activities                                                                                     (5,533)                             (1,101)  \n  Financing activities                                                              (431)                                                      (2,062)  \n  Net increase (decrease) in cash, cash equivalents and restricted cash             $                        1,745      $                        (122)  \n\nIn March and October 2025, we paid a total of $2.0 billion in cash, net of cash acquired, and issued 9.1 million shares of our common stock in the acquisition of ZT Systems."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.391971,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nNet cash used in investing activities was $1.1 billion in 2024, which primarily consisted of cash used for purchases of short-term investments of $1.5 billion, purchases of property and equipment of $636 million, and cash used in acquisitions, net of cash acquired of $548 million, partially offset by proceeds from maturities of short-term investments of $1.4 billion and sale of short-term investments of $616 million.\n\nFinancing Activities",
+        "before": "We also have a commercial paper program to issue unsecured commercial paper notes up to a maximum principal amount outstanding, at any time, of $3.0 billion, with a maturity of up to 397 days from the date of issue. We had no commercial paper outstanding as of December 27, 2025.\n\nAs of December 27, 2025, we had unconditional commitments of approximately $12.2 billion, of which $8.5 billion are in fiscal year 2026. Our contractual obligations and purchase commitments relate primarily to our obligations to purchase wafers and substrates from third parties and future payments related to multi-year cloud service provider arrangements, and certain software and technology licenses. We work continually with our suppliers on the timing of payments and deliveries of purchase commitments, taking into account business conditions. We also have commitments for leases that have commenced for approximately $940 million and leases that have not yet commenced for $1.3 billion. See Note 12 - Commitments and Contingencies for contractual obligations and purchase commitments and Note 10 - Leases for lease obligations.\n\nWe believe our cash, cash equivalents, short-term investments and cash flows from operations along with our revolving credit facility and commercial paper program will be sufficient to fund operations, including capital expenditures, purchase and lease commitments, and strategic activities over the next 12 months and beyond. ",
+        "match": "We believe we will be able to access the capital markets should we require additional funds. However, we cannot assure that such funds will be available on favorable terms, or at all.\n\nOperating Activities\n\nOur working capital cash inflows and outflows from operations consist primarily of cash collections from our customers, payments for inventory purchases and payments for employee-related expenditures.\n\nNet cash provided by operating activities of continuing operations was $6.5 billion in 2025, primarily due to our net income of $4.3 billion in 2025, adjusted for non-cash adjustments of $4.6 billion and net cash outflows of $2.4 billion from changes in our operating assets and liabilities. The primary drivers of the changes in operating assets and liabilities included a $2.2 billion increase in inventory primarily to support the continued ramp of Data Center products in advanced process technology nodes. Net cash provided by operating activities of the ZT Manufacturing Business, classified as discontinued operations, was $1.2 billion.\n\nNet cash provided by operating activities was $3.0 billion in 2024, primarily due to our net income of $1.6 billion in 2024, adjusted for non-cash adjustments of $3.5 billion and net cash outflows of $2.1 billion from changes in our operating assets and liabilities. The primary drivers of the changes in operating assets and liabilities included a $1.9 billion increase in accounts receivable driven primarily by higher revenue in the last month of 2024 compared to the last month of 2023, and a $1.5 billion increase in inventories driven primarily by a build of inventory to support the ramp of new products in advanced process nodes.\n\nInvesting Activities\n\nNet cash used in investing activities of continuing operations was $6.9 billion in 2025, which primarily consisted of $5.5 billion of cash used for purchases of short-term investments, $1.8 billion of cash used in acquisitions, net of cash acquired and $1.0 billion for purchases of property and equipment, partially offset by $1.8 billion proceeds from maturities of short-term investments. Net cash provided by investing activities of discontinued operations in 2025 was $1.3 billion, primarily from the sale of the ZT Manufacturing Business."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.384497,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\n(103)381 \n\nIncome from discontinued operations, net of tax",
+        "before": "Client and Gaming operating income was $2.9 billion in 2025, compared to operating income of $1.2 billion in 2024. The increase in operating income was primarily driven by higher revenue, partially offset by higher cost of sales and operating expenses. \n\nEmbedded\n\n",
+        "match": "Embedded net revenue of $3.5 billion in 2025 decreased by 3%, compared to net revenue of $3.6 billion in 2024. Net revenue decreased as certain end market demand remained mixed. \n\nEmbedded operating income was $1.2 billion in 2025, compared to operating income of $1.4 billion in 2024. The decrease in operating income was primarily driven by lower revenue.\n\nAll Other\n\nAll Other operating loss of $4.0 billion in 2025 primarily consisted of $2.3 billion of amortization of acquisition-related intangibles and $1.6 billion of stock-based compensation expense. All Other operating loss of $4.2 billion in 2024 primarily consisted of $2.4 billion of amortization of acquisition-related intangibles and $1.4 billion of stock-based compensation expense.\n\nInternational Sales\n\nInternational sales as a percentage of net revenue were 67% in 2025 and 66% in 2024. We expect that international sales will continue to be a significant portion of total sales in the foreseeable future. Substantially all of our sales transactions are denominated in U.S. dollars.\n\nComparison of Gross Margin, Expenses, Interest Expense, Other Income (expense) and Income Taxes\n\nThe following is a summary of certain Consolidated Statement of Operations data for 2025 and 2024:\n\nDecember 27, 2025December 28, 2024\n\n (In millions, except for percentages)\n\nNet revenue$34,639 $25,785 \n\nCost of sales16,456 12,114 \n\nAmortization of acquisition-related intangibles1,031 946 \n\nGross profit17,152 12,725 \n\nGross margin50%\n\n49%\n\nResearch and development8,091 6,456 \n\nMarketing, general and administrative4,144 2,735 \n\nAmortization of acquisition-related intangibles1,223 1,448 \n\nInterest expense(131)(92)\n\nOther income (expense), net577 181 \n\nIncome tax provision (benefit)"
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.379294,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nNet income from discontinued operations for 2025 was $66 million, net of tax expense of $54 million. This includes the results of operations of the ZT Manufacturing Business and the change in fair value of contingent consideration liability of $121 million. \n\nFINANCIAL CONDITION",
+        "before": "Other income (expense), net of $577 million in 2025 increased by $396 million compared to $181 million in 2024,  primarily due to higher unrealized gains from long-term investments compared to the prior year.\n\nIncome Tax Provision (Benefit)\n\n",
+        "match": "We recorded an income tax benefit of $103 million and an income tax provision of $381 million in 2025 and 2024, respectively, representing effective tax rates of (2.5%) and 19%, respectively. The decrease in income tax provision in 2025 was primarily driven by an $853 million benefit related to the release of uncertain tax positions pertaining to the reasonable cause relief for dual consolidated losses approved by the Internal Revenue Service (IRS) in April 2025, whereas the income tax provision in 2024 included $373 million tax effect from an intercompany integration transaction.\n\nIn July 2025, the One Big Beautiful Bill Act (OBBBA) was enacted into law. For fiscal year 2025, the primary impact of the OBBBA to our tax provision was the accelerated expensing of domestic R&D activities which decreased our income eligible for FDII, reduced our deferred tax assets, and reduced our current income tax liability. Other OBBBA changes did not have a material impact on the financial statements.\n\nGlobal Minimum Tax\n\nThe OECD is continuing discussions surrounding fundamental changes in allocation of profits among tax jurisdictions in which companies do business, as well as the implementation of a global minimum tax (namely the “Pillar One” and “Pillar Two” proposals). The Council of the European Union has adopted the global corporate 15% minimum tax as provided for in Pillar Two and has directed EU member states to implement legislation enacting Pillar Two. Many countries, including non-EU member states, have implemented laws based on Pillar Two proposals, with effective dates that started in 2024. Although many countries have already introduced Pillar Two legislation applicable to us effective in 2024, certain jurisdictions in which we operate have not adopted corresponding legislation to date. For 2024 and 2025, the impact to us associated with Pillar Two was immaterial. \n\nIn January 2026, the OECD released a \"side-by-side\" package introducing new safe harbors and providing an exemption for U.S.-based multinational companies from parts of the global minimum tax framework. We continue to evaluate the impact of proposed and enacted legislative changes to our effective tax rate and cash flows as new guidance becomes available in each country.\n\nDiscontinued Operations"
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.359909,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nNet income from discontinued operations for 2025 was $66 million, net of tax expense of $54 million. This includes the results of operations of the ZT Manufacturing Business and the change in fair value of contingent consideration liability of $121 million.\n\nFINANCIAL CONDITION",
+        "before": "Other income (expense), net of $577 million in 2025 increased by $396 million compared to $181 million in 2024, primarily due to higher unrealized gains from long-term investments compared to the prior year.\n\nIncome Tax Provision (Benefit)\n\n",
+        "match": "We recorded an income tax benefit of $103 million and an income tax provision of $381 million in 2025 and 2024, respectively, representing effective tax rates of (2.5%) and 19%, respectively. The decrease in income tax provision in 2025 was primarily driven by an $853 million benefit related to the release of uncertain tax positions pertaining to the reasonable cause relief for dual consolidated losses approved by the Internal Revenue Service (IRS) in April 2025, whereas the income tax provision in 2024 included $373 million tax effect from an intercompany integration transaction.\n\nIn July 2025, the One Big Beautiful Bill Act (OBBBA) was enacted into law. For fiscal year 2025, the primary impact of the OBBBA to our tax provision was the accelerated expensing of domestic R&D activities which decreased our income eligible for FDII, reduced our deferred tax assets, and reduced our current income tax liability. Other OBBBA changes did not have a material impact on the financial statements.\n\nGlobal Minimum Tax\n\nThe OECD is continuing discussions surrounding fundamental changes in allocation of profits among tax jurisdictions in which companies do business, as well as the implementation of a global minimum tax (namely the “Pillar One” and “Pillar Two” proposals). The Council of the European Union has adopted the global corporate 15% minimum tax as provided for in Pillar Two and has directed EU member states to implement legislation enacting Pillar Two. Many countries, including non-EU member states, have implemented laws based on Pillar Two proposals, with effective dates that started in 2024. Although many countries have already introduced Pillar Two legislation applicable to us effective in 2024, certain jurisdictions in which we operate have not adopted corresponding legislation to date. For 2024 and 2025, the impact to us associated with Pillar Two was immaterial.\n\nIn January 2026, the OECD released a \"side-by-side\" package introducing new safe harbors and providing an exemption for U.S.-based multinational companies from parts of the global minimum tax framework. We continue to evaluate the impact of proposed and enacted legislative changes to our effective tax rate and cash flows as new guidance becomes available in each country.\n\nDiscontinued Operations"
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.355996,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " We believe we will be able to access the capital markets should we require additional funds. However, we cannot assure that such funds will be available on favorable terms, or at all.\n\nOperating Activities\n\nOur working capital cash inflows and outflows from operations consist primarily of cash collections from our customers, payments for inventory purchases and payments for employee-related expenditures.",
+        "before": "December 27, 2025                   December 28, 2024               \n                                                                                    (In millions)                                                       \n ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n  Net cash provided by (used in):                                                                                                                       \n  Net cash provided by operating activities of continuing operations                $                        6,493      $                        3,041  \n  Net cash provided by operating activities of discontinued operations                                       1,216      —                               \n  Operating activities                                                                                       7,709                               3,041  \n  Net cash (used in) provided by investing activities of continuing operations                             (6,851)                             (1,101)  \n  Net cash provided by investing activities of discontinued operations                                       1,318      —                               \n  Investing activities                                                                                     (5,533)                             (1,101)  \n  Financing activities                                                              (431)                                                      (2,062)  \n  Net increase (decrease) in cash, cash equivalents and restricted cash             $                        1,745      $                        (122)  \n\nIn March and October 2025, we paid a total of $2.0 billion in cash, net of cash acquired, and issued 9.1 million shares of our common stock in the acquisition of ZT Systems.\n\n",
+        "match": "In October 2025, upon completion of the sale of the ZT Manufacturing Business to Sanmina Corporation (Sanmina), we received a total of $1.4 billion in cash, net of cash divested, and 1.2 million shares of Sanmina common stock valued at $154 million. We are eligible to receive additional cash consideration of up to $450 million to the extent certain conditions are met following the close of the sale through 2028 (Sanmina Earn-out).\n\nAs of December 27, 2025, our aggregate principal debt was $3.3 billion, with short-term and long-term debt obligations of $874 million and $2.3 billion, respectively.\n\nWe have $3.0 billion available under an unsecured revolving credit facility that expires on April 29, 2027. No funds were drawn from this credit facility during the year ended December 27, 2025.\n\nWe also have a commercial paper program to issue unsecured commercial paper notes up to a maximum principal amount outstanding, at any time, of $3.0 billion, with a maturity of up to 397 days from the date of issue. We had no commercial paper outstanding as of December 27, 2025.\n\nAs of December 27, 2025, we had unconditional commitments of approximately $12.2 billion, of which $8.5 billion are in fiscal year 2026. Our contractual obligations and purchase commitments relate primarily to our obligations to purchase wafers and substrates from third parties and future payments related to multi-year cloud service provider arrangements, and certain software and technology licenses. We work continually with our suppliers on the timing of payments and deliveries of purchase commitments, taking into account business conditions. We also have commitments for leases that have commenced for approximately $940 million and leases that have not yet commenced for $1.3 billion. See Note 12 - Commitments and Contingencies for contractual obligations and purchase commitments and Note 10 - Leases for lease obligations.\n\nWe believe our cash, cash equivalents, short-term investments and cash flows from operations along with our revolving credit facility and commercial paper program will be sufficient to fund operations, including capital expenditures, purchase and lease commitments, and strategic activities over the next 12 months and beyond."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": true,
+      "score": 0.354694,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nGross margin of 50% increased by 1% compared to 49% in 2024, primarily due to product mix, partially offset by approximately $440 million of net inventory and related charges associated with the U.S. government export control on AMD Instinct™ MI308 Data Center GPU products.\n\nExpenses",
+        "before": "Embedded operating income was $1.2 billion in 2025, compared to operating income of $1.4 billion in 2024. The decrease in operating income was primarily driven by lower revenue.\n\nAll Other\n\nAll Other operating loss of $4.0 billion in 2025 primarily consisted of $2.3 billion of amortization of acquisition-related intangibles and $1.6 billion of stock-based compensation expense. ",
+        "match": "All Other operating loss of $4.2 billion in 2024 primarily consisted of $2.4 billion of amortization of acquisition-related intangibles and $1.4 billion of stock-based compensation expense.\n\nInternational Sales\n\nInternational sales as a percentage of net revenue were67% in 2025 and 66% in 2024. We expect that international sales will continue to be a significant portion of total sales in the foreseeable future. Substantially all of our sales transactions are denominated in U.S. dollars.\n\nComparison of Gross Margin, Expenses, Interest Expense, Other Income (expense) and Income Taxes\n\nThe following is a summary of certain Consolidated Statement of Operations data for 2025 and 2024:\n\n                                                                           December 27, 2025                  December 28, 2024              \n                                                       (In millions, except for percentages)                                                 \n ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n  Net revenue                                                                              $      34,639                      $      25,785  \n  Cost of sales                                                                                   16,456                             12,114  \n  Amortization of acquisition-related intangibles                                                  1,031                    946              \n  Gross profit                                                                                    17,152                             12,725  \n  Gross margin                                                                            50                                 49              \n  Research and development                                                                         8,091                              6,456  \n  Marketing, general and administrative                                                            4,144                              2,735  \n  Amortization of acquisition-related intangibles                                                  1,223                              1,448  \n  Interest expense                                                                     (131)                               (92)              \n  Other income (expense), net                                                            577                                181              \n  Income tax provision (benefit)                                                       (103)                                381              \n  Income from discontinued operations, net of tax                                         66                                  —              \n\nGross Margin"
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": false,
+      "score": 0.325931,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "",
+        "before": "Investing Activities\n\nNet cash used in investing activities of continuing operations was $6.9 billion in 2025, which primarily consisted of $5.5 billion of cash used for purchases of short-term investments, $1.8 billion of cash used in acquisitions, net of cash acquired and $1.0 billion for purchases of property and equipment, partially offset by $1.8 billion proceeds from maturities of short-term investments. Net cash provided by investing activities of discontinued operations in 2025 was $1.3 billion, primarily from the sale of the ZT Manufacturing Business.\n\n",
+        "match": "Net cash used in investing activities was $1.1 billion in 2024, which primarily consisted of cash used for purchases of short-term investments of $1.5 billion, purchases of property and equipment of $636 million, and cash used in acquisitions, net of cash acquired of $548 million, partially offset by proceeds from maturities of short-term investments of $1.4 billion and sale of short-term investments of $616 million.\n\nFinancing Activities\n\nNet cash used in financing activities of continuing operations was $431 million in 2025, which primarily consisted of $1.3 billion of common stock repurchases under the Repurchase Program and $607 million of stock repurchases for tax withholding on employee equity plans, partially offset by $1.5 billion of net cash received from issuance of debt, net of repayments, and $285 million of proceeds from the issuance of common stock under our employee equity plans. There was no net cash provided by financing activities of discontinued operations for the year ended December 27, 2025.\n\nNet cash used in financing activities was $2.1 billion in 2024, which primarily consisted of common stock repurchases of $862 million under the Repurchase Program, repurchases to cover tax withholding on employee equity plans of $728 million, and repayment of the 2.95% Notes of $750 million, partially offset by proceeds from the issuance of common stock under our employee equity plans of $279 million.\n\nOff-Balance Sheet Arrangements\n\nAs of December 27, 2025, we did not have any off-balance sheet arrangements that have had, or are reasonably likely to have a material current or future effect on our financial condition, results of operations, liquidity, capital expenditures, or capital resources.\n\nITEM 15. EXHIBITS AND FINANCIAL STATEMENT SCHEDULES"
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": false,
+      "score": 0.322232,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nWe base our determination of necessary adjustments to the contract price by reference to actual historical activity and experience, including actual historical returns, rebates and credits issued to OEM and distributor customers adjusted, as applicable, to include adjustments, if any, for known events or current economic conditions, or both.\n\nOur estimates of necessary adjustments for distributor price incentives and price protection on unsold products held by distributors are based on actual historical incentives provided to distributor customers and known future price movements based on our internal and external market data analysis.",
+        "before": "In March 2025, we completed the acquisition of ZT Systems for $3.2 billion in cash and 8.3 million shares of our common stock. We retained select intellectual property and employees associated with the design operations (ZT Design Business), and in October 2025, we sold the ZT data center infrastructure manufacturing business (ZT Manufacturing Business) to Sanmina Corporation (Sanmina) for $2.4 billion in cash, subject to certain purchase price adjustments, and 1.2 million shares of Sanmina common stock. We are eligible to receive additional contingent cash consideration of up to $450 million from Sanmina to the extent certain conditions are met. Sanmina will also be our preferred partner for manufacturing capabilities in building complex AI solutions. Following the close of the sale of the ZT Manufacturing Business to Sanmina, we retained certain intellectual property and former employees of ZT Systems (ZT Design Business) and settled the contingent consideration liability with the former ZT shareholders and warrant holders.\n\nIn October 2025, we entered into a product purchase agreement with OpenAI OpCo, LLC, (OpenAI) to deploy 6 gigawatts of AMD GPUs, with the deployment of the first gigawatt of capacity powered by our AMD Instinct MI450 series products. Concurrent with the agreement, we issued to OpenAI a warrant to purchase up to an aggregate of 160 million shares of AMD’s common stock at an exercise price of $0.01 per share. The warrant shares will vest in tranches based on certain AMD Instinct GPU purchase milestones by OpenAI, or its affiliates, or indirectly through third parties, and achievement of specified AMD stock price targets and stock performance. Each vested tranche is further subject to the fulfillment of certain other technical and commercial conditions prior to exercise. Subject to certain conditions, the warrant is exercisable through October 5, 2030. None of the warrant shares met the vesting or exercise conditions and the warrant had no impact to our financial statements for the year ended December 27, 2025. \n\nDuring the second quarter of fiscal year 2025, the Company recorded approximately $800 million of inventory and related charges on AMD Instinct MI308 Data Center GPU products due to new U.S. export restrictions on certain semiconductors to China. We applied for and were granted some licenses by the U.S. government that allow us to ship MI308 products to certain China-based customers. ",
+        "match": "During the fourth quarter of fiscal year 2025, we began shipping products and reversed approximately $360 million of the inventory and related charges recorded earlier in the year. U.S. government officials have expressed an expectation that the U.S. government will receive 15% of the revenue generated from licensed MI308 sales to China; however, to date, the U.S. government has not published a regulation establishing such requirement.\n\nWe intend the discussion of our financial condition and results of operations that follows to provide information that will assist in understanding our financial statements, the changes in certain key items in those financial statements from period to period, the primary factors that resulted in those changes, and how certain accounting principles, policies and estimates affect our financial statements. \n\nCritical Accounting Estimates\n\nOur discussion and analysis of our financial condition and results of operations are based upon our Consolidated Financial Statements, which have been prepared in accordance with U.S. generally accepted accounting principles (U.S. GAAP). The preparation of our financial statements requires us to make estimates and judgments that affect the reported amounts in our Consolidated Financial Statements. We evaluate our estimates on an on-going basis, including those related to our revenue, inventories, business combinations, goodwill, long-lived and intangible assets, and income taxes. We base our estimates on historical experience and on various other assumptions that we believe to be reasonable under the circumstances, the results of which form the basis for making judgments about the carrying values of assets and liabilities. Although actual results have historically been reasonably consistent with management’s expectations, the actual results may differ from these estimates or our estimates may be affected by different assumptions or conditions.\n\nManagement believes the following critical accounting estimates are the most significant to the presentation of our financial statements and require the most difficult, subjective and complex judgments.\n\nRevenue Allowances. Revenue contracts with our customers include variable amounts which we evaluate under ASC 606-10-32-8 through 14 in order to determine the net amount of consideration to which we are entitled and which we recognize as revenue. We determine the net amount of consideration to which we are entitled by estimating the most likely amount of consideration we expect to receive from the customer after adjustments to the contract price for rights of return and rebates to our original equipment manufacturer (OEM) and original design manufacturer (ODM) customers and rights of return, rebates and price protection on unsold merchandise to our distributor customers."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": false,
+      "score": 0.314762,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nNet cash provided by operating activities of continuing operations was $6.5 billion in 2025, primarily due to our net income of $4.3 billion in 2025, adjusted for non-cash adjustments of $4.6 billion and net cash outflows of $2.4 billion from changes in our operating assets and liabilities. The primary drivers of the changes in operating assets and liabilities included a $2.2 billion increase in inventory primarily to support the continued ramp of Data Center products in advanced process technology nodes. Net cash provided by operating activities of the ZT Manufacturing Business, classified as discontinued operations, was $1.2 billion.\n\nNet cash provided by operating activities was $3.0 billion in 2024, primarily due to our net income of $1.6 billion in 2024, adjusted for non-cash adjustments of $3.5 billion and net cash outflows of $2.1 billion from changes in our operating assets and liabilities. The primary drivers of the changes in operating assets and liabilities included a $1.9 billion increase in accounts receivable driven primarily by higher revenue in the last month of 2024 compared to the last month of 2023, and a $1.5 billion increase in inventories driven primarily by a build of inventory to support the ramp of new products in advanced process nodes.",
+        "before": "In March and October 2025, we paid a total of $2.0 billion in cash, net of cash acquired, and issued 9.1 million shares of our common stock in the acquisition of ZT Systems. \n\nIn October 2025, upon completion of the sale of the ZT Manufacturing Business to Sanmina Corporation (Sanmina), we received a total of $1.4 billion in cash, net of cash divested, and 1.2 million shares of Sanmina common stock valued at $154 million. We are eligible to receive additional cash consideration of up to $450 million to the extent certain conditions are met following the close of the sale through 2028 (Sanmina Earn-out). \n\n",
+        "match": "As of December 27, 2025, our aggregate principal debt was $3.3 billion, with short-term and long-term debt obligations of $874 million and $2.3 billion, respectively.\n\nWe have $3.0 billion available under an unsecured revolving credit facility that expires on April 29, 2027. No funds were drawn from this credit facility during the year ended December 27, 2025.\n\nWe also have a commercial paper program to issue unsecured commercial paper notes up to a maximum principal amount outstanding, at any time, of $3.0 billion, with a maturity of up to 397 days from the date of issue. We had no commercial paper outstanding as of December 27, 2025.\n\nAs of December 27, 2025, we had unconditional commitments of approximately $12.2 billion, of which $8.5 billion are in fiscal year 2026. Our contractual obligations and purchase commitments relate primarily to our obligations to purchase wafers and substrates from third parties and future payments related to multi-year cloud service provider arrangements, and certain software and technology licenses. We work continually with our suppliers on the timing of payments and deliveries of purchase commitments, taking into account business conditions. We also have commitments for leases that have commenced for approximately $940 million and leases that have not yet commenced for $1.3 billion.  See Note 12 – Commitments and Contingencies for contractual obligations and purchase commitments and Note 10 - Leases for lease obligations.\n\nWe believe our cash, cash equivalents, short-term investments and cash flows from operations along with our revolving credit facility and commercial paper program will be sufficient to fund operations, including capital expenditures, purchase and lease commitments, and strategic activities over the next 12 months and beyond. We believe we will be able to access the capital markets should we require additional funds. However, we cannot assure that such funds will be available on favorable terms, or at all.\n\nOperating Activities\n\nOur working capital cash inflows and outflows from operations consist primarily of cash collections from our customers, payments for inventory purchases and payments for employee-related expenditures."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": false,
+      "score": 0.30896,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "",
+        "before": "Investing Activities\n\nNet cash used in investing activities of continuing operations was $6.9 billion in 2025, which primarily consisted of $5.5 billion of cash used for purchases of short-term investments, $1.8 billion of cash used in acquisitions, net of cash acquired and $1.0 billion for purchases of property and equipment, partially offset by $1.8 billion proceeds from maturities of short-term investments. Net cash provided by investing activities of discontinued operations in 2025 was $1.3 billion, primarily from the sale of the ZT Manufacturing Business.\n\n",
+        "match": "Net cash used in investing activities was $1.1 billion in 2024, which primarily consisted of cash used for purchases of short-term investments of $1.5 billion, purchases of property and equipment of $636 million, and cash used in acquisitions, net of cash acquired of $548 million, partially offset by proceeds from maturities of short-term investments of $1.4 billion and sale of short-term investments of $616 million.\n\nFinancing Activities\n\nNet cash used in financing activities of continuing operations was $431 million in 2025, which primarily consisted of $1.3 billion of common stock repurchases under the Repurchase Program and $607 million of stock repurchases for tax withholding on employee equity plans, partially offset by $1.5 billion of net cash received from issuance of debt, net of repayments, and $285 million of proceeds from the issuance of common stock under our employee equity plans. There was no net cash provided by financing activities of discontinued operations for the year ended December 27, 2025.\n\nNet cash used in financing activities was $2.1 billion in 2024, which primarily consisted of common stock repurchases of $862 million under the Repurchase Program, repurchases to cover tax withholding on employee equity plans of $728 million, and repayment of the 2.95% Notes of $750 million, partially offset by proceeds from the issuance of common stock under our employee equity plans of $279 million.\n\nOff-Balance Sheet Arrangements\n\nAs of December 27, 2025, we did not have any off-balance sheet arrangements that have had, or are reasonably likely to have a material current or future effect on our financial condition, results of operations, liquidity, capital expenditures, or capital resources."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": false,
+      "score": 0.308626,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nWe base our determination of necessary adjustments to the contract price by reference to actual historical activity and experience, including actual historical returns, rebates and credits issued to OEM and distributor customers adjusted, as applicable, to include adjustments, if any, for known events or current economic conditions, or both.\n\nOur estimates of necessary adjustments for distributor price incentives and price protection on unsold products held by distributors are based on actual historical incentives provided to distributor customers and known future price movements based on our internal and external market data analysis.",
+        "before": "In March 2025, we completed the acquisition of ZT Systems for $3.2 billion in cash and 8.3 million shares of our common stock. We retained select intellectual property and employees associated with the design operations (ZT Design Business), and in October 2025, we sold the ZT data center infrastructure manufacturing business (ZT Manufacturing Business) to Sanmina Corporation (Sanmina) for $2.4 billion in cash, subject to certain purchase price adjustments, and 1.2 million shares of Sanmina common stock. We are eligible to receive additional contingent cash consideration of up to $450 million from Sanmina to the extent certain conditions are met. Sanmina will also be our preferred partner for manufacturing capabilities in building complex AI solutions. Following the close of the sale of the ZT Manufacturing Business to Sanmina, we retained certain intellectual property and former employees of ZT Systems (ZT Design Business) and settled the contingent consideration liability with the former ZT shareholders and warrant holders.\n\nIn October 2025, we entered into a product purchase agreement with OpenAI OpCo, LLC, (OpenAI) to deploy 6 gigawatts of AMD GPUs, with the deployment of the first gigawatt of capacity powered by our AMD Instinct MI450 series products. Concurrent with the agreement, we issued to OpenAI a warrant to purchase up to an aggregate of 160 million shares of AMD’s common stock at an exercise price of $0.01 per share. The warrant shares will vest in tranches based on certain AMD Instinct GPU purchase milestones by OpenAI, or its affiliates, or indirectly through third parties, and achievement of specified AMD stock price targets and stock performance. Each vested tranche is further subject to the fulfillment of certain other technical and commercial conditions prior to exercise. Subject to certain conditions, the warrant is exercisable through October 5, 2030. None of the warrant shares met the vesting or exercise conditions and the warrant had no impact to our financial statements for the year ended December 27, 2025.\n\nDuring the second quarter of fiscal year 2025, the Company recorded approximately $800 million of inventory and related charges on AMD Instinct MI308 Data Center GPU products due to new U.S. export restrictions on certain semiconductors to China. We applied for and were granted some licenses by the U.S. government that allow us to ship MI308 products to certain China-based customers. ",
+        "match": "During the fourth quarter of fiscal year 2025, we began shipping products and reversed approximately $360 million of the inventory and related charges recorded earlier in the year. U.S. government officials have expressed an expectation that the U.S. government will receive 15% of the revenue generated from licensed MI308 sales to China; however, to date, the U.S. government has not published a regulation establishing such requirement.\n\nWe intend the discussion of our financial condition and results of operations that follows to provide information that will assist in understanding our financial statements, the changes in certain key items in those financial statements from period to period, the primary factors that resulted in those changes, and how certain accounting principles, policies and estimates affect our financial statements.\n\nCritical Accounting Estimates\n\nOur discussion and analysis of our financial condition and results of operations are based upon our Consolidated Financial Statements, which have been prepared in accordance with U.S. generally accepted accounting principles (U.S. GAAP). The preparation of our financial statements requires us to make estimates and judgments that affect the reported amounts in our Consolidated Financial Statements. We evaluate our estimates on an on-going basis, including those related to our revenue, inventories, business combinations, goodwill, long-lived and intangible assets, and income taxes. We base our estimates on historical experience and on various other assumptions that we believe to be reasonable under the circumstances, the results of which form the basis for making judgments about the carrying values of assets and liabilities. Although actual results have historically been reasonably consistent with management’s expectations, the actual results may differ from these estimates or our estimates may be affected by different assumptions or conditions.\n\nManagement believes the following critical accounting estimates are the most significant to the presentation of our financial statements and require the most difficult, subjective and complex judgments.\n\nRevenue Allowances. Revenue contracts with our customers include variable amounts which we evaluate under ASC 606-10-32-8 through 14 in order to determine the net amount of consideration to which we are entitled and which we recognize as revenue. We determine the net amount of consideration to which we are entitled by estimating the most likely amount of consideration we expect to receive from the customer after adjustments to the contract price for rights of return and rebates to our original equipment manufacturer (OEM) and original design manufacturer (ODM) customers and rights of return, rebates and price protection on unsold merchandise to our distributor customers."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": false,
+      "score": 0.291304,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " In determining excess or obsolescence reserves for products, we consider assumptions such as changes in business and economic conditions, other-than-temporary decreases in demand for our products, and changes in technology or customer requirements. In determining the lower of cost or net realizable value reserves, we consider assumptions such as recent historical sales activity and selling prices, as well as estimates of future selling prices. If in any period we anticipate a change in assumptions such as future demand or market conditions to be less favorable than our previous estimates, additional inventory write-downs may be required and would be reflected in cost of sales, resulting in a negative impact to our gross margin in that period. If in any period we are able to sell inventories that had been written down to a level below the ultimate realized selling price in a previous period, related revenue would be recorded with a lower or no offsetting charge to cost of sales resulting in a net benefit to our gross margin in that period. \n\nBusiness Combinations. We allocate the fair value of purchase consideration for acquisitions meeting the requirement of business combinations to the tangible and intangible assets acquired and liabilities assumed based on their estimated fair values. Such valuations require management to make significant estimates and assumptions, especially with respect to assets and liabilities held for sale, intangible assets and contingent consideration. Significant estimates and inputs used in valuing acquired assets and liabilities held for sale, developed technology, and other identifiable intangible assets include, but are not limited to, expected future revenue, future changes in technology, useful lives, risk-adjusted discount rates and time and costs to recreate certain assets. Management's estimates of fair value are based upon assumptions believed to be reasonable, but which are inherently uncertain and unpredictable and, as a result, actual results may differ from estimates. Allocation of purchase consideration to identifiable assets and liabilities affects our amortization expense, as acquired finite-lived intangible assets are amortized over their useful life, whereas any indefinite-lived intangible assets, including goodwill, are not amortized.\n\nGoodwill. Goodwill is the excess of the aggregate of the consideration transferred over the identifiable assets acquired and liabilities assumed in connection with business combinations. Our reporting units are at the operating segment level. Our goodwill is contained within three reporting units: Data Center, Client and Gaming, and Embedded. We perform our goodwill impairment analysis as of the first day of the fourth quarter of each year and, if certain events or circumstances indicate that an impairment loss may have been incurred, on a more frequent basis. The analysis may include both qualitative and quantitative factors to assess the likelihood of an impairment, which occurs when the carrying value of a reporting unit exceeds its fair value. Significant judgment is required in estimating the fair value of our reporting units to determine if the fair values of those units exceed their carrying values. We may obtain the assistance of third-party valuation specialists to help in determining the fair value of our reporting units. Changes in operating plans or adverse changes in the business or in the macroeconomic environment in the future could reduce the underlying cash flows used to estimate fair values and could result in a decline in fair value that would trigger future impairment charges of our reporting units’ goodwill. Based on our annual qualitative impairment test, we concluded that it is not more likely than not that the carrying value of each reporting unit exceeded its fair value.",
+        "before": "Management believes the following critical accounting estimates are the most significant to the presentation of our financial statements and require the most difficult, subjective and complex judgments.\n\nRevenue Allowances. Revenue contracts with our customers include variable amounts which we evaluate under ASC 606-10-32-8 through 14 in order to determine the net amount of consideration to which we are entitled and which we recognize as revenue. We determine the net amount of consideration to which we are entitled by estimating the most likely amount of consideration we expect to receive from the customer after adjustments to the contract price for rights of return and rebates to our original equipment manufacturer (OEM) and original design manufacturer (ODM) customers and rights of return, rebates and price protection on unsold merchandise to our distributor customers.\n\n",
+        "match": "We base our determination of necessary adjustments to the contract price by reference to actual historical activity and experience, including actual historical returns, rebates and credits issued to OEM and distributor customers adjusted, as applicable, to include adjustments, if any, for known events or current economic conditions, or both.\n\nOur estimates of necessary adjustments for distributor price incentives and price protection on unsold products held by distributors are based on actual historical incentives provided to distributor customers and known future price movements based on our internal and external market data analysis.\n\nOur estimates of necessary adjustments for OEM price incentives utilize, in addition to known pricing agreements, actual historical rebate attainment rates and estimates of future OEM rebate program attainment based on internal and external market data analysis.\n\nWe offer incentive programs through cooperative advertising and marketing promotions. Where funds provided for such programs can be estimated, we recognize a reduction to revenue at the time the related revenue is recognized; otherwise, we recognize such reduction to revenue at the later of when: i) the related revenue transaction occurs; or ii) the program is offered. For transactions where we reimburse a customer for a portion of the customer’s cost to perform specific product advertising or marketing and promotional activities, such amounts are recognized as a reduction to revenue unless they qualify for expense recognition.\n\nWe also provide limited product return rights to certain OEMs and to most distribution customers. These return rights are generally limited to a contractual percentage of the customer’s prior quarter shipments, although, from time to time we may approve additional product returns beyond the contractual arrangements based on the applicable facts and circumstances. In order to estimate adjustments to revenue to account for these returns, including product restocking rights provided to distributor and OEM customers, we utilize relevant, trended actual historical product return rate information gathered, adjusted for actual known information or events, as applicable.\n\nOverall, our estimates of adjustments to contract price due to variable consideration under our contracts with OEM and distributor customers, based on our assumptions and include adjustments, if any, for known events, have been materially consistent with actual results; however, these estimates are subject to management’s judgment and actual provisions could be different from our estimates and current provisions, resulting in future adjustments to our revenue and operating results.\n\nInventory Valuation. We value inventory at standard cost, adjusted to approximate the lower of actual cost or estimated net realizable value using assumptions about future demand and market conditions. Material assumptions we use to estimate necessary inventory carrying value adjustments can be unique to each product and are based on specific facts and circumstances."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": false,
+      "score": 0.259678,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": "\n\nData Center$3,603 $3,482 \n\nClient and Gaming2,855 1,187",
+        "before": "Long-Lived and Intangible Assets. Long-lived and intangible assets to be held and used are reviewed for impairment if indicators of potential impairment exist and at least annually for indefinite-lived intangible assets. Impairment indicators are reviewed on a quarterly basis. Assets are grouped and evaluated for impairment at the lowest level of identifiable cash flows. When indicators of impairment exist and assets are held for use, we estimate future undiscounted cash flows attributable to the related asset groups. In the event such cash flows are not expected to be sufficient to recover the recorded value of the assets, the assets are written down to their estimated fair values based on the expected discounted future cash flows attributable to the asset group or based on appraisals.\n\nIncome Taxes. In determining taxable income for financial statement reporting purposes, we must make certain estimates and judgments. These estimates and judgments are applied in the calculation of certain tax liabilities and in the determination of the recoverability of deferred tax assets which arise from temporary differences between the recognition of assets and liabilities for tax and financial statement reporting purposes. We regularly assess the likelihood that we will be able to recover our deferred tax assets. Unless recovery is considered more-likely-than-not (a probability level of more than 50%), we will record a charge to income tax expense in the form of a valuation allowance for the deferred tax assets that we estimate will not ultimately be recoverable or maintain the valuation allowance recorded in prior periods. When considering all available evidence, if we determine it is more-likely-than-not we will realize our deferred tax assets, we will reverse some or all of the existing valuation allowance, which would result in a credit to income tax expense and the establishment of an asset in the period of reversal.\n\n",
+        "match": "In determining the need to establish or maintain a valuation allowance, we consider the four sources of jurisdictional taxable income: (i) carryback of net operating losses to prior years; (ii) future reversals of existing taxable temporary differences; (iii) viable and prudent tax planning strategies; and (iv) future taxable income exclusive of reversing temporary differences and carryforwards. \n\nCertain state and foreign valuation allowances are maintained due to a lack of sufficient sources of future taxable income.\n\nIn addition, the calculation of our tax liabilities involves addressing uncertainties in the application of complex, multi-jurisdictional tax rules and the potential for future adjustment of our uncertain tax positions by the Internal Revenue Service or other taxing authorities. \n\nResults of Operations\n\nAdditional information on our reportable segments is contained in Note 4 – Segment Reporting of the Notes to Financial Statements (Part II, Item 8 of this Form 10-K).\n\nOur operating results tend to vary seasonally. Historically, our net revenue has been generally higher in the second half of the year than in the first half of the year, although market conditions and product transitions could impact these trends.\n\nThe following table provides a summary of net revenue, cost of sales and operating expenses, and operating income (loss) by segment for 2025 and 2024:\n\nYear Ended\n\nDecember 27,2025December 28,2024\n\n(In millions)\n\nNet revenue:\n\nData Center$16,635 $12,579 \n\nClient and Gaming\n\nClient10,640 7,054 \n\nGaming3,910 2,595 \n\nTotal Client and Gaming\n\n14,550 9,649 \n\nEmbedded3,454 3,557 \n\nTotal net revenue$34,639 $25,785 \n\nCost of sales and operating expenses:\n\nData Center\n\n$13,032 $9,097 \n\nClient and Gaming\n\n11,695 8,462 \n\nEmbedded\n\n2,211 2,136 \n\nAll other\n\n4,007 4,190 \n\nTotal cost of sales and operating expenses\n\n$30,945 $23,885 \n\nOperating income (loss):"
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": false,
+      "score": 0.252087,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000021",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " In determining excess or obsolescence reserves for products, we consider assumptions such as changes in business and economic conditions, other-than-temporary decreases in demand for our products, and changes in technology or customer requirements. In determining the lower of cost or net realizable value reserves, we consider assumptions such as recent historical sales activity and selling prices, as well as estimates of future selling prices. If in any period we anticipate a change in assumptions such as future demand or market conditions to be less favorable than our previous estimates, additional inventory write-downs may be required and would be reflected in cost of sales, resulting in a negative impact to our gross margin in that period. If in any period we are able to sell inventories that had been written down to a level below the ultimate realized selling price in a previous period, related revenue would be recorded with a lower or no offsetting charge to cost of sales resulting in a net benefit to our gross margin in that period.\n\nBusiness Combinations. We allocate the fair value of purchase consideration for acquisitions meeting the requirement of business combinations to the tangible and intangible assets acquired and liabilities assumed based on their estimated fair values. Such valuations require management to make significant estimates and assumptions, especially with respect to assets and liabilities held for sale, intangible assets and contingent consideration. Significant estimates and inputs used in valuing acquired assets and liabilities held for sale, developed technology, and other identifiable intangible assets include, but are not limited to, expected future revenue, future changes in technology, useful lives, risk-adjusted discount rates and time and costs to recreate certain assets. Management's estimates of fair value are based upon assumptions believed to be reasonable, but which are inherently uncertain and unpredictable and, as a result, actual results may differ from estimates. Allocation of purchase consideration to identifiable assets and liabilities affects our amortization expense, as acquired finite-lived intangible assets are amortized over their useful life, whereas any indefinite-lived intangible assets, including goodwill, are not amortized.\n\nGoodwill. Goodwill is the excess of the aggregate of the consideration transferred over the identifiable assets acquired and liabilities assumed in connection with business combinations. Our reporting units are at the operating segment level. Our goodwill is contained within three reporting units: Data Center, Client and Gaming, and Embedded. We perform our goodwill impairment analysis as of the first day of the fourth quarter of each year and, if certain events or circumstances indicate that an impairment loss may have been incurred, on a more frequent basis. The analysis may include both qualitative and quantitative factors to assess the likelihood of an impairment, which occurs when the carrying value of a reporting unit exceeds its fair value. Significant judgment is required in estimating the fair value of our reporting units to determine if the fair values of those units exceed their carrying values. We may obtain the assistance of third-party valuation specialists to help in determining the fair value of our reporting units. Changes in operating plans or adverse changes in the business or in the macroeconomic environment in the future could reduce the underlying cash flows used to estimate fair values and could result in a decline in fair value that would trigger future impairment charges of our reporting units’ goodwill. Based on our annual qualitative impairment test, we concluded that it is not more likely than not that the carrying value of each reporting unit exceeded its fair value.",
+        "before": "Management believes the following critical accounting estimates are the most significant to the presentation of our financial statements and require the most difficult, subjective and complex judgments.\n\nRevenue Allowances. Revenue contracts with our customers include variable amounts which we evaluate under ASC 606-10-32-8 through 14 in order to determine the net amount of consideration to which we are entitled and which we recognize as revenue. We determine the net amount of consideration to which we are entitled by estimating the most likely amount of consideration we expect to receive from the customer after adjustments to the contract price for rights of return and rebates to our original equipment manufacturer (OEM) and original design manufacturer (ODM) customers and rights of return, rebates and price protection on unsold merchandise to our distributor customers.\n\n",
+        "match": "We base our determination of necessary adjustments to the contract price by reference to actual historical activity and experience, including actual historical returns, rebates and credits issued to OEM and distributor customers adjusted, as applicable, to include adjustments, if any, for known events or current economic conditions, or both.\n\nOur estimates of necessary adjustments for distributor price incentives and price protection on unsold products held by distributors are based on actual historical incentives provided to distributor customers and known future price movements based on our internal and external market data analysis.\n\nOur estimates of necessary adjustments for OEM price incentives utilize, in addition to known pricing agreements, actual historical rebate attainment rates and estimates of future OEM rebate program attainment based on internal and external market data analysis.\n\nWe offer incentive programs through cooperative advertising and marketing promotions. Where funds provided for such programs can be estimated, we recognize a reduction to revenue at the time the related revenue is recognized; otherwise, we recognize such reduction to revenue at the later of when: i) the related revenue transaction occurs; or ii) the program is offered. For transactions where we reimburse a customer for a portion of the customer’s cost to perform specific product advertising or marketing and promotional activities, such amounts are recognized as a reduction to revenue unless they qualify for expense recognition.\n\nWe also provide limited product return rights to certain OEMs and to most distribution customers. These return rights are generally limited to a contractual percentage of the customer’s prior quarter shipments, although, from time to time we may approve additional product returns beyond the contractual arrangements based on the applicable facts and circumstances. In order to estimate adjustments to revenue to account for these returns, including product restocking rights provided to distributor and OEM customers, we utilize relevant, trended actual historical product return rate information gathered, adjusted for actual known information or events, as applicable.\n\nOverall, our estimates of adjustments to contract price due to variable consideration under our contracts with OEM and distributor customers, based on our assumptions and include adjustments, if any, for known events, have been materially consistent with actual results; however, these estimates are subject to management’s judgment and actual provisions could be different from our estimates and current provisions, resulting in future adjustments to our revenue and operating results.\n\nInventory Valuation. We value inventory at standard cost, adjusted to approximate the lower of actual cost or estimated net realizable value using assumptions about future demand and market conditions. Material assumptions we use to estimate necessary inventory carrying value adjustments can be unique to each product and are based on specific facts and circumstances."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K/A",
+      "included": false,
+      "score": 0.250722,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    },
+    {
+      "accession": "0000002488-26-000018",
+      "cite": null,
+      "company": "ADVANCED MICRO DEVICES INC",
+      "context": {
+        "after": " The analysis may include both qualitative and quantitative factors to assess the likelihood of an impairment, which occurs when the carrying value of a reporting unit exceeds its fair value. Significant judgment is required in estimating the fair value of our reporting units to determine if the fair values of those units exceed their carrying values. We may obtain the assistance of third-party valuation specialists to help in determining the fair value of our reporting units. Changes in operating plans or adverse changes in the business or in the macroeconomic environment in the future could reduce the underlying cash flows used to estimate fair values and could result in a decline in fair value that would trigger future impairment charges of our reporting units’ goodwill. Based on our annual qualitative impairment test, we concluded that it is not more likely than not that the carrying value of each reporting unit exceeded its fair value.\n\nLong-Lived and Intangible Assets. Long-lived and intangible assets to be held and used are reviewed for impairment if indicators of potential impairment exist and at least annually for indefinite-lived intangible assets. Impairment indicators are reviewed on a quarterly basis. Assets are grouped and evaluated for impairment at the lowest level of identifiable cash flows. When indicators of impairment exist and assets are held for use, we estimate future undiscounted cash flows attributable to the related asset groups. In the event such cash flows are not expected to be sufficient to recover the recorded value of the assets, the assets are written down to their estimated fair values based on the expected discounted future cash flows attributable to the asset group or based on appraisals.\n\nIncome Taxes. In determining taxable income for financial statement reporting purposes, we must make certain estimates and judgments. These estimates and judgments are applied in the calculation of certain tax liabilities and in the determination of the recoverability of deferred tax assets which arise from temporary differences between the recognition of assets and liabilities for tax and financial statement reporting purposes. We regularly assess the likelihood that we will be able to recover our deferred tax assets. Unless recovery is considered more-likely-than-not (a probability level of more than 50%), we will record a charge to income tax expense in the form of a valuation allowance for the deferred tax assets that we estimate will not ultimately be recoverable or maintain the valuation allowance recorded in prior periods. When considering all available evidence, if we determine it is more-likely-than-not we will realize our deferred tax assets, we will reverse some or all of the existing valuation allowance, which would result in a credit to income tax expense and the establishment of an asset in the period of reversal.",
+        "before": "We also provide limited product return rights to certain OEMs and to most distribution customers. These return rights are generally limited to a contractual percentage of the customer’s prior quarter shipments, although, from time to time we may approve additional product returns beyond the contractual arrangements based on the applicable facts and circumstances. In order to estimate adjustments to revenue to account for these returns, including product restocking rights provided to distributor and OEM customers, we utilize relevant, trended actual historical product return rate information gathered, adjusted for actual known information or events, as applicable.\n\nOverall, our estimates of adjustments to contract price due to variable consideration under our contracts with OEM and distributor customers, based on our assumptions and include adjustments, if any, for known events, have been materially consistent with actual results; however, these estimates are subject to management’s judgment and actual provisions could be different from our estimates and current provisions, resulting in future adjustments to our revenue and operating results.\n\nInventory Valuation. We value inventory at standard cost, adjusted to approximate the lower of actual cost or estimated net realizable value using assumptions about future demand and market conditions. Material assumptions we use to estimate necessary inventory carrying value adjustments can be unique to each product and are based on specific facts and circumstances. ",
+        "match": "In determining excess or obsolescence reserves for products, we consider assumptions such as changes in business and economic conditions, other-than-temporary decreases in demand for our products, and changes in technology or customer requirements. In determining the lower of cost or net realizable value reserves, we consider assumptions such as recent historical sales activity and selling prices, as well as estimates of future selling prices. If in any period we anticipate a change in assumptions such as future demand or market conditions to be less favorable than our previous estimates, additional inventory write-downs may be required and would be reflected in cost of sales, resulting in a negative impact to our gross margin in that period. If in any period we are able to sell inventories that had been written down to a level below the ultimate realized selling price in a previous period, related revenue would be recorded with a lower or no offsetting charge to cost of sales resulting in a net benefit to our gross margin in that period. \n\nBusiness Combinations. We allocate the fair value of purchase consideration for acquisitions meeting the requirement of business combinations to the tangible and intangible assets acquired and liabilities assumed based on their estimated fair values. Such valuations require management to make significant estimates and assumptions, especially with respect to assets and liabilities held for sale, intangible assets and contingent consideration. Significant estimates and inputs used in valuing acquired assets and liabilities held for sale, developed technology, and other identifiable intangible assets include, but are not limited to, expected future revenue, future changes in technology, useful lives, risk-adjusted discount rates and time and costs to recreate certain assets. Management's estimates of fair value are based upon assumptions believed to be reasonable, but which are inherently uncertain and unpredictable and, as a result, actual results may differ from estimates. Allocation of purchase consideration to identifiable assets and liabilities affects our amortization expense, as acquired finite-lived intangible assets are amortized over their useful life, whereas any indefinite-lived intangible assets, including goodwill, are not amortized.\n\nGoodwill. Goodwill is the excess of the aggregate of the consideration transferred over the identifiable assets acquired and liabilities assumed in connection with business combinations. Our reporting units are at the operating segment level. Our goodwill is contained within three reporting units: Data Center, Client and Gaming, and Embedded. We perform our goodwill impairment analysis as of the first day of the fourth quarter of each year and, if certain events or circumstances indicate that an impairment loss may have been incurred, on a more frequent basis."
+      },
+      "filed": "2026-02-04",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": false,
+      "score": 0.206713,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "AMD"
+    }
+  ],
+  "question": "What did AMD change in its amended FY2025 10-K?",
+  "slug": "amd-fy2025-10ka-amendment",
+  "tickers": [
+    "AMD"
+  ],
+  "title": "What AMD changed in its amended FY2025 10-K"
+}

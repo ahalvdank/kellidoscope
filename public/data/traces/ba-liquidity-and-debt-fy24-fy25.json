@@ -1,0 +1,1633 @@
+{
+  "answer_md": "In its FY2024 10-K, Boeing reported that financing cash flows of $25.2 billion in 2024 were primarily driven by the issuance of common stock and Mandatory convertible preferred stock in the fourth quarter of 2024, which resulted in cash proceeds of $18.2 billion and $5.7 billion, net of issuance costs [1]. Boeing also issued $10.0 billion of fixed-rate senior notes in the second quarter of 2024, with net borrowings of $1.5 billion for the full year [1].\n\nIn the second quarter of 2024, Boeing entered into a $4.0 billion five-year revolving credit agreement expiring in May 2029 [2]. Also in the second quarter of 2024, Boeing terminated the $0.8 billion 364-day revolving credit agreement scheduled to expire in August 2024, and the $3.2 billion five-year revolving credit agreement, as amended, scheduled to expire in October 2024 [2][3]. At December 31, 2024, Boeing had $10.0 billion available under credit line agreements and remained in full compliance with all debt covenants, though Moody's had downgraded its short-term and long-term credit ratings to Baa3/P-3 in April 2024 [2][3].\n\nIn its FY2025 10-K, Boeing disclosed that in August 2025 it entered into a $3.0 billion, 364-day revolving credit agreement expiring in August 2026, replacing the $3.0 billion three-year revolving credit agreement which was scheduled to terminate in August 2025, with a one-year term out option allowing extension of any borrowings until August 2027 [4]. The legacy $3.0 billion five-year revolving credit agreement expiring in August 2028 and $4.0 billion five-year revolving credit agreement expiring in May 2029 each remained in effect, leaving $10.0 billion of unused borrowing capacity at December 31, 2025 [4]. In connection with the Spirit Acquisition completed in December 2025, Boeing assumed Spirit's remaining debt, including $300 of 3.850% Senior Notes due 2026, $700 of 4.600% Senior Notes due 2028, and $230 of 3.250% Exchangeable Notes due 2028 [5].\n\nNet cash used by financing activities in 2025 was $3.8 billion, primarily driven by net repayments of $3.5 billion, with total debt balances at December 31, 2025 and 2024 totaling $54.1 billion and $53.9 billion, of which $8.5 billion and $1.3 billion were classified as short-term [6]. By the end of 2025, all three major rating agencies had revised Boeing's outlooks to stable from negative: Fitch affirmed the BBB- credit rating in June 2025, S&P affirmed the BBB- credit rating in October 2025, and Moody's affirmed the Baa3 credit rating in December 2025 [4].",
+  "audit_note_md": "# Boeing liquidity, debt and equity actions, FY2024 to FY2025\n\nQuestion: What debt issuances, credit-facility changes and equity-raising actions did Boeing disclose across its FY2024 and FY2025 10-Ks to manage liquidity?\n\n## Companies\n\n- [[BOEING CO]] (BA): [1], [2], [3], [4], [5], [6]\n\n## Claims\n\n- [[BA Moody's Downgrade to Baa3/P-3 April 2024]] (CapitalStructureEvent, BA) on [[BOEING CO]]: [2]\n- [[BA Fitch BBB- Credit Rating Affirmation June 2025]] (CapitalStructureEvent, BA) on [[BOEING CO]]: [4]\n- [[BA S&P BBB- Credit Rating Affirmation October 2025]] (CapitalStructureEvent, BA) on [[BOEING CO]]: [4]\n- [[BA Moody's Baa3 Credit Rating Affirmation December 2025]] (CapitalStructureEvent, BA) on [[BOEING CO]]: [4]\n- [[BA Acquisition of Spirit AeroSystems Holdings]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Commercial Airplanes]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Commercial Airplanes Segment]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Commercial Airplanes Segment]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Divestiture of Digital Aviation Solutions]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Defense, Space & Security]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Defense, Space & Security Segment]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Defense, Space & Security Segment]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Commercial Airplanes Segment]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Global Services]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Global Services Segment]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Global Services Segment]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Defense Space Security Segment]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Digital Aviation Solutions Divestiture]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Acquisition of Spirit AeroSystems Holdings]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[Alaska Airlines 737-9 Door Plug Detachment Incident]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Global Services Segment]] (RevenueSegment, BA) on [[BOEING CO]]: none cited\n- [[BA Acquisition of Spirit AeroSystems Holdings]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Supplier Notes Receivable Cash Flow Reclassification]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[IAM 751 Work Stoppage 2024]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA 2025 Mandatory Convertible Preferred Stock Dividend]] (CapitalReturn, BA) on [[BOEING CO]]: none cited\n- [[BA 737-9 Door Plug Accident and FAA Action]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA 2024 Common Stock Issuance]] (CapitalStructureEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Acquisition of Spirit AeroSystems]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[Boeing DOJ Non-Prosecution Agreement (May 2025)]] (LegalProceeding, BA) on [[BOEING CO]]: none cited\n- [[BA U.S. Department of Justice Agreements]] (LegalProceeding, BA) on [[BOEING CO]]: none cited\n- [[BA 2024 6.00% Series A Mandatory Convertible Preferred Stock Issuance]] (CapitalStructureEvent, BA) on [[BOEING CO]]: none cited\n- [[BA 767 Freighter Program Production End Decision]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Spirit AeroSystems Acquisition (December 2025)]] (MaterialEvent, BA) on [[BOEING CO]]: [5]\n- [[BA Global Trade and Tariff Risk]] (Risk, BA) on [[BOEING CO]]: none cited\n- [[BA 2024 Mandatory Convertible Preferred Stock Dividend]] (CapitalReturn, BA) on [[BOEING CO]]: none cited\n- [[Boeing DOJ Agreement]] (LegalProceeding, BA) on [[BOEING CO]]: none cited\n- [[BA Digital Aviation Solutions Divestiture (2025)]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA U.S. Government Funding and Shutdown Risk]] (Risk, BA) on [[BOEING CO]]: none cited\n- [[BA Q2 2024 $10.0B Fixed-Rate Senior Notes Issuance]] (CapitalStructureEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Q4 2024 Common Stock Issuance]] (CapitalStructureEvent, BA) on [[BOEING CO]]: [1]\n- [[BA 2024 Workforce Reduction]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA 777X Program Certification and Reach-Forward Loss Risk]] (Risk, BA) on [[BOEING CO]]: none cited\n- [[BA Q2 2024 $4.0B Five-Year Revolving Credit Facility]] (CapitalStructureEvent, BA) on [[BOEING CO]]: [3]\n- [[BA Q4 2024 Mandatory Convertible Preferred Stock Issuance]] (CapitalStructureEvent, BA) on [[BOEING CO]]: [1]\n- [[BA January 2024 737-9 Door Plug Accident Customer Concessions]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA China Aircraft Delivery Pause Risk]] (Risk, BA) on [[BOEING CO]]: none cited\n- [[BA Q4 2024 Workforce Reduction]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Q2 2024 $10B Fixed-Rate Senior Notes Issuance]] (CapitalStructureEvent, BA) on [[BOEING CO]]: [1]\n- [[BA One Big Beautiful Bill Act Tax Impact (2025)]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA SPEEA Contract Expiry Risk]] (Risk, BA) on [[BOEING CO]]: none cited\n- [[BA 2024 737-9 Grounding Customer Concessions Charge]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA 777-9 First Delivery 2026 Guidance]] (GuidanceUpdate, BA) on [[BOEING CO]]: none cited\n- [[BA August 2025 $3B 364-Day Revolving Credit Facility]] (CapitalStructureEvent, BA) on [[BOEING CO]]: none cited\n- [[BA Supply Chain Disruption and Inflation Risk]] (Risk, BA) on [[BOEING CO]]: none cited\n- [[BA 2024 777X Program Reach-Forward Loss]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA 777-8 Freighter First Delivery 2028 Guidance]] (GuidanceUpdate, BA) on [[BOEING CO]]: none cited\n- [[BA Spirit Senior Notes Assumption and Boeing Guarantee]] (CapitalStructureEvent, BA) on [[BOEING CO]]: [5]\n- [[BA BDS Fixed-Price Development Program Risk]] (Risk, BA) on [[BOEING CO]]: none cited\n- [[BA 2024 767 Freighter Production End]] (MaterialEvent, BA) on [[BOEING CO]]: none cited\n- [[BA 777-8 Passenger First Delivery Not Before 2030]] (GuidanceUpdate, BA) on [[BOEING CO]]: none cited\n",
+  "category": "capital_structure",
+  "claims": [
+    {
+      "cite": 2,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "instrument_type": "refinancing",
+        "note": "Moody's downgraded Boeing short-term and long-term credit ratings to Baa3/P-3 in April 2024; placed on review for further downgrade in September 2024; S&P placed on review for downgrade in October 2024; Moody's affirmed Baa3/P-3 with negative outlook in January 2025"
+      },
+      "statement": "BOEING CO: BA Moody's Downgrade to Baa3/P-3 April 2024 (instrument type refinancing; note Moody's downgraded Boeing short-term and long-term credit ratings to Baa3/P-3 in April 2024; placed on review for furthe...).",
+      "ticker": "BA"
+    },
+    {
+      "cite": 4,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "agency": "Fitch",
+        "effective_date": "2025-06",
+        "instrument_type": "refinancing",
+        "note": "Fitch affirmed BBB- credit rating and revised outlook to stable from negative in June 2025",
+        "outlook_prior": "negative",
+        "outlook_revised_to": "stable",
+        "rating": "BBB-"
+      },
+      "statement": "BOEING CO: BA Fitch BBB- Credit Rating Affirmation June 2025 (agency Fitch; effective date 2025-06; instrument type refinancing; note Fitch affirmed BBB- credit rating and revised outlook to stable from negative in June 2025).",
+      "ticker": "BA"
+    },
+    {
+      "cite": 4,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "agency": "S&P",
+        "effective_date": "2025-10",
+        "instrument_type": "refinancing",
+        "note": "S&P affirmed BBB- credit rating and revised outlook to stable from negative in October 2025",
+        "outlook_prior": "negative",
+        "outlook_revised_to": "stable",
+        "rating": "BBB-"
+      },
+      "statement": "BOEING CO: BA S&P BBB- Credit Rating Affirmation October 2025 (agency S&P; effective date 2025-10; instrument type refinancing; note S&P affirmed BBB- credit rating and revised outlook to stable from negative in October 2025).",
+      "ticker": "BA"
+    },
+    {
+      "cite": 4,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "agency": "Moody's",
+        "effective_date": "2025-12",
+        "instrument_type": "refinancing",
+        "note": "Moody's affirmed Baa3 credit rating and revised outlook to stable from negative in December 2025",
+        "outlook_prior": "negative",
+        "outlook_revised_to": "stable",
+        "rating": "Baa3"
+      },
+      "statement": "BOEING CO: BA Moody's Baa3 Credit Rating Affirmation December 2025 (agency Moody's; effective date 2025-12; instrument type refinancing; note Moody's affirmed Baa3 credit rating and revised outlook to stable from negative in December 2025).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "boeing_shares_issued_millions": 22.98,
+        "consideration_usd": 8371000000,
+        "effective_date": "2025-12-08",
+        "event_type": "acquisition",
+        "exchange_ratio": 0.1955,
+        "goodwill_segment": "Commercial Airplanes",
+        "provisional_goodwill_usd": 9997000000,
+        "spirit_shares_exchanged_millions": 117.5,
+        "target_company": "Spirit AeroSystems Holdings, Inc."
+      },
+      "statement": "BOEING CO: BA Acquisition of Spirit AeroSystems Holdings (boeing shares issued millions 22.98; consideration usd 8371000000; effective date 2025-12-08; event type acquisition).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Commercial Airplanes.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Commercial Airplanes Segment.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Commercial Airplanes Segment.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "assets": [
+          "Jeppesen",
+          "ForeFlight",
+          "AerData",
+          "OzRunways"
+        ],
+        "buyer": "Thoma Bravo",
+        "divesting_segment": "Global Services",
+        "effective_date": "2025-10-31",
+        "event_type": "divestiture",
+        "gain_usd": 9566000000,
+        "proceeds_usd": 10550000000
+      },
+      "statement": "BOEING CO: BA Divestiture of Digital Aviation Solutions (assets [\"Jeppesen\", \"ForeFlight\", \"AerData\", \"OzRunways\"]; buyer Thoma Bravo; divesting segment Global Services; effective date 2025-10-31).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Defense, Space & Security.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Defense, Space & Security Segment.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Defense, Space & Security Segment.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Commercial Airplanes Segment.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Global Services.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Global Services Segment.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Global Services Segment.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Defense Space Security Segment.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "amount_usd": 10550000000,
+        "consideration": "all_cash",
+        "divested_unit": "BGS Digital Aviation Solutions",
+        "effective_date": "2025-10-31",
+        "event_type": "divestiture"
+      },
+      "statement": "BOEING CO: BA Digital Aviation Solutions Divestiture (amount usd 10550000000; consideration all_cash; divested unit BGS Digital Aviation Solutions; effective date 2025-10-31).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "agreement_date": "2024-06-30",
+        "consideration": "all_stock",
+        "equity_value_usd": 4700000000,
+        "event_type": "acquisition",
+        "expected_close": "mid-2025",
+        "price_per_share_usd": 37.25,
+        "target_company": "Spirit AeroSystems Holdings, Inc.",
+        "termination_fee_usd": 300000000
+      },
+      "statement": "BOEING CO: BA Acquisition of Spirit AeroSystems Holdings (agreement date 2024-06-30; consideration all_stock; equity value usd 4700000000; event type acquisition).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "date": "2024-01-05",
+        "event_type": "regulatory_action",
+        "program": "737-9",
+        "regulator": "FAA"
+      },
+      "statement": "BOEING CO: Alaska Airlines 737-9 Door Plug Detachment Incident (date 2024-01-05; event type regulatory_action; program 737-9; regulator FAA).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "RevenueSegment",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {},
+      "statement": "BOEING CO: BA Global Services Segment.",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "consideration_type": "Boeing common shares",
+        "consideration_usd_approx": 4700000000,
+        "effective_date": "2025-12-08",
+        "event_type": "acquisition",
+        "target_company": "Spirit AeroSystems Holdings, Inc."
+      },
+      "statement": "BOEING CO: BA Acquisition of Spirit AeroSystems Holdings (consideration type Boeing common shares; consideration usd approx 4700000000; effective date 2025-12-08; event type acquisition).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "event_type": "accounting_change"
+      },
+      "statement": "BOEING CO: BA Supplier Notes Receivable Cash Flow Reclassification (event type accounting_change).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "affected_programs": "737, 767, 777, 777X, KC-46A Tanker, P-8A Poseidon",
+        "event_type": "restructuring",
+        "ratification_date": "2024-11-04",
+        "start_date": "2024-09-13"
+      },
+      "statement": "BOEING CO: IAM 751 Work Stoppage 2024 (affected programs 737, 767, 777, 777X, KC-46A Tanker, P-8A Poseidon; event type restructuring; ratification date 2024-11-04; start date 2024-09-13).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalReturn",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "amount_usd": 345000000,
+        "liquidation_preference_usd": 5750000000,
+        "return_type": "dividend",
+        "series": "6.00% Series A Mandatory Convertible Preferred Stock",
+        "shares_issued": 5750000
+      },
+      "statement": "BOEING CO: BA 2025 Mandatory Convertible Preferred Stock Dividend (amount usd 345000000; liquidation preference usd 5750000000; return type dividend; series 6.00% Series A Mandatory Convertible Preferred Stock).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "event_type": "regulatory_action",
+        "incident_date": "2024-01-05",
+        "regulator": "FAA"
+      },
+      "statement": "BOEING CO: BA 737-9 Door Plug Accident and FAA Action (event type regulatory_action; incident date 2024-01-05; regulator FAA).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "instrument_type": "equity_issuance",
+        "principal_usd": 18200000000
+      },
+      "statement": "BOEING CO: BA 2024 Common Stock Issuance (instrument type equity_issuance; principal usd 18200000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "agreement_date": "2024-06-30",
+        "event_type": "acquisition",
+        "target_company": "Spirit AeroSystems Holdings, Inc."
+      },
+      "statement": "BOEING CO: BA Acquisition of Spirit AeroSystems (agreement date 2024-06-30; event type acquisition; target company Spirit AeroSystems Holdings, Inc.).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "LegalProceeding",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "counterparty": "U.S. Department of Justice",
+        "effective_date": "2025-05",
+        "escrow_amount_usd": 689000000,
+        "status": "pending"
+      },
+      "statement": "BOEING CO: Boeing DOJ Non-Prosecution Agreement (May 2025) (counterparty U.S. Department of Justice; effective date 2025-05; escrow amount usd 689000000; status pending).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "LegalProceeding",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "charge_2024_usd": 244000000,
+        "charge_2025_usd": 445000000,
+        "counterparty": "U.S. Department of Justice",
+        "status": "settled"
+      },
+      "statement": "BOEING CO: BA U.S. Department of Justice Agreements (charge 2024 usd 244000000; charge 2025 usd 445000000; counterparty U.S. Department of Justice; status settled).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "coupon": 0.06,
+        "instrument_type": "equity_issuance",
+        "liquidation_preference_usd": 5750000000,
+        "principal_usd": 5657000000,
+        "shares_issued": 5750000
+      },
+      "statement": "BOEING CO: BA 2024 6.00% Series A Mandatory Convertible Preferred Stock Issuance (coupon 0.06; instrument type equity_issuance; liquidation preference usd 5750000000; principal usd 5657000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "event_type": "restructuring",
+        "expected_end": "late 2026 or early 2027",
+        "program": "767 freighter",
+        "total_reach_forward_loss_usd": 580000000
+      },
+      "statement": "BOEING CO: BA 767 Freighter Program Production End Decision (event type restructuring; expected end late 2026 or early 2027; program 767 freighter; total reach forward loss usd 580000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": 5,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "debt_assumed_usd": 3608000000,
+        "debt_repaid_at_close_usd": 2260000000,
+        "effective_date": "2025-12",
+        "event_type": "acquisition",
+        "target_company": "Spirit AeroSystems",
+        "valuation_allowance_from_acquisition_accounting_usd": 1833000000
+      },
+      "statement": "BOEING CO: BA Spirit AeroSystems Acquisition (December 2025) (debt assumed usd 3608000000; debt repaid at close usd 2260000000; effective date 2025-12; event type acquisition).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "regulatory",
+        "geography": "global"
+      },
+      "statement": "BOEING CO: BA Global Trade and Tariff Risk (category regulatory; geography global).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalReturn",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "amount_usd": 72000000,
+        "period": "FY2024",
+        "return_type": "dividend"
+      },
+      "statement": "BOEING CO: BA 2024 Mandatory Convertible Preferred Stock Dividend (amount usd 72000000; period FY2024; return type dividend).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "LegalProceeding",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "counterparty": "U.S. Department of Justice",
+        "potential_fine_usd": 244000000,
+        "status": "pending"
+      },
+      "statement": "BOEING CO: Boeing DOJ Agreement (counterparty U.S. Department of Justice; potential fine usd 244000000; status pending).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "divested_unit": "Digital Aviation Solutions",
+        "event_type": "divestiture",
+        "geographies": [
+          "Germany",
+          "Sweden"
+        ]
+      },
+      "statement": "BOEING CO: BA Digital Aviation Solutions Divestiture (2025) (divested unit Digital Aviation Solutions; event type divestiture; geographies [\"Germany\", \"Sweden\"]).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "regulatory",
+        "geography": "United States"
+      },
+      "statement": "BOEING CO: BA U.S. Government Funding and Shutdown Risk (category regulatory; geography United States).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "coupon_range_high": 0.07008,
+        "coupon_range_low": 0.06259,
+        "instrument_type": "notes",
+        "issuance_period": "Q2 2024",
+        "maturity_range": "2027-2064",
+        "net_proceeds_usd": 9900000000,
+        "principal_usd": 10000000000,
+        "security_type": "unsecured_senior_fixed_rate"
+      },
+      "statement": "BOEING CO: BA Q2 2024 $10.0B Fixed-Rate Senior Notes Issuance (coupon range high 0.07008; coupon range low 0.06259; instrument type notes; issuance period Q2 2024).",
+      "ticker": "BA"
+    },
+    {
+      "cite": 1,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "instrument_type": "equity_issuance",
+        "issuance_period": "Q4 2024",
+        "proceeds_net_usd": 18200000000
+      },
+      "statement": "BOEING CO: BA Q4 2024 Common Stock Issuance (instrument type equity_issuance; issuance period Q4 2024; proceeds net usd 18200000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "announced_period": "Q4 2024",
+        "event_type": "restructuring",
+        "severance_charge_usd": 295000000
+      },
+      "statement": "BOEING CO: BA 2024 Workforce Reduction (announced period Q4 2024; event type restructuring; severance charge usd 295000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "operational",
+        "program": "777X",
+        "reach_forward_loss_2025_usd": 4899000000
+      },
+      "statement": "BOEING CO: BA 777X Program Certification and Reach-Forward Loss Risk (category operational; program 777X; reach forward loss 2025 usd 4899000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": 3,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "inception_period": "Q2 2024",
+        "instrument_type": "revolver",
+        "maturity": "2029-05",
+        "note": "Replaced terminated $0.8B 364-day revolver and $3.2B five-year revolver",
+        "principal_usd": 4000000000,
+        "term_years": 5
+      },
+      "statement": "BOEING CO: BA Q2 2024 $4.0B Five-Year Revolving Credit Facility (inception period Q2 2024; instrument type revolver; maturity 2029-05; note Replaced terminated $0.8B 364-day revolver and $3.2B five-year revolver).",
+      "ticker": "BA"
+    },
+    {
+      "cite": 1,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "instrument_type": "equity_issuance",
+        "issuance_period": "Q4 2024",
+        "note": "Mandatory convertible preferred stock",
+        "proceeds_net_usd": 5700000000
+      },
+      "statement": "BOEING CO: BA Q4 2024 Mandatory Convertible Preferred Stock Issuance (instrument type equity_issuance; issuance period Q4 2024; note Mandatory convertible preferred stock; proceeds net usd 5700000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "charge_usd": 443000000,
+        "event_type": "regulatory_action",
+        "incident_date": "2024-01",
+        "remaining_liability_usd": 383000000
+      },
+      "statement": "BOEING CO: BA January 2024 737-9 Door Plug Accident Customer Concessions (charge usd 443000000; event type regulatory_action; incident date 2024-01; remaining liability usd 383000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "geopolitical",
+        "geography": "China"
+      },
+      "statement": "BOEING CO: BA China Aircraft Delivery Pause Risk (category geopolitical; geography China).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "completion_target": "H1 2025",
+        "event_type": "restructuring",
+        "remaining_liability_usd": 287000000,
+        "severance_charge_usd": 295000000
+      },
+      "statement": "BOEING CO: BA Q4 2024 Workforce Reduction (completion target H1 2025; event type restructuring; remaining liability usd 287000000; severance charge usd 295000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": 1,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "instrument_type": "notes",
+        "issuance_period": "Q2 2024",
+        "note_type": "fixed-rate senior notes",
+        "principal_usd": 10000000000
+      },
+      "statement": "BOEING CO: BA Q2 2024 $10B Fixed-Rate Senior Notes Issuance (instrument type notes; issuance period Q2 2024; note type fixed-rate senior notes; principal usd 10000000000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "event_type": "accounting_change",
+        "key_provisions": "Immediate expensing of domestic R&D expenditures; 100% bonus depreciation; favorable interest deductibility effective 2025",
+        "legislation": "One Big Beautiful Bill Act (OBBBA)",
+        "signed_date": "2025-07-04"
+      },
+      "statement": "BOEING CO: BA One Big Beautiful Bill Act Tax Impact (2025) (event type accounting_change; key provisions Immediate expensing of domestic R&D expenditures; 100% bonus depreciation; favorable interest deductibility effective 20...; legislation One Big Beautiful Bill Act (OBBBA); signed date 2025-07-04).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "labor",
+        "contract_expiry_date": "2026-10",
+        "employees_represented_approx": 16000
+      },
+      "statement": "BOEING CO: BA SPEEA Contract Expiry Risk (category labor; contract expiry date 2026-10; employees represented approx 16000).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "charge_usd": 443000000,
+        "event_type": "regulatory_action",
+        "fiscal_year": 2024,
+        "net_of_insurance": true
+      },
+      "statement": "BOEING CO: BA 2024 737-9 Grounding Customer Concessions Charge (charge usd 443000000; event type regulatory_action; fiscal year 2024; net of insurance true).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "GuidanceUpdate",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "metric": "777-9_first_delivery_year",
+        "new_value": "2026",
+        "period": "FY2026",
+        "update_type": "revision_down"
+      },
+      "statement": "BOEING CO: BA 777-9 First Delivery 2026 Guidance (metric 777-9_first_delivery_year; new value 2026; period FY2026; update type revision_down).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "instrument_type": "revolver",
+        "maturity": "2026-08",
+        "principal_usd": 3000000000,
+        "term_out_option_maturity": "2027-08"
+      },
+      "statement": "BOEING CO: BA August 2025 $3B 364-Day Revolving Credit Facility (instrument type revolver; maturity 2026-08; principal usd 3000000000; term out option maturity 2027-08).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "supply_chain"
+      },
+      "statement": "BOEING CO: BA Supply Chain Disruption and Inflation Risk (category supply_chain).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "charge_usd": 3499000000,
+        "event_type": "goodwill_impairment",
+        "note": "Reach-forward loss recorded as reduction of deferred production costs and other non-recurring costs in inventory; closest available event_type to a program-level impairment charge"
+      },
+      "statement": "BOEING CO: BA 2024 777X Program Reach-Forward Loss (charge usd 3499000000; event type goodwill_impairment; note Reach-forward loss recorded as reduction of deferred production costs and other non-recurring costs in inventory; closes...).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "GuidanceUpdate",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "metric": "777-8_freighter_first_delivery_year",
+        "new_value": "2028",
+        "period": "FY2028",
+        "update_type": "revision_down"
+      },
+      "statement": "BOEING CO: BA 777-8 Freighter First Delivery 2028 Guidance (metric 777-8_freighter_first_delivery_year; new value 2028; period FY2028; update type revision_down).",
+      "ticker": "BA"
+    },
+    {
+      "cite": 5,
+      "claim_type": "CapitalStructureEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "effective_date": "2025-12",
+        "guarantee_type": "senior unsecured",
+        "guaranteed_by": "The Boeing Company",
+        "instrument_type": "notes",
+        "notes_detail": "$300M 3.850% due 2026 + $700M 4.600% due 2028",
+        "principal_usd": 1000000000
+      },
+      "statement": "BOEING CO: BA Spirit Senior Notes Assumption and Boeing Guarantee (effective date 2025-12; guarantee type senior unsecured; guaranteed by The Boeing Company; instrument type notes).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "Risk",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "category": "contract",
+        "programs": "Commercial Crew, KC-46A Tanker, MQ-25, T-7A Red Hawk, VC-25B"
+      },
+      "statement": "BOEING CO: BA BDS Fixed-Price Development Program Risk (category contract; programs Commercial Crew, KC-46A Tanker, MQ-25, T-7A Red Hawk, VC-25B).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "MaterialEvent",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "event_type": "restructuring",
+        "fiscal_year": 2024,
+        "note": "Decision to end production of the 767 freighter program disclosed in Q4 2024 KC-46A charge context"
+      },
+      "statement": "BOEING CO: BA 2024 767 Freighter Production End (event type restructuring; fiscal year 2024; note Decision to end production of the 767 freighter program disclosed in Q4 2024 KC-46A charge context).",
+      "ticker": "BA"
+    },
+    {
+      "cite": null,
+      "claim_type": "GuidanceUpdate",
+      "entity": "BOEING CO",
+      "entity_type": "Company",
+      "raw_extraction": {
+        "metric": "777-8_passenger_first_delivery_year",
+        "new_value": "not before 2030",
+        "period": "FY2030+",
+        "update_type": "revision_down"
+      },
+      "statement": "BOEING CO: BA 777-8 Passenger First Delivery Not Before 2030 (metric 777-8_passenger_first_delivery_year; new value not before 2030; period FY2030+; update type revision_down).",
+      "ticker": "BA"
+    }
+  ],
+  "meta": {
+    "build_commit": "2a37b2c99c8b773872793843d52124ed6b77d2ac",
+    "display_cutoff": 0.35,
+    "max_passages": 40,
+    "max_rejected": 10,
+    "models": {
+      "embedding": "Qwen/Qwen3-Embedding-0.6B",
+      "extraction": "claude-sonnet-4-6",
+      "sentiment": "ProsusAI/finbert",
+      "synthesis": "claude-sonnet-4-6"
+    },
+    "run_timestamp": "2026-11-23T09:39:01Z",
+    "top_k": 20
+  },
+  "passages": [
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\n$8,351 $4,403 $2,739 $2,508 $5,274 \n\nScheduled payments for finance lease obligations are as follows:",
+        "before": "The Spirit Exchangeable Notes mature on November 1, 2028, unless earlier exchanged, redeemed or repurchased, and are exchangeable at an initial rate of 6.7067 shares of Boeing common stock per $1,000 principal amount, in whole dollars, of the Spirit Exchangeable Notes. Prior to August 1, 2028, if certain conditions are met, holders of the Spirit Exchangeable Notes may elect to exchange the Spirit Exchangeable Notes. On or after August 1, 2028, the holders of the Spirit Exchangeable Notes may elect to exchange the Spirit Exchangeable Notes without restriction. Upon exchange, we will pay cash and/or deliver shares of Boeing common stock, at our election, to the holders of the Spirit Exchangeable Notes.\n\nIn connection with closing of the Spirit Acquisition, The Boeing Company guaranteed the obligations of Spirit Sub with respect to the Spirit Senior Notes, and as a result, each of The Boeing Company and Spirit fully and unconditionally guarantee the Spirit Senior Notes on a senior unsecured basis. The guarantees rank equally in right of payment with all of Boeing’s existing and future senior unsecured indebtedness.\n\nInterest incurred, including amounts capitalized, was $2,956, $2,874 and $2,560 for the years ended December 31, 2025, 2024 and 2023, respectively. Total Company interest payments, net of amounts capitalized, were $2,630, $2,440 and $2,408 for the years ended December 31, 2025, 2024 and 2023, respectively. ",
+        "match": "Interest capitalized was $185, $149, and $101 for the years ended December 31, 2025, 2024 and 2023, respectively.\n\nShort-term debt and current portion of long-term debt at December 31 consisted of the following:\n\n20252024\n\nUnsecured debt$8,249 $850 \n\nFinance lease obligations111 86 \n\nOther notes101 342 \n\nTotal$8,461 $1,278 \n\n94\n\n\nDebt at December 31 consisted of the following:\n\n20252024\n\nUnsecured debt\n\n2.20% - 2.50% due through 2026\n\n$5,899 $6,159 \n\n2.60% - 3.20% due through 2030\n\n5,088 5,389 \n\n3.25% - 3.90% due through 2059 (1)\n\n10,136 9,637 \n\n3.95% - 5.15% due through 2059\n\n8,166 7,462 \n\n5.71% - 6.63% due through 2060\n\n18,996 18,987 \n\n6.86% - 8.75% due through 2064\n\n5,265 5,577 \n\nOther debt and notes\n\nFinance lease obligations due through 2044\n\n250 239 \n\nOther notes298 414 \n\nTotal debt$54,098 $53,864 \n\n(1)    Includes $230 of Spirit Exchangeable Notes assumed as a result of the Spirit Acquisition, which will become exchangeable for shares of Boeing common stock and/or cash, at our election.\n\nScheduled principal payments for debt for the next five years are as follows:\n\n20262027202820292030\n\nDebt and other notes"
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.593394,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " \n\nNet cash provided/(used) by operating activities1,065 (12,080)5,960 \n\nCash flows – investing activities:",
+        "before": "See Notes to the Consolidated Financial Statements on pages 59 - 120.\n\n56\n\n\n",
+        "match": "The Boeing Company and Subsidiaries\n\nConsolidated Statements of Cash Flows\n\n(Dollars in millions)   \n\nYears ended December 31,202520242023\n\nCash flows – operating activities:\n\nNet earnings/(loss)$2,238 ($11,829)($2,242)\n\nAdjustments to reconcile net earnings/(loss) to net cash provided/(used) by operating activities:\n\nNon-cash items –\n\nShare-based plans expense426 407 690 \n\nTreasury shares issued for 401(k) contribution1,530 1,601 1,515 \n\nDepreciation and amortization1,953 1,836 1,861 \n\nInvestment/asset impairment charges, net45 112 46 \n\nGain on dispositions, net(9,672)(46)(2)\n\n777X and 767 reach-forward losses5,283 4,079 \n\nOther charges and credits, net264 528 3 \n\nChanges in assets and liabilities –\n\nAccounts receivable(95)(37)(128)\n\nUnbilled receivables(677)(60)321 \n\nAdvances and progress billings(723)4,069 3,365 \n\nInventories(1,501)(12,353)(1,681)\n\nOther current assets155 (16)389 \n\nAccounts payable724 (793)1,672 \n\nAccrued liabilities1,341 1,563 779 \n\nIncome taxes receivable, payable and deferred115 (567)44 \n\nOther long-term liabilities(346)(329)(313)\n\nPension and other postretirement plans(593)(959)(1,049)\n\nFinancing receivables and operating lease equipment, net\n\n274 512 571 \n\nOther324 202 119"
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.569854,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " The increase in Unbilled receivables during 2024 was primarily driven by revenue recognized in excess of billings at BDS compared to higher billings at BDS and BGS during 2023. The increase in Accrued liabilities was primarily driven by higher accrued losses on BDS fixed-price development programs. Concessions paid to 737 MAX customers totaled $0.9 billion and $0.4 billion during 2024 and 2023. Cash provided by Advances and progress billings during 2024 was $4.1 billion compared to cash provided of $3.4 billion during 2023.\n\nPayables to suppliers who elected to participate in supply chain financing programs decreased by $0.7 billion and $0.2 billion in 2025 and 2024, and increased by $0.4 billion in 2023. Supply chain financing is not material to our overall liquidity.\n\nInvesting Activities Net cash provided by investing activities during 2025 was $0.5 billion, compared with cash used of $12.0 billion during 2024 and $2.4 billion during 2023. The increase in net cash provided in 2025 compared to 2024 was primarily due to an increase in Proceeds from dispositions of $10.5 billion and a decrease in net contributions to investments of $3.8 billion, partially offset by an increase in cash paid for Acquisitions, net of cash acquired of $1.2 billion. Proceeds from dispositions in 2025 were primarily driven by the Digital Aviation Solutions Divestiture in October 2025. Acquisitions, net of cash acquired of $1.2 billion in 2025 reflects the Spirit Acquisition in December 2025. The increase in net cash used by investing activities in 2024 compared to 2023 was primarily due to net contributions to investments of $9.1 billion in 2024 compared to net contributions to investments of $0.7 billion in 2023. Capital expenditures totaled $2.9 billion in 2025, compared with $2.2 billion in 2024 and $1.5 billion in 2023. We expect capital expenditures to grow in 2026 compared with 2025.",
+        "before": "Operating Activities Net cash provided by operating activities was $1.1 billion during 2025 compared with net cash used of $12.1 billion during 2024. The $13.1 billion increase in net cash provided by operating activities was primarily driven by higher commercial airplane deliveries, lower customer considerations and working capital improvements.\n\nThe change in Non-cash items of $8.7 billion compared with 2024 was primarily due to a gain on the Digital Aviation Solutions Divestiture in October 2025, partially offset by higher combined 777X and 767 reach-forward losses recorded during 2025 compared to 2024.\n\nChanges in assets and liabilities for 2025 improved by $7.8 billion compared to 2024 primarily driven by favorable changes in Inventories ($10.9 billion) and Accounts payable ($1.5 billion), partially offset by unfavorable changes in Advances and progress billings ($4.8 billion). The change in Inventories was primarily driven by higher deliveries on our commercial airplane programs during 2025 as compared to 2024. ",
+        "match": "The change in Accounts payable during 2025 compared to 2024 reflects increased production primarily in our commercial airplanes business. The change in Advances and progress billings during 2025 compared to 2024 was primarily driven by increased commercial airplane deliveries and revenue recognized at BDS, partially offset by higher advances on commercial airplane orders. Concessions paid to 737 MAX customers totaled $0.2 billion and $0.9 billion during 2025 and 2024.\n\nNet cash used by operating activities was $12.1 billion during 2024 compared with net cash provided of $6.0 billion during 2023. The increase in cash outflows from operating activities in 2024 was primarily driven by our commercial airplanes business. Commercial airplane cash outflows reflected slowed and/or paused production and lower deliveries as a result of ongoing safety and quality improvement actions the Company is taking following the 737-9 door plug accident on January 5, 2024, supply chain constraints, and the IAM 751 work stoppage.\n\nThe higher net loss of $11.8 billion during 2024 compared to $2.2 billion in 2023 primarily reflects higher losses from operations at BCA and BDS. The change in Non-cash items was primarily due to the 777X and 767 reach-forward losses of $4.1 billion recorded in 2024.\n\nChanges in assets and liabilities for 2024 decreased by $12.9 billion compared to 2023 primarily driven by unfavorable changes in Inventories ($10.7 billion), Accounts payable ($2.5 billion) and Unbilled receivables ($0.4 billion), partially offset by changes in Accrued Liabilities ($0.8 billion) and Advances \n\n42\n\n\nand progress billings ($0.7 billion). The growth in Inventories was primarily driven by lower deliveries on our commercial airplane programs during 2024 as compared to 2023. Changes in Accounts payable during 2024 compared to 2023 reflects slowed/paused production primarily in our commercial airplanes business."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.560269,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " \n\nSales of services14,107 13,290 12,213 \n\nTotal revenues89,463 66,517 77,794",
+        "before": "",
+        "match": "Table of Contents\n\nItem 8. Financial Statements and Supplementary Data\n\nIndex to the Consolidated Financial Statements\n\n Page\n\nConsolidated Statements of Operations\n\n54\n\nConsolidated Statements of Comprehensive Income\n\n55\n\nConsolidated Statements of Financial Position\n\n56\n\nConsolidated Statements of Cash Flows\n\n57\n\nConsolidated Statements of Equity\n\n58\n\nSummary of Business Segment Data\n\n59\n\nNote 1 - Summary of Significant Accounting Policies\n\n60\n\nNote 2 - Spirit Acquisition\n\n70\n\nNote 3 - Digital Aviation Solutions Divestiture\n\n72\n\nNote 4 - Goodwill and Acquired Intangibles\n\n73\n\nNote 5 - Earnings Per Share\n\n74\n\nNote 6 - Income Taxes\n\n76\n\nNote 7 - Accounts Receivable\n\n81\n\nNote 8 - Allowance for Losses on Financial Assets\n\n81\n\nNote 9 - Inventories\n\n82\n\nNote 10 - Contracts with Customers\n\n83\n\nNote 11 - Financing Receivables and Operating Lease Equipment\n\n83\n\nNote 12 - Property, Plant and Equipment\n\n85\n\nNote 13 - Investments\n\n85\n\nNote 14 - Leases\n\n86\n\nNote 15 - Liabilities, Commitments and Contingencies\n\n87\n\nNote 16 - Arrangements with Off-Balance Sheet Risk\n\n93\n\nNote 17 - Debt\n\n94\n\nNote 18 - Postretirement Plans\n\n95\n\nNote 19 - Share-Based Compensation and Other Compensation Arrangements\n\n104\n\nNote 20 - Shareholders’ Equity\n\n108\n\nNote 21 - Derivative Financial Instruments\n\n110\n\nNote 22 - Fair Value Measurements\n\n112\n\nNote 23 - Legal Proceedings\n\n114\n\nNote 24 - Segment and Revenue Information\n\n115\n\nReports of Independent Registered Public Accounting Firm\n\n121\n\nThe Boeing Company and Subsidiaries\n\nConsolidated Statements of Operations\n\n(Dollars in millions, except per share data)   \n\nYears ended December 31,202520242023\n\nSales of products$75,356 $53,227 $65,581"
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.558643,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " \n\n202520242023\n\nRevenues:",
+        "before": "(610)(610)\n\nShare-based compensation407 407 \n\n",
+        "match": "Mandatory convertible preferred stock issued, net of issuance costs6 5,645 5,651 \n\nCommon stock issued, net of issuance costs2,253 15,928 18,181 \n\nTreasury shares issued for other share-based plans, net\n\n(145)129 (16)\n\nTreasury shares issued for 401(k) contributions495 1,106 1,601 \n\nCash dividends declared on Mandatory convertible preferred stock(72)(72)\n\nOther changes in noncontrolling interests1 1 \n\nBalance at December 31, 2024$6 $5,061 $18,964 ($32,386)$15,362 ($10,915)($6)($3,914)\n\nNet earnings\n\n2,235 3 2,238 \n\nOther comprehensive income, net of tax of ($17)\n\n638 638 \n\nShare-based compensation426 426\n\nTreasury shares issued for other share-based plans, net\n\n(489)556 67 \n\nTreasury shares issued for 401(k) contributions559 971 1,530 \n\nTreasury shares issued in exchange for shares of Spirit1,874 2,830 4,704 \n\nPremium on Exchangeable Notes assumed from acquisition of Spirit109 109 \n\nCash dividends declared on Mandatory convertible preferred stock(345)(345)\n\nOther changes in noncontrolling interests(2)6 4 \n\nBalance at December 31, 2025$6 $5,061 $21,441 ($28,029)$17,252 ($10,277)$3 $5,457 \n\nSee Notes to the Consolidated Financial Statements on pages 59 - 120.\n\n58\n\n\nThe Boeing Company and Subsidiaries\n\nNotes to the Consolidated Financial Statements\n\nSummary of Business Segment Data\n\n(Dollars in millions) \n\nYears ended December 31,"
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.547483,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " The primary areas that remain preliminary relate to the fair values of inventories, property, plant and equipment, goodwill, intangible assets, and off-market contracts. The Company will continue to adjust the provisional estimates as additional information becomes available and final valuation and analyses are completed. Provisional goodwill of $9,997 associated with the Spirit Acquisition was provisionally assigned to our BCA segment as we expect the majority of synergies from the Spirit Acquisition to relate to the commercial airplane segment. The acquired intangible assets primarily relate to customer relationships and have a weighted-average useful life of five years. Accrued liabilities includes $1,065 for the fair value of off-market customer contracts measured as the present value of the amount by which the terms of the contract deviated from the terms that a market participant could have achieved. Future estimated revenues from the amortization of off-market contract liabilities is as follows:\n\n2026\n\n2027",
+        "before": "(1)     Fair value of consideration reflects the price per share of Boeing common stock on the acquisition date.\n\nIn accordance with the Merger Agreement, 117.5 million shares of Spirit common stock were exchanged for 22.98 million shares of Boeing common stock at an exchange ratio of 0.1955. The exchange ratio was calculated as $37.25 divided by the $190.493 volume weighted average price per share of Boeing common stock on the New York Stock Exchange for the 15-trading-day period ended on December 4, 2025.\n\n",
+        "match": "Since 2023, Boeing has provided funding in the form of loans and advance payments to Spirit to support its liquidity, rate readiness, and 787 tooling and capital expenditures. Pursuant to the terms of the Merger Agreement, Boeing also provided funding to Spirit for the portion of the payment to Airbus SE (Airbus) that Spirit was unable to satisfy with cash on hand as of the closing of the transactions contemplated by the Stock and Asset Purchase Agreement, dated April 27, 2025, between Spirit and Airbus, which closing occurred concurrently with the Spirit Acquisition. Such amounts totaling $2,571 were deemed to be consideration.\n\nWe expensed $53 of acquisition related costs in the Consolidated Statements of Operations as General and administrative expense during the year ended December 31, 2025. The results of Spirit’s operations between the acquisition date and December 31, 2025, were not material. We have determined disclosure of 2025 and 2024 proforma revenue and earnings of Boeing combined with the acquired Spirit business is impracticable. Historical financial results of the acquired portion of the Spirit business are not readily available. To prepare proforma revenue and earnings would require revising historical estimates used in our long-term contract and program accounting as if the Spirit Acquisition had occurred at January 1, 2024 which is impracticable.\n\n71\n\n\nThe preliminary allocation of the purchase price was as follows:\n\nCash and cash equivalents\n\n$281 \n\nAccounts receivable\n\n339 \n\nUnbilled receivables\n\n126 \n\nInventories1,438 \n\nProperty, plant and equipment\n\n2,419 \n\nGoodwill9,997 \n\nAcquired intangible assets\n\n109 \n\nOther assets\n\n116 \n\nAccounts payable(953)\n\nAccrued liabilities\n\n(1,784)\n\nAdvances and progress billings\n\n(97)\n\nShort-term debt and current portion of long-term debt(329)\n\nOther long-term liabilities\n\n(178)\n\nLong-term debt(3,279)\n\nOther166 \n\nTotal net assets acquired$8,371 \n\nThe amounts recorded for acquired assets and assumed liabilities are preliminary and are based on the information available as of the reporting date."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.539912,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " We expect capital expenditures to grow in 2026 compared with 2025.\n\nFinancing Activities Net cash used by financing activities was $3.8 billion during 2025, compared with net cash provided of $25.2 billion during 2024, and net cash used of $5.5 billion in 2023. Net cash used during 2025 was primarily driven by net repayments of $3.5 billion. Net cash provided during 2024 was primarily driven by the issuance of common stock and Mandatory convertible preferred stock in the fourth quarter of 2024, which resulted in cash proceeds of $18.2 billion and $5.7 billion, net of issuance costs.\n\nAt December 31, 2025 and 2024 debt balances totaled $54.1 billion and $53.9 billion, of which $8.5 billion and $1.3 billion were classified as short-term.",
+        "before": "Changes in assets and liabilities for 2024 decreased by $12.9 billion compared to 2023 primarily driven by unfavorable changes in Inventories ($10.7 billion), Accounts payable ($2.5 billion) and Unbilled receivables ($0.4 billion), partially offset by changes in Accrued Liabilities ($0.8 billion) and Advances \n\n42\n\n\nand progress billings ($0.7 billion). The growth in Inventories was primarily driven by lower deliveries on our commercial airplane programs during 2024 as compared to 2023. Changes in Accounts payable during 2024 compared to 2023 reflects slowed/paused production primarily in our commercial airplanes business. ",
+        "match": "The increase in Unbilled receivables during 2024 was primarily driven by revenue recognized in excess of billings at BDS compared to higher billings at BDS and BGS during 2023. The increase in Accrued liabilities was primarily driven by higher accrued losses on BDS fixed-price development programs. Concessions paid to 737 MAX customers totaled $0.9 billion and $0.4 billion during 2024 and 2023. Cash provided by Advances and progress billings during 2024 was $4.1 billion compared to cash provided of $3.4 billion during 2023.\n\nPayables to suppliers who elected to participate in supply chain financing programs decreased by $0.7 billion and $0.2 billion in 2025 and 2024, and increased by $0.4 billion in 2023. Supply chain financing is not material to our overall liquidity.\n\nInvesting Activities Net cash provided by investing activities during 2025 was $0.5 billion, compared with cash used of $12.0 billion during 2024 and $2.4 billion during 2023. The increase in net cash provided in 2025 compared to 2024 was primarily due to an increase in Proceeds from dispositions of $10.5 billion and a decrease in net contributions to investments of $3.8 billion, partially offset by an increase in cash paid for Acquisitions, net of cash acquired of $1.2 billion. Proceeds from dispositions in 2025 were primarily driven by the Digital Aviation Solutions Divestiture in October 2025. Acquisitions, net of cash acquired of $1.2 billion in 2025 reflects the Spirit Acquisition in December 2025. The increase in net cash used by investing activities in 2024 compared to 2023 was primarily due to net contributions to investments of $9.1 billion in 2024 compared to net contributions to investments of $0.7 billion in 2023. Capital expenditures totaled $2.9 billion in 2025, compared with $2.2 billion in 2024 and $1.5 billion in 2023."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.538582,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " \n\nTotal revenues66,517 77,794 66,608 \n\nCost of products(57,394)(59,864)(53,969)",
+        "before": "",
+        "match": "Table of Contents\n\nItem 8. Financial Statements and Supplementary Data\n\nIndex to the Consolidated Financial Statements\n\n Page\n\nConsolidated Statements of Operations\n\n54\n\nConsolidated Statements of Comprehensive Income\n\n55\n\nConsolidated Statements of Financial Position\n\n56\n\nConsolidated Statements of Cash Flows\n\n57\n\nConsolidated Statements of Equity\n\n58\n\nSummary of Business Segment Data\n\n59\n\nNote 1 - Summary of Significant Accounting Policies\n\n60\n\nNote 2 - Spirit Acquisition\n\n71\n\nNote 3 - Goodwill and Acquired Intangibles\n\n72\n\nNote 4 - Earnings Per Share\n\n73\n\nNote 5 - Income Taxes\n\n74\n\nNote 6 - Accounts Receivable\n\n77\n\nNote 7 - Allowance for Losses on Financial Assets\n\n78\n\nNote 8 - Inventories\n\n78\n\nNote 9 - Contracts with Customers\n\n79\n\nNote 10 - Financing Receivables and Operating Lease Equipment\n\n80\n\nNote 11 - Property, Plant and Equipment\n\n82\n\nNote 12 - Investments\n\n83\n\nNote 13 - Leases\n\n84\n\nNote 14 - Liabilities, Commitments and Contingencies\n\n85\n\nNote 15 - Arrangements with Off-Balance Sheet Risk\n\n91\n\nNote 16 - Debt\n\n92\n\nNote 17 - Postretirement Plans\n\n93\n\nNote 18 - Share-Based Compensation and Other Compensation Arrangements\n\n102\n\nNote 19 - Shareholders’ Equity\n\n105\n\nNote 20 - Derivative Financial Instruments\n\n108\n\nNote 21 - Fair Value Measurements\n\n111\n\nNote 22 - Legal Proceedings\n\n113\n\nNote 23 - Segment and Revenue Information\n\n114\n\nReports of Independent Registered Public Accounting Firm\n\n120\n\nThe Boeing Company and Subsidiaries\n\nConsolidated Statements of Operations\n\n(Dollars in millions, except per share data)   \n\nYears ended December 31,202420232022\n\nSales of products$53,227 $65,581 $55,893 \n\nSales of services13,290 12,213 10,715"
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.538473,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\n\nDeliveries of new-build production units, including remanufactures and modifications, were as follows:\n\nYears ended December 31,202420232022",
+        "before": "Business Environment and Trends\n\nOverview\n\nThe Consolidated Appropriations Act, 2024, and the Further Consolidated Appropriations Act, 2024, enacted in March 2024, provided fiscal year 2024 appropriations for government departments and agencies, including $844 billion for the U.S. DoD and $25 billion for the National Aeronautics and Space Administration (NASA). ",
+        "match": "They included funding for Boeing’s major programs, including P-8, CH-47 Chinook, F-15, KC-46A Tanker, AH-64 Apache, V-22 Osprey, and Space Launch System.\n\nIn March 2024, the U.S. government released the President's budget request for FY25, which requested $850 billion in funding for the U.S. DoD and $25 billion for NASA.\n\nThere is ongoing uncertainty with respect to program-level appropriations for the U.S. DoD, NASA and other government agencies for FY25 and beyond. Future budget cuts or investment priority changes, including changes associated with the authorizations and appropriations process, could result in reductions, cancellations and/or delays of existing contracts or programs. Any of these impacts could have a material effect on our results of operations, financing position, and/or cash flows. \n\nThe non-U.S. market continues to be driven by complex and evolving security challenges and the need to modernize aging equipment and inventories. BDS expects that it will continue to have a wide range of opportunities across Asia, Europe and the Middle East given the diverse regional threats. At the end of 2024, 29% of BDS backlog was attributable to non-U.S. customers.\n\nResults of Operations  \n\n(Dollars in millions)\n\nYears ended December 31,202420232022\n\nRevenues$23,918 $24,933 $23,162 \n\n% of total company revenues36 %32 %35 %\n\nLoss from operations\n\n($5,413)($1,764)($3,544)\n\nOperating margins(22.6)%(7.1)%(15.3)%\n\nSince our operating cycle is long-term and involves many different types of development and production contracts with varying delivery and milestone schedules, the operating results of a particular period may not be indicative of future operating results. In addition, depending on the customer and their funding sources, our orders might be structured as annual follow-on contracts, or as one large multi-year order or long-term award. As a result, period-to-period comparisons of backlog are not necessarily indicative of future workloads. The following discussions of comparative results among periods should be viewed in this context.\n\n38"
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.533529,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\nCash flows – operating activities:\n\nNet loss($11,829)($2,242)($5,053)",
+        "before": "Accounts payable$11,364 $11,964 \n\nAccrued liabilities24,103 22,331 \n\n",
+        "match": "Advances and progress billings60,333 56,328 \n\nShort-term debt and current portion of long-term debt1,278 5,204 \n\nTotal current liabilities97,078 95,827 \n\nDeferred income taxes122 229 \n\nAccrued retiree health care2,176 2,233 \n\nAccrued pension plan liability, net5,997 6,516 \n\nOther long-term liabilities2,318 2,332 \n\nLong-term debt52,586 47,103 \n\nTotal liabilities160,277 154,240 \n\nShareholders’ equity:\n\nMandatory convertible preferred stock, 6.00% Series A, par value $1.00 – 20,000,000 shares authorized; 5,750,000 shares issued; aggregate liquidation preference $5,750\n\n6  \n\nCommon stock, par value $5.00 – 1,200,000,000 shares authorized; 1,012,261,159 shares issued\n\n5,061 5,061 \n\nAdditional paid-in capital18,964 10,309 \n\nTreasury stock, at cost(32,386)(49,549)\n\nRetained earnings15,362 27,251 \n\nAccumulated other comprehensive loss(10,915)(10,305)\n\nTotal shareholders’ deficit(3,908)(17,233)\n\nNoncontrolling interests(6)5 \n\nTotal equity(3,914)(17,228)\n\nTotal liabilities and equity$156,363 $137,012 \n\nSee Notes to the Consolidated Financial Statements on pages 60 - 119.\n\n56\n\n\nThe Boeing Company and Subsidiaries\n\nConsolidated Statements of Cash Flows\n\n(Dollars in millions)   \n\nYears ended December 31,202420232022"
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.52964,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " The increase in Accrued liabilities was primarily driven by higher accrued losses on BDS fixed-price development programs. Concessions paid to 737 MAX customers totaled $0.9 billion and $0.4 billion during 2024 and 2023. Cash provided by Advances and progress billings during 2024 was $4.1 billion compared to cash provided of $3.4 billion during 2023. \n\nNet cash provided by operating activities was $6.0 billion during 2023 compared with $3.5 billion during 2022. Net cash provided by operating activities in 2022 included a $1.5 billion income tax refund. The year-over-year improvement in cash provided by operating activities reflects increases in revenues at BCA and BGS, higher Advances and progress billings ($3.3 billion) and lower payments to 737 MAX customers ($0.6 billion), partially offset by increased Inventories ($2.1 billion). Increases in Accrued liabilities in both years primarily reflects accrued reach-forward losses on BDS programs. Changes in assets and liabilities for 2023 decreased by $0.1 billion compared to 2022 primarily driven by unfavorable changes in Inventories ($2.1 billion) and Accrued liabilities ($2.2 billion), partially offset by \n\n42",
+        "before": "Net cash provided/(used) by financing activities25,209 (5,487)(1,266)\n\nEffect of exchange rate changes on cash and cash equivalents(47)30 (73)\n\n",
+        "match": "Net increase/(decrease) in cash & cash equivalents, including restricted1,109 (1,934)6,543 \n\nCash & cash equivalents, including restricted, at beginning of year12,713 14,647 8,104 \n\nCash & cash equivalents, including restricted, at end of year$13,822 $12,713 $14,647 \n\nOperating Activities Net cash used by operating activities was $12.1 billion during 2024 compared with net cash provided of $6.0 billion during 2023. The increase in cash outflows from operating activities in 2024 was primarily driven by our commercial airplanes business. Commercial airplane cash outflows reflect slowed and/or paused production and lower deliveries as a result of ongoing safety and quality improvement actions the Company is taking following the Alaska Airlines accident on January 5, 2024, supply chain constraints, and the IAM 751 work stoppage.\n\nThe higher net loss of $11.8 billion during 2024 compared to $2.2 billion in 2023 primarily reflects higher losses from operations at BCA and BDS. The change in Non-cash items is primarily due to the 777X and 767 reach-forward losses of $4.1 billion recorded in 2024. \n\nChanges in assets and liabilities for 2024 decreased by $12.9 billion compared to 2023 primarily driven by unfavorable changes in Inventories ($10.7 billion), Accounts payable ($2.5 billion) and Unbilled receivables ($0.4 billion), partially offset by changes in Accrued Liabilities ($0.8 billion) and Advances and progress billings ($0.7 billion). The growth in Inventories was primarily driven by lower deliveries on our commercial airplane programs during 2024 as compared to 2023. Changes in Accounts payable during 2024 compared to 2023 reflects slowed/paused production primarily in our commercial airplanes business. The increase in Unbilled receivables during 2024 was primarily driven by revenue recognized in excess of billings at BDS compared to higher billings at BDS and BGS during 2023."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.526002,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\nTotal revenues$66,517 $77,794 $66,608 \n\nLoss from operations:",
+        "before": "Treasury shares issued for 401(k) contribution 627 888 1,515 \n\nSubsidiary shares purchased from noncontrolling interests(267)(267)\n\n",
+        "match": "Other changes in noncontrolling interests(10)(10)\n\nBalance at December 31, 2023$5,061 $10,309 ($49,549)$27,251 ($10,305)$5 ($17,228)\n\nNet loss\n\n(11,817)(12)(11,829)\n\nOther comprehensive loss, net of tax of ($1)\n\n(610)(610)\n\nShare-based compensation407 407\n\nMandatory convertible preferred stock issued, net of issuance costs6 5,645 5,651 \n\nCommon stock issued, net of issuance costs2,253 15,928 18,181 \n\nTreasury shares issued for other share-based plans, net\n\n(145)129 (16)\n\nTreasury shares issued for 401(k) contribution 495 1,106 1,601 \n\nCash dividends declared on Mandatory convertible preferred stock\n\n(72)(72)\n\nOther changes in noncontrolling interests1 1 \n\nBalance at December 31, 2024$6 $5,061 $18,964 ($32,386)$15,362 ($10,915)($6)($3,914)\n\nSee Notes to the Consolidated Financial Statements on pages 60 - 119.\n\n58\n\n\nThe Boeing Company and Subsidiaries\n\nNotes to the Consolidated Financial Statements\n\nSummary of Business Segment Data\n\n(Dollars in millions) \n\nYears ended December 31, \n\n202420232022\n\nRevenues:\n\nCommercial Airplanes$22,861 $33,901 $26,026 \n\nDefense, Space & Security23,918 24,933 23,162 \n\nGlobal Services19,954 19,127 17,611 \n\nUnallocated items, eliminations and other(216)(167)(191)"
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.521189,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " Boeing’s acquisition includes all of Spirit’s Boeing-related commercial operations, including fuselages for the 737, P-8 and KC-46 Tanker programs, as well as major structures for the 767, 777 and 787 programs. It also includes Spirit’s defense and aftermarket businesses as well as portions of Spirit’s operations in Belfast, Ireland. Spirit employs approximately 15,000 people. For additional discussion related to the Digital Aviation Solutions Divestiture and Spirit Acquisition, see Note 3 and Note 2 of our Consolidated Financial Statements.\n\nBusiness Environment and Trends\n\nIn 2025, global air traffic expanded near historical trend rates on an annual basis. This growth came despite a lower than usual contribution from the North American market, which saw stagnant demand particularly in the low-cost space. International demand outpaced domestic demand on an annual basis as the former built on the recovery momentum from 2024, including in China, lifting demand for wide-body airplanes. Based on these trends, both single-aisle and wide-body demand remain above current industry supply levels. We are experiencing strong demand from our airline customers globally.",
+        "before": "Our strategy is centered on successful execution in healthy core businesses – Commercial Airplanes (BCA), Defense, Space & Security (BDS) and Global Services (BGS). BCA is committed to offering airplanes that deliver superior design, safety, quality, efficiency and value to customers around the world. BDS integrates its resources in defense, intelligence, communications, security, space and services to deliver capability-driven solutions to customers. Our BDS strategy is to leverage our core businesses to capture key next-generation programs while expanding our presence in adjacent and international markets. BGS provides support for commercial and defense customers through innovative, comprehensive and cost-competitive product and service solutions. \n\nOn January 5, 2024, a 737-9 flight made an emergency landing after a mid-exit door plug detached in flight. As a result of the accident, the Federal Aviation Administration (FAA) performed an investigation into the 737 quality control system and imposed certain additional requirements and restrictions. As part of our plan to improve quality and safety and to address the issues identified, we slowed production rates and delayed planned production rate increases to reduce traveled work in our factory, as well as at our suppliers. We have also taken additional actions to improve safety and quality, including investing in workforce training, simplifying plans and processes, eliminating defects, and enhancing our safety and quality culture. The 737-9 door plug accident and our resulting actions, including slowing production, significantly impacted our financial position, results of operations and cash flows during 2024 and 2025.\n\n",
+        "match": "On November 4, 2024, the International Association of Machinists and Aerospace Workers District 751 (IAM 751), representing approximately 30,000 Boeing employees, voted to ratify a new contract, thereby ending the work stoppage initiated on September 13, 2024, which paused production of certain commercial aircraft models (737, 767, 777 and 777X aircraft) as well as production of commercial derivative aircraft for our Defense, Space & Security business (KC-46A Tanker and P-8A Poseidon). Production for all programs resumed in December 2024 and gradually ramped up during 2025. \n\nOn November 13, 2025, the International Association of Machinists and Aerospace Workers District 837 (IAM 837), representing approximately 3,200 Boeing employees, voted to ratify a new contract thereby ending the work stoppage initiated on August 4, 2025, which disrupted our St. Louis operations. Programs impacted included F/A-18, F-15, T-7A Red Hawk, MQ-25 and Weapons. \n\nOur contracts with the Society of Professional Engineering Employees in Aerospace, representing approximately 16,000 Boeing employees, are scheduled to expire in October 2026, and could also have a material impact on our financial position, results of operations and cash flows.\n\nDuring the fourth quarter of 2025, we completed a divestiture and an acquisition that are affecting our 2025 financial position, results of operations and cash flows. On October 31, 2025, we completed the divestiture of portions of our BGS segment’s Digital Aviation Solutions business (Digital Aviation Solutions Divestiture) for $10.55 billion in an all-cash transaction. On December 8, 2025, we completed the acquisition of Spirit AeroSystems Holdings, Inc. (Spirit) by exchanging approximately $4.7 billion of Boeing shares for all of Spirit’s outstanding shares (Spirit Acquisition). In connection with the Spirit Acquisition, we paid off certain Spirit debt and other obligations and assumed the remainder of Spirit’s outstanding debt and other obligations."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.519482,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": 4,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\nWe expect to be able to access capital markets when we require additional funding to support our operations, pay off existing debt, address impacts to our business related to market developments, fund outstanding financing commitments or meet other business requirements; however, a number of factors could increase the cost of borrowing, jeopardize our ability to incur debt on terms acceptable to us, and negatively impact our access to the capital and financial markets and our ability to fund our operations and commitments. These factors include downgrades in our credit ratings, disruptions or declines in the global capital markets, a decline in our financial performance or outlook, a delay in our ability to ramp up production and deliveries, and changes in demand for our products and services. The occurrence of any or all of these events may adversely affect our ability to fund our operations and financing or contractual commitments. See “Risks Related to Financing and Liquidity” under “Item 1A. Risk Factors”.\n\nAny future borrowings may affect our credit ratings and are subject to various debt covenants. The most restrictive covenants include a limitation on mortgage debt and sale and leaseback transactions as a percentage of consolidated net tangible assets (as defined in the credit agreements), and a limitation on consolidated debt as a percentage of total capital (as defined in the credit agreements). When considering debt covenants, we continue to have substantial borrowing capacity.",
+        "before": "Pension and other postretirement462 4,936 5,398 \n\nPurchase obligations80,965 109,911 190,876 \n\n",
+        "match": "At December 31, 2025, we had $10.9 billion of cash, $18.5 billion of short-term investments, and $10.0 billion of unused borrowing capacity on revolving credit line agreements. We expect to pay $8.5 billion in short-term and long-term debt due within the next 12 months from our available cash balance. In August 2025, we entered into a $3.0 billion, 364-day revolving credit agreement expiring in August 2026. This facility replaced the $3.0 billion, three-year revolving credit agreement which was scheduled to terminate in August 2025. The 364-day credit facility has a one-year term out option which allows us to extend the maturity of any borrowings until August 2027. Our legacy $3.0 billion, five-year revolving credit agreement expiring in August 2028 and $4.0 billion, five-year revolving credit agreement expiring in May 2029 each remain in effect. We anticipate that these credit lines will primarily serve as back-up liquidity to support our general corporate borrowing needs.\n\nFor discussion related to the Spirit Acquisition and Digital Aviation Solutions Divestiture, see Note 2 and Note 3 to our Consolidated Financial Statements.\n\nWe currently maintain investment grade credit ratings across all three credit rating agencies. In June 2025, Fitch affirmed the BBB- credit rating and revised the outlook to stable from negative. In October 2025, S&P affirmed the BBB- credit rating and revised the outlook to stable from negative. In December 2025, Moody’s affirmed the Baa3 credit rating and revised the outlook to stable from negative.\n\nWe may, from time to time, purchase, redeem or retire any of our outstanding debt securities in open market or privately negotiated transactions, by tender offer or otherwise, after consideration of market conditions, our liquidity needs and other factors."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.516485,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " In the second quarter of 2024, we entered into a $4.0 billion five-year revolving credit agreement expiring in May 2029. In the second quarter of 2024, we terminated the $0.8 billion 364-day revolving credit agreement that was scheduled to expire in August 2024, and the $3.2 billion five-year revolving credit agreement, as amended, that was scheduled to expire in October 2024. Our $3.0 billion three-year revolving credit agreement expiring in August 2025 and $3.0 billion five-year revolving credit agreement expiring in August 2028 each remain in effect. We anticipate that these credit lines will primarily serve as back-up liquidity to support our general corporate borrowing needs. At December 31, 2024 we were in full compliance with all covenants contained in our debt and credit facility agreements.\n\nWe currently maintain investment grade credit ratings; however, Moody’s downgraded our short term and long term credit ratings to Baa3/P-3 in April 2024. Moody's and S&P placed our ratings on review for downgrade in September 2024 and October 2024, respectively. In January 2025, Moody’s affirmed the Baa3/P-3 investment grade credit rating with negative outlook.\n\nWe expect to be able to access capital markets when we require additional funding to support our operations, pay off existing debt, address impacts to our business related to market developments, fund outstanding financing commitments or meet other business requirements; however, a number of factors could increase the cost of borrowing, jeopardize our ability to incur debt on terms acceptable to us, and negatively impact our access to the capital and financial markets and our ability to fund our operations and commitments. These factors include further downgrades in our credit ratings, disruptions or declines in the global capital markets, a decline in our financial performance or, outlook, a delay in our ability to ramp up production and deliveries, and changes in demand for our products and services. The occurrence of any or all of these events may adversely affect our ability to fund our operations and financing or contractual commitments. See “Risks Related to Financing and Liquidity” under “Item 1A. Risk Factors”.",
+        "before": "Financing Activities Cash provided by financing activities was $25.2 billion during 2024, compared with cash used of $5.5 billion during 2023, and $1.3 billion in 2022. Cash provided by financing activities during 2024 was primarily driven by the issuance of common stock and Mandatory convertible preferred stock in the fourth quarter of 2024, which resulted in cash proceeds of $18.2 billion and $5.7 billion, net of issuance costs, as well as the issuance of $10.0 billion of fixed-rate senior notes in the second quarter of 2024. During 2024, net borrowings were $1.5 billion compared to net repayments of $5.1 billion and $1.3 billion in 2023 and 2022.\n\nAt December 31, 2024 and 2023 debt balances totaled $53.9 billion and $52.3 billion, of which $1.3 billion and $5.2 billion were classified as short-term.\n\n",
+        "match": "We had 0.4 million, 1.7 million and 0.2 million shares transferred to us from employee tax withholdings in 2024, 2023 and 2022, respectively. The increase in 2023 was primarily due to the vesting of a one-time RSU grant awarded to most employees in December 2020. In 2020, we announced the suspension of our dividend to common shareholders until further notice. As a result, we did not pay any dividends to common shareholders in 2024, 2023 and 2022. \n\nCapital Resources\n\nThe following table summarizes certain cash requirements for known contractual and other obligations as of December 31, 2024, and the estimated timing thereof. See Note 13 for future operating lease payments.\n\n(Dollars in millions)CurrentLong-termTotal\n\nLong-term debt (including current portion)$1,268 $53,101 $54,369 \n\nInterest on debt2,594 38,386 40,980 \n\nPension and other postretirement470 7,761 8,231 \n\nPurchase obligations67,034 79,141 146,175 \n\n43\n\n\nDuring 2024, net cash used by operating activities was $12.1 billion. The cash outflow was primarily driven by our commercial airplanes business. Commercial airplanes cash outflows reflect slowed production and lower deliveries following the Alaska Airlines accident, supply chain constraints and the IAM 751 work stoppage.\n\nOn June 30, 2024, we entered into an agreement to acquire Spirit in an all-stock transaction at an equity value of approximately $4.7 billion, or $37.25 per share of Spirit Class A Common Stock. The transaction will include the assumption of Spirit's net debt at closing. See Note 2 to our Consolidated Financial Statements.\n\nAt December 31, 2024, we had $13.8 billion of cash, $12.5 billion of short-term investments, and $10.0 billion of unused borrowing capacity on revolving credit line agreements."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.516452,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\nInvesting Activities Cash used by investing activities during 2024 was $12.0 billion, compared with cash used of $2.4 billion during 2023 and cash provided by investment activities of $4.4 billion during 2022. The increase in cash used in 2024 compared to 2023 was primarily due to net contributions to investments of $9.1 billion in 2024 compared to $0.7 billion in 2023. The increase in cash outflows in 2023 compared to 2022 was primarily due to net contributions to investments of $0.7 billion in 2023 compared to net proceeds from investments of $5.6 billion in 2022. Capital expenditures totaled $2.2 billion in 2024, compared with $1.5 billion in 2023 and $1.2 billion in 2022. We expect capital expenditures to grow in 2025 compared with 2024.\n\nFinancing Activities Cash provided by financing activities was $25.2 billion during 2024, compared with cash used of $5.5 billion during 2023, and $1.3 billion in 2022. Cash provided by financing activities during 2024 was primarily driven by the issuance of common stock and Mandatory convertible preferred stock in the fourth quarter of 2024, which resulted in cash proceeds of $18.2 billion and $5.7 billion, net of issuance costs, as well as the issuance of $10.0 billion of fixed-rate senior notes in the second quarter of 2024. During 2024, net borrowings were $1.5 billion compared to net repayments of $5.1 billion and $1.3 billion in 2023 and 2022.",
+        "before": "Operating Activities Net cash used by operating activities was $12.1 billion during 2024 compared with net cash provided of $6.0 billion during 2023. The increase in cash outflows from operating activities in 2024 was primarily driven by our commercial airplanes business. Commercial airplane cash outflows reflect slowed and/or paused production and lower deliveries as a result of ongoing safety and quality improvement actions the Company is taking following the Alaska Airlines accident on January 5, 2024, supply chain constraints, and the IAM 751 work stoppage.\n\nThe higher net loss of $11.8 billion during 2024 compared to $2.2 billion in 2023 primarily reflects higher losses from operations at BCA and BDS. The change in Non-cash items is primarily due to the 777X and 767 reach-forward losses of $4.1 billion recorded in 2024. \n\nChanges in assets and liabilities for 2024 decreased by $12.9 billion compared to 2023 primarily driven by unfavorable changes in Inventories ($10.7 billion), Accounts payable ($2.5 billion) and Unbilled receivables ($0.4 billion), partially offset by changes in Accrued Liabilities ($0.8 billion) and Advances and progress billings ($0.7 billion). The growth in Inventories was primarily driven by lower deliveries on our commercial airplane programs during 2024 as compared to 2023. Changes in Accounts payable during 2024 compared to 2023 reflects slowed/paused production primarily in our commercial airplanes business. The increase in Unbilled receivables during 2024 was primarily driven by revenue recognized in excess of billings at BDS compared to higher billings at BDS and BGS during 2023. ",
+        "match": "The increase in Accrued liabilities was primarily driven by higher accrued losses on BDS fixed-price development programs. Concessions paid to 737 MAX customers totaled $0.9 billion and $0.4 billion during 2024 and 2023. Cash provided by Advances and progress billings during 2024 was $4.1 billion compared to cash provided of $3.4 billion during 2023. \n\nNet cash provided by operating activities was $6.0 billion during 2023 compared with $3.5 billion during 2022. Net cash provided by operating activities in 2022 included a $1.5 billion income tax refund. The year-over-year improvement in cash provided by operating activities reflects increases in revenues at BCA and BGS, higher Advances and progress billings ($3.3 billion) and lower payments to 737 MAX customers ($0.6 billion), partially offset by increased Inventories ($2.1 billion). Increases in Accrued liabilities in both years primarily reflects accrued reach-forward losses on BDS programs. Changes in assets and liabilities for 2023 decreased by $0.1 billion compared to 2022 primarily driven by unfavorable changes in Inventories ($2.1 billion) and Accrued liabilities ($2.2 billion), partially offset by \n\n42\n\n\nincreases in Advances and progress billings ($3.3 billion). The change in Inventories was primarily driven by increased production on the 737 and 777X programs, partially offset by increased deliveries for the 787 program in 2023. The change in Accrued liabilities was primarily driven by higher accrued losses on BDS fixed-price development programs recorded in the prior year. Cash provided by Advances and progress billings was $3.4 billion in 2023 as compared with $0.1 billion in 2022. Concessions paid to 737 MAX customers totaled $0.4 billion in 2023 and $1.0 billion in 2022. \n\nPayables to suppliers who elected to participate in supply chain financing programs decreased by $0.2 billion in 2024, and increased by $0.4 billion and $0.2 billion in 2023 and 2022. Supply chain financing is not material to our overall liquidity."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.515889,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": 6,
+      "company": "BOEING CO",
+      "context": {
+        "after": " \n\nAt December 31, 2025, we had $10.9 billion of cash, $18.5 billion of short-term investments, and $10.0 billion of unused borrowing capacity on revolving credit line agreements. We expect to pay $8.5 billion in short-term and long-term debt due within the next 12 months from our available cash balance. In August 2025, we entered into a $3.0 billion, 364-day revolving credit agreement expiring in August 2026. This facility replaced the $3.0 billion, three-year revolving credit agreement which was scheduled to terminate in August 2025. The 364-day credit facility has a one-year term out option which allows us to extend the maturity of any borrowings until August 2027. Our legacy $3.0 billion, five-year revolving credit agreement expiring in August 2028 and $4.0 billion, five-year revolving credit agreement expiring in May 2029 each remain in effect. We anticipate that these credit lines will primarily serve as back-up liquidity to support our general corporate borrowing needs.\n\nFor discussion related to the Spirit Acquisition and Digital Aviation Solutions Divestiture, see Note 2 and Note 3 to our Consolidated Financial Statements.",
+        "before": "and progress billings ($0.7 billion). The growth in Inventories was primarily driven by lower deliveries on our commercial airplane programs during 2024 as compared to 2023. Changes in Accounts payable during 2024 compared to 2023 reflects slowed/paused production primarily in our commercial airplanes business. The increase in Unbilled receivables during 2024 was primarily driven by revenue recognized in excess of billings at BDS compared to higher billings at BDS and BGS during 2023. The increase in Accrued liabilities was primarily driven by higher accrued losses on BDS fixed-price development programs. Concessions paid to 737 MAX customers totaled $0.9 billion and $0.4 billion during 2024 and 2023. Cash provided by Advances and progress billings during 2024 was $4.1 billion compared to cash provided of $3.4 billion during 2023.\n\nPayables to suppliers who elected to participate in supply chain financing programs decreased by $0.7 billion and $0.2 billion in 2025 and 2024, and increased by $0.4 billion in 2023. Supply chain financing is not material to our overall liquidity.\n\nInvesting Activities Net cash provided by investing activities during 2025 was $0.5 billion, compared with cash used of $12.0 billion during 2024 and $2.4 billion during 2023. The increase in net cash provided in 2025 compared to 2024 was primarily due to an increase in Proceeds from dispositions of $10.5 billion and a decrease in net contributions to investments of $3.8 billion, partially offset by an increase in cash paid for Acquisitions, net of cash acquired of $1.2 billion. Proceeds from dispositions in 2025 were primarily driven by the Digital Aviation Solutions Divestiture in October 2025. Acquisitions, net of cash acquired of $1.2 billion in 2025 reflects the Spirit Acquisition in December 2025. The increase in net cash used by investing activities in 2024 compared to 2023 was primarily due to net contributions to investments of $9.1 billion in 2024 compared to net contributions to investments of $0.7 billion in 2023. Capital expenditures totaled $2.9 billion in 2025, compared with $2.2 billion in 2024 and $1.5 billion in 2023. ",
+        "match": "We expect capital expenditures to grow in 2026 compared with 2025.\n\nFinancing Activities Net cash used by financing activities was $3.8 billion during 2025, compared with net cash provided of $25.2 billion during 2024, and net cash used of $5.5 billion in 2023. Net cash used during 2025 was primarily driven by net repayments of $3.5 billion. Net cash provided during 2024 was primarily driven by the issuance of common stock and Mandatory convertible preferred stock in the fourth quarter of 2024, which resulted in cash proceeds of $18.2 billion and $5.7 billion, net of issuance costs.\n\nAt December 31, 2025 and 2024 debt balances totaled $54.1 billion and $53.9 billion, of which $8.5 billion and $1.3 billion were classified as short-term.\n\nWe had 0.2 million, 0.4 million and 1.7 million shares transferred to us from employee tax withholdings in 2025, 2024 and 2023, respectively. The increase in 2023 was primarily due to the vesting of a one-time RSU grant awarded to most employees in December 2020. Our dividend to common shareholders has been suspended since 2020.\n\n43\n\n\nCapital Resources\n\nThe following table summarizes certain cash requirements for known contractual and other obligations as of December 31, 2025, and the estimated timing thereof. See Note 14 for future operating lease payments.\n\n(Dollars in millions)CurrentLong-termTotal\n\nLong-term debt (including current portion)$8,475 $46,106 54,581 \n\nInterest on debt2,486 36,035 38,521 \n\nPension and other postretirement462 4,936 5,398 \n\nPurchase obligations80,965 109,911 190,876"
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.5137,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": 5,
+      "company": "BOEING CO",
+      "context": {
+        "after": " Interest capitalized was $185, $149, and $101 for the years ended December 31, 2025, 2024 and 2023, respectively.\n\nShort-term debt and current portion of long-term debt at December 31 consisted of the following:\n\n20252024",
+        "before": "In August 2025, we entered into a $3,000, 364-day revolving credit agreement expiring in August 2026. This facility replaced the $3,000, three-year revolving credit agreement which was scheduled to terminate in August 2025. The 364-day credit facility has a one-year term out option which allows us to extend the maturity of any borrowings until August 2027. Our legacy $3,000, five-year revolving credit agreement expiring in August 2028 and $4,000, five-year revolving credit agreement expiring in May 2029 each remain in effect. As of December 31, 2025, we had $10,000 available under credit line agreements.\n\nWe continue to be in compliance with all covenants contained in our debt and credit facility agreements.\n\nIn December 2025, as a result of the Spirit Acquisition, we assumed $3,608 of debt, $2,260 of which we immediately repaid. ",
+        "match": "The remaining debt assumed primarily includes the following notes issued by Spirit Sub: $300 of 3.850% Senior Notes due 2026 (the Spirit 2026 Notes), $700 of 4.600% Senior Notes due 2028 (the Spirit 2028 Notes, and together with the Spirit 2026 Notes, the Spirit Senior Notes) and $230 of 3.250% Exchangeable Notes due 2028 (the Spirit Exchangeable Notes).\n\nThe Spirit Exchangeable Notes mature on November 1, 2028, unless earlier exchanged, redeemed or repurchased, and are exchangeable at an initial rate of 6.7067 shares of Boeing common stock per $1,000 principal amount, in whole dollars, of the Spirit Exchangeable Notes. Prior to August 1, 2028, if certain conditions are met, holders of the Spirit Exchangeable Notes may elect to exchange the Spirit Exchangeable Notes. On or after August 1, 2028, the holders of the Spirit Exchangeable Notes may elect to exchange the Spirit Exchangeable Notes without restriction. Upon exchange, we will pay cash and/or deliver shares of Boeing common stock, at our election, to the holders of the Spirit Exchangeable Notes.\n\nIn connection with closing of the Spirit Acquisition, The Boeing Company guaranteed the obligations of Spirit Sub with respect to the Spirit Senior Notes, and as a result, each of The Boeing Company and Spirit fully and unconditionally guarantee the Spirit Senior Notes on a senior unsecured basis. The guarantees rank equally in right of payment with all of Boeing’s existing and future senior unsecured indebtedness.\n\nInterest incurred, including amounts capitalized, was $2,956, $2,874 and $2,560 for the years ended December 31, 2025, 2024 and 2023, respectively. Total Company interest payments, net of amounts capitalized, were $2,630, $2,440 and $2,408 for the years ended December 31, 2025, 2024 and 2023, respectively."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.5109,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " The change in Accounts payable during 2025 compared to 2024 reflects increased production primarily in our commercial airplanes business. The change in Advances and progress billings during 2025 compared to 2024 was primarily driven by increased commercial airplane deliveries and revenue recognized at BDS, partially offset by higher advances on commercial airplane orders. Concessions paid to 737 MAX customers totaled $0.2 billion and $0.9 billion during 2025 and 2024.\n\nNet cash used by operating activities was $12.1 billion during 2024 compared with net cash provided of $6.0 billion during 2023. The increase in cash outflows from operating activities in 2024 was primarily driven by our commercial airplanes business. Commercial airplane cash outflows reflected slowed and/or paused production and lower deliveries as a result of ongoing safety and quality improvement actions the Company is taking following the 737-9 door plug accident on January 5, 2024, supply chain constraints, and the IAM 751 work stoppage.\n\nThe higher net loss of $11.8 billion during 2024 compared to $2.2 billion in 2023 primarily reflects higher losses from operations at BCA and BDS. The change in Non-cash items was primarily due to the 777X and 767 reach-forward losses of $4.1 billion recorded in 2024.",
+        "before": "Years ended December 31,202520242023\n\nNet earnings/(loss)$2,238 ($11,829)($2,242)\n\n",
+        "match": "Non-cash items(171)8,517 4,113 \n\nChanges in assets and liabilities(1,002)(8,768)4,089 \n\nNet cash provided/(used) by operating activities1,065 (12,080)5,960 \n\nNet cash provided/(used) by investing activities499 (11,973)(2,437)\n\nNet cash (used)/provided by financing activities(3,763)25,209 (5,487)\n\nEffect of exchange rate changes on cash and cash equivalents40 (47)30 \n\nNet (decrease)/increase in cash & cash equivalents, including restricted(2,159)1,109 (1,934)\n\nCash & cash equivalents, including restricted, at beginning of year13,822 12,713 14,647 \n\nCash & cash equivalents, including restricted, at end of year$11,663 $13,822 $12,713 \n\nOperating Activities Net cash provided by operating activities was $1.1 billion during 2025 compared with net cash used of $12.1 billion during 2024. The $13.1 billion increase in net cash provided by operating activities was primarily driven by higher commercial airplane deliveries, lower customer considerations and working capital improvements.\n\nThe change in Non-cash items of $8.7 billion compared with 2024 was primarily due to a gain on the Digital Aviation Solutions Divestiture in October 2025, partially offset by higher combined 777X and 767 reach-forward losses recorded during 2025 compared to 2024.\n\nChanges in assets and liabilities for 2025 improved by $7.8 billion compared to 2024 primarily driven by favorable changes in Inventories ($10.9 billion) and Accounts payable ($1.5 billion), partially offset by unfavorable changes in Advances and progress billings ($4.8 billion). The change in Inventories was primarily driven by higher deliveries on our commercial airplane programs during 2025 as compared to 2024."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.508547,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " All other activities fall within Unallocated items, eliminations and other. See page 59 for the Summary of Business Segment Data, which is an integral part of this note.\n\nBCA develops, produces and markets commercial jet aircraft principally to the commercial airline industry worldwide. Revenue on commercial aircraft contracts is recognized at the point in time when an aircraft is completed and accepted by the customer.\n\nBDS engages in the research, development, production and modification of the following products and related services: manned and unmanned military aircraft and weapons systems, surveillance and engagement, strategic defense and intelligence systems, satellite systems and space exploration. BDS revenue is generally recognized over the contract term (over time) as costs are incurred.",
+        "before": "The fair value of Notes receivable classified as Level 2 is estimated with discounted cash flow analysis using interest rates currently offered on loans with similar terms to borrowers of similar credit quality. The fair value of Notes receivable classified as Level 3 is based on our best estimate using available counterparty financial data. The fair value of our debt that is traded in the secondary market is classified as Level 2 and is based on current market yields. For our debt that is not traded in the secondary market, the fair value is classified as Level 2 and is based on our indicative borrowing cost derived from dealer quotes or discounted cash flows. With regard to other financial instruments with off-balance sheet risk, it is not practicable to estimate the fair value of our indemnifications and financing commitments because the amount and timing of those arrangements are uncertain. Items not included in the above disclosures include cash, restricted cash, time deposits and other deposits, Accounts receivable, Unbilled receivables, Other current assets, Accounts payable and long-term payables. The carrying values of those items, as reflected in the Consolidated Statements of Financial Position, approximate their fair value at December 31, 2025 and 2024. The fair value of assets and liabilities whose carrying value approximates fair value is determined using Level 2 inputs, with the exception of cash (Level 1).\n\nNote 23 – Legal Proceedings\n\nWe are subject, from time to time, to various legal proceedings and claims related to our business that cover a wide range of matters, including those related to products, contracts, labor and employment, securities, antitrust and trade regulations, intellectual property, and other matters. In addition, we are subject to various government inquiries and investigations from which civil, criminal or administrative proceedings could result or have resulted in the past. Such proceedings involve or could involve claims by the U.S. or foreign governments for fines, penalties, compensatory and treble damages, restitution and/or forfeitures. ",
+        "match": "Under U.S. government regulations, a company, or one or more of its operating divisions or subdivisions, can be suspended or debarred from government contracts, have certain of its production certificates suspended or revoked, or lose its export privileges, based on the results of investigations.\n\nOn May 29, 2025, Boeing and the Department of Justice (the Department) entered into a non-prosecution agreement (the Agreement) to resolve the Department’s determination that Boeing did not fulfill its obligations under the January 2021 deferred prosecution agreement relating to the October 2018 Lion Air flight 610 accident and the March 2019 Ethiopian Airlines flight 302 accident (the MAX accidents). The Agreement requires, among other things, Boeing to pay a fine of $244 and provide $445 of additional compensation for the family members of those who died in the MAX accidents. The $244 fine, which was accrued for and expensed in 2024, and the $445 compensation fund for family members, which was accrued for and expensed in the second quarter of 2025, are held in escrow accounts pending final court approval of the Department’s motion to dismiss the criminal information against Boeing (the Motion). On November 6, 2025, the U.S. District Court for the Northern District of Texas (the Court) approved the Motion; however, representatives of family members appealed the Court’s decision, which appeal is pending before the U.S. Court of Appeals for the Fifth Circuit.\n\nCertain legal actions and investigations arising out of the MAX accidents and subsequent grounding of the 737 MAX are still pending, including fewer than five civil lawsuits by family members of those who died in the MAX accidents. In addition, securities lawsuits are pending, including a motion for class certification on a federal securities class action before the U.S. District Court for the Northern District of Illinois. Multiple investigations and legal actions, including securities lawsuits, were also initiated as a result of the January 2024 737-9 door plug accident.\n\nGiven the status of these legal actions and investigations, we cannot reasonably estimate a range of loss, if any, not covered by available insurance and in excess of any accrued amounts, that may result from these matters.\n\n114\n\n\nNote 24 – Segment and Revenue Information\n\nWe operate in three reportable segments: BCA, BDS, and BGS."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.503664,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\n\nMerger Agreement is terminated in accordance with its terms, the then outstanding balances will become due and payable in full on April 1, 2026.\n\nNote 3 – Goodwill and Acquired Intangibles",
+        "before": "Spirit has also entered into a binding term sheet with Airbus SE (Airbus) setting forth the terms upon which Airbus will, assuming the parties enter into definitive agreements and receive all required regulatory approvals, acquire certain commercial work packages that Spirit performs for Airbus concurrently with the closing of the Boeing-Spirit merger. In addition, Spirit is selling certain of its other operations.\n\nThe transaction is expected to close mid-2025 and is subject to the sale of the Spirit operations related to certain Airbus commercial work packages and the satisfaction of customary closing conditions, including certain regulatory approvals. On January 31, 2025, Spirit’s stockholders approved the Merger Agreement and the related transactions.\n\n",
+        "match": "The Merger Agreement contains certain termination rights, including that either Boeing or Spirit may terminate the Merger Agreement if, subject to certain limitations, the transaction has not been consummated by March 31, 2025 (subject to three automatic three-month extensions if on each such date all of the closing conditions except those relating to regulatory approvals have been satisfied or waived) (the Outside Date). If either party breaches or fails to perform any of its representations, warranties or covenants under the Merger Agreement such that the related conditions to the other party's obligation to consummate the Merger would not be satisfied, and such breach or failure is not curable by the Outside Date or, if curable by the Outside Date, has not been cured within 30 days following notice thereof, such other party may terminate the Merger Agreement.\n\nThe Merger Agreement also provides that we will be required to pay Spirit a termination fee of $300 if the Merger Agreement is terminated by Spirit or Boeing under certain specified circumstances as a result of the parties' failure to obtain the required regulatory approvals by the Outside Date or in the event that any law or order related to the required regulatory approvals or any applicable antitrust law or foreign investment law prohibits the consummation of the Merger.\n\nDuring 2023 and 2024, Boeing reached agreements to provide Spirit up to $1,067 to support its liquidity, rate readiness, and 787 tooling and capital expenditures, of which $166 has yet to be drawn. At December 31, 2024 and 2023, Other current assets included $539 and $0 and Other assets included $299 and $143. At December 31, 2024 and 2023, advance payments to Spirit of $165 and $223 were included in Inventories and are scheduled to be recovered as the related shipsets are received by Boeing from Spirit.\n\nOn January 22, 2025, Boeing and Spirit reached an agreement to reschedule repayment dates for $515 to 2026. This includes changing repayment of $425 originally due in 2024 to 2026. In the event that the \n\n71"
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.500738,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " As we have the right to offset the loans against the cash surrender value of the policies, we present the net asset in Other assets on the Consolidated Statements of Financial Position as of December 31, 2024 and 2023.\n\nSupply Chain Financing Programs\n\nThe Company has supply chain financing programs in place under which participating suppliers may elect to obtain payment from an intermediary. The Company confirms the validity of invoices from participating suppliers and agrees to pay the intermediary an amount based on invoice totals. The majority of amounts payable under these programs are due within 30 to 90 days but may extend up to",
+        "before": "86\n\n\nFinancing Commitments\n\n",
+        "match": "Financing commitments related to aircraft on order, including options and those proposed in sales campaigns, and refinancing of delivered aircraft, totaled $17,124 and $17,003 as of December 31, 2024 and 2023. The estimated earliest potential funding dates for these commitments as of December 31, 2024 are as follows:\n\nTotal\n\n2025$3,449 \n\n20263,938 \n\n20273,735 \n\n20282,273 \n\n20291,773 \n\nThereafter1,956 \n\nTotal\n\n$17,124 \n\nAs of December 31, 2024, $13,798 of these financing commitments relate to customers we believe have less than investment-grade credit. We have concluded that no reserve for future potential losses is required for these financing commitments based upon the terms, such as collateralization and interest rates, under which funding would be provided.\n\nOther Financial Commitments\n\nWe have financial commitments to make additional capital contributions totaling $261 related to certain joint ventures over the next eight years.\n\nStandby Letters of Credit and Surety Bonds\n\nWe have entered into standby letters of credit and surety bonds with financial institutions primarily relating to the guarantee of our future performance on certain contracts and security agreements. Contingent liabilities on outstanding letters of credit agreements and surety bonds aggregated approximately $2,991 and $4,548 as of December 31, 2024 and 2023.\n\nCompany Owned Life Insurance\n\nMcDonnell Douglas Corporation insured its executives with Company Owned Life Insurance (COLI), which are life insurance policies with a cash surrender value. Although we do not use COLI currently, these obligations from the merger with McDonnell Douglas are still a commitment at this time. We have loans in place to cover costs paid or incurred to carry the underlying life insurance policies. As of December 31, 2024 and 2023, the cash surrender value was $342 and $360 and the total loans were $314 and $334."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.497234,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": 3,
+      "company": "BOEING CO",
+      "context": {
+        "after": " \n\n3.25% - 3.90% due through 2059\n\n9,637 9,584",
+        "before": "Note 16 – Debt\n\nIn the second quarter of 2024, we issued $10.0 billion of fixed-rate senior notes consisting of $1.0 billion due May 2027 that bear an annual interest rate of 6.259%, $1.5 billion due May 2029 that bear an annual interest rate of 6.298%, $1.0 billion due May 2031 that bear an annual interest rate of 6.388%, $2.5 billion due May 2034 that bear an annual interest rate of 6.528%, $2.5 billion due May 2054 that bear an annual interest rate of 6.858%, and $1.5 billion due May 2064 that bear an annual interest rate of 7.008%. The notes are unsecured senior obligations and rank equally in right of payment with our existing and future unsecured and unsubordinated indebtedness. The net proceeds of the issuance totaled $9.9 billion, after deducting underwriting discounts, commissions, and offering expenses.\n\nIn the second quarter of 2024, we entered into a $4.0 billion five-year revolving credit agreement expiring in May 2029. ",
+        "match": "Effective as of the second quarter of 2024, we terminated the $0.8 billion 364-day revolving credit agreement expiring in August 2024, and the $3.2 billion five-year revolving credit agreement, as amended, expiring in October 2024. Our $3.0 billion three-year revolving credit agreement expiring in August 2025 and $3.0 billion five-year revolving credit agreement expiring in August 2028 each remain in effect. As of December 31, 2024, we had $10.0 billion available under credit line agreements. We continue to be in full compliance with all covenants contained in our debt and credit facility agreements.\n\nInterest incurred, including amounts capitalized, was $2,874, $2,560 and $2,650 for the years ended December 31, 2024, 2023 and 2022, respectively. Total Company interest payments, net of amounts capitalized, were $2,440, $2,408 and $2,572 for the years ended December 31, 2024, 2023 and 2022, respectively. Interest capitalized was $149, $101, and $89 for the years ended December 31, 2024, 2023 and 2022, respectively.\n\nShort-term debt and current portion of long-term debt at December 31 consisted of the following:\n\n20242023\n\nUnsecured debt$850 $5,072 \n\nFinance lease obligations86 77 \n\nOther notes342 55 \n\nTotal$1,278 $5,204 \n\n92\n\n\nDebt at December 31 consisted of the following:\n\n20242023\n\nUnsecured debt\n\n1.43% - 2.50% due through 2032\n\n$6,159 $10,135 \n\n2.60% - 3.20% due through 2030\n\n5,389 6,071"
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.492329,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\nOther changes in noncontrolling interests(10)(10)\n\nBalance at December 31, 2023$5,061 $10,309 ($49,549)$27,251 ($10,305)$5 ($17,228)",
+        "before": "Less restricted cash & cash equivalents, included in Investments21 22 33 \n\nCash and cash equivalents at end of year$13,801 $12,691 $14,614 \n\n",
+        "match": "See Notes to the Consolidated Financial Statements on pages 60 - 119.\n\n57\n\n\nThe Boeing Company and Subsidiaries\n\nConsolidated Statements of Equity\n\n Boeing shareholders  \n\n(Dollars in millions, except per share data)Mandatory convertible preferred stock\n\nCommon\n\nstock\n\nAdditional\n\npaid-in\n\ncapital\n\nTreasury \n\nstock\n\nRetained\n\nearnings\n\nAccumulated\n\nother \n\ncomprehensive \n\nloss\n\nNon-\n\ncontrolling\n\ninterests\n\nTotal\n\nBalance at January 1, 2022$5,061 $9,052 ($51,861)$34,408 ($11,659)$153 ($14,846)\n\nNet loss\n\n(4,935)(118)(5,053)\n\nOther comprehensive income, net of tax of ($22)\n\n2,109 2,109 \n\nShare-based compensation725 725 \n\nTreasury shares issued for stock options exercised, net\n\n(31)81 50 \n\nTreasury shares issued for other share-based plans, net\n\n(94)46 (48)\n\nTreasury shares issued for 401(k) contribution 295920 1,215 \n\nBalance at December 31, 2022$5,061 $9,947 ($50,814)$29,473 ($9,550)$35 ($15,848)\n\nNet loss\n\n(2,222)(20)(2,242)\n\nOther comprehensive loss, net of tax of $4\n\n(755)(755)\n\nShare-based compensation690 690 \n\nTreasury shares issued for stock options exercised, net\n\n(28)73 45 \n\nTreasury shares issued for other share-based plans, net\n\n(660)304 (356)\n\nTreasury shares issued for 401(k) contribution 627 888 1,515 \n\nSubsidiary shares purchased from noncontrolling interests(267)(267)"
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.491755,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " We have loans in place to cover costs paid or incurred to carry the underlying life insurance policies. As of December 31, 2025 and 2024, the cash surrender value was $331 and $342 and the total loans were $303 and $314. As we have the right to offset the loans against the cash surrender value of the policies, we present the net asset in Other assets on the Consolidated Statements of Financial Position as of December 31, 2025 and 2024.\n\nSupply Chain Financing Programs\n\nThe Company has supply chain financing programs in place under which participating suppliers may elect to obtain payment from an intermediary. The Company confirms the validity of invoices from participating suppliers and agrees to pay the intermediary an amount based on invoice totals. The majority of amounts payable under these programs are due within 30 to 90 days. The following table summarizes changes in Accounts payable to suppliers participating in supply chain financing programs:",
+        "before": "Commercial Aircraft Trade-In Commitments\n\nIn conjunction with signing definitive agreements for the sale of new aircraft, we have entered into trade-in commitments with certain customers that give them the right to trade in used aircraft at a specified price. The probability that trade-in commitments will be exercised is determined by using both quantitative information from valuation sources and qualitative information from other sources. The probability of exercise is assessed quarterly, or as events trigger a change, and takes into consideration the current economic and airline industry environments. Trade-in commitments, which can be terminated by mutual consent with the customer, may be exercised only during the period specified in the agreement and require advance notice by the customer.\n\nTrade-in commitment agreements at December 31, 2025, have expiration dates from 2026 through 2033. At December 31, 2025 and 2024, total contractual trade-in commitments were $1,267 and $1,393. ",
+        "match": "As of December 31, 2025 and 2024, we estimated that it was probable we would be obligated to perform on certain of these commitments with net amounts payable to customers totaling $67 and $275 and the fair value of the related trade-in aircraft was $61 and $270.\n\nFinancing Commitments\n\nFinancing commitments related to aircraft on order, including options and those proposed in sales campaigns, and refinancing of delivered aircraft, totaled $15,229 and $17,124 as of December 31, 2025 and 2024. The estimated earliest potential funding dates for these commitments as of December 31, 2025 are as follows:\n\nTotal\n\n2026$2,362 \n\n20274,228 \n\n20283,715 \n\n20292,392 \n\n20301,257 \n\nThereafter1,275 \n\nTotal\n\n$15,229 \n\nAs of December 31, 2025, $11,904 of these financing commitments relate to customers we believe have less than investment-grade credit. We have concluded that no reserve for future potential losses is required for these financing commitments based upon the terms, such as collateralization and interest rates, under which funding would be provided.\n\nOther Financial Commitments\n\nWe have financial commitments to make additional capital contributions totaling $283 related to certain joint ventures over the next 12 years.\n\nStandby Letters of Credit and Surety Bonds\n\nWe have entered into standby letters of credit and surety bonds with financial institutions primarily relating to the guarantee of our future performance on certain contracts and security agreements. Contingent liabilities on outstanding letters of credit agreements and surety bonds aggregated approximately $3,295 and $2,991 as of December 31, 2025 and 2024.\n\n89\n\n\nCompany Owned Life Insurance\n\nMcDonnell Douglas Corporation insured its executives with Company Owned Life Insurance (COLI), which are life insurance policies with a cash surrender value. Although we do not use COLI currently, these obligations from the merger with McDonnell Douglas are still a commitment at this time."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.487664,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": 1,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\nWe had 0.4 million, 1.7 million and 0.2 million shares transferred to us from employee tax withholdings in 2024, 2023 and 2022, respectively. The increase in 2023 was primarily due to the vesting of a one-time RSU grant awarded to most employees in December 2020. In 2020, we announced the suspension of our dividend to common shareholders until further notice. As a result, we did not pay any dividends to common shareholders in 2024, 2023 and 2022. \n\nCapital Resources",
+        "before": "increases in Advances and progress billings ($3.3 billion). The change in Inventories was primarily driven by increased production on the 737 and 777X programs, partially offset by increased deliveries for the 787 program in 2023. The change in Accrued liabilities was primarily driven by higher accrued losses on BDS fixed-price development programs recorded in the prior year. Cash provided by Advances and progress billings was $3.4 billion in 2023 as compared with $0.1 billion in 2022. Concessions paid to 737 MAX customers totaled $0.4 billion in 2023 and $1.0 billion in 2022. \n\nPayables to suppliers who elected to participate in supply chain financing programs decreased by $0.2 billion in 2024, and increased by $0.4 billion and $0.2 billion in 2023 and 2022. Supply chain financing is not material to our overall liquidity.\n\n",
+        "match": "Investing Activities Cash used by investing activities during 2024 was $12.0 billion, compared with cash used of $2.4 billion during 2023 and cash provided by investment activities of $4.4 billion during 2022. The increase in cash used in 2024 compared to 2023 was primarily due to net contributions to investments of $9.1 billion in 2024 compared to $0.7 billion in 2023. The increase in cash outflows in 2023 compared to 2022 was primarily due to net contributions to investments of $0.7 billion in 2023 compared to net proceeds from investments of $5.6 billion in 2022. Capital expenditures totaled $2.2 billion in 2024, compared with $1.5 billion in 2023 and $1.2 billion in 2022. We expect capital expenditures to grow in 2025 compared with 2024.\n\nFinancing Activities Cash provided by financing activities was $25.2 billion during 2024, compared with cash used of $5.5 billion during 2023, and $1.3 billion in 2022. Cash provided by financing activities during 2024 was primarily driven by the issuance of common stock and Mandatory convertible preferred stock in the fourth quarter of 2024, which resulted in cash proceeds of $18.2 billion and $5.7 billion, net of issuance costs, as well as the issuance of $10.0 billion of fixed-rate senior notes in the second quarter of 2024. During 2024, net borrowings were $1.5 billion compared to net repayments of $5.1 billion and $1.3 billion in 2023 and 2022.\n\nAt December 31, 2024 and 2023 debt balances totaled $53.9 billion and $52.3 billion, of which $1.3 billion and $5.2 billion were classified as short-term."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.478533,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " \n\nMandatory convertible preferred stock issued, net of issuance costs6 5,645 5,651 \n\nCommon stock issued, net of issuance costs2,253 15,928 18,181",
+        "before": "Net (decrease)/increase in cash & cash equivalents, including restricted(2,159)1,109 (1,934)\n\nCash & cash equivalents, including restricted, at beginning of year13,822 12,713 14,647 \n\n",
+        "match": "Cash & cash equivalents, including restricted, at end of year11,663 13,822 12,713 \n\nLess restricted cash & cash equivalents, included in Investments742 21 22 \n\nCash and cash equivalents at end of year$10,921 $13,801 $12,691 \n\nSee Notes to the Consolidated Financial Statements on pages 59 - 120.\n\n57\n\n\nThe Boeing Company and Subsidiaries\n\nConsolidated Statements of Equity\n\n Boeing shareholders  \n\n(Dollars in millions)\n\nMandatory convertible preferred stockCommonstockAdditionalpaid-incapitalTreasury stockRetainedearningsAccumulatedother comprehensive lossNon-controllinginterestsTotal\n\nBalance at January 1, 2023$5,061 $9,947 ($50,814)$29,473 ($9,550)$35 ($15,848)\n\nNet loss(2,222)(20)(2,242)\n\nOther comprehensive loss, net of tax of $4\n\n(755)(755)\n\nShare-based compensation690 690 \n\nTreasury shares issued for stock options exercised, net\n\n(28)73 45 \n\nTreasury shares issued for other share-based plans, net\n\n(660)304 (356)\n\nTreasury shares issued for 401(k) contributions627888 1,515 \n\nSubsidiary shares purchased from non-controlling interests(267)(267)\n\nOther changes in noncontrolling interests(10)(10)\n\nBalance at December 31, 2023$5,061 $10,309 ($49,549)$27,251 ($10,305)$5 ($17,228)\n\nNet loss(11,817)(12)(11,829)\n\nOther comprehensive loss, net of tax of ($1)\n\n(610)(610)\n\nShare-based compensation407 407"
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.476899,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\nThe Company’s management is responsible for maintaining effective internal control over financial reporting and for its assessment of the effectiveness of internal control over financial reporting, included in the accompanying Management’s Annual Report on Internal Control Over Financial Reporting. Our responsibility is to express an opinion on the Company’s internal control over financial reporting based on our audit. We are a public accounting firm registered with the PCAOB and are required to be independent with respect to the Company in accordance with the U.S. federal securities laws and the applicable rules and regulations of the Securities and Exchange Commission and the PCAOB.\n\nWe conducted our audit in accordance with the standards of the PCAOB. Those standards require that we plan and perform the audit to obtain reasonable assurance about whether effective internal control over financial reporting was maintained in all material respects. Our audit included obtaining an understanding of internal control over financial reporting, assessing the risk that a material weakness exists, testing and evaluating the design and operating effectiveness of internal control based on the assessed risk, and performing such other procedures as we considered necessary in the circumstances. We believe that our audit provides a reasonable basis for our opinion.",
+        "before": "•We performed inquiries with multiple members of Management (both inside and outside of accounting) to understand the Program and Company’s current status and events that could impact the production rate schedule. \n\n•We performed internet searches to identify potential reports of regulatory requirements, remedies or business considerations, certification timeline, key suppliers delays and other indicators of further delays for the 737 production rate schedule. We evaluated whether any contradictory evidence existed that would indicate that the Program would not meet its planned production rate schedule and if any other media information was inconsistent with our knowledge of the Company and 737 program.\n\n",
+        "match": "•We assessed the reasonableness of the Program’s production rate schedule, including performing a lookback analysis on management’s ability to estimate monthly production output.\n\n•We tested the effectiveness of internal controls, including those over the production rate assumption and significant judgments made to develop the forecasted cost estimates for the 737 program.\n\n/s/ Deloitte & Touche LLP\n\nSeattle, Washington\n\nJanuary 30, 2026\n\nWe have served as the Company's auditor since at least 1934; however, an earlier year could not be reliably determined.\n\n125\n\n\nREPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM\n\nTo the shareholders and the Board of Directors of The Boeing Company\n\nOpinion on Internal Control over Financial Reporting\n\nWe have audited the internal control over financial reporting of The Boeing Company and subsidiaries (the “Company”) as of December 31, 2025, based on criteria established in Internal Control — Integrated Framework (2013) issued by the Committee of Sponsoring Organizations of the Treadway Commission (COSO). In our opinion, the Company maintained, in all material respects, effective internal control over financial reporting as of December 31, 2025, based on criteria established in Internal Control — Integrated Framework (2013) issued by COSO. \n\nWe have also audited, in accordance with the standards of the Public Company Accounting Oversight Board (United States) (PCAOB), the consolidated financial statements as of and for the year ended December 31, 2025 of the Company, and our report dated January 30, 2026 expressed an unqualified opinion on those financial statements.\n\nAs described in Management’s Annual Report on Internal Control Over Financial Reporting, management excluded from its assessment the internal control over financial reporting at Spirit AeroSystems Holdings, Inc., which was acquired on December 8, 2025, and whose financial statements constitute approximately 9 percent of Total assets and less than 1 percent of each Total revenues and Earnings from operations of the consolidated financial statement amounts for the year then ended. Accordingly, our audit did not include the internal control over financial reporting at Spirit AeroSystems Holdings, Inc.\n\nBasis for Opinion"
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.469196,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " \n\nAdvances and progress billings60,333 56,328 \n\nShort-term debt and current portion of long-term debt1,278 5,204",
+        "before": "(610)(755)2,109 \n\nComprehensive loss\n\n",
+        "match": "(12,439)(2,997)(2,944)\n\nLess: Comprehensive loss attributable to noncontrolling interest\n\n(12)(20)(118)\n\nComprehensive loss attributable to Boeing Shareholders\n\n($12,427)($2,977)($2,826)\n\nSee Notes to the Consolidated Financial Statements on pages 60 - 119.\n\n55\n\n\nThe Boeing Company and Subsidiaries\n\nConsolidated Statements of Financial Position \n\n(Dollars in millions, except per share data)  \n\nDecember 31,20242023\n\nAssets\n\nCash and cash equivalents$13,801 $12,691 \n\nShort-term and other investments12,481 3,274 \n\nAccounts receivable, net2,631 2,649 \n\nUnbilled receivables, net8,363 8,317 \n\nCurrent portion of financing receivables, net207 99 \n\nInventories87,550 79,741 \n\nOther current assets, net2,965 2,504 \n\nTotal current assets127,998 109,275 \n\nFinancing receivables and operating lease equipment, net314 860 \n\nProperty, plant and equipment, net11,412 10,661 \n\nGoodwill8,084 8,093 \n\nAcquired intangible assets, net1,957 2,094 \n\nDeferred income taxes185 59 \n\nInvestments999 1,035 \n\nOther assets, net of accumulated amortization of $1,085 and $1,046\n\n5,414 4,935 \n\nTotal assets$156,363 $137,012 \n\nLiabilities and equity\n\nAccounts payable$11,364 $11,964 \n\nAccrued liabilities24,103 22,331"
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.468921,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " Products sales under long-term contracts primarily include fighter jets, rotorcraft, cybersecurity products, surveillance suites, advanced weapons, missile defense, military derivative aircraft, satellite systems and modification of commercial passenger aircraft to cargo freighters. Sales of services under \n\n60\n\n\nlong-term contracts primarily include support and maintenance agreements associated with our commercial and defense products and space travel on Commercial Crew.",
+        "before": "Note 1 – Summary of Significant Accounting Policies\n\nPrinciples of Consolidation and Basis of Presentation\n\n",
+        "match": "The Consolidated Financial Statements included in this report have been prepared by management of The Boeing Company (herein referred to as “Boeing,” the “Company,” “we,” “us” or “our”). These statements include the accounts of all majority-owned subsidiaries and variable interest entities that are required to be consolidated. All significant intercompany accounts and transactions have been eliminated. As described in Note 23, we operate in three reportable segments: Commercial Airplanes (BCA), Defense, Space & Security (BDS), and Global Services (BGS). We added a new financial statement line item to the Consolidated Statements of Cash Flows for cash invested in Supplier notes receivable and reclassified the corresponding amounts in the prior period financial statements to conform to the current period presentation.\n\nUse of Estimates\n\nThe preparation of financial statements in conformity with U.S. generally accepted accounting principles (GAAP) requires management to make estimates and assumptions that affect the reported amounts of assets and liabilities and disclosure of contingent assets and liabilities at the date of the financial statements and the reported amounts of revenues and expenses during the reporting period. Actual results could differ from those estimates.\n\nOperating Cycle\n\nFor classification of certain current assets and liabilities, we use the duration of the related contract or program as our operating cycle, which is generally longer than one year.\n\nRevenue and Related Cost Recognition\n\nCommercial aircraft contracts The majority of our BCA segment revenue is derived from commercial aircraft contracts. For each contract, we determine the transaction price based on the consideration expected to be received. We allocate the transaction price to each commercial aircraft performance obligation based on relative standalone selling prices adjusted by an escalation formula as specified in the customer agreement. Revenue is recognized for each commercial aircraft performance obligation at the point in time when the aircraft is completed and accepted by the customer. We use program accounting to determine the amount reported as cost of sales.\n\nPayments for commercial aircraft sales are received in accordance with the customer agreement, which generally includes a deposit upon order and additional payments in accordance with a payment schedule, with the balance being due immediately prior to or at aircraft delivery. Advances and progress billings (contract liabilities) are normal and customary for commercial aircraft contracts and not considered a significant financing component as they are intended to protect us from the other party failing to adequately complete some or all of its obligations under the contract.\n\nLong-term contracts Substantially all contracts at BDS and certain contracts at BGS are long-term contracts with the U.S. government and other customers that generally extend over several years."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.462271,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " Our responsibility is to express an opinion on the Company's financial statements based on our audits. We are a public accounting firm registered with the PCAOB and are required to be independent with respect to the Company in accordance with the U.S. federal securities laws and the applicable rules and regulations of the Securities and Exchange Commission and the PCAOB.\n\nWe conducted our audits in accordance with the standards of the PCAOB. Those standards require that we plan and perform the audit to obtain reasonable assurance about whether the financial statements are free of material misstatement, whether due to error or fraud. Our audits included performing procedures to assess the risks of material misstatement of the financial statements, whether due to error or fraud, and performing procedures that respond to those risks. Such procedures included examining, on a test basis, evidence regarding the amounts and disclosures in the financial statements. Our audits also included evaluating the accounting principles used and significant estimates made by management, as well as evaluating the overall presentation of the financial statements. We believe that our audits provide a reasonable basis for our opinion.\n\n120",
+        "before": "923 858 841 \n\nTotal$1,836 $1,861 $1,979 \n\n(1)Amounts shown in the table represent depreciation and amortization expense recorded by the individual business segments. ",
+        "match": "Depreciation and amortization for centrally managed assets are allocated to business segments based on usage and occupancy. In 2024, $705 was allocated to the primary business segments, of which $339, $289 and $77 was allocated to BCA, BDS and BGS, respectively. In 2023, $650 was allocated the primary business segments, of which $311, $264 and $75 was allocated to BCA, BDS and BGS, respectively. In 2022, $644 was allocated to the primary business segments, of which $361, $230 and $53 was allocated to BCA, BDS and BGS, respectively.\n\n119\n\n\nREPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM\n\nTo the shareholders and the Board of Directors of The Boeing Company\n\nOpinion on the Financial Statements\n\nWe have audited the accompanying consolidated statements of financial position of The Boeing Company and subsidiaries (the \"Company\") as of December 31, 2024 and 2023, the related consolidated statements of operations, comprehensive income, equity, and cash flows, for each of the three years in the period ended December 31, 2024, and the related notes (collectively referred to as the \"financial statements\"). In our opinion, the financial statements present fairly, in all material respects, the financial position of the Company as of December 31, 2024 and 2023, and the results of its operations and its cash flows for each of the three years in the period ended December 31, 2024, in conformity with accounting principles generally accepted in the United States of America.\n\nWe have also audited, in accordance with the standards of the Public Company Accounting Oversight Board (United States) (PCAOB), the Company's internal control over financial reporting as of December 31, 2024, based on criteria established in Internal Control — Integrated Framework (2013) issued by the Committee of Sponsoring Organizations of the Treadway Commission and our report dated February 3, 2025, expressed an unqualified opinion on the Company's internal control over financial reporting.\n\nBasis for Opinion\n\nThese financial statements are the responsibility of the Company's management."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.461148,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 8 Financial Statements and Supplementary Data",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": 2,
+      "company": "BOEING CO",
+      "context": {
+        "after": " The most restrictive covenants include a limitation on mortgage debt and sale and leaseback transactions as a percentage of consolidated net tangible assets (as defined in the credit agreements), and a limitation on consolidated debt as a percentage of total capital (as defined in the credit agreements). When considering debt covenants, we continue to have substantial borrowing capacity.\n\nPension and Other Postretirement Benefits Pension cash requirements are based on an estimate of our minimum funding requirements, pursuant to Employee Retirement Income Security Act (ERISA) regulations, although we may make additional discretionary contributions. Estimates of other postretirement benefits are based on both our estimated future benefit payments and the estimated contributions to plans that are funded through trusts.\n\nAt December 31, 2024 and 2023, our pension plans were $4.8 billion and $5.4 billion underfunded as measured under U.S. generally accepted accounting principles (GAAP). On an ERISA basis, our plans are more than 90% funded at December 31, 2024. We do not expect to make significant contributions",
+        "before": "During 2024, net cash used by operating activities was $12.1 billion. The cash outflow was primarily driven by our commercial airplanes business. Commercial airplanes cash outflows reflect slowed production and lower deliveries following the Alaska Airlines accident, supply chain constraints and the IAM 751 work stoppage.\n\nOn June 30, 2024, we entered into an agreement to acquire Spirit in an all-stock transaction at an equity value of approximately $4.7 billion, or $37.25 per share of Spirit Class A Common Stock. The transaction will include the assumption of Spirit's net debt at closing. See Note 2 to our Consolidated Financial Statements.\n\nAt December 31, 2024, we had $13.8 billion of cash, $12.5 billion of short-term investments, and $10.0 billion of unused borrowing capacity on revolving credit line agreements. ",
+        "match": "In the second quarter of 2024, we entered into a $4.0 billion five-year revolving credit agreement expiring in May 2029. In the second quarter of 2024, we terminated the $0.8 billion 364-day revolving credit agreement that was scheduled to expire in August 2024, and the $3.2 billion five-year revolving credit agreement, as amended, that was scheduled to expire in October 2024. Our $3.0 billion three-year revolving credit agreement expiring in August 2025 and $3.0 billion five-year revolving credit agreement expiring in August 2028 each remain in effect. We anticipate that these credit lines will primarily serve as back-up liquidity to support our general corporate borrowing needs. At December 31, 2024 we were in full compliance with all covenants contained in our debt and credit facility agreements.\n\nWe currently maintain investment grade credit ratings; however, Moody’s downgraded our short term and long term credit ratings to Baa3/P-3 in April 2024. Moody's and S&P placed our ratings on review for downgrade in September 2024 and October 2024, respectively. In January 2025, Moody’s affirmed the Baa3/P-3 investment grade credit rating with negative outlook.\n\nWe expect to be able to access capital markets when we require additional funding to support our operations, pay off existing debt, address impacts to our business related to market developments, fund outstanding financing commitments or meet other business requirements; however, a number of factors could increase the cost of borrowing, jeopardize our ability to incur debt on terms acceptable to us, and negatively impact our access to the capital and financial markets and our ability to fund our operations and commitments. These factors include further downgrades in our credit ratings, disruptions or declines in the global capital markets, a decline in our financial performance or, outlook, a delay in our ability to ramp up production and deliveries, and changes in demand for our products and services. The occurrence of any or all of these events may adversely affect our ability to fund our operations and financing or contractual commitments. See “Risks Related to Financing and Liquidity” under “Item 1A. Risk Factors”.\n\nAny future borrowings may affect our credit ratings and are subject to various debt covenants."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.45325,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " \n\nUnallocated items, eliminations and other411 735 \n\nTotal Backlog$682,207 $521,336",
+        "before": "Cost of sales$85,174 $68,508 $16,666 $68,508 $70,070 ($1,562)\n\nCost of sales as a % of Revenues95.2 %103.0 %(7.8)%103.0 %90.1 %12.9 %\n\nCost of sales increased by $16,666 million in 2025 compared with 2024, primarily due to higher deliveries and an increase in reach-forward losses at BCA, partially offset by lower charges on BDS fixed-price development programs. ",
+        "match": "Cost of sales as a percentage of Revenues decreased in 2025 compared to 2024 primarily due to lower charges on BDS fixed-price development programs, partially offset by higher combined reach-forward losses on the 777X and 767 programs at BCA.\n\nCost of sales decreased by $1,562 million in 2024 compared with 2023, primarily due to lower revenues at BCA, partially offset by the reach-forward losses on the 777X and 767 programs and higher charges on the BDS fixed-price development programs. Cost of sales as a percentage of Revenues increased in 2024 compared to 2023 primarily due to the reach-forward losses on the 777X and 767 programs, lower margins at BCA, and higher charges on the BDS fixed-price development programs.\n\nResearch and Development  \n\nThe following table summarizes our Research and development expense:\n\n(Dollars in millions)\n\nYears ended December 31,202520242023\n\nCommercial Airplanes$2,202 $2,386 $2,036 \n\nDefense, Space & Security877 917 919 \n\nGlobal Services125 132 107 \n\nOther411 377 315 \n\nTotal$3,615 $3,812 $3,377 \n\nResearch and development expense decreased by $197 million in 2025 compared with 2024. The decrease in expense was primarily due to lower spending at BCA.\n\nResearch and development expense increased by $435 million in 2024 compared with 2023 primarily due to the 777X program at BCA and higher enterprise investments in product development.\n\n30\n\n\nBacklog\n\nOur backlog at December 31 was as follows:\n\n(Dollars in millions)\n\nYears ended December 31,20252024\n\nCommercial Airplanes$567,290 $435,175 \n\nDefense, Space & Security84,786 64,023 \n\nGlobal Services29,720 21,403"
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.449846,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " The increase is primarily due to higher net unfavorable cumulative contract catch-up adjustments of $3,428 million on BDS’ five major fixed-price development programs compared to 2023. During 2024, losses incurred on the five major fixed-price development programs totaled $5,013 million, including KC-46A Tanker ($2,002 million), T-7A Red Hawk ($1,770 million), Commercial Crew ($523 million), VC-25B ($379 million), and MQ-25 ($339 million). Net unfavorable cumulative contract catch-up adjustments were $3,534 million higher than the comparable period in the prior year. See further discussion of fixed-price contracts in Note 14 to our Consolidated Financial Statements.\n\nBDS loss from operations in 2023 of $1,764 million decreased by $1,780 million compared with $3,544 million in 2022. The decrease is primarily due to $2,863 million of lower charges in 2023 on fixed-price development programs that were partially offset by lower earnings across other programs including satellites and F-15, as well as higher period expenses. During 2023, losses incurred on the five fixed-price development programs totaled $1,585 million compared with $4,448 million in 2022. Charges on fixed-price development programs in 2023 included VC-25B ($482 million), KC-46A Tanker ($309 million), Commercial Crew ($288 million), T-7A Red Hawk ($275 million) and MQ-25 ($231 million). Loss from operations in 2023 includes a $315 million impact from an agreement with one of our satellite customers which includes customer considerations as well as increased costs to enhance the \n\n39",
+        "before": "Since our operating cycle is long-term and involves many different types of development and production contracts with varying delivery and milestone schedules, the operating results of a particular period may not be indicative of future operating results. In addition, depending on the customer and their funding sources, our orders might be structured as annual follow-on contracts, or as one large multi-year order or long-term award. As a result, period-to-period comparisons of backlog are not necessarily indicative of future workloads. The following discussions of comparative results among periods should be viewed in this context.\n\n38\n\n\n",
+        "match": "Deliveries of new-build production units, including remanufactures and modifications, were as follows:\n\nYears ended December 31,202420232022\n\nF/A-18 Models11 22 14 \n\nF-15 Models14 9 12 \n\nT-7A Red Hawk\n\n2 3 \n\nCH-47 Chinook (New)4 11 19 \n\nCH-47 Chinook (Renewed)9 9 9 \n\nAH-64 Apache (New)16 20 25 \n\nAH-64 Apache (Remanufactured)34 57 50 \n\nMH-139 Grey Wolf6 2 4 \n\nKC-46 Tanker10 13 15 \n\nP-8 Models4 11 12 \n\nCommercial Satellites2 54\n\nMilitary Satellites1\n\nTotal112 162 165 \n\nRevenues  \n\nBDS revenues in 2024 decreased by $1,015 million compared with 2023. The decrease is primarily due to higher net unfavorable cumulative contract catch-up adjustments of $909 million on BDS’ five major fixed-price development programs. Overall, net unfavorable cumulative contract catch-up adjustments in 2024 were $995 million higher than 2023. \n\nBDS revenues in 2023 increased by $1,771 million compared with 2022. Revenues related to BDS’ five major fixed-price development programs increased by $1,767 million in 2023 compared with 2022. This increase reflects lower unfavorable net cumulative contract catch-up adjustments in 2023 as well as higher costs incurred in 2023 to complete these contracts. Net unfavorable cumulative contract catch-up adjustments in 2023 were $648 million better than in 2022 largely due to lower charges on development programs in 2023, partially offset by unfavorable performance on other programs. \n\nLoss From Operations  \n\nBDS loss from operations in 2024 was $5,413 million compared with $1,764 million in 2023."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.449321,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " These factors have reduced overall productivity and adversely impacted our financial position, results of operations and cash flows.\n\nAirline financial performance, which influences demand for new capacity, has benefited from the resilient demand for travel. The International Air Transport Association (IATA) is estimating 2024 industry-wide net profits of $31.5 billion, up from its forecast of $25.7 billion a year ago, primarily driven by North America, Europe and the Middle East. For 2025, IATA is forecasting $36.6 billion in net profits for the industry globally. The overall outlook continues to stabilize as we face uncertainties in the environment in the near- to medium-term as airlines are facing persistently high and volatile costs. The global economy is expecting a continued easing of inflation and interest rates, with regional economic and geopolitical difficulties adding uncertainty to the outlook and the financial viability of some airlines and regions.\n\nThe long-term outlook for the industry remains positive due to the fundamental drivers of air travel demand: economic growth, increasing propensity to travel due to increased trade, globalization and improved airline services driven by liberalization of air traffic rights between countries. Our Commercial Market Outlook forecast projects a 3.2% growth rate in the global fleet over a 20-year period. Based on long-term global economic growth projections of 2.6% in average annual gross domestic product, we project demand for approximately 43,975 new airplanes over the next 20 years. The industry remains vulnerable to exogenous developments including fuel price spikes, potential new or increased tariffs, changing energy policies, credit market shocks, acts of terrorism, natural disasters, conflicts, epidemics, pandemics and increased global environmental regulations.",
+        "before": "Our strategy is centered on successful execution in healthy core businesses – Commercial Airplanes (BCA), Defense, Space & Security (BDS) and Global Services (BGS). BCA is committed to being the leader in commercial aviation by offering airplanes and services that deliver superior design, safety, quality, efficiency and value to customers around the world. BDS integrates its resources in defense, intelligence, communications, security, space and services to deliver capability-driven solutions to customers at reduced costs. Our BDS strategy is to leverage our core businesses to capture key next-generation programs while expanding our presence in adjacent and international markets. BGS provides support for commercial and defense through innovative, comprehensive and cost-competitive product and service solutions. \n\nOn January 5, 2024, an Alaska Airlines 737-9 flight made an emergency landing after a mid-exit door plug detached in flight. Following the accident, the Federal Aviation Administration (FAA) grounded and required inspections of all 737-9 aircraft with a mid-exit door plug, which constituted the large majority of the approximately 220 737-9 aircraft in the in-service fleet. On January 24, 2024, the FAA approved an enhanced maintenance and inspection process that was required to be performed on each of the grounded 737-9 aircraft. Our 737-9 operators returned their fleets to service in the first quarter. All 737-9 aircraft in production are undergoing this same enhanced inspection process prior to delivery.\n\nAs a result of the accident, the FAA performed an investigation into the 737 quality control system. ",
+        "match": "In the second quarter of 2024, we submitted a comprehensive safety and quality plan to the FAA to address the issues identified. As part of our plan to improve quality and safety and to address the issues identified, we slowed production rates and delayed planned production rate increases to reduce traveled work in our factory, as well as at our suppliers. We also began taking additional actions to improve safety and quality, which include investing in workforce training, simplifying plans and processes, eliminating defects, and enhancing our safety and quality culture.\n\nThe Alaska Airlines accident and our resulting actions, including slowing production, to improve compliance with our manufacturing quality control requirements significantly impacted our financial position, results of operations and cash flows during 2024.\n\nOn November 4, 2024, the International Association of Machinists and Aerospace Workers District 751 (IAM 751) voted to ratify a new contract, thereby ending the work stoppage initiated on September 13, 2024, which paused production of certain commercial aircraft models (737, 767, 777 and 777X aircraft) as well as production of commercial derivative aircraft for our Defense, Space & Security business (KC-46A Tanker and P-8A Poseidon). Production for all programs resumed in December 2024.\n\nThe IAM 751 work stoppage significantly reduced aircraft deliveries in the second half of 2024. The new contract with IAM 751 and pay enhancements for certain non-union employees is adversely impacting our financial position, results of operations and cash flows.\n\nBusiness Environment and Trends\n\nIn 2024, global air traffic continued to expand beyond 2019 levels with domestic travel continuing to be the most robust and the single-aisle market following closely. International travel also surpassed pre-pandemic levels during 2024 and the wide-body market continues to improve with the international travel recovery. The transition in the international commercial market from recovery to normal market conditions is continuing to progress as China international travel remains below 2019 levels. We are experiencing strong demand from our airline customers globally.\n\nWe and our suppliers are experiencing supply chain disruptions as a result of production quality issues, global supply chain constraints, and labor instability. We and our suppliers are also experiencing inflationary pressures. We continue to monitor the health and stability of the supply chain."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.448586,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " They included funding for Boeing’s major programs, including P-8, CH-47 Chinook, F-15, KC-46A Tanker, AH-64 Apache, V-22 Osprey, and Space Launch System.\n\nIn March 2024, the U.S. government released the President's budget request for FY25, which requested $850 billion in funding for the U.S. DoD and $25 billion for NASA.\n\nThere is ongoing uncertainty with respect to program-level appropriations for the U.S. DoD, NASA and other government agencies for FY25 and beyond. Future budget cuts or investment priority changes, including changes associated with the authorizations and appropriations process, could result in reductions, cancellations and/or delays of existing contracts or programs. Any of these impacts could have a material effect on our results of operations, financing position, and/or cash flows.",
+        "before": "We are following the lead of the FAA as we work through the certification process and the ultimate timing will be determined by the regulators.\n\nThe level of profitability on the 777X program will be subject to several factors. These factors include aircraft certification requirements and timing, change incorporation on completed aircraft, production disruption due to labor instability and supply chain disruption, customer considerations, delivery timing and negotiations, further production rate adjustments for the 777X or other commercial aircraft programs, and contraction of the accounting quantity. One or more of these factors could result in additional reach-forward losses in future periods.\n\n",
+        "match": "787 Program The accounting quantity for the 787 program increased by 100 units during the year ended December 31, 2024, due to the program's normal progress of obtaining additional orders and delivering airplanes. During 2024, we slowed production to below 5 per month due to supply chain constraints as well as other production issues. While we continue to be impacted by performance challenges and supply chain constraints, we are working to increase production rates. Delays associated with business class seats adversely impacted 2024 deliveries and will continue to impact deliveries in 2025. As of December 31, 2024, we had approximately 25 aircraft in inventory that were produced prior to 2023 and required rework. We expect to complete the rework and deliver the majority of these aircraft in 2025. The inspections and rework costs on inventoried aircraft are accounted for as abnormal production costs, and we expensed $256 million during the year ended December 31, 2024.\n\nFleet Support We provide the operators of our commercial aircraft with assistance and services to facilitate efficient and safe airplane operation. Collectively known as fleet support services, these activities and services begin prior to airplane delivery and continue throughout the operational life of the airplane. They include flight and maintenance training, field service support, engineering services, information services and systems and technical data and documents. The costs for fleet support are expensed as incurred and have historically been approximately 1% of total consolidated costs of products and services.\n\nAdditional Considerations\n\nOn June 30, 2024, we entered into an agreement to acquire Spirit. See Note 2 to our Consolidated Financial Statements.\n\n37\n\n\nDefense, Space & Security\n\nBusiness Environment and Trends\n\nOverview\n\nThe Consolidated Appropriations Act, 2024, and the Further Consolidated Appropriations Act, 2024, enacted in March 2024, provided fiscal year 2024 appropriations for government departments and agencies, including $844 billion for the U.S. DoD and $25 billion for the National Aeronautics and Space Administration (NASA)."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.446274,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0000012927-25-000015",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " As of December 31, 2024, we had approximately 35 737-7 and 737-10 aircraft in inventory. We are following the lead of the FAA as we work through the certification process and the ultimate timing will be determined by the regulators.\n\nThe production slow-down, the IAM 751 work stoppage and new agreement, and the timing of minor model certifications have had an adverse impact on our financial position, results of operations and cash flows during 2024. If we are unable to deliver aircraft and/or increase future production rates, or certify the 737-7 and 737-10 models consistent with our assumptions, our financial position, results of operations and cash flows will continue to be adversely affected.\n\nSee further discussion of the 737 MAX in Note 8 and Note 14 to our Consolidated Financial Statements.",
+        "before": "Program Highlights\n\n737 Program In January 2024, an Alaska Airlines 737-9 flight made an emergency landing after a mid-exit door plug detached in flight. Following the accident, the FAA grounded and required inspections of all 737-9 aircraft with a mid-exit door plug. All 737-9 aircraft returned to service in the first quarter of 2024. \n\n",
+        "match": "As a result of the accident, the FAA investigated the 737 quality control system, including Spirit AeroSystems Holdings, Inc. (Spirit), and increased its oversight of Boeing’s production and quality and safety management systems. In addition, the FAA communicated it will not approve production rate increases beyond 38 per month or additional production lines until Boeing has complied with required quality and safety standards. \n\nThe FAA communicated findings from its investigation in February 2024 and identified multiple instances where Boeing and Spirit failed to comply with manufacturing quality control requirements. In the second quarter of 2024, we submitted a comprehensive safety and quality plan to the FAA to address the issues identified. We also began taking additional actions to improve safety and quality, which include investing in workforce training, simplifying plans and processes, eliminating defects, and enhancing our safety and quality culture. \n\n35\n\n\nPrior to the Alaska Airlines accident, we were operating at a production rate of 38 per month. As part of our plan to improve quality and safety and to address the issues identified, we slowed production rates and delayed planned production rate increases to reduce traveled work in our factory, as well as at our suppliers. These actions also include conducting fuselage inspections at Spirit to improve quality prior to shipment to Boeing. \n\nProduction was paused on September 13, 2024, because of the work stoppage initiated by IAM 751. A new IAM 751 contract was ratified in November 2024, and production resumed in early December 2024. Prior to the work stoppage, production rates gradually increased in 2024 as we implemented new processes aligned with our safety and quality plan. We plan to gradually increase the production rate. \n\nAs of December 31, 2024, we had approximately 55 737-8 aircraft in inventory that were produced prior to 2023, including approximately 40 aircraft for customers in China. We expect to deliver these aircraft in 2025.\n\nWe are continuing to work through the certification process of the 737-7 and 737-10 models, which have been delayed, while we work through the engineering solution for the engine anti-ice system for the 737-7 and 737-10 prior to certification of these minor models."
+      },
+      "filed": "2025-02-03",
+      "fiscal_year": 2024,
+      "form": "10-K",
+      "included": true,
+      "score": 0.446083,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000001292725000015/ba-20241231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " During 2024, losses incurred on the five major fixed-price development programs totaled $5,013 million, including KC-46A Tanker ($2,002 million), T-7A Red Hawk ($1,770 million), Commercial Crew ($523 million), VC-25B ($379 million), and MQ-25 ($339 million). Net unfavorable cumulative contract catch-up adjustments were $3,534 million higher than the comparable period in the prior year.\n\nSee further discussion of fixed-price contracts in Note 15 to our Consolidated Financial Statements.\n\nBDS earnings/(loss) from operations includes our share of income from equity method investments of $21 million, $125 million and $44 million primarily from our United Launch Alliance and other joint ventures in 2025, 2024 and 2023, respectively.",
+        "before": "CH-47 Chinook (New)3 4 11 \n\nCH-47 Chinook (Renewed)11 9 9 \n\n",
+        "match": "AH-64 Apache (New)19 16 20 \n\nAH-64 Apache (Remanufactured)42 34 57 \n\nMH-139 Grey Wolf9 6 2 \n\nKC-46 Tanker14 10 13 \n\nP-8 Models6 4 11 \n\nCommercial Satellites4 2 5 \n\nTotal131 112 162 \n\nRevenues  \n\nBDS revenues in 2025 increased by $3,316 million compared with 2024. The increase is primarily due to $1,864 million lower net unfavorable cumulative contract catch-up adjustments and higher volume compared to the prior year.\n\nBDS revenues in 2024 decreased by $1,015 million compared with 2023. The decrease is primarily due to higher net unfavorable cumulative contract catch-up adjustments of $909 million on BDS’ five major fixed-price development programs. Overall, net unfavorable cumulative contract catch-up adjustments in 2024 were $995 million higher than 2023.\n\nLoss From Operations  \n\nBDS loss from operations in 2025 was $128 million compared with $5,413 million in 2024. The year over year improvement in earnings is primarily due to lower net unfavorable cumulative contract catch-up adjustments of $5,196 million compared to 2024. During 2025, losses incurred on the five major fixed-price development programs totaled $802 million, primarily on KC-46A Tanker ($714 million), compared to losses of $5,013 million during 2024. In addition, the year over year earnings improvement reflects higher earnings from other programs including weapons, P-8, satellites and fighters.\n\nBDS loss from operations in 2024 was $5,413 million compared with $1,764 million in 2023. The increase is primarily due to higher net unfavorable cumulative contract catch-up adjustments of $3,428 million on BDS’ five major fixed-price development programs compared to 2023."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.444714,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": "\n\nThere is ongoing uncertainty with respect to final program-level spending for the DoW, NASA and other government agencies for FY26 and beyond. Future budget cuts or investment priority changes, including changes associated with the authorizations and appropriations process, could result in reductions, cancellations and/or delays of existing contracts or programs. Any of these impacts could have a material effect on our financial position, results of operations and/or cash flows. \n\nThe non-U.S. market continues to be driven by complex and evolving security challenges and the need to modernize aging equipment and inventories. BDS expects that it will continue to have a wide range of opportunities across Asia, Europe and the Middle East given the diverse regional threats. At December 31, 2025, 26% of BDS backlog was attributable to non-U.S. customers.",
+        "before": "During recent inspections on the 777X, we identified a potential durability issue on the engine. We are continuing certification flight testing as we work with the supplier to determine root cause and corrective action. We continue to expect first delivery of the 777-9 to occur in 2027. We continue to anticipate first delivery of the 777-8 Freighter to occur approximately two years after the first delivery of the 777-9. First delivery of the 777-8 passenger aircraft is not expected to occur before 2030. We are continuing to follow the lead of the FAA as we work through the certification process and the ultimate timing will be determined by the regulators.\n\nThe level of profitability on the 777X program will be subject to several factors. These factors include aircraft certification requirements and timing, flight test discoveries, design changes, change incorporation on completed aircraft, production disruption due to labor instability and supply chain disruption, customer considerations, delivery timing and negotiations, further production rate adjustments for the 777X or other commercial aircraft programs, and any change in the accounting quantity. One or more of these factors could result in additional reach-forward losses in future periods.\n\n787 Program During 2024, the 787 production rate was slowed to below five per month while addressing performance challenges and supply chain constraints. ",
+        "match": "In 2025, while continuing to monitor supply chain health and factory performance, we increased the production rate from five to seven per month. We began increasing the production rate to eight per month during the fourth quarter of 2025 and continue to work toward stabilizing production. In February 2025, we completed the remaining rework on aircraft produced prior to 2023. At December 31, 2025, we had approximately five of those aircraft in inventory and expect to deliver them in 2026.\n\nFleet Support We provide the operators of our commercial aircraft with assistance and services to facilitate efficient and safe airplane operation. Collectively known as fleet support services, these activities and services begin prior to airplane delivery and continue throughout the operational life of the airplane. They include flight and maintenance training, field service support, engineering services, information services and systems and technical data and documents. The costs for fleet support are expensed as incurred and have historically been approximately 1% of total consolidated costs of products and services.\n\nAdditional Considerations\n\nOn December 8, 2025, we completed the acquisition of Spirit. See Note 2 to our Consolidated Financial Statements.\n\n37\n\n\nDefense, Space & Security\n\nBusiness Environment and Trends\n\nOverview\n\nIn May 2025, the U.S. government released the President's budget request for FY26, which requested $848 billion in funding for the DoW and $19 billion for NASA. The corresponding FY25 appropriated levels are $856 billion for the DoW and $25 billion for NASA.\n\nIn July 2025, the One Big Beautiful Bill Act appropriated an additional $156 billion for national defense priorities and an additional $10 billion for NASA programs over the next several years. H.R. 6938 provided FY26 appropriations of $24 billion for NASA, an increase of approximately $5 billion from the FY26 request. On January 30, 2026, funding for the DoW will lapse. For additional information on U.S. government appropriations and budgets, see “Management’s Discussion and Analysis of Financial Condition and Results of Operations – Additional Considerations – U.S. Government Funding” on page 31 of this Form 10-K."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.44386,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    },
+    {
+      "accession": "0001628280-26-004357",
+      "cite": null,
+      "company": "BOEING CO",
+      "context": {
+        "after": " The decreased income in 2025 was primarily due to lower amortization of net actuarial gains and higher interest cost. The increased income in 2024 was primarily due to lower interest cost, partially offset by amortization of prior service credits. \n\nFor additional discussion related to Postretirement Plans, see Note 18 to our Consolidated Financial Statements.\n\nInterest and debt expense increased by $46 million in 2025 primarily due to higher average interest rates. Interest and debt expense increased by $266 million in 2024 primarily due to higher average debt balances.",
+        "before": "Net periodic pension benefit cost included in Earnings/(loss) from operations\n\n($9)($5)($2)\n\n",
+        "match": "28\n\n\nThe pension FAS/CAS service cost adjustment recognized in Earnings/(loss) from operations in 2025 was largely consistent with 2024 and 2023. Net periodic benefit cost included in Earnings/(loss) from operations in 2025 was largely consistent with 2024 and 2023.\n\nFor additional discussion related to Postretirement Plans, see Note 18 to our Consolidated Financial Statements.\n\nOther Earnings Items  \n\n(Dollars in millions)\n\nYears ended December 31,202520242023\n\nEarnings/(loss) from operations$4,281 ($10,707)($773)\n\nOther income, net1,125 1,222 1,227 \n\nInterest and debt expense(2,771)(2,725)(2,459)\n\nEarnings/(loss) before income taxes2,635 (12,210)(2,005)\n\nIncome tax (expense)/benefit(397)381 (237)\n\nNet earnings/(loss)2,238 (11,829)(2,242)\n\nLess: Net earnings/(loss) attributable to noncontrolling interest3 (12)(20)\n\nNet earnings/(loss) attributable to Boeing shareholders$2,235 ($11,817)($2,222)\n\nNon-operating pension income included in Other income, net was $176 million in 2025, $476 million in 2024 and $529 million in 2023. The decreased income in 2025 compared to 2024 was primarily due to lower expected return on plan assets. The decreased income in 2024 compared to 2023 was primarily due to lower expected return on plan assets and higher amortization of net actuarial losses, partially offset by lower interest cost.\n\nNon-operating postretirement income included in Other income, net was $19 million in 2025, $73 million in 2024 and $58 million in 2023."
+      },
+      "filed": "2026-01-30",
+      "fiscal_year": 2025,
+      "form": "10-K",
+      "included": true,
+      "score": 0.442968,
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "ticker": "BA"
+    }
+  ],
+  "question": "What debt issuances, credit-facility changes and equity-raising actions did Boeing disclose across its FY2024 and FY2025 10-Ks to manage liquidity?",
+  "signals": [
+    {
+      "claim_diff": {
+        "added": [
+          "BA Digital Aviation Solutions Divestiture",
+          "BA Spirit Acquisition",
+          "BA Spirit Acquisition Share Exchange December 2025",
+          "BA August 2025 $3.0B 364-Day Revolving Credit Agreement",
+          "BA Fitch BBB- Credit Rating Affirmation June 2025",
+          "BA S&P BBB- Credit Rating Affirmation October 2025",
+          "BA 737 Production Rate Increase to 47 Per Month in 2026",
+          "BA 737-7 and 737-10 FAA Certification Expected 2026",
+          "BA 767 Commercial Production Completion by 2027",
+          "BA FY2026 Pension Contribution Guidance",
+          "BA SPEEA Contract Expiry Risk",
+          "BA 737-7 and 737-10 Certification and Delivery Risk",
+          "BA 777X 767 Program Further Earnings Charges Risk"
+        ],
+        "changed": [
+          {
+            "after": "BA Acquisition of Spirit AeroSystems Holdings: acquisition closed December 8, 2025 via share exchange",
+            "before": "BA Agreement to Acquire Spirit AeroSystems: pending all-stock acquisition at $37.25/share, $4.7B equity value, with assumption of Spirit net debt"
+          },
+          {
+            "after": "BA U.S. Department of Justice Agreements: settled; 2024 charge $244M plus additional 2025 charge $445M",
+            "before": "Boeing DOJ Agreement: potential fine of $244M, status pending"
+          },
+          {
+            "after": "BA 777-9 First Delivery Expected 2027: first delivery slipped to 2027",
+            "before": "BA 777-9 First Delivery 2026 Guidance: first delivery expected in 2026"
+          },
+          {
+            "after": "BA 777-8 Freighter First Delivery Approximately Two Years After 777-9: first delivery approximately two years after 777-9 (~2029)",
+            "before": "BA 777-8 Freighter First Delivery 2028 Guidance: first delivery expected in 2028"
+          },
+          {
+            "after": "BA FY2026 Capital Expenditure Growth Guidance: FY2026 guidance, prior-year CapEx base $2.9B",
+            "before": "BA 2025 Capital Expenditure Growth Outlook: FY2025 guidance, prior-year CapEx base $2.2B"
+          },
+          {
+            "after": "BA Moody's Baa3 Credit Rating Affirmation December 2025: Baa3 affirmed with outlook revised to stable from negative",
+            "before": "BA Moody's Downgrade to Baa3/P-3 April 2024: downgraded to Baa3/P-3 and placed on review for further downgrade; S&P also placed on review for downgrade"
+          },
+          {
+            "after": "BA 777X Program Certification and Reach-Forward Loss Risk: now also includes $4.899B reach-forward loss recorded in FY2025",
+            "before": "BA 777X Certification and Delivery Delay Risk: certification and delivery delay risk"
+          },
+          {
+            "after": "BA 737 Production Rate FAA Concurrence Requirement: reframed as ongoing FAA concurrence requirement; specific 38/month cap no longer cited",
+            "before": "BA 737 FAA Production Rate Cap Risk: FAA capped 737 production at 38 aircraft per month pending quality and safety compliance"
+          },
+          {
+            "after": "BA Fixed-Price Development Program Loss Risk: FY2025 earnings impact -$1.377B across same programs",
+            "before": "BA Fixed-Price Development Program Ongoing Loss Risk: FY2024 cumulative catch-up loss $6.562B across BDS programs"
+          },
+          {
+            "after": "BA Deferred Tax Valuation Allowance Risk: valuation allowance grew to $9.754B",
+            "before": "BA Deferred Tax Valuation Allowance Expansion Risk: valuation allowance $7.837B as of 2024-12-31, with $3.287B increase in 2024"
+          },
+          {
+            "after": "BA Supply Chain Disruption and Inflation Risk: labor instability removed; inflation added as a cited risk factor",
+            "before": "BA Supply Chain Disruptions and Labor Instability Risk: supply chain disruptions and labor instability"
+          },
+          {
+            "after": "BA U.S. Government Funding and Shutdown Risk: government shutdown risk specifically highlighted",
+            "before": "BA U.S. Government Budget and Funding Uncertainty Risk: broad budget and funding uncertainty"
+          }
+        ],
+        "removed": [
+          "IAM 751 Work Stoppage 2024",
+          "BA 767 Freighter Program Production End Decision",
+          "BA FAA 737 Production Rate Cap Regulatory Action",
+          "BA Q4 2024 Common Stock Issuance",
+          "BA Q4 2024 Mandatory Convertible Preferred Stock Issuance",
+          "BA Q2 2024 $10B Fixed-Rate Senior Notes Issuance",
+          "BA Q2 2024 $4.0B Five-Year Revolving Credit Agreement",
+          "BA Acquisition of Spirit AeroSystems",
+          "BA BGS Commercial Revenue Outlook",
+          "BA Revenue Impact Pending Delivery Ramp Guidance",
+          "BA Pension Higher Contribution Risk"
+        ]
+      },
+      "current_fy": 2025,
+      "prior_fy": 2024,
+      "section": "Item 7 Management's Discussion and Analysis",
+      "sentiment_shift": 0.043992,
+      "ticker": "BA",
+      "tone_shift": 0.046968
+    }
+  ],
+  "slug": "ba-liquidity-and-debt-fy24-fy25",
+  "tickers": [
+    "BA"
+  ],
+  "title": "Boeing liquidity, debt and equity actions, FY2024 to FY2025"
+}

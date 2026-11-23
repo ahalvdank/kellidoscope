@@ -1,0 +1,118 @@
+{
+  "build_commit": "2a37b2c99c8b773872793843d52124ed6b77d2ac",
+  "export_script_url": "https://github.com/ahalvdank/filings-kb/blob/2a37b2c99c8b773872793843d52124ed6b77d2ac/filings_kb/export.py",
+  "full_corpus": {
+    "companies": 186,
+    "filings": 973
+  },
+  "pipeline_version": "0.1.0",
+  "run_timestamp": "2026-11-23T17:53:33Z",
+  "sample": {
+    "companies": [
+      "AMD",
+      "AMZN",
+      "BA",
+      "CVX",
+      "GOOGL",
+      "INTC",
+      "JPM",
+      "META",
+      "MSFT",
+      "NVDA",
+      "UNH",
+      "XOM"
+    ],
+    "filings": 61
+  },
+  "traces": [
+    {
+      "category": "risk_shift",
+      "featured": true,
+      "question": "How did NVIDIA's risk-factor disclosures on export controls and customer concentration change between its FY2022 and FY2026 10-Ks?",
+      "slug": "nvda-export-control-risk-fy22-fy26",
+      "tickers": [
+        "NVDA"
+      ],
+      "title": "NVIDIA export-control and customer-concentration risk, FY2022 to FY2026"
+    },
+    {
+      "category": "risk_shift",
+      "featured": true,
+      "question": "What did AMD change in its amended FY2025 10-K?",
+      "slug": "amd-fy2025-10ka-amendment",
+      "tickers": [
+        "AMD"
+      ],
+      "title": "What AMD changed in its amended FY2025 10-K"
+    },
+    {
+      "category": "contradiction",
+      "featured": true,
+      "question": "Where do Meta's FY2025 MD&A statements on AI infrastructure investment sit in tension with its risk-factor caveats on monetization and return on that investment?",
+      "slug": "meta-ai-capex-vs-monetization-risk-fy25",
+      "tickers": [
+        "META"
+      ],
+      "title": "Meta AI investment ambition against monetization risk, FY2025"
+    },
+    {
+      "category": "capital_structure",
+      "featured": true,
+      "question": "What debt issuances, credit-facility changes and equity-raising actions did Boeing disclose across its FY2024 and FY2025 10-Ks to manage liquidity?",
+      "slug": "ba-liquidity-and-debt-fy24-fy25",
+      "tickers": [
+        "BA"
+      ],
+      "title": "Boeing liquidity, debt and equity actions, FY2024 to FY2025"
+    },
+    {
+      "category": "capital_structure",
+      "featured": true,
+      "question": "How did JPMorgan Chase's disclosures on buybacks, dividends and regulatory-capital requirements evolve between its FY2024 and FY2025 10-Ks?",
+      "slug": "jpm-capital-return-and-regulatory-capital-fy24-fy25",
+      "tickers": [
+        "JPM"
+      ],
+      "title": "JPMorgan capital returns and regulatory-capital posture, FY2024 to FY2025"
+    },
+    {
+      "category": "cross_company",
+      "featured": true,
+      "question": "How do NVIDIA, AMD and Intel differ in how they describe third-party foundry and advanced-packaging concentration risk in their latest 10-Ks?",
+      "slug": "nvda-amd-intc-foundry-dependency-fy25",
+      "tickers": [
+        "NVDA",
+        "AMD",
+        "INTC"
+      ],
+      "title": "NVIDIA, AMD and Intel on foundry and packaging dependency"
+    },
+    {
+      "category": "cross_company",
+      "featured": true,
+      "question": "How do the AI chip suppliers (NVIDIA, AMD, Intel) and the hyperscale buyers (Microsoft, Alphabet, Amazon, Meta) describe the risks of AI infrastructure demand, supply and spending in their latest 10-Ks?",
+      "slug": "ai-value-chain-suppliers-vs-buyers",
+      "tickers": [
+        "NVDA",
+        "AMD",
+        "INTC",
+        "MSFT",
+        "GOOGL",
+        "AMZN",
+        "META"
+      ],
+      "title": "The AI value chain, chip suppliers against hyperscale buyers"
+    },
+    {
+      "category": "cross_company",
+      "featured": true,
+      "question": "How do ExxonMobil and Chevron differ in how their FY2025 10-Ks describe climate-policy and energy-transition risk?",
+      "slug": "xom-vs-cvx-energy-transition-risk-fy25",
+      "tickers": [
+        "XOM",
+        "CVX"
+      ],
+      "title": "ExxonMobil against Chevron on energy-transition risk"
+    }
+  ]
+}

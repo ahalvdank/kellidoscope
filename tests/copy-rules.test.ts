@@ -38,8 +38,12 @@ const PAGES = [
   "src/pages/404.astro",
 ];
 
-/** Astro sources that can hold visible copy: pages and components. */
-const ASTRO_SOURCES = [...walk("src/pages", ".astro"), ...walk("src/components", ".astro")];
+/** Sources that can hold visible copy: pages and components, including the TraceViewer island. */
+const ASTRO_SOURCES = [
+  ...walk("src/pages", ".astro"),
+  ...walk("src/components", ".astro"),
+  ...walk("src/components", ".tsx"),
+];
 
 /** Everything the global rules apply to. */
 const ALL_COPY = [...CONTENT_MD, ...ASTRO_SOURCES];
@@ -59,6 +63,7 @@ describe("copy-rules inputs", () => {
     for (const rel of [...PAGE_COPY, ...PAGES]) expect(ALL_COPY).toContain(rel);
     expect(ALL_COPY).toContain("src/components/EvalsLedger.astro");
     expect(ALL_COPY).toContain("src/components/TopBar.astro");
+    expect(ALL_COPY).toContain("src/components/TraceViewer.tsx");
   });
 });
 
@@ -113,7 +118,7 @@ describe.each([...PAGE_COPY, ...ASTRO_SOURCES])("rendered copy rules: %s", (rel)
 
 describe("sentiment truncation is disclosed wherever sentiment is described", () => {
   // Diagrams are labels inside a figure; the page copy around them carries the disclosure.
-  const files = [...PAGE_COPY, ...PAGES, "src/components/EvalsLedger.astro"];
+  const files = [...PAGE_COPY, ...PAGES, "src/components/EvalsLedger.astro", "src/components/TraceViewer.tsx"];
   it.each(files)("%s", (rel) => {
     const text = read(rel);
     if (/FinBERT|sentiment/i.test(text)) expect(text).toMatch(/truncat/i);

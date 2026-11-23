@@ -9,6 +9,8 @@ export interface SiteConfig {
   cellarApp: string;
   /** URL of the 10-K explorer screen recording; null until it exists, which hides the clip slot. */
   systemClipUrl: string | null;
+  /** Poster frame shown before the clip plays; null when the clip has none. */
+  systemClipPoster: string | null;
 }
 
 export const siteConfig: SiteConfig = {
@@ -20,5 +22,6 @@ export const siteConfig: SiteConfig = {
   blindTastingRepo: "https://github.com/ahalvdank/blind-tasting-public",
   blindTastingApp: "https://blindtaste.kellidoscope.com",
   cellarApp: "https://cellar.kellidoscope.com",
-  systemClipUrl: null,
+  systemClipUrl: "/media/kb-explorer-clip.mp4",
+  systemClipPoster: "/media/kb-explorer-poster.jpg",
 };

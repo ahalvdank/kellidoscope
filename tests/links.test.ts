@@ -19,7 +19,7 @@ describe("resolveHref", () => {
   });
 
   it("rejects a siteConfig key that has no URL yet", () => {
-    expect(() => resolveHref("systemClipUrl")).toThrow(/not set yet/);
+    expect(() => resolveHref("systemClipUrl", { ...siteConfig, systemClipUrl: null })).toThrow(/not set yet/);
   });
 });
 

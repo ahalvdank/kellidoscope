@@ -3,8 +3,9 @@
 // promises a recording that is not there.
 interface Props {
   src: string | null;
+  poster?: string | null;
 }
-const { src } = Astro.props;
+const { src, poster = null } = Astro.props;
 ---
 
 {
@@ -12,15 +13,16 @@ const { src } = Astro.props;
     <figure data-slot="system-clip" class="max-w-3xl">
       <video
         src={src}
+        poster={poster ?? undefined}
         controls
         muted
         playsinline
         preload="metadata"
-        aria-label="Screen recording of the private 10-K explorer, across 186 companies and 973 filings"
+        aria-label="Screen recording of the private KB Explorer, limited to sample-company screens"
         class="w-full rounded-lg border border-editorial-border"
       />
       <figcaption class="mt-2 text-xs text-editorial-muted">
-        The private explorer across all 186 companies and 973 filings. The traces above use the small public sample.
+        Screen recording of my private KB Explorer (973 filings, 186 companies), limited to sample-company screens.
       </figcaption>
     </figure>
   )

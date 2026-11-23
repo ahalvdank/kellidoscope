@@ -22,6 +22,7 @@ const MIME = {
   ".jpg": "image/jpeg",
   ".ico": "image/x-icon",
   ".pdf": "application/pdf",
+  ".mp4": "video/mp4",
   ".woff2": "font/woff2",
 };
 
@@ -66,8 +67,29 @@ createServer((req, res) => {
     res.end("Not found");
     return;
   }
-  res.writeHead(200, { "Content-Type": MIME[extname(file)] ?? "application/octet-stream" });
-  res.end(readFileSync(file));
+  const type = MIME[extname(file)] ?? "application/octet-stream";
+  const body = readFileSync(file);
+  // Like Vercel, honor a single byte range: WebKit will not play a video from a server without it.
+  const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range ?? "");
+  if (range && (range[1] || range[2])) {
+    const start = range[1] ? Number(range[1]) : Math.max(body.length - Number(range[2]), 0);
+    const end = range[1] && range[2] ? Math.min(Number(range[2]), body.length - 1) : body.length - 1;
+    if (start > end) {
+      res.writeHead(416, { "Content-Range": `bytes */${body.length}` });
+      res.end();
+      return;
+    }
+    res.writeHead(206, {
+      "Content-Type": type,
+      "Accept-Ranges": "bytes",
+      "Content-Range": `bytes ${start}-${end}/${body.length}`,
+      "Content-Length": end - start + 1,
+    });
+    res.end(body.subarray(start, end + 1));
+    return;
+  }
+  res.writeHead(200, { "Content-Type": type, "Accept-Ranges": "bytes" });
+  res.end(body);
 }).listen(PORT, "127.0.0.1", () => {
   console.log(`serving dist/ with vercel.json headers on http://127.0.0.1:${PORT}`);
 });

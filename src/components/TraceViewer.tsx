@@ -332,7 +332,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
           {/* 60 / 40 Desktop Split */}
           <div className="grid gap-6 lg:grid-cols-12">
             {/* Left Column (60% -> 7 cols): Question + Cited Answer */}
-            <section className="space-y-4 rounded-lg border border-workspace-border bg-workspace-surface p-5 lg:col-span-7">
+            <section className="min-w-0 space-y-4 rounded-lg border border-workspace-border bg-workspace-surface p-5 lg:col-span-7">
               <div>
                 <p className="font-mono text-xs text-workspace-muted">QUESTION</p>
                 <h2 className="mt-1 text-lg font-semibold text-workspace-ink">
@@ -408,11 +408,11 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
             </section>
 
             {/* Right Column (40% -> 5 cols): Tabbed Evidence Inspector */}
-            <aside className="flex flex-col rounded-lg border border-workspace-border bg-workspace-surface lg:col-span-5">
+            <aside className="flex min-w-0 flex-col rounded-lg border border-workspace-border bg-workspace-surface lg:col-span-5">
               <div
                 role="tablist"
                 aria-label="Evidence inspector"
-                className="flex border-b border-workspace-border text-xs font-medium"
+                className="flex overflow-x-auto whitespace-nowrap border-b border-workspace-border text-xs font-medium"
               >
                 {availableTabs.map((id) => (
                   <button
@@ -423,7 +423,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                     aria-selected={currentTab === id}
                     aria-controls="inspector-panel"
                     onClick={() => setActiveTab(id)}
-                    className={`flex-1 px-3 py-2.5 ${
+                    className={`flex-1 shrink-0 whitespace-nowrap px-3 py-2.5 ${
                       currentTab === id
                         ? "border-b-2 border-editorial-accent text-editorial-accent"
                         : "text-workspace-muted hover:text-workspace-ink"
@@ -438,7 +438,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                 id="inspector-panel"
                 role="tabpanel"
                 aria-labelledby={`inspector-tab-${currentTab}`}
-                className="max-h-[680px] space-y-3 overflow-y-auto p-4"
+                className="max-h-[680px] space-y-3 overflow-y-auto p-4 print:max-h-none print:overflow-visible"
               >
                 {currentTab === "sources" && (
                   <>

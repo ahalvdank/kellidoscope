@@ -57,10 +57,16 @@ dialog::backdrop {
     text-decoration: underline;
   }
 
-  section,
+  /* Not `section`: a long answer must be allowed to break across pages. */
   article,
   table,
   svg {
     break-inside: avoid;
+  }
+
+  /* The inspector scrolls on screen; on paper every source and claim must print. */
+  #inspector-panel {
+    max-height: none !important;
+    overflow: visible !important;
   }
 }

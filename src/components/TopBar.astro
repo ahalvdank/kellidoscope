@@ -23,6 +23,25 @@ const bgClass = tier === "workspace" ? "bg-workspace-surface" : "bg-editorial-bg
     </div>
 
     <div class="flex items-center gap-3 text-xs sm:text-sm">
+      <!-- Phone menu: native <details>, so it works with JavaScript off. Hidden from sm: up, where the inline nav shows. -->
+      <details class="group sm:hidden">
+        <summary
+          class="cursor-pointer list-none rounded border border-editorial-border px-2.5 py-1 font-medium text-editorial-ink marker:hidden [&::-webkit-details-marker]:hidden"
+        >
+          Menu
+        </summary>
+        <nav
+          aria-label="Mobile"
+          class="absolute inset-x-0 top-full flex flex-col border-b border-editorial-border bg-white px-4 py-2 text-sm shadow-md"
+        >
+          <a href="/projects/10k-kb" class="py-2 text-editorial-ink">10-K KB</a>
+          <a href="/projects/beckett-diligence" class="py-2 text-editorial-ink">Beckett</a>
+          <a href="/projects/portfolio-manager" class="py-2 text-editorial-ink">Portfolio Manager</a>
+          <a href="/demos/10k-kb" class="py-2 font-medium text-editorial-accent">Query Traces</a>
+          <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" class="py-2 text-editorial-muted">LinkedIn</a>
+          <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" data-goatcounter-click="repo" class="py-2 text-editorial-muted">GitHub</a>
+        </nav>
+      </details>
       <a
         href={siteConfig.resumePath}
         target="_blank"

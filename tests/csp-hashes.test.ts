@@ -101,6 +101,34 @@ describe("checkCspHashes", () => {
     },
   );
 
+  it.each(["*", "https:", "http:", "data:"])("rejects the blanket source %s in script-src", (source) => {
+    write("index.html", "<p>no scripts</p>");
+    writeVercel(`'self' ${source}`);
+    expect(check(dist, vercel)).toEqual([`forbidden ${source} in script-src`]);
+  });
+
+  it.each(["importmap", "speculationrules"])(
+    "requires a hash for an inline <script type=%s>, which CSP gates like any script",
+    (type) => {
+      const body = '{"imports":{}}';
+      write("index.html", `<script type="${type}">${body}</script>`);
+      writeVercel("'self'");
+      expect(check(dist, vercel)).toEqual([`missing ${sha(body)} (index.html)`]);
+    },
+  );
+
+  it("does not mistake data-type for the type attribute", () => {
+    write("index.html", `<script data-type="application/json">${LOADER}</script>`);
+    writeVercel("'self'");
+    expect(check(dist, vercel)).toEqual([`missing ${sha(LOADER)} (index.html)`]);
+  });
+
+  it("still treats a real type attribute that follows other attributes as data", () => {
+    write("index.html", `<script id="x" data-type="module" type="application/ld+json">{}</script>`);
+    writeVercel("'self'");
+    expect(check(dist, vercel)).toEqual([]);
+  });
+
   it("rejects inline event handler attributes, which hashes cannot allow", () => {
     write("index.html", `<button type="button" onclick="go()">Go</button>`);
     writeVercel("'self'");

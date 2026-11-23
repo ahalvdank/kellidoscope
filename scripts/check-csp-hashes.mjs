@@ -12,9 +12,20 @@ import { join, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const CSP_KEY = "content-security-policy";
-const FORBIDDEN_SCRIPT_KEYWORDS = ["'unsafe-inline'", "'unsafe-eval'", "'unsafe-hashes'"];
-/** Script types a browser executes; anything else (ld+json, json, templates) is data. */
-const EXECUTABLE_TYPES = new Set(["", "module", "text/javascript", "application/javascript"]);
+/** Keywords and blanket sources that would let any script run, defeating the hashes. */
+const FORBIDDEN_SCRIPT_KEYWORDS = ["'unsafe-inline'", "'unsafe-eval'", "'unsafe-hashes'", "*", "https:", "http:", "data:"];
+/**
+ * Inline script types CSP gates, so each needs a hash; anything else (ld+json, json, templates) is
+ * data. importmap and speculationrules do not run code but browsers still check them against script-src.
+ */
+const EXECUTABLE_TYPES = new Set([
+  "",
+  "module",
+  "text/javascript",
+  "application/javascript",
+  "importmap",
+  "speculationrules",
+]);
 const SCRIPT_RE = /<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi;
 const EVENT_HANDLER_RE = /<[a-z][^>]*?\s(on[a-z]+)\s*=/gi;
 const HASH_RE = /^'sha256-[A-Za-z0-9+/]+=*'$/;
@@ -29,7 +40,7 @@ function* walkHtml(dir) {
 
 function isExecutableInline(attrs) {
   if (/\ssrc\s*=/i.test(` ${attrs}`)) return false;
-  const type = /\btype\s*=\s*["']?([^"'\s>]*)/i.exec(attrs)?.[1] ?? "";
+  const type = /(?:^|\s)type\s*=\s*["']?([^"'\s>]*)/i.exec(attrs)?.[1] ?? "";
   return EXECUTABLE_TYPES.has(type.toLowerCase());
 }
 

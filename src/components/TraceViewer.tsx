@@ -1,16 +1,24 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Passage, Trace, TraceCategory, TraceManifest } from "../data/types";
 import { getEntityBucket } from "../data/entityBuckets";
 import { trackEvent } from "../lib/analytics";
+import { linkCitations } from "../lib/citations";
+import { safeUrl } from "../lib/safeUrl";
+import { siteConfig } from "../data/siteConfig";
 
 interface TraceViewerProps {
   manifest: TraceManifest;
-  initialTrace?: Trace;
-  allTraces?: Trace[];
-  traceBaseUrl?: string;
+  initialTrace: Trace;
 }
+
+const TRACE_BASE_URL = "/data/traces";
+const TRACE_PAGE_BASE = "/demos/10k-kb/q";
+const SEC_HOSTS = ["sec.gov", "www.sec.gov"];
+const GITHUB_HOSTS = ["github.com"];
+const MARKDOWN_LINK_HOSTS = [...SEC_HOSTS, ...GITHUB_HOSTS];
+const TRACE_PATH = /\/demos\/10k-kb\/q\/([^/]+)\/?$/;
 
 const CATEGORY_LABELS: Record<TraceCategory | "all", string> = {
   all: "All Traces",
@@ -22,27 +30,32 @@ const CATEGORY_LABELS: Record<TraceCategory | "all", string> = {
 
 type InspectorTab = "sources" | "claims" | "signals" | "audit";
 
-export default function TraceViewer({
-  manifest,
-  initialTrace,
-  allTraces = [],
-  traceBaseUrl = "/data/traces",
-}: TraceViewerProps) {
+export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps) {
   const [selectedCategory, setSelectedCategory] = useState<TraceCategory | "all">("all");
-  const [activeTrace, setActiveTrace] = useState<Trace | null>(initialTrace ?? null);
+  const [activeTrace, setActiveTrace] = useState<Trace>(initialTrace);
   const [activeTab, setActiveTab] = useState<InspectorTab>("sources");
   const [showRejected, setShowRejected] = useState(false);
   const [expandedJsonIdx, setExpandedJsonIdx] = useState<number | null>(null);
   const [highlightedCite, setHighlightedCite] = useState<number | null>(null);
+  const [scrollTick, setScrollTick] = useState(0);
   const [modalPassage, setModalPassage] = useState<Passage | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const abortRef = useRef<AbortController | null>(null);
+  // Bumped on every load request; a response from an older request is discarded even if its
+  // fetch ignores the abort signal.
+  const requestIdRef = useRef(0);
+  const cacheRef = useRef(new Map<string, Trace>([[initialTrace.slug, initialTrace]]));
+  const initialSlugRef = useRef(initialTrace.slug);
+  const featuredSlugs = useMemo(
+    () => new Set(manifest.traces.filter((t) => t.featured).map((t) => t.slug)),
+    [manifest.traces]
+  );
 
   useEffect(() => {
-    trackEvent("demo_opened", { slug: initialTrace?.slug ?? "index" });
+    trackEvent("demo_opened", { slug: initialTrace.slug });
   }, []);
 
   useEffect(() => {
@@ -60,48 +73,87 @@ export default function TraceViewer({
     return manifest.traces.filter((t) => t.category === selectedCategory);
   }, [manifest.traces, selectedCategory]);
 
-  async function selectTrace(slug: string) {
-    if (activeTrace?.slug === slug) return;
-    setError(null);
-    setHighlightedCite(null);
+  /** Shows `trace` and resets every piece of per-trace UI state. */
+  const showTrace = useCallback((trace: Trace) => {
+    setActiveTrace(trace);
+    setActiveTab("sources");
+    setShowRejected(false);
     setExpandedJsonIdx(null);
-    trackEvent("trace_selected", { slug });
+    setHighlightedCite(null);
+    setModalPassage(null);
+    setError(null);
+    setLoading(false);
+  }, []);
 
-    const localHit = allTraces.find((t) => t.slug === slug);
-    if (localHit) {
-      setActiveTrace(localHit);
-      if (typeof window !== "undefined") {
-        window.history.pushState({}, "", `/demos/10k-kb/q/${slug}/`);
+  /**
+   * Loads a featured trace (cache first, then fetch). Supersedes any request still in flight.
+   * `push` adds a history entry; popstate passes false because the browser already moved.
+   */
+  const loadTrace = useCallback(
+    async (slug: string, push: boolean) => {
+      abortRef.current?.abort();
+      abortRef.current = null;
+      const requestId = ++requestIdRef.current;
+      const pushEntry = () => {
+        if (push) window.history.pushState({ slug }, "", `${TRACE_PAGE_BASE}/${slug}/`);
+      };
+
+      const cached = cacheRef.current.get(slug);
+      if (cached) {
+        showTrace(cached);
+        pushEntry();
+        return;
       }
-      return;
-    }
 
-    abortRef.current?.abort();
-    const controller = new AbortController();
-    abortRef.current = controller;
-    setLoading(true);
-
-    try {
-      const res = await fetch(`${traceBaseUrl}/${slug}.json`, {
-        signal: controller.signal,
-      });
-      if (!res.ok) throw new Error(`Failed to load trace (${res.status})`);
-      const data: Trace = await res.json();
-      setActiveTrace(data);
-      if (typeof window !== "undefined") {
-        window.history.pushState({}, "", `/demos/10k-kb/q/${slug}/`);
-      }
-    } catch (err: unknown) {
-      if ((err as Error).name !== "AbortError") {
+      const controller = new AbortController();
+      abortRef.current = controller;
+      setError(null);
+      setLoading(true);
+      try {
+        const res = await fetch(`${TRACE_BASE_URL}/${slug}.json`, { signal: controller.signal });
+        if (!res.ok) throw new Error(`Failed to load trace (${res.status})`);
+        const data: Trace = await res.json();
+        if (requestId !== requestIdRef.current) return;
+        cacheRef.current.set(slug, data);
+        showTrace(data);
+        pushEntry();
+      } catch (err: unknown) {
+        if (requestId !== requestIdRef.current || (err as Error).name === "AbortError") return;
         setError((err as Error).message || "Could not load trace.");
+        setLoading(false);
       }
-    } finally {
-      if (!controller.signal.aborted) setLoading(false);
+    },
+    [showTrace]
+  );
+
+  // Stamp the entry we landed on so Back can return to it, and follow Back/Forward.
+  useEffect(() => {
+    window.history.replaceState({ slug: initialSlugRef.current }, "");
+
+    function onPopState(event: PopStateEvent) {
+      const stateSlug = (event.state as { slug?: unknown } | null)?.slug;
+      const slug =
+        typeof stateSlug === "string"
+          ? stateSlug
+          : TRACE_PATH.exec(window.location.pathname)?.[1] ?? initialSlugRef.current;
+      if (!featuredSlugs.has(slug)) return;
+      void loadTrace(slug, false);
     }
+    window.addEventListener("popstate", onPopState);
+    return () => {
+      window.removeEventListener("popstate", onPopState);
+      requestIdRef.current += 1;
+      abortRef.current?.abort();
+    };
+  }, [loadTrace, featuredSlugs]);
+
+  function selectTrace(slug: string) {
+    if (activeTrace.slug === slug && !loading) return;
+    trackEvent("trace_selected", { slug });
+    void loadTrace(slug, true);
   }
 
   function handleCitationClick(citeNum: number) {
-    if (!activeTrace) return;
     trackEvent("citation_clicked", { slug: activeTrace.slug, cite: citeNum });
     const passage = activeTrace.passages.find((p) => p.cite === citeNum);
     if (!passage) return;
@@ -114,34 +166,53 @@ export default function TraceViewer({
 
     setActiveTab("sources");
     setHighlightedCite(citeNum);
-    setTimeout(() => {
-      const el = document.getElementById(`passage-cite-${citeNum}`);
-      el?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 50);
+    setScrollTick((n) => n + 1);
   }
 
+  useEffect(() => {
+    if (scrollTick === 0 || highlightedCite === null) return;
+    document
+      .getElementById(`passage-cite-${highlightedCite}`)
+      ?.scrollIntoView?.({ behavior: "smooth", block: "center" });
+  }, [scrollTick]);
+
+  const validCites = useMemo(
+    () =>
+      new Set(
+        activeTrace.passages.flatMap((p) => (p.cite !== null ? [p.cite] : []))
+      ),
+    [activeTrace]
+  );
+
   // Convert [1], [2] markers into clickable markdown links (#cite-1)
-  const linkedAnswerMd = useMemo(() => {
-    if (!activeTrace) return "";
-    return activeTrace.answer_md.replace(/\[(\d+)\]/g, "[[$1]](#cite-$1)");
-  }, [activeTrace]);
+  const linkedAnswerMd = useMemo(
+    () => linkCitations(activeTrace.answer_md, validCites),
+    [activeTrace, validCites]
+  );
 
   const includedPassages = useMemo(
-    () => activeTrace?.passages.filter((p) => p.included) ?? [],
+    () => activeTrace.passages.filter((p) => p.included),
     [activeTrace]
   );
   const rejectedPassages = useMemo(
-    () => activeTrace?.passages.filter((p) => !p.included) ?? [],
+    () => activeTrace.passages.filter((p) => !p.included),
     [activeTrace]
   );
 
-  if (!activeTrace && !loading) {
-    return (
-      <div className="rounded-lg border border-workspace-border bg-workspace-surface p-8 text-center">
-        <p className="text-sm text-workspace-muted">No traces available yet.</p>
-      </div>
-    );
-  }
+  const availableTabs: InspectorTab[] = [
+    "sources",
+    "claims",
+    ...(activeTrace.signals && activeTrace.signals.length > 0 ? (["signals"] as const) : []),
+    ...(activeTrace.audit_note_md ? (["audit"] as const) : []),
+  ];
+  // Never render a blank panel: fall back to Sources when the chosen tab has no data.
+  const currentTab: InspectorTab = availableTabs.includes(activeTab) ? activeTab : "sources";
+  const cutoff = activeTrace.meta.display_cutoff.toFixed(2);
+  const commitUrl = safeUrl(
+    `${siteConfig.filingsKbRepo}/commit/${activeTrace.meta.build_commit}`,
+    GITHUB_HOSTS
+  );
+  const shortCommit = activeTrace.meta.build_commit.slice(0, 7);
 
   return (
     <div className="space-y-6">
@@ -155,21 +226,22 @@ export default function TraceViewer({
             10-K Knowledge Base Inspector
           </h1>
           <p className="mt-1 text-sm text-workspace-muted">
-            Deterministic replay of real pipeline runs (zero live API latency or cost).
+            Deterministic replay of real pipeline runs: zero live API latency or cost.
           </p>
         </div>
         <div className="rounded-md border border-workspace-border bg-workspace-surface px-3 py-2 font-mono text-xs text-workspace-muted">
-          Sample: {manifest.sample.companies.length} companies · {manifest.sample.filings} 10-Ks | Full private system: {manifest.full_corpus.companies} companies · {manifest.full_corpus.filings} filings
+          {`Sample: ${manifest.sample.companies.length} companies · ${manifest.sample.filings} filings | Full private system: ${manifest.full_corpus.companies} companies · ${manifest.full_corpus.filings} filings.`}
         </div>
       </div>
 
       {/* Category Filter Pills & Trace Picker */}
       <div className="space-y-3">
-        <div className="flex flex-wrap gap-2" role="tablist" aria-label="Trace categories">
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Trace categories">
           {(Object.keys(CATEGORY_LABELS) as (TraceCategory | "all")[]).map((cat) => (
             <button
               key={cat}
               type="button"
+              aria-pressed={selectedCategory === cat}
               onClick={() => setSelectedCategory(cat)}
               className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
                 selectedCategory === cat
@@ -184,11 +256,12 @@ export default function TraceViewer({
 
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
           {filteredSummaries.map((item) => {
-            const isSelected = activeTrace?.slug === item.slug;
+            const isSelected = activeTrace.slug === item.slug;
             return (
               <button
                 key={item.slug}
                 type="button"
+                aria-current={isSelected ? "true" : undefined}
                 onClick={() => selectTrace(item.slug)}
                 className={`rounded-md border p-3 text-left transition ${
                   isSelected
@@ -228,23 +301,29 @@ export default function TraceViewer({
       )}
 
       {/* Active Trace Content */}
-      {activeTrace && !loading && (
+      {!loading && (
         <>
           {/* Always-visible technical metadata strip */}
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-md border border-workspace-border bg-workspace-surface px-3 py-2 font-mono text-[11px] text-workspace-muted">
             <span>Embed: {activeTrace.meta.models.embedding}</span>
             <span>Extract: {activeTrace.meta.models.extraction}</span>
+            <span>Synthesize: {activeTrace.meta.models.synthesis}</span>
+            <span>Sentiment: {activeTrace.meta.models.sentiment}</span>
             <span>Top-k: {activeTrace.meta.top_k}</span>
-            <span>Demo cutoff: score ≥ {activeTrace.meta.display_cutoff.toFixed(2)}</span>
-            <a
-              href={manifest.export_script_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent("repo_clicked", { source: "trace_meta" })}
-              className="text-editorial-accent underline"
-            >
-              commit {activeTrace.meta.build_commit.slice(0, 7)}
-            </a>
+            <span>Demo cutoff: score ≥ {cutoff}</span>
+            {commitUrl ? (
+              <a
+                href={commitUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("repo_clicked", { source: "trace_meta" })}
+                className="text-editorial-accent underline"
+              >
+                exported at commit {shortCommit}
+              </a>
+            ) : (
+              <span>exported at commit {shortCommit}</span>
+            )}
           </div>
 
           {/* 60 / 40 Desktop Split */}
@@ -281,9 +360,11 @@ export default function TraceViewer({
                           </button>
                         );
                       }
+                      const safe = safeUrl(href ?? "", MARKDOWN_LINK_HOSTS);
+                      if (!safe) return <span>{children}</span>;
                       return (
                         <a
-                          href={href}
+                          href={safe}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="break-words text-editorial-accent underline"
@@ -323,59 +404,38 @@ export default function TraceViewer({
 
             {/* Right Column (40% -> 5 cols): Tabbed Evidence Inspector */}
             <aside className="flex flex-col rounded-lg border border-workspace-border bg-workspace-surface lg:col-span-5">
-              <div className="flex border-b border-workspace-border text-xs font-medium">
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("sources")}
-                  className={`flex-1 px-3 py-2.5 ${
-                    activeTab === "sources"
-                      ? "border-b-2 border-editorial-accent text-editorial-accent"
-                      : "text-workspace-muted hover:text-workspace-ink"
-                  }`}
-                >
-                  Sources ({includedPassages.length})
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("claims")}
-                  className={`flex-1 px-3 py-2.5 ${
-                    activeTab === "claims"
-                      ? "border-b-2 border-editorial-accent text-editorial-accent"
-                      : "text-workspace-muted hover:text-workspace-ink"
-                  }`}
-                >
-                  Claims ({activeTrace.claims.length})
-                </button>
-                {activeTrace.signals && activeTrace.signals.length > 0 && (
+              <div
+                role="tablist"
+                aria-label="Evidence inspector"
+                className="flex border-b border-workspace-border text-xs font-medium"
+              >
+                {availableTabs.map((id) => (
                   <button
+                    key={id}
+                    id={`inspector-tab-${id}`}
                     type="button"
-                    onClick={() => setActiveTab("signals")}
+                    role="tab"
+                    aria-selected={currentTab === id}
+                    aria-controls="inspector-panel"
+                    onClick={() => setActiveTab(id)}
                     className={`flex-1 px-3 py-2.5 ${
-                      activeTab === "signals"
+                      currentTab === id
                         ? "border-b-2 border-editorial-accent text-editorial-accent"
                         : "text-workspace-muted hover:text-workspace-ink"
                     }`}
                   >
-                    Signals
+                    {tabLabel(id, includedPassages.length, activeTrace.claims.length)}
                   </button>
-                )}
-                {activeTrace.audit_note_md && (
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab("audit")}
-                    className={`flex-1 px-3 py-2.5 ${
-                      activeTab === "audit"
-                        ? "border-b-2 border-editorial-accent text-editorial-accent"
-                        : "text-workspace-muted hover:text-workspace-ink"
-                    }`}
-                  >
-                    Audit Note
-                  </button>
-                )}
+                ))}
               </div>
 
-              <div className="max-h-[680px] space-y-3 overflow-y-auto p-4">
-                {activeTab === "sources" && (
+              <div
+                id="inspector-panel"
+                role="tabpanel"
+                aria-labelledby={`inspector-tab-${currentTab}`}
+                className="max-h-[680px] space-y-3 overflow-y-auto p-4"
+              >
+                {currentTab === "sources" && (
                   <>
                     {includedPassages.map((p, idx) => (
                       <PassageCard
@@ -385,28 +445,35 @@ export default function TraceViewer({
                       />
                     ))}
 
-                    {rejectedPassages.length > 0 && (
-                      <div className="pt-2">
-                        <button
-                          type="button"
-                          onClick={() => setShowRejected((v) => !v)}
-                          className="w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink"
-                        >
-                          {showRejected ? "Hide" : "Show"} {rejectedPassages.length} rejected candidates (score &lt; {activeTrace.meta.display_cutoff.toFixed(2)})
-                        </button>
-                        {showRejected && (
-                          <div className="mt-3 space-y-3 opacity-80">
-                            {rejectedPassages.map((p, idx) => (
-                              <PassageCard key={`rej-${idx}`} passage={p} highlighted={false} />
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    )}
+                    <div className="pt-2">
+                      {rejectedPassages.length > 0 ? (
+                        <>
+                          <button
+                            type="button"
+                            aria-expanded={showRejected}
+                            onClick={() => setShowRejected((v) => !v)}
+                            className="w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink"
+                          >
+                            {showRejected ? "Hide" : "Show"} {rejectedPassages.length} rejected candidates (score &lt; {cutoff})
+                          </button>
+                          {showRejected && (
+                            <div className="mt-3 space-y-3 opacity-80">
+                              {rejectedPassages.map((p, idx) => (
+                                <PassageCard key={`rej-${idx}`} passage={p} highlighted={false} />
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <p className="rounded border border-dashed border-workspace-border p-2 font-mono text-[11px] text-workspace-muted">
+                          No candidates fell below the {cutoff} cutoff for this question.
+                        </p>
+                      )}
+                    </div>
                   </>
                 )}
 
-                {activeTab === "claims" && (
+                {currentTab === "claims" && (
                   <div className="space-y-3">
                     {activeTrace.claims.map((c, idx) => {
                       const bucket = getEntityBucket(c.entity_type);
@@ -426,11 +493,25 @@ export default function TraceViewer({
                           </div>
                           <p className="mt-2 font-medium text-workspace-ink">{c.entity}</p>
                           <p className="mt-1 text-workspace-muted">{c.statement}</p>
-                          {c.relationship && (
-                            <p className="mt-1 font-mono text-[11px] text-workspace-muted">
-                              {c.relationship.type} → {c.relationship.target}
-                            </p>
-                          )}
+                          <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-[11px]">
+                            {c.cite !== null && validCites.has(c.cite) ? (
+                              <button
+                                type="button"
+                                aria-label={`Go to citation ${c.cite}`}
+                                onClick={() => handleCitationClick(c.cite as number)}
+                                className="rounded bg-indigo-50 px-1.5 py-0.5 font-medium text-editorial-accent hover:bg-indigo-100"
+                              >
+                                [{c.cite}]
+                              </button>
+                            ) : (
+                              <span className="text-workspace-muted">Not cited in the answer</span>
+                            )}
+                            {c.superseded && (
+                              <span className="rounded border border-workspace-border bg-slate-50 px-1.5 py-0.5 text-workspace-muted">
+                                superseded by the 10-K/A
+                              </span>
+                            )}
+                          </div>
                           <button
                             type="button"
                             onClick={() => setExpandedJsonIdx(isExpanded ? null : idx)}
@@ -449,10 +530,10 @@ export default function TraceViewer({
                   </div>
                 )}
 
-                {activeTab === "signals" && activeTrace.signals && (
+                {currentTab === "signals" && activeTrace.signals && (
                   <div className="space-y-3">
                     <p className="rounded bg-amber-50 p-2 font-mono text-[11px] text-amber-900">
-                      Shadow mode only: signals are computed for research and do not drive trades.
+                      FinBERT sentiment truncates long chunks (about 26% of chunks). Signals are research-only and never used for trading decisions.
                     </p>
                     {activeTrace.signals.map((s, idx) => (
                       <div key={idx} className="rounded-md border border-workspace-border p-3 text-xs">
@@ -488,7 +569,7 @@ export default function TraceViewer({
                   </div>
                 )}
 
-                {activeTab === "audit" && activeTrace.audit_note_md && (
+                {currentTab === "audit" && activeTrace.audit_note_md && (
                   <pre className="overflow-x-auto whitespace-pre-wrap rounded bg-slate-50 p-3 font-mono text-xs text-workspace-ink">
                     {activeTrace.audit_note_md}
                   </pre>
@@ -527,6 +608,19 @@ export default function TraceViewer({
   );
 }
 
+function tabLabel(tab: InspectorTab, passageCount: number, claimCount: number): string {
+  switch (tab) {
+    case "sources":
+      return `Sources (${passageCount})`;
+    case "claims":
+      return `Claims (${claimCount})`;
+    case "signals":
+      return "Signals";
+    case "audit":
+      return "Audit Note";
+  }
+}
+
 function PassageCard({
   passage,
   highlighted,
@@ -534,9 +628,11 @@ function PassageCard({
   passage: Passage;
   highlighted: boolean;
 }) {
+  const secUrl = safeUrl(passage.sec_url, SEC_HOSTS);
   return (
     <article
       id={passage.cite !== null ? `passage-cite-${passage.cite}` : undefined}
+      data-highlighted={highlighted ? "true" : undefined}
       className={`rounded-md border p-3 text-xs transition ${
         highlighted
           ? "border-editorial-accent bg-indigo-50/50 ring-2 ring-editorial-accent/30"
@@ -564,15 +660,19 @@ function PassageCard({
       </p>
       <div className="mt-2 flex items-center justify-between font-mono text-[10px] text-workspace-muted">
         <span className="truncate">Acc: {passage.accession}</span>
-        <a
-          href={passage.sec_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackEvent("sec_link_clicked", { ticker: passage.ticker })}
-          className="shrink-0 text-editorial-accent underline"
-        >
-          Open official SEC filing ↗
-        </a>
+        {secUrl ? (
+          <a
+            href={secUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent("sec_link_clicked", { ticker: passage.ticker })}
+            className="shrink-0 text-editorial-accent underline"
+          >
+            Open official SEC filing ↗
+          </a>
+        ) : (
+          <span className="shrink-0">SEC link unavailable</span>
+        )}
       </div>
     </article>
   );

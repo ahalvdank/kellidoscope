@@ -1,26 +1,24 @@
 ---
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import TraceViewer from "../../../../components/TraceViewer";
-import { getManifest, getTrace, listFeaturedSlugs, loadAllTraces } from "../../../../data/traces";
+import { getManifest, getTrace, listFeaturedSlugs } from "../../../../data/traces";
 import type { Trace, TraceManifest } from "../../../../data/types";
 
 export function getStaticPaths() {
-  const traces = loadAllTraces();
   const manifest = getManifest();
 
   return listFeaturedSlugs().map((slug) => ({
     params: { slug },
-    props: { trace: getTrace(slug), manifest, allTraces: traces },
+    props: { trace: getTrace(slug), manifest },
   }));
 }
 
 interface Props {
   trace: Trace;
   manifest: TraceManifest;
-  allTraces: Trace[];
 }
 
-const { trace, manifest, allTraces } = Astro.props;
+const { trace, manifest } = Astro.props;
 ---
 
 <BaseLayout
@@ -33,6 +31,5 @@ const { trace, manifest, allTraces } = Astro.props;
     client:load
     manifest={manifest}
     initialTrace={trace}
-    allTraces={allTraces}
   />
 </BaseLayout>

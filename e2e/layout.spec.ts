@@ -125,3 +125,32 @@ test("inspector tab bar scrolls horizontally, not wraps (C2.8)", async ({ page }
   const widths = await bar.getByRole("tab").evaluateAll((tabs) => tabs.map((t) => t.getBoundingClientRect().width));
   expect(Math.min(...widths), "tabs keep their natural width").toBeGreaterThan(50);
 });
+
+test("sticky header has an opaque background", async ({ page }) => {
+  await page.goto("/");
+  const bg = await page.locator("header.site-topbar").evaluate((el) => getComputedStyle(el).backgroundColor);
+  expect(bg).not.toBe("rgba(0, 0, 0, 0)");
+  expect(bg).not.toBe("transparent");
+  expect(bg).toMatch(/^rgb\(/);
+});
+
+test("mobile citation dialog opens, scrolls when long, and closes on backdrop click (C2.8)", async ({ page }) => {
+  await page.goto(TRACE);
+  await expect(page.locator("astro-island")).not.toHaveAttribute("ssr", /.*/, { timeout: 10_000 });
+  await page.locator(".prose button").filter({ hasText: /^\[\d+\]$/ }).first().click();
+  const dialog = page.locator("dialog");
+  await expect(dialog).toBeVisible();
+  const m = await dialog.evaluate((el) => {
+    const r = el.getBoundingClientRect();
+    return { height: r.height, scrollable: el.scrollHeight > el.clientHeight, overflowY: getComputedStyle(el).overflowY, vh: innerHeight };
+  });
+  expect(m.overflowY).toBe("auto");
+  expect(m.height).toBeLessThanOrEqual(m.vh * 0.85 + 1);
+  expect(m.scrollable, "long passage scrolls inside the dialog").toBe(true);
+  await dialog.evaluate((el) => el.scrollTo(0, el.scrollHeight));
+  expect(await dialog.evaluate((el) => el.scrollTop)).toBeGreaterThan(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(PHONE.width);
+  // Backdrop: a point outside the dialog box.
+  await page.mouse.click(2, 2);
+  await expect(dialog).toBeHidden();
+});

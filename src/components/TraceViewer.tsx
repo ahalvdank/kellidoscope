@@ -589,7 +589,11 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
       <dialog
         ref={dialogRef}
         onClose={() => setModalPassage(null)}
-        className="w-[92vw] max-w-lg rounded-lg border border-workspace-border bg-workspace-surface p-4 shadow-xl"
+        onClick={(e) => {
+          // A click on the dialog element itself (not its content) is a click on the backdrop.
+          if (e.target === dialogRef.current) setModalPassage(null);
+        }}
+        className="max-h-[85dvh] w-[92vw] max-w-lg overflow-y-auto rounded-lg border border-workspace-border bg-workspace-surface p-4 shadow-xl"
       >
         {modalPassage && (
           <div className="space-y-3">

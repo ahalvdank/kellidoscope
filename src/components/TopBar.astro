@@ -5,7 +5,7 @@ interface Props {
   tier?: "editorial" | "workspace";
 }
 const { tier = "editorial" } = Astro.props;
-const bgClass = tier === "workspace" ? "bg-workspace-surface" : "bg-editorial-bg/95";
+const bgClass = tier === "workspace" ? "bg-workspace-surface" : "bg-editorial-bg";
 ---
 
 <header class={`site-topbar sticky top-0 z-30 border-b border-editorial-border ${bgClass} backdrop-blur`}>
@@ -32,7 +32,7 @@ const bgClass = tier === "workspace" ? "bg-workspace-surface" : "bg-editorial-bg
         </summary>
         <nav
           aria-label="Mobile"
-          class="absolute inset-x-0 top-full flex flex-col border-b border-editorial-border bg-white px-4 py-2 text-sm shadow-md"
+          class="absolute inset-x-0 top-full flex flex-col border-b border-editorial-border bg-editorial-bg px-4 py-2 text-sm shadow-md"
         >
           <a href="/projects/10k-kb" class="py-2 text-editorial-ink">10-K KB</a>
           <a href="/projects/beckett-diligence" class="py-2 text-editorial-ink">Beckett</a>

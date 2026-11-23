@@ -1,0 +1,122 @@
+---
+interface EvalRow {
+  eval: string;
+  tested: string;
+  result: string;
+  status: "measured" | "v2";
+}
+
+const rows: EvalRow[] = [
+  {
+    eval: "Extraction model A/B (119 sections)",
+    tested: "Claude Sonnet 4.6 vs. Sonnet 5 on structured entity extraction",
+    result: "Kept Sonnet 4.6; Sonnet 5 found 84% fewer company entities.",
+    status: "measured",
+  },
+  {
+    eval: "Open-model extraction benchmark",
+    tested: "7B to 70B open models on high-yield filing sections",
+    result: "Rejected: best achieved ~48% recall; one model hallucinated facts.",
+    status: "measured",
+  },
+  {
+    eval: "Noise-floor & effort-setting test",
+    tested: "Same model run against itself to calibrate a cheaper effort setting",
+    result: "Cheaper setting cut cost ~56% ($0.300 → $0.133/section) but was not adopted.",
+    status: "measured",
+  },
+  {
+    eval: "Pipeline integrity audit",
+    tested: "Entity-link completeness and filing-year content coverage",
+    result: "Found 7 tickers with dropped links and 12/126 empty TOC stubs; fixed both to zero.",
+    status: "measured",
+  },
+  {
+    eval: "Retrieval Recall@k (~30 questions)",
+    tested: "Gold-passage recall over the 8-company public sample",
+    result: "Planned: v2",
+    status: "v2",
+  },
+  {
+    eval: "Citation faithfulness",
+    tested: "LLM judge calibrated against human spot-check labels",
+    result: "Planned: v2",
+    status: "v2",
+  },
+  {
+    eval: "50-claim extraction audit",
+    tested: "Manual precision, false-positive rate, and failure-mode taxonomy",
+    result: "Planned: v2",
+    status: "v2",
+  },
+  {
+    eval: "Cost per 10-K ingested",
+    tested: "Logged tokens, model, and wall time per pipeline stage",
+    result: "Planned: v2",
+    status: "v2",
+  },
+];
+---
+
+<section class="my-10 space-y-6">
+  <div>
+    <h2 class="text-xl font-semibold text-editorial-ink">Verification &amp; Evals Ledger</h2>
+    <p class="mt-1 text-sm text-editorial-muted">
+      Measured checks completed in v1 alongside planned v2 benchmarks.
+    </p>
+  </div>
+
+  <div class="overflow-x-auto rounded-lg border border-editorial-border bg-white">
+    <table class="min-w-full border-collapse text-left text-sm">
+      <thead class="border-b border-editorial-border bg-slate-50 font-mono text-xs text-editorial-muted">
+        <tr>
+          <th class="px-4 py-3">Eval</th>
+          <th class="px-4 py-3">What it tested</th>
+          <th class="px-4 py-3">Result</th>
+          <th class="px-4 py-3">Status</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-editorial-border">
+        {rows.map((r) => (
+          <tr>
+            <td class="px-4 py-3 font-medium text-editorial-ink">{r.eval}</td>
+            <td class="px-4 py-3 text-editorial-muted">{r.tested}</td>
+            <td class="px-4 py-3 text-editorial-ink">{r.result}</td>
+            <td class="px-4 py-3 font-mono text-xs">
+              {r.status === "measured" ? (
+                <span class="rounded bg-emerald-50 px-2 py-0.5 text-emerald-800 border border-emerald-200">
+                  Measured
+                </span>
+              ) : (
+                <span class="rounded bg-slate-100 px-2 py-0.5 text-slate-600 border border-slate-200">
+                  Planned: v2
+                </span>
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Failure Modes Caught -->
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="rounded-lg border border-amber-200 bg-amber-50/60 p-4">
+      <p class="font-mono text-xs font-semibold uppercase text-amber-900">
+        Failure Mode Caught #1 — Invalid Eval Control
+      </p>
+      <p class="mt-2 text-sm text-editorial-ink">
+        Prompt revision <code class="font-mono text-xs">v4b</code> initially appeared to improve extraction because it was scored against a control run on a <em>different</em> prompt. Rerunning the control on the same prompt reversed the result: <code class="font-mono text-xs">v4b</code> degraded nearly every entity type (mean gap 3.2 vs. 1.8 for <code class="font-mono text-xs">v4a</code>) and added timeouts. Rule adopted: never score a prompt revision against a control from a different prompt.
+      </p>
+    </div>
+
+    <div class="rounded-lg border border-amber-200 bg-amber-50/60 p-4">
+      <p class="font-mono text-xs font-semibold uppercase text-amber-900">
+        Failure Mode Caught #2 — Silent MD&amp;A Truncation
+      </p>
+      <p class="mt-2 text-sm text-editorial-ink">
+        Long MD&amp;A sections (often 5–10K tokens, sometimes 20–60K) were silently truncated by the earlier embedding model's 8,192-token limit, dropping late portions where year-over-year changes frequently appear. Fix: sentence-boundary chunking of long sections prior to embedding.
+      </p>
+    </div>
+  </div>
+</section>

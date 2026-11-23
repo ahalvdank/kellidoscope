@@ -1,0 +1,12 @@
+# Why Not a Simpler Solution?
+
+Every cell below is tagged as **Measured** (observed in our tests), **Design rationale** (architectural trade-off), or **Not tested**.
+
+| Approach | Cross-Company & Multi-Year Queries | Section-Level Provenance & Auditability | Cost & Latency at 973 Filings | Where It Wins |
+|---|---|---|---|---|
+| **1. Human Analyst Only** | High judgment, slow across 186 companies *(Design rationale)* | Full manual audit trail *(Design rationale)* | Prohibitive for routine cross-corpus sweeps *(Design rationale)* | Deep judgment on 1–2 high-conviction names *(Design rationale)* |
+| **2. Keyword / Lexicon Search** | Fast exact matches; misses paraphrased risks *(Design rationale)* | Exact string offsets *(Design rationale)* | Near-zero *(Design rationale)* | Known ticker, statute, or covenant lookups *(Design rationale)* |
+| **3. FinBERT-Only Sentiment** | Fast section-level scoring *(Design rationale)* | Section-level only; no claim-level explanation *(Design rationale)* | Very low *(Design rationale)* | Cheap directional sentiment screen; currently used as a shadow signal *(Measured)* |
+| **4. Generic LLM + Basic RAG** | Retrieves top-k chunks; weak on multi-hop entity links and bitemporal state *(Design rationale)* | Chunk-level provenance if enforced *(Design rationale)* | Moderate; open 7B–70B models failed extraction at ~48% max recall *(Measured)* | Fast Q&A over a small, static document set *(Design rationale)* |
+| **5. Long-Context Frontier LLM (Prompt Caching)** | Strong within 1–3 filings; degrades or hits context/cost walls across 973 filings *(Not tested at full corpus; Design rationale)* | Requires post-hoc verification to confirm quotes weren't paraphrased *(Design rationale)* | Expensive to re-scan 186 companies repeatedly *(Not tested)* | **Wins cleanly for ad-hoc deep dives into 1–2 filings** where pre-indexing isn't worth the setup *(Design rationale)* |
+| **6. Hybrid RAG + Bitemporal Graph (This System)** | Combines semantic vector search (`Qwen3-Embedding-0.6B`) with SQL/graph traversal over 45,791 entities and 40,910 closed-vocab claims *(Measured)* | Bitemporal versioning + filing/section provenance on all 394,913 chunks + manual review queue *(Measured)* | Upfront extraction cost ($0.300/section at kept Sonnet 4.6 setting); near-zero query cost *(Measured)* | Repeatable cross-company queries, structured diffs, and auditable point-in-time research *(Design rationale)* |

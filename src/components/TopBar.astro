@@ -1,0 +1,80 @@
+---
+interface Props {
+  tier?: "editorial" | "workspace";
+}
+const { tier = "editorial" } = Astro.props;
+const bgClass = tier === "workspace" ? "bg-workspace-surface" : "bg-editorial-bg/95";
+---
+
+<header class={`site-topbar sticky top-0 z-30 border-b border-editorial-border ${bgClass} backdrop-blur`}>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+    <div class="flex items-center gap-6">
+      <a href="/" class="text-sm font-semibold tracking-tight text-editorial-ink hover:text-editorial-accent">
+        Andrew Kell
+      </a>
+      <nav aria-label="Primary" class="hidden items-center gap-5 text-sm text-editorial-muted sm:flex">
+        <a href="/projects/10k-kb" class="hover:text-editorial-ink">10-K KB</a>
+        <a href="/projects/beckett-diligence" class="hover:text-editorial-ink">Beckett</a>
+        <a href="/projects/portfolio-manager" class="hover:text-editorial-ink">Portfolio Manager</a>
+        <a href="/demos/10k-kb" class="font-medium text-editorial-accent hover:underline">Query Traces</a>
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-3 text-xs sm:text-sm">
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track="resume_clicked"
+        class="rounded border border-editorial-border bg-white px-2.5 py-1 font-medium text-editorial-ink hover:border-editorial-accent"
+      >
+        Resume PDF
+      </a>
+      <a
+        href="#"
+        id="obfuscated-email"
+        data-u="andrew"
+        data-d="kellidoscope.com"
+        class="text-editorial-muted hover:text-editorial-ink"
+      >
+        Email
+      </a>
+      <a
+        href="https://www.linkedin.com/in/andrewkell"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden text-editorial-muted hover:text-editorial-ink sm:inline"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://github.com/ahalvdank"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track="repo_clicked"
+        class="hidden text-editorial-muted hover:text-editorial-ink sm:inline"
+      >
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const emailEl = document.getElementById("obfuscated-email");
+  if (emailEl) {
+    const u = emailEl.getAttribute("data-u");
+    const d = emailEl.getAttribute("data-d");
+    if (u && d) {
+      emailEl.setAttribute("href", `mailto:${u}@${d}`);
+    }
+  }
+  document.querySelectorAll<HTMLAnchorElement>("[data-track]").forEach((el) => {
+    el.addEventListener("click", () => {
+      const ev = el.getAttribute("data-track");
+      if (ev && typeof (window as any).plausible === "function") {
+        (window as any).plausible(ev);
+      }
+    });
+  });
+</script>

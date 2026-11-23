@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import TraceViewer from "../../../../components/TraceViewer";
+import { loadAllTraces, buildManifest } from "../../../../data/traces";
+import type { Trace } from "../../../../data/types";
+
+export function getStaticPaths() {
+  const traces = loadAllTraces();
+  const manifest = buildManifest(traces);
+
+  return traces.map((trace) => ({
+    params: { slug: trace.slug },
+    props: { trace, manifest, allTraces: traces },
+  }));
+}
+
+interface Props {
+  trace: Trace;
+  manifest: ReturnType<typeof buildManifest>;
+  allTraces: Trace[];
+}
+
+const { trace, manifest, allTraces } = Astro.props;
+---
+
+<BaseLayout
+  title={`${trace.title} — 10-K Query Trace | Andrew Kell`}
+  description={trace.question}
+  ogImage="/og-10k-demo.png"
+  tier="workspace"
+>
+  <TraceViewer
+    client:load
+    manifest={manifest}
+    initialTrace={trace}
+    allTraces={allTraces}
+  />
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import TraceViewer from "../../../components/TraceViewer";
+import { loadAllTraces, buildManifest } from "../../../data/traces";
+
+const traces = loadAllTraces();
+const manifest = buildManifest(traces);
+const initialTrace = traces[0];
+---
+
+<BaseLayout
+  title="10-K Knowledge Base — Query Traces | Andrew Kell"
+  description="Deterministic replay of real SEC 10-K RAG and knowledge-graph pipeline runs with full provenance, rejected candidates, and extraction JSON."
+  ogImage="/og-10k-demo.png"
+  tier="workspace"
+>
+  <TraceViewer
+    client:load
+    manifest={manifest}
+    initialTrace={initialTrace}
+    allTraces={traces}
+  />
+</BaseLayout>

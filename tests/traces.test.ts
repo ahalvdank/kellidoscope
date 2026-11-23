@@ -49,11 +49,9 @@ describe("trace loader", () => {
     expect(expected.length).toBeGreaterThan(0);
   });
 
-  it("production build without a synced manifest throws, pointing at the sync script", async () => {
-    const { getManifest, loadAllTraces, listFeaturedSlugs } = await loadModule(true);
-    for (const fn of [getManifest, loadAllTraces, listFeaturedSlugs]) {
-      expect(fn).toThrow(/scripts\/sync-traces\.mjs/);
-    }
+  it("production without a synced manifest throws, pointing at the sync script", async () => {
+    const { resolveManifest } = await loadModule(true);
+    expect(() => resolveManifest(undefined, [], true)).toThrow(/scripts\/sync-traces\.mjs/);
   });
 
   it("dev without a synced manifest derives one, featuring the dev fixture", async () => {

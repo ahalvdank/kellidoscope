@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && node scripts/check-no-dev-leak.mjs dist",
+    "build": "astro check && astro build && node scripts/check-no-dev-leak.mjs dist && node scripts/check-csp-hashes.mjs dist",
     "preview": "astro preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",

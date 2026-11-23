@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Passage, Trace, TraceCategory, TraceManifest } from "../data/types";
 import { getEntityBucket } from "../data/entityBuckets";
-import { trackEvent } from "../lib/analytics";
+import { countEvent, countPageview } from "../lib/analytics";
 import { linkCitations } from "../lib/citations";
 import { safeUrl } from "../lib/safeUrl";
 import { siteConfig } from "../data/siteConfig";
@@ -55,10 +55,6 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
   );
 
   useEffect(() => {
-    trackEvent("demo_opened", { slug: initialTrace.slug });
-  }, []);
-
-  useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
     if (modalPassage && !dialog.open) {
@@ -69,8 +65,9 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
   }, [modalPassage]);
 
   const filteredSummaries = useMemo(() => {
-    if (selectedCategory === "all") return manifest.traces;
-    return manifest.traces.filter((t) => t.category === selectedCategory);
+    const featured = manifest.traces.filter((t) => t.featured);
+    if (selectedCategory === "all") return featured;
+    return featured.filter((t) => t.category === selectedCategory);
   }, [manifest.traces, selectedCategory]);
 
   /** Shows `trace` and resets every piece of per-trace UI state. */
@@ -87,7 +84,8 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
 
   /**
    * Loads a featured trace (cache first, then fetch). Supersedes any request still in flight.
-   * `push` adds a history entry; popstate passes false because the browser already moved.
+   * `push` adds a history entry unless the current entry is already this slug; popstate passes
+   * false because the browser already moved. Every URL change is counted as a pageview.
    */
   const loadTrace = useCallback(
     async (slug: string, push: boolean) => {
@@ -95,7 +93,12 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
       abortRef.current = null;
       const requestId = ++requestIdRef.current;
       const pushEntry = () => {
-        if (push) window.history.pushState({ slug }, "", `${TRACE_PAGE_BASE}/${slug}/`);
+        if (push) {
+          const current = (window.history.state as { slug?: unknown } | null)?.slug;
+          if (current === slug) return;
+          window.history.pushState({ slug }, "", `${TRACE_PAGE_BASE}/${slug}/`);
+        }
+        countPageview(window.location.pathname);
       };
 
       const cached = cacheRef.current.get(slug);
@@ -149,12 +152,11 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
 
   function selectTrace(slug: string) {
     if (activeTrace.slug === slug && !loading) return;
-    trackEvent("trace_selected", { slug });
     void loadTrace(slug, true);
   }
 
   function handleCitationClick(citeNum: number) {
-    trackEvent("citation_clicked", { slug: activeTrace.slug, cite: citeNum });
+    countEvent("citation");
     const passage = activeTrace.passages.find((p) => p.cite === citeNum);
     if (!passage) return;
 
@@ -316,7 +318,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                 href={commitUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent("repo_clicked", { source: "trace_meta" })}
+                onClick={() => countEvent("repo")}
                 className="text-editorial-accent underline"
               >
                 exported at commit {shortCommit}
@@ -373,6 +375,8 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                         </a>
                       );
                     },
+                    // Images never render: no third-party requests from trace markdown.
+                    img: () => null,
                     table: ({ children }) => (
                       <div className="my-4 overflow-x-auto">
                         <table className="min-w-full border-collapse border border-workspace-border text-xs">
@@ -665,7 +669,7 @@ function PassageCard({
             href={secUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent("sec_link_clicked", { ticker: passage.ticker })}
+            onClick={() => countEvent("sec-link")}
             className="shrink-0 text-editorial-accent underline"
           >
             Open official SEC filing ↗

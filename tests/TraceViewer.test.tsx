@@ -409,3 +409,97 @@ describe("props contract (C1.7)", () => {
     expect(screen.getByRole("heading", { name: BA.question })).toBeTruthy();
   });
 });
+
+describe("analytics (Task 4)", () => {
+  let count: ReturnType<typeof vi.fn>;
+  beforeEach(() => {
+    count = vi.fn();
+    window.goatcounter = { count };
+  });
+  afterEach(() => {
+    delete window.goatcounter;
+  });
+
+  it("trace switch calls countPageview with the new path", async () => {
+    serve(AMD);
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    expect(count).not.toHaveBeenCalled(); // count.js records the landing pageview itself
+    pick(AMD);
+    await questionHeading(AMD);
+    expect(count).toHaveBeenCalledTimes(1);
+    expect(count).toHaveBeenCalledWith({ path: `${BASE}/${AMD.slug}/` });
+  });
+
+  it("Back/Forward (popstate) counts a pageview for the restored path", async () => {
+    serve(AMD);
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    window.history.replaceState({ slug: AMD.slug }, "", `${BASE}/${AMD.slug}/`);
+    act(() => {
+      window.dispatchEvent(new PopStateEvent("popstate", { state: { slug: AMD.slug } }));
+    });
+    await questionHeading(AMD);
+    expect(count).toHaveBeenCalledWith({ path: `${BASE}/${AMD.slug}/` });
+  });
+
+  it("a citation button calls countEvent('citation')", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const answer = within(document.querySelector(".prose") as HTMLElement);
+    fireEvent.click(answer.getAllByRole("button", { name: /^\[\d+\]$/ })[0]);
+    expect(count).toHaveBeenCalledWith({ path: "citation", event: true });
+  });
+
+  it("an SEC filing link calls countEvent('sec-link')", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    fireEvent.click(screen.getAllByRole("link", { name: /Open official SEC filing/ })[0]);
+    expect(count).toHaveBeenCalledWith({ path: "sec-link", event: true });
+  });
+
+  it("the exported-at-commit link calls countEvent('repo')", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    fireEvent.click(screen.getByRole("link", { name: /exported at commit/ }));
+    expect(count).toHaveBeenCalledWith({ path: "repo", event: true });
+  });
+
+  it("island links do not also carry data-goatcounter-click (would double count)", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    expect(document.querySelector("[data-goatcounter-click]")).toBeNull();
+  });
+});
+
+describe("carry items from Task 3 review", () => {
+  it("markdown images render as nothing (no third-party image requests)", () => {
+    const trace: Trace = { ...BA, answer_md: "Before ![pixel](https://evil.example/p.png) after." };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    const prose = document.querySelector(".prose") as HTMLElement;
+    expect(prose.querySelector("img")).toBeNull();
+    expect(prose.textContent).toContain("Before");
+    expect(prose.textContent).toContain("after.");
+    expect(prose.textContent).not.toContain("pixel");
+  });
+
+  it("re-selecting the trace already in history.state does not push a duplicate entry", async () => {
+    const slow = deferred<Response>();
+    stubFetch(() => slow.promise);
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    expect(window.history.state).toEqual({ slug: BA.slug });
+    const push = vi.spyOn(window.history, "pushState");
+
+    pick(AMD); // pending
+    pick(BA); // cached, and history already points at BA
+
+    expect(push).not.toHaveBeenCalled();
+    expect(screen.getByRole("heading", { name: BA.question })).toBeTruthy();
+    await act(async () => {
+      slow.resolve(ok(AMD));
+      await slow.promise;
+    });
+  });
+
+  it("the picker lists featured traces only", () => {
+    const hidden = { ...MANIFEST.traces[0], slug: "hidden-unfeatured", title: "Hidden unfeatured trace", featured: false };
+    const manifest = { ...MANIFEST, traces: [...MANIFEST.traces, hidden] };
+    render(<TraceViewer initialTrace={BA} manifest={manifest} />);
+    expect(screen.queryByText("Hidden unfeatured trace")).toBeNull();
+    for (const t of MANIFEST.traces) expect(screen.getByText(t.title)).toBeTruthy();
+  });
+});

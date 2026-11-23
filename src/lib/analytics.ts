@@ -1,23 +1,31 @@
-export type AnalyticsEvent =
-  | "demo_opened"
-  | "trace_selected"
-  | "citation_clicked"
-  | "sec_link_clicked"
-  | "repo_clicked"
-  | "resume_clicked";
+/** Click events counted in GoatCounter. Each is recorded as an event whose path is the name. */
+export type CountedEvent = "citation" | "sec-link" | "repo" | "resume";
+
+interface GoatCounterCountVars {
+  path: string;
+  event?: boolean;
+}
 
 declare global {
   interface Window {
-    plausible?: (event: string, options?: { props?: Record<string, string | number> }) => void;
+    /** Set by GoatCounter's count.js; absent when blocked or not yet loaded. */
+    goatcounter?: { count?: (vars: GoatCounterCountVars) => void };
   }
 }
 
-export function trackEvent(
-  event: AnalyticsEvent,
-  props?: Record<string, string | number>
-): void {
+function count(vars: GoatCounterCountVars): void {
   if (typeof window === "undefined") return;
-  if (typeof window.plausible === "function") {
-    window.plausible(event, props ? { props } : undefined);
-  }
+  const counter = window.goatcounter;
+  if (typeof counter?.count !== "function") return;
+  counter.count(vars);
+}
+
+/** Records a pageview for a client-side navigation (count.js records the landing page itself). */
+export function countPageview(path: string): void {
+  count({ path });
+}
+
+/** Records a click event for elements count.js cannot bind (anything rendered by an island). */
+export function countEvent(name: CountedEvent): void {
+  count({ path: name, event: true });
 }

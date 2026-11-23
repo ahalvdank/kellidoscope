@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from "../data/siteConfig";
+
 interface Props {
   tier?: "editorial" | "workspace";
 }
@@ -22,25 +24,16 @@ const bgClass = tier === "workspace" ? "bg-workspace-surface" : "bg-editorial-bg
 
     <div class="flex items-center gap-3 text-xs sm:text-sm">
       <a
-        href="/resume.pdf"
+        href={siteConfig.resumePath}
         target="_blank"
         rel="noopener noreferrer"
-        data-track="resume_clicked"
+        data-goatcounter-click="resume"
         class="rounded border border-editorial-border bg-white px-2.5 py-1 font-medium text-editorial-ink hover:border-editorial-accent"
       >
         Resume PDF
       </a>
       <a
-        href="#"
-        id="obfuscated-email"
-        data-u="andrew"
-        data-d="kellidoscope.com"
-        class="text-editorial-muted hover:text-editorial-ink"
-      >
-        Email
-      </a>
-      <a
-        href="https://www.linkedin.com/in/andrewkell"
+        href={siteConfig.linkedin}
         target="_blank"
         rel="noopener noreferrer"
         class="hidden text-editorial-muted hover:text-editorial-ink sm:inline"
@@ -48,10 +41,10 @@ const bgClass = tier === "workspace" ? "bg-workspace-surface" : "bg-editorial-bg
         LinkedIn
       </a>
       <a
-        href="https://github.com/ahalvdank"
+        href={siteConfig.github}
         target="_blank"
         rel="noopener noreferrer"
-        data-track="repo_clicked"
+        data-goatcounter-click="repo"
         class="hidden text-editorial-muted hover:text-editorial-ink sm:inline"
       >
         GitHub
@@ -59,22 +52,3 @@ const bgClass = tier === "workspace" ? "bg-workspace-surface" : "bg-editorial-bg
     </div>
   </div>
 </header>
-
-<script>
-  const emailEl = document.getElementById("obfuscated-email");
-  if (emailEl) {
-    const u = emailEl.getAttribute("data-u");
-    const d = emailEl.getAttribute("data-d");
-    if (u && d) {
-      emailEl.setAttribute("href", `mailto:${u}@${d}`);
-    }
-  }
-  document.querySelectorAll<HTMLAnchorElement>("[data-track]").forEach((el) => {
-    el.addEventListener("click", () => {
-      const ev = el.getAttribute("data-track");
-      if (ev && typeof (window as any).plausible === "function") {
-        (window as any).plausible(ev);
-      }
-    });
-  });
-</script>

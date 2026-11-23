@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Seo from "../components/Seo.astro";
 import TopBar from "../components/TopBar.astro";
+import { siteConfig } from "../data/siteConfig";
 
 interface Props {
   title: string;
@@ -26,7 +27,14 @@ const bodyBg = tier === "workspace" ? "bg-workspace-bg" : "bg-editorial-bg";
       rel="stylesheet"
     />
     <Seo title={title} description={description} ogImage={ogImage} />
-    <!-- Plausible or Cloudflare Web Analytics snippet goes here -->
+    <script
+      is:inline
+      data-goatcounter={`${siteConfig.goatcounter}/count`}
+      async
+      src="https://gc.zgo.at/count.v5.js"
+      crossorigin="anonymous"
+      integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ"
+    ></script>
   </head>
   <body class={`${bodyBg} text-editorial-ink`}>
     <TopBar tier={tier} />

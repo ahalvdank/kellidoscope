@@ -79,14 +79,25 @@ describe("syncTraces with SRC", () => {
     expect(copied.sample.filings).toBe(1);
   });
 
+  it("every slug in the synced manifest has a trace file in both destinations", () => {
+    sync({ src, root });
+    for (const dest of ["src/data/traces", "public/data/traces"]) {
+      const manifest = JSON.parse(readFileSync(join(root, dest, "manifest.json"), "utf8"));
+      expect(manifest.traces.length).toBeGreaterThan(0);
+      for (const t of manifest.traces) expect(existsSync(join(root, dest, `${t.slug}.json`)), t.slug).toBe(true);
+    }
+  });
+
   it("removes stale synced traces but keeps the dev fixture in src", () => {
     mkdirSync(join(root, "src/data/traces"), { recursive: true });
     writeFileSync(join(root, "src/data/traces/_DEV_FIXTURE_do_not_ship.json"), FIXTURE);
     writeJson(join(root, "src/data/traces/old-unfeatured.json"), {});
     writeJson(join(root, "public/data/traces/old-unfeatured.json"), {});
+    writeJson(join(root, "public/data/traces/_DEV_leftover.json"), {});
     sync({ src, root });
     expect(existsSync(join(root, "src/data/traces/old-unfeatured.json"))).toBe(false);
     expect(existsSync(join(root, "public/data/traces/old-unfeatured.json"))).toBe(false);
+    expect(existsSync(join(root, "public/data/traces/_DEV_leftover.json"))).toBe(false);
     expect(existsSync(join(root, "src/data/traces/_DEV_FIXTURE_do_not_ship.json"))).toBe(true);
   });
 

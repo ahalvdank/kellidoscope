@@ -1,16 +1,16 @@
 ---
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import TraceViewer from "../../../../components/TraceViewer";
-import { loadAllTraces, getManifest } from "../../../../data/traces";
+import { getManifest, getTrace, listFeaturedSlugs, loadAllTraces } from "../../../../data/traces";
 import type { Trace, TraceManifest } from "../../../../data/types";
 
 export function getStaticPaths() {
   const traces = loadAllTraces();
   const manifest = getManifest();
 
-  return traces.map((trace) => ({
-    params: { slug: trace.slug },
-    props: { trace, manifest, allTraces: traces },
+  return listFeaturedSlugs().map((slug) => ({
+    params: { slug },
+    props: { trace: getTrace(slug), manifest, allTraces: traces },
   }));
 }
 

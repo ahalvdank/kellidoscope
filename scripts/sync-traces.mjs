@@ -23,11 +23,11 @@ const DEV_FIXTURE = "_DEV_FIXTURE_do_not_ship.json";
 const BUILD_DIR = "src/data/traces";
 const PUBLIC_DIR = "public/data/traces";
 
-/** Delete previously synced JSON from `dir`, keeping `_DEV_` fixtures. */
-function clearSynced(dir) {
+/** Delete previously synced JSON from `dir`; `keepDev` preserves `_DEV_` fixtures (src only). */
+function clearSynced(dir, keepDev) {
   if (!existsSync(dir)) return;
   for (const name of readdirSync(dir)) {
-    if (name.endsWith(".json") && !name.startsWith("_DEV_")) rmSync(join(dir, name));
+    if (name.endsWith(".json") && !(keepDev && name.startsWith("_DEV_"))) rmSync(join(dir, name));
   }
 }
 
@@ -64,7 +64,7 @@ export function syncTraces({ src, root = REPO_ROOT } = {}) {
   const filtered = JSON.stringify({ ...manifest, traces: featured }, null, 2) + "\n";
   for (const dest of [buildDir, join(root, PUBLIC_DIR)]) {
     mkdirSync(dest, { recursive: true });
-    clearSynced(dest);
+    clearSynced(dest, dest === buildDir);
     for (const { slug, file } of sources) copyFileSync(file, join(dest, `${slug}.json`));
     writeFileSync(join(dest, "manifest.json"), filtered);
   }

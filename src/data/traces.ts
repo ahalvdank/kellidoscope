@@ -19,10 +19,6 @@ const manifestModules: ManifestModules = import.meta.glob<{ default: TraceManife
   { eager: true },
 );
 
-export function loadAllTraces(): Trace[] {
-  return Object.values(traceModules).map((mod) => mod.default);
-}
-
 /**
  * Manifest derived from loaded traces. Used only when no synced manifest.json exists
  * (dev fixture, or a production build before the first sync).
@@ -51,16 +47,54 @@ export function buildManifest(traces: Trace[]): TraceManifest {
   };
 }
 
-/** The synced manifest (featured traces only), or a derived one when none has been synced. */
-export function getManifest(): TraceManifest {
-  const synced = Object.values(manifestModules)[0]?.default;
-  return synced ?? buildManifest(loadAllTraces());
+const SYNC_HINT = "Run `node scripts/sync-traces.mjs <SRC>` to copy the featured traces.";
+
+/**
+ * Manifest to use. A synced manifest always wins. Without one, only dev may derive a manifest
+ * from the loaded traces; production throws so a build can never ship an empty or dev site.
+ */
+export function resolveManifest(
+  synced: TraceManifest | undefined,
+  traces: Trace[],
+  isProd: boolean,
+): TraceManifest {
+  if (synced) return synced;
+  if (isProd) throw new Error(`No src/data/traces/manifest.json in a production build. ${SYNC_HINT}`);
+  return buildManifest(traces);
 }
 
-/** Build-time lookup; throws for a slug with no trace file. */
+/**
+ * Traces for the featured manifest entries, in manifest order. A trace file whose slug is not
+ * featured in the manifest is ignored; a featured entry with no file throws.
+ */
+export function selectFeatured(traces: Trace[], manifest: TraceManifest): Trace[] {
+  const bySlug = new Map(traces.map((t) => [t.slug, t]));
+  return manifest.traces
+    .filter((entry) => entry.featured)
+    .map((entry) => {
+      const trace = bySlug.get(entry.slug);
+      if (!trace) throw new Error(`Manifest lists "${entry.slug}" but it has no trace file. ${SYNC_HINT}`);
+      return trace;
+    });
+}
+
+/** Every bundled trace file, featured or not; exported for the glob test. Pages use loadAllTraces. */
+export const loadRawTraces = (): Trace[] => Object.values(traceModules).map((mod) => mod.default);
+
+/** The synced manifest (featured traces only); a derived one in dev when none is synced. */
+export function getManifest(): TraceManifest {
+  return resolveManifest(Object.values(manifestModules)[0]?.default, loadRawTraces(), import.meta.env.PROD);
+}
+
+/** Featured traces only, in manifest order. */
+export function loadAllTraces(): Trace[] {
+  return selectFeatured(loadRawTraces(), getManifest());
+}
+
+/** Build-time lookup of a featured trace; throws for any other slug. */
 export function getTrace(slug: string): Trace {
   const trace = loadAllTraces().find((t) => t.slug === slug);
-  if (!trace) throw new Error(`No trace file for slug "${slug}"`);
+  if (!trace) throw new Error(`No featured trace for slug "${slug}"`);
   return trace;
 }
 

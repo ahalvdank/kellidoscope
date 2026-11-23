@@ -1,11 +1,13 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import TraceViewer from "../../../components/TraceViewer";
-import { loadAllTraces, getManifest } from "../../../data/traces";
+import { getManifest, getTrace, listFeaturedSlugs, loadAllTraces } from "../../../data/traces";
 
 const traces = loadAllTraces();
 const manifest = getManifest();
-const initialTrace = traces[0];
+const [firstSlug] = listFeaturedSlugs();
+if (!firstSlug) throw new Error("Manifest has no featured traces. Run `node scripts/sync-traces.mjs <SRC>`.");
+const initialTrace = getTrace(firstSlug);
 ---
 
 <BaseLayout

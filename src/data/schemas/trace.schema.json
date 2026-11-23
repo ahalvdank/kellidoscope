@@ -1,0 +1,362 @@
+{
+  "$id": "trace.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "D2 Trace (docs/portfolio-site/neon-build-request.md), field for field. Additive: passage.form '10-K/A', claim.superseded, meta.max_passages, meta.models.sentiment.",
+  "properties": {
+    "answer_md": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "audit_note_md": {
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "risk_shift",
+        "contradiction",
+        "capital_structure",
+        "cross_company"
+      ],
+      "type": "string"
+    },
+    "claims": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cite": {
+            "minimum": 1,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "claim_type": {
+            "enum": [
+              "Risk",
+              "MaterialEvent",
+              "CapitalStructureEvent",
+              "LegalProceeding",
+              "CapitalReturn",
+              "GuidanceUpdate",
+              "RevenueSegment",
+              "ESGCommitment",
+              "InsiderTransaction"
+            ],
+            "type": "string"
+          },
+          "entity": {
+            "type": "string"
+          },
+          "entity_type": {
+            "type": "string"
+          },
+          "raw_extraction": {},
+          "relationship": {
+            "additionalProperties": false,
+            "properties": {
+              "target": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "target"
+            ],
+            "type": "object"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "superseded": {
+            "type": "boolean"
+          },
+          "ticker": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "claim_type",
+          "entity_type",
+          "entity",
+          "ticker",
+          "statement",
+          "raw_extraction",
+          "cite"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "meta": {
+      "additionalProperties": false,
+      "properties": {
+        "build_commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "type": "string"
+        },
+        "display_cutoff": {
+          "type": "number"
+        },
+        "max_passages": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_rejected": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "models": {
+          "additionalProperties": false,
+          "properties": {
+            "embedding": {
+              "type": "string"
+            },
+            "extraction": {
+              "type": "string"
+            },
+            "sentiment": {
+              "type": "string"
+            },
+            "synthesis": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "embedding",
+            "extraction",
+            "synthesis",
+            "sentiment"
+          ],
+          "type": "object"
+        },
+        "run_timestamp": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+          "type": "string"
+        },
+        "top_k": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_timestamp",
+        "build_commit",
+        "models",
+        "top_k",
+        "max_passages",
+        "max_rejected",
+        "display_cutoff"
+      ],
+      "type": "object"
+    },
+    "passages": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "accession": {
+            "pattern": "^\\d{10}-\\d{2}-\\d{6}$",
+            "type": "string"
+          },
+          "cite": {
+            "minimum": 1,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "company": {
+            "type": "string"
+          },
+          "context": {
+            "additionalProperties": false,
+            "properties": {
+              "after": {
+                "type": "string"
+              },
+              "before": {
+                "type": "string"
+              },
+              "match": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "before",
+              "match",
+              "after"
+            ],
+            "type": "object"
+          },
+          "filed": {
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "type": "string"
+          },
+          "fiscal_year": {
+            "type": "integer"
+          },
+          "form": {
+            "enum": [
+              "10-K",
+              "10-Q",
+              "10-K/A"
+            ],
+            "type": "string"
+          },
+          "included": {
+            "type": "boolean"
+          },
+          "score": {
+            "type": "number"
+          },
+          "sec_url": {
+            "pattern": "^https://www\\.sec\\.gov/Archives/edgar/data/",
+            "type": "string"
+          },
+          "section": {
+            "type": "string"
+          },
+          "ticker": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cite",
+          "included",
+          "score",
+          "ticker",
+          "company",
+          "form",
+          "fiscal_year",
+          "filed",
+          "section",
+          "accession",
+          "sec_url",
+          "context"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "question": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "signals": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_diff": {
+            "additionalProperties": false,
+            "properties": {
+              "added": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "changed": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "after": {
+                      "type": "string"
+                    },
+                    "before": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "before",
+                    "after"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "removed": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "added",
+              "removed",
+              "changed"
+            ],
+            "type": "object"
+          },
+          "current_fy": {
+            "type": "integer"
+          },
+          "prior_fy": {
+            "type": "integer"
+          },
+          "section": {
+            "type": "string"
+          },
+          "sentiment_shift": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ticker": {
+            "type": "string"
+          },
+          "tone_shift": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "ticker",
+          "section",
+          "prior_fy",
+          "current_fy",
+          "tone_shift",
+          "sentiment_shift"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "slug": {
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "type": "string"
+    },
+    "tickers": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "title": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "title",
+    "question",
+    "category",
+    "tickers",
+    "meta",
+    "answer_md",
+    "passages",
+    "claims"
+  ],
+  "title": "Trace",
+  "type": "object"
+}

@@ -1,0 +1,144 @@
+{
+  "slug": "dev-lorem-corp-risk-shift",
+  "title": "DEV FIXTURE: Lorem Corp supply-chain risk shift",
+  "question": "How did Lorem Corp's Item 1A supply-chain risk language change between FY2024 and FY2025?",
+  "category": "risk_shift",
+  "tickers": [
+    "XXXX"
+  ],
+  "meta": {
+    "run_timestamp": "2026-11-20T14:00:00Z",
+    "build_commit": "0000000000000000000000000000000000000000",
+    "models": {
+      "embedding": "Qwen/Qwen3-Embedding-0.6B",
+      "extraction": "claude-sonnet-4-6",
+      "synthesis": "claude-sonnet-4-6",
+      "sentiment": "ProsusAI/finbert"
+    },
+    "top_k": 20,
+    "display_cutoff": 0.72,
+    "max_passages": 40,
+    "max_rejected": 10
+  },
+  "answer_md": "Between FY2024 and FY2025, Lorem Corp added explicit single-source packaging concentration risk in Item 1A [1]. Management also noted a longer qualification cycle for secondary suppliers [2].",
+  "passages": [
+    {
+      "cite": 1,
+      "included": true,
+      "score": 0.864,
+      "ticker": "XXXX",
+      "company": "Lorem Corp",
+      "form": "10-K",
+      "fiscal_year": 2025,
+      "filed": "2026-02-18",
+      "section": "Item 1A Risk Factors",
+      "accession": "0000000000-26-000001",
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/0/000000000026000001/lorem-dev.htm",
+      "context": {
+        "before": "Our manufacturing operations depend on third-party assembly partners.",
+        "match": "In fiscal 2025, we relied on a single packaging vendor for over 60% of high-margin units.",
+        "after": "Any disruption at this facility could materially delay shipments."
+      }
+    },
+    {
+      "cite": 2,
+      "included": true,
+      "score": 0.791,
+      "ticker": "XXXX",
+      "company": "Lorem Corp",
+      "form": "10-K",
+      "fiscal_year": 2025,
+      "filed": "2026-02-18",
+      "section": "Item 7 Management's Discussion and Analysis",
+      "accession": "0000000000-26-000001",
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/0/000000000026000001/lorem-dev.htm",
+      "context": {
+        "before": "We continue to evaluate alternate suppliers.",
+        "match": "Qualifying a secondary vendor typically requires 9 to 12 months of testing.",
+        "after": "Costs associated with dual-sourcing are reflected in cost of revenue."
+      }
+    },
+    {
+      "cite": null,
+      "included": false,
+      "score": 0.642,
+      "ticker": "XXXX",
+      "company": "Lorem Corp",
+      "form": "10-K",
+      "fiscal_year": 2024,
+      "filed": "2025-02-20",
+      "section": "Item 1 Business",
+      "accession": "0000000000-25-000001",
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/0/000000000026000001/lorem-dev.htm",
+      "context": {
+        "before": "Lorem Corp operates facilities across three regions.",
+        "match": "General warehouse leases renew on a three-year schedule.",
+        "after": "We believe our current facilities are adequate."
+      }
+    },
+    {
+      "cite": null,
+      "included": true,
+      "score": 0.55,
+      "ticker": "XXXX",
+      "company": "Lorem Corp",
+      "form": "10-K/A",
+      "fiscal_year": 2024,
+      "filed": "2025-02-20",
+      "section": "Item 9A Controls and Procedures",
+      "accession": "0000000000-25-000001",
+      "sec_url": "https://www.sec.gov/Archives/edgar/data/0/000000000026000001/lorem-dev.htm",
+      "context": {
+        "before": "Lorem Corp operates facilities across three regions.",
+        "match": "General warehouse leases renew on a three-year schedule.",
+        "after": "We believe our current facilities are adequate."
+      }
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "Risk",
+      "entity_type": "Risk",
+      "entity": "Single-source packaging concentration",
+      "ticker": "XXXX",
+      "statement": "Relies on one packaging vendor for >60% of high-margin units in FY2025.",
+      "raw_extraction": {
+        "severity": "material"
+      },
+      "cite": 1
+    },
+    {
+      "claim_type": "MaterialEvent",
+      "entity_type": "MaterialEvent",
+      "entity": "Packaging vendor outage",
+      "ticker": "XXXX",
+      "statement": "A packaging vendor outage delayed shipments in FY2024.",
+      "raw_extraction": {},
+      "cite": null,
+      "superseded": true
+    }
+  ],
+  "signals": [
+    {
+      "ticker": "XXXX",
+      "section": "Item 1A Risk Factors",
+      "prior_fy": 2024,
+      "current_fy": 2025,
+      "tone_shift": 0.142,
+      "sentiment_shift": -0.08,
+      "claim_diff": {
+        "added": [
+          "Single-source packaging vendor >60% concentration"
+        ],
+        "removed": [],
+        "changed": [
+          {
+            "before": "Secondary supplier qualification takes up to 6 months.",
+            "after": "Secondary supplier qualification requires 9 to 12 months."
+          }
+        ]
+      }
+    }
+  ],
+  "audit_note_md": "---\nticker: XXXX\nfiscal_year: 2025\n---\n# [[Lorem Corp]] — FY2025 Risk Audit\n- Added [[Single-source packaging concentration]] in Item 1A [1]."
+}

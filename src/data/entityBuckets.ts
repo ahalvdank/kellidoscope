@@ -1,4 +1,5 @@
-export type EntityBucketId = "company" | "risk" | "capital" | "people" | "research";
+export type BucketId = "company" | "risk" | "capital" | "people" | "research" | "other";
+export type EntityBucketId = BucketId;
 
 export interface EntityBucketMeta {
   id: EntityBucketId;
@@ -38,9 +39,15 @@ export const ENTITY_BUCKETS: Record<EntityBucketId, EntityBucketMeta> = {
     pillClass: "bg-slate-100 text-slate-700 border-slate-300",
     borderClass: "border-l-slate-500",
   },
+  other: {
+    id: "other",
+    label: "Other",
+    pillClass: "bg-zinc-100 text-zinc-700 border-zinc-300",
+    borderClass: "border-l-zinc-400",
+  },
 };
 
-export const INTERNAL_TYPE_TO_BUCKET: Record<string, EntityBucketId> = {
+export const INTERNAL_TYPE_TO_BUCKET: Readonly<Record<string, Exclude<BucketId, "other">>> = {
   Company: "company",
   Filing: "company",
   Security: "company",
@@ -61,7 +68,13 @@ export const INTERNAL_TYPE_TO_BUCKET: Record<string, EntityBucketId> = {
   ThesisPage: "research",
 };
 
+/** Bucket for an internal entity type; types the map does not know fall into "other". */
+export function bucketFor(entityType: string): BucketId {
+  return Object.hasOwn(INTERNAL_TYPE_TO_BUCKET, entityType)
+    ? INTERNAL_TYPE_TO_BUCKET[entityType]
+    : "other";
+}
+
 export function getEntityBucket(entityType: string): EntityBucketMeta {
-  const bucketId = INTERNAL_TYPE_TO_BUCKET[entityType] ?? "research";
-  return ENTITY_BUCKETS[bucketId];
+  return ENTITY_BUCKETS[bucketFor(entityType)];
 }

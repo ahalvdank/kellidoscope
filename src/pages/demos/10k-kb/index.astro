@@ -1,10 +1,10 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import TraceViewer from "../../../components/TraceViewer";
-import { loadAllTraces, buildManifest } from "../../../data/traces";
+import { loadAllTraces, getManifest } from "../../../data/traces";
 
 const traces = loadAllTraces();
-const manifest = buildManifest(traces);
+const manifest = getManifest();
 const initialTrace = traces[0];
 ---
 

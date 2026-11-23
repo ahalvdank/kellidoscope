@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import type { Passage, Trace, TraceCategory, TraceManifest } from "../data/types";
 import { getEntityBucket } from "../data/entityBuckets";
 import { countEvent, countPageview } from "../lib/analytics";
+import { FRAMING_BANNER, sampleBadge } from "../lib/badge";
 import { linkCitations } from "../lib/citations";
 import { safeUrl } from "../lib/safeUrl";
 import { siteConfig } from "../data/siteConfig";
@@ -228,11 +229,11 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
             10-K Knowledge Base Inspector
           </h1>
           <p className="mt-1 text-sm text-workspace-muted">
-            Deterministic replay of real pipeline runs: zero live API latency or cost.
+            {FRAMING_BANNER}
           </p>
         </div>
         <div className="rounded-md border border-workspace-border bg-workspace-surface px-3 py-2 font-mono text-xs text-workspace-muted">
-          {`Sample: ${manifest.sample.companies.length} companies · ${manifest.sample.filings} filings | Full private system: ${manifest.full_corpus.companies} companies · ${manifest.full_corpus.filings} filings.`}
+          {sampleBadge(manifest)}
         </div>
       </div>
 

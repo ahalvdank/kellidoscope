@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { loadCopy } from "../lib/copy";
+
+const { data, sections } = await loadCopy("copy-home");
+const { hero, flagships, personal } = data;
+if (!hero || !flagships || !personal) throw new Error("content/copy-home.md needs hero, flagships and personal");
+sections.assertAllUsed();
+---
+
+<BaseLayout title={data.title} description={data.description}>
+  <section class="max-w-3xl">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{hero.headline}</h1>
+    <p class="mt-4 text-lg leading-relaxed text-editorial-muted">{hero.subhead}</p>
+  </section>
+
+  <section class="mt-10" aria-labelledby="systems">
+    <h2 id="systems" class="sr-only">Systems</h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      {flagships.map((card) => <ProjectCard {...card} />)}
+    </div>
+  </section>
+
+  <section class="mt-14" aria-labelledby="personal">
+    <h2 id="personal" class="text-xl font-semibold tracking-tight">{personal.heading}</h2>
+    <p class="mt-2 max-w-3xl text-sm text-editorial-muted">{personal.role}</p>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      {personal.cards.map((card) => <ProjectCard {...card} size="secondary" />)}
+    </div>
+  </section>
+</BaseLayout>

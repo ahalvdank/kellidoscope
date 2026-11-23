@@ -9,49 +9,73 @@ interface EvalRow {
 const rows: EvalRow[] = [
   {
     eval: "Extraction model A/B (119 sections)",
-    tested: "Claude Sonnet 4.6 vs. Sonnet 5 on structured entity extraction",
-    result: "Kept Sonnet 4.6; Sonnet 5 found 84% fewer company entities.",
+    tested: "Private pipeline: Claude Sonnet 4.6 against Sonnet 5 on entity extraction",
+    result: "Kept Sonnet 4.6. Sonnet 5 found 84% fewer company entities.",
     status: "measured",
   },
   {
     eval: "Open-model extraction benchmark",
-    tested: "7B to 70B open models on high-yield filing sections",
-    result: "Rejected: best achieved ~48% recall; one model hallucinated facts.",
+    tested: "Private pipeline: open models from 7B to 70B on high-yield filing sections",
+    result: "Rejected. The best reached about 48% recall, and one hallucinated facts.",
     status: "measured",
   },
   {
-    eval: "Noise-floor & effort-setting test",
-    tested: "Same model run against itself to calibrate a cheaper effort setting",
-    result: "Cheaper setting cut cost ~56% ($0.300 → $0.133/section) but was not adopted.",
+    eval: "Noise floor and cheaper effort setting",
+    tested: "Private pipeline: the same model run against itself, as the bar for judging a cheaper setting",
+    result: "The cheaper setting would cut cost per section about 56%, from $0.300 to $0.133. Not adopted.",
     status: "measured",
   },
   {
-    eval: "Pipeline integrity audit",
-    tested: "Entity-link completeness and filing-year content coverage",
-    result: "Found 7 tickers with dropped links and 12/126 empty TOC stubs; fixed both to zero.",
+    eval: "Pipeline audit",
+    tested: "Private pipeline: dropped entity links and empty filing-years",
+    result: "Found 7 tickers with dropped entity links and 12 of 126 filing-years that were empty table-of-contents stubs. Both fixed to zero.",
     status: "measured",
   },
   {
-    eval: "Retrieval Recall@k (~30 questions)",
-    tested: "Gold-passage recall over the 8-company public sample",
+    eval: "Section-text fidelity",
+    tested: "Public sample: whether the public section detector produces the same text as the private pipeline",
+    result: "681 of the 682 comparable sections match (99.9%). Coverage: only 682 of 824 sections could be compared (82.8%).",
+    status: "measured",
+  },
+  {
+    eval: "Per-sentence citation, number and scale checks",
+    tested: "Public sample: every sentence cites a passage, and every number appears in a passage it cites, at the same scale",
+    result: "12 traces, 0 problems. 8 of the 144 numbers appear in their passage without a scale, such as a table cell under an \"in millions\" header, and go to a human audit list.",
+    status: "measured",
+  },
+  {
+    eval: "SEC links",
+    tested: "Public sample: each distinct SEC link in the traces is requested once",
+    result: "19 of 19 returned HTTP 200.",
+    status: "measured",
+  },
+  {
+    eval: "Human audit",
+    tested: "Public sample: my own review, on top of the automated checks",
+    result: "13 questions run. One passed the automated checks but failed my review on three weak sentences and was dropped; 12 are exported.",
+    status: "measured",
+  },
+  {
+    eval: "Retrieval recall@k",
+    tested: "Whether retrieval finds the passages a question needs",
     result: "Planned: v2",
     status: "v2",
   },
   {
     eval: "Citation faithfulness",
-    tested: "LLM judge calibrated against human spot-check labels",
+    tested: "Whether each cited passage supports its sentence: an LLM judge checked against human labels",
     result: "Planned: v2",
     status: "v2",
   },
   {
-    eval: "50-claim extraction audit",
-    tested: "Manual precision, false-positive rate, and failure-mode taxonomy",
+    eval: "Claim extraction audit",
+    tested: "Precision and a breakdown of failure modes, by manual review",
     result: "Planned: v2",
     status: "v2",
   },
   {
     eval: "Cost per 10-K ingested",
-    tested: "Logged tokens, model, and wall time per pipeline stage",
+    tested: "Cost and time per filing, by pipeline stage",
     result: "Planned: v2",
     status: "v2",
   },
@@ -62,7 +86,7 @@ const rows: EvalRow[] = [
   <div>
     <h2 class="text-xl font-semibold text-editorial-ink">Verification &amp; Evals Ledger</h2>
     <p class="mt-1 text-sm text-editorial-muted">
-      Measured checks completed in v1 alongside planned v2 benchmarks.
+      Checks already run on the private pipeline and the public sample, and the evals planned for v2. v2 rows have no numbers until they are measured.
     </p>
   </div>
 
@@ -106,7 +130,7 @@ const rows: EvalRow[] = [
         Failure Mode Caught #1 — Invalid Eval Control
       </p>
       <p class="mt-2 text-sm text-editorial-ink">
-        Prompt revision <code class="font-mono text-xs">v4b</code> initially appeared to improve extraction because it was scored against a control run on a <em>different</em> prompt. Rerunning the control on the same prompt reversed the result: <code class="font-mono text-xs">v4b</code> degraded nearly every entity type (mean gap 3.2 vs. 1.8 for <code class="font-mono text-xs">v4a</code>) and added timeouts. Rule adopted: never score a prompt revision against a control from a different prompt.
+        A prompt revision, <code class="font-mono text-xs">v4b</code>, first looked like an improvement because it was scored against a control run on a <em>different</em> prompt. Rerunning the control on the same prompt reversed the conclusion: <code class="font-mono text-xs">v4b</code> made nearly every entity type worse (mean gap across types 3.2 vs. 1.8 for <code class="font-mono text-xs">v4a</code>) and caused extra timeouts. Rule adopted: never score a prompt change against a control on a different prompt.
       </p>
     </div>
 
@@ -115,7 +139,7 @@ const rows: EvalRow[] = [
         Failure Mode Caught #2 — Silent MD&amp;A Truncation
       </p>
       <p class="mt-2 text-sm text-editorial-ink">
-        Long MD&amp;A sections (often 5–10K tokens, sometimes 20–60K) were silently truncated by the earlier embedding model's 8,192-token limit, dropping late portions where year-over-year changes frequently appear. Fix: sentence-boundary chunking of long sections prior to embedding.
+        Long MD&amp;A sections (often 5–10K tokens, sometimes 20–60K) were silently truncated by the earlier embedding model's 8,192-token limit, dropping late portions where year-over-year changes often appear. Fix: sentence-boundary chunking of long sections.
       </p>
     </div>
   </div>

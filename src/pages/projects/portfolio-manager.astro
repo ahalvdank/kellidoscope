@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Prose from "../../components/Prose.astro";
+import { loadCopy } from "../../lib/copy";
+
+const { data, sections } = await loadCopy("copy-portfolio-manager");
+if (!data.disclaimer) throw new Error("content/copy-portfolio-manager.md needs its disclaimer");
+
+const html = {
+  intro: sections.get("intro"),
+  how: sections.get("how-it-works"),
+  omitted: sections.get("what-this-page-leaves-out"),
+};
+sections.assertAllUsed();
+---
+
+<BaseLayout title={data.title} description={data.description}>
+  <article class="max-w-3xl space-y-10">
+    <header class="space-y-4">
+      <p class="font-mono text-xs uppercase tracking-wider text-editorial-accent">Case study</p>
+      <h1 class="text-3xl font-semibold tracking-tight">Portfolio manager</h1>
+      <p class="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">{data.disclaimer}</p>
+      <Prose html={html.intro} />
+    </header>
+
+    <Prose html={html.how} />
+    <Prose html={html.omitted} />
+  </article>
+</BaseLayout>

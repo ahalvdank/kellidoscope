@@ -1,0 +1,13 @@
+---
+// Renders a section of trusted copy from content/*.md (built at compile time, never user input).
+interface Props {
+  html: string;
+  class?: string;
+}
+const { html, class: extra = "" } = Astro.props;
+---
+
+<div
+  class={`prose prose-slate max-w-none prose-headings:tracking-tight prose-a:text-editorial-accent [&_table]:block [&_table]:overflow-x-auto [&_table]:text-sm ${extra}`}
+  set:html={html}
+/>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Page not found | Andrew Kell" description="This page does not exist on kellidoscope.com.">
+  <section class="max-w-xl space-y-4">
+    <p class="font-mono text-xs uppercase tracking-wider text-editorial-muted">404</p>
+    <h1 class="text-3xl font-semibold tracking-tight">Page not found</h1>
+    <p class="text-editorial-muted">There is nothing at this address. These pages exist:</p>
+    <ul class="list-disc space-y-1 pl-5 text-editorial-accent">
+      <li><a href="/" class="hover:underline">Home</a></li>
+      <li><a href="/projects/10k-kb" class="hover:underline">10-K research knowledge base</a></li>
+      <li><a href="/demos/10k-kb" class="hover:underline">Query traces</a></li>
+      <li><a href="/projects/beckett-diligence" class="hover:underline">Beckett deal-diligence platform</a></li>
+      <li><a href="/projects/portfolio-manager" class="hover:underline">Portfolio manager</a></li>
+    </ul>
+  </section>
+</BaseLayout>

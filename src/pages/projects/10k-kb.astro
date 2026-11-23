@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Prose from "../../components/Prose.astro";
+import EvalsLedger from "../../components/EvalsLedger.astro";
+import TenKArchDiagram from "../../components/diagrams/TenKArchDiagram.astro";
+import { loadCopy } from "../../lib/copy";
+import { FRAMING_BANNER, sampleBadge } from "../../lib/badge";
+import { getManifest } from "../../data/traces";
+import { siteConfig } from "../../data/siteConfig";
+
+const TEASER_COUNT = 4;
+
+const { data, sections } = await loadCopy("copy-10k-kb");
+const matrix = await loadCopy("architecture-matrix");
+const manifest = getManifest();
+const featured = manifest.traces.filter((t) => t.featured);
+const teaser = featured.slice(0, TEASER_COUNT);
+const shortCommit = manifest.build_commit.slice(0, 7);
+
+const html = {
+  intro: sections.get("intro"),
+  traces: sections.get("query-traces"),
+  pipeline: sections.get("how-the-private-pipeline-works"),
+  signals: sections.get("filing-signals-shadow-mode-only"),
+  rewrite: sections.get("the-public-rewrite"),
+  limits: sections.get("known-limits"),
+  matrix: matrix.sections.get("why-not-a-simpler-solution"),
+};
+sections.assertAllUsed();
+matrix.sections.assertAllUsed();
+---
+
+<BaseLayout title={data.title} description={data.description}>
+  <article class="space-y-10">
+    <header class="max-w-3xl space-y-4">
+      <p class="font-mono text-xs uppercase tracking-wider text-editorial-accent">Case study</p>
+      <h1 class="text-3xl font-semibold tracking-tight">10-K / 10-Q research knowledge base</h1>
+      <Prose html={html.intro} />
+    </header>
+
+    <section class="max-w-3xl space-y-5">
+      <Prose html={html.traces} />
+
+      <nav aria-label="Featured query traces" class="space-y-3">
+        <ul class="flex flex-wrap gap-2">
+          {
+            teaser.map((t) => (
+              <li>
+                <a
+                  href={`/demos/10k-kb/q/${t.slug}/`}
+                  class="inline-block rounded-full border border-editorial-border bg-white px-3 py-1.5 text-sm text-editorial-ink hover:border-editorial-accent hover:text-editorial-accent"
+                >
+                  {t.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="text-sm">
+          <a href="/demos/10k-kb" class="font-medium text-editorial-accent hover:underline">
+            Open all {featured.length} featured traces →
+          </a>
+        </p>
+      </nav>
+
+      <div class="space-y-1 rounded-md border border-editorial-border bg-slate-50 px-3 py-2 font-mono text-xs text-editorial-muted">
+        <p>{sampleBadge(manifest)}</p>
+        <p>{FRAMING_BANNER}</p>
+        <p>Traces exported at commit <code>{shortCommit}</code>.</p>
+      </div>
+    </section>
+
+    <figure data-slot="system-clip" class="max-w-3xl">
+      <div
+        role="img"
+        aria-label="Placeholder: a screen recording of the private explorer is not published yet. There is no screenshot here."
+        class="flex aspect-video w-full items-center justify-center rounded-lg border border-dashed border-editorial-border bg-slate-50 p-6 text-center"
+      >
+        <p class="max-w-sm text-sm text-editorial-muted">
+          A short screen recording of the private explorer, across all 186 companies and 973 filings, will go here.
+        </p>
+      </div>
+      <figcaption class="mt-2 text-xs text-editorial-muted">
+        The traces above show depth on a small public sample; the recording will show the full private system.
+      </figcaption>
+    </figure>
+
+    <EvalsLedger />
+
+    <section>
+      <Prose html={html.matrix} />
+    </section>
+
+    <TenKArchDiagram />
+
+    <section class="max-w-3xl space-y-10">
+      <Prose html={html.pipeline} />
+      <Prose html={html.signals} />
+      <div class="space-y-3">
+        <Prose html={html.rewrite} />
+        <p class="text-sm">
+          <a
+            href={siteConfig.filingsKbRepo}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-goatcounter-click="repo"
+            class="font-medium text-editorial-accent hover:underline"
+          >
+            The public pipeline repository on GitHub ↗
+          </a>
+        </p>
+      </div>
+      <Prose html={html.limits} />
+    </section>
+  </article>
+</BaseLayout>

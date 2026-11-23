@@ -102,11 +102,39 @@ test("GoatCounter v5 loads with SRI and binds click events on static links", asy
 test("top bar uses siteConfig links, counts resume/repo clicks, and has no email link", async ({ page }) => {
   await gotoWithProdHeaders(page, "/demos/10k-kb/");
   const bar = page.locator("header.site-topbar");
-  await expect(bar.getByRole("link", { name: /Resume/ })).toHaveAttribute("href", siteConfig.resumePath);
-  await expect(bar.getByRole("link", { name: /Resume/ })).toHaveAttribute("data-goatcounter-click", "resume");
+  await expect(bar.getByRole("link", { name: "Résumé" })).toHaveAttribute("href", siteConfig.resumePath);
+  await expect(bar.getByRole("link", { name: "Résumé" })).toHaveAttribute("data-goatcounter-click", "resume");
   await expect(bar.getByRole("link", { name: "LinkedIn" })).toHaveAttribute("href", siteConfig.linkedin);
   await expect(bar.getByRole("link", { name: "GitHub" })).toHaveAttribute("href", siteConfig.github);
   await expect(bar.getByRole("link", { name: "GitHub" })).toHaveAttribute("data-goatcounter-click", "repo");
   await expect(bar.locator('a[href^="mailto:"], #obfuscated-email')).toHaveCount(0);
   await expect(bar.getByText("Email")).toHaveCount(0);
+});
+
+const CONTENT_PAGES: [string, string][] = [
+  ["/", "Auditable AI decision systems for finance and operations."],
+  ["/projects/10k-kb/", "10-K / 10-Q research knowledge base"],
+  ["/projects/beckett-diligence/", "Beckett deal-diligence platform"],
+  ["/projects/portfolio-manager/", "Portfolio manager"],
+  ["/404.html", "Page not found"],
+];
+
+for (const [path, heading] of CONTENT_PAGES) {
+  test(`${path} renders under the production CSP with no console errors`, async ({ page }) => {
+    await gotoWithProdHeaders(page, path);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(heading);
+    await page.waitForFunction(() => typeof window.goatcounter?.count === "function");
+  });
+}
+
+test("10-K case study: teaser pills open featured trace pages and the repo link is counted", async ({ page }) => {
+  await gotoWithProdHeaders(page, "/projects/10k-kb/");
+  const pills = page.getByRole("navigation", { name: "Featured query traces" }).locator("li a");
+  await expect(pills).toHaveCount(4);
+  const repo = page.getByRole("link", { name: /public pipeline repository/ });
+  await expect(repo).toHaveAttribute("href", siteConfig.filingsKbRepo);
+  await expect(repo).toHaveAttribute("data-goatcounter-click", "repo");
+  await pills.first().click();
+  await expect(page).toHaveURL(/\/demos\/10k-kb\/q\/[a-z0-9-]+\/$/);
+  await waitForHydration(page);
 });

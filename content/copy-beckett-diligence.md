@@ -1,24 +1,34 @@
-# Beckett Deal-Diligence Platform (`/projects/beckett-diligence`)
+---
+title: Beckett deal-diligence platform | Andrew Kell
+description: An agentic diligence platform for an early-stage CPG venture fund, still its standard diligence process. Average diligence time fell from about 60 hours per deal to about 25.
+disclaimer: All deal data, company names and fund figures omitted.
+---
 
-> *All deal data, company names and fund figures omitted.*
+An agentic diligence platform for an early-stage CPG venture fund. It is still the fund's standard diligence process. Average diligence time fell from about 60 hours per deal to about 25, roughly 58% less. The sample is small: 4 deals before and 4 after.
 
-## Executive Summary
-An agentic diligence platform for an early-stage CPG venture fund, currently used as the fund's standard diligence process. Across a small sample (4 deals before vs. 4 deals after), average diligence time fell from about **60 hours per deal to about 25 hours** (~58% reduction).
+## My role
 
-## Role & Ownership
-I designed, directed, and approved the platform—setting the architecture, agent flow, database schema, embedding-model choice, chunking strategy, repo/branching workflow, and evaluation protocol, while inspecting pull requests and serving as the final judge of quality on financial models and memos.
+I designed, directed and approved the platform. I set the direction, designed the system and the agent flow, inspected the work, approved the pull requests, and was the final judge of quality on the financial models and memos. The technical decisions that were mine: the database schema, the embedding model, the chunking strategy, the repo and branching workflow, and the evaluation protocol.
 
-## Architecture & Engineering
-* **Knowledge Base:** Combines prior deal data, licensed market data and industry research, and the target company's own documents.
-* **Two-Layer Retrieval:** Structured fact tables (SQL/JSON) paired with a `pgvector` database of chunked embeddings. Uses parent-child chunking: retrieve small chunks, return the full parent passage. Chunks split on headings and chapters (~500–700 tokens), keeping whole tables intact as single chunks.
-* **Table Parsing & Provenance:** A dedicated parser extracts tables before embedding and structures them into SQL/JSON as a fact basis for drafting and review agents. Every chunk and fact carries its source, page, document name, date, and exact original wording.
-* **Multi-Agent Flow:**
-  * **Specialists:** Valuation/model builders, section-owning drafting agents, judge agents, and critics.
-  * **Committee:** Reviews the full package with distinct roles (adversarial reviewer, associate, partner, and others).
-  * **Custom Python Orchestrator:** Built without an agent framework; writes its reasoning out separately so it can be audited independently of the final output.
-  * **Retrospective Agent:** Reviews orchestrator reasoning and writes lessons into persistent memory for subsequent diligences.
-* **Reliability & Model Flexibility:** Stages are idempotent and resumable. The harness is model- and provider-agnostic (OpenAI, Anthropic, or local models assignable per role).
+## How it works
 
-## Evaluation & Empirical Choices
-* **Development Benchmark (Not a Held-Out Test):** My 4 hand-written diligence reports served as the benchmark—generate, compare against the hand-written work, tune, and repeat on the next report and model.
-* **Embedding Experiment:** In internal tests, OpenAI `text-embedding-3-large` was not meaningfully better than `text-embedding-3-small`, so we selected `small` (~6× cheaper).
+- **Knowledge base.** Prior deal data, licensed market data and industry research, and the target company's own documents.
+- **Two-layer retrieval.** Structured fact tables that can be queried like a database, plus a pgvector database of chunked embeddings for semantic matching. Retrieval uses parent-child chunking: it finds small chunks and returns the full parent passage. Chunks are split by headings and chapters, a whole table stays in one chunk, and the target size is about 500–700 tokens.
+- **Tables.** A parser pulls tables out before embedding, and their data is also structured into SQL and JSON. That fact basis is what review agents check against and what drafting agents work from.
+- **Provenance.** Every chunk and every fact carries its source, page, document name, date and exact original wording.
+
+### Agents
+
+- **Specialists:** valuation and model builders, drafting agents that each own one memo section, judge agents, and critics.
+- **A committee** that reviews the full package, with distinct roles: an adversarial reviewer, an associate, a partner and others.
+- **One orchestrator,** in custom Python rather than an agent framework. It writes its reasoning out separately, so the reasoning can be reviewed independently of the result.
+- **A retrospective agent** that reviews that reasoning and writes lessons into persistent memory for the next diligence.
+
+### Engineering
+
+Stages are idempotent and resumable. The harness is model- and provider-agnostic: OpenAI, Anthropic or local models, assignable per role.
+
+## Evaluation
+
+- **Development benchmark, not a held-out test.** My 4 hand-written diligence reports were the benchmark. The loop was to generate a report, compare it against mine, tune, and repeat on the next report and model.
+- **Embedding choice by experiment.** In my tests, OpenAI text-embedding-3-large was not meaningfully better than text-embedding-3-small, so I selected small, which is about 6× cheaper.

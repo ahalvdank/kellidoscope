@@ -1,32 +1,45 @@
-# Home Page Copy (`/`)
-
-## Hero
-**Headline:** Auditable AI decision systems for finance and operations.
-**Subhead:** Kellogg MBA (Dec 2026). I design, direct, and evaluate end-to-end AI systems—from SEC filing knowledge graphs to multi-agent venture diligence platforms.
-
-## Shipped Systems (Above-the-Fold 3-Card Strip)
-
-### 1. 10-K / 10-Q Research Knowledge Base
-* **Summary:** RAG and knowledge graph over 973 SEC filings from 186 companies, with bitemporal versioning and section-level provenance.
-* **Status:** In daily use (part of personal portfolio manager).
-* **CTA:** `Inspect Query Traces` (`/demos/10k-kb`) · `Case Study` (`/projects/10k-kb`)
-
-### 2. Beckett Deal-Diligence Platform
-* **Summary:** Multi-agent diligence system for an early-stage CPG venture fund; average diligence time fell from ~60 hours to ~25 hours per deal (4 deals before vs. 4 after).
-* **Status:** The fund's standard diligence process.
-* **CTA:** `Architecture & Case Study` (`/projects/beckett-diligence`)
-
-### 3. Portfolio Manager
-* **Summary:** Classic ML ensembles, HMM market-regime models, and a 6-specialist agent committee with human-in-the-loop Telegram trade approval.
-* **Status:** In daily use.
-* **CTA:** `System Overview` (`/projects/portfolio-manager`)
-
-## Personal / Creative Engineering (Secondary Cards)
-
-### Blind-Tasting Game
-Mobile web app practice round for the Wine Professional Level III deductive tasting exam. Inspect a simulated glass, swirl, nose, and sip using phone motion, complete the tasting sheet, and receive a 25-point scored report. Public repo with 68 test files including Safari/WebKit end-to-end tests.
-* **Links:** `Play Live App` (`https://blindtaste.kellidoscope.com`) · `Public Repo` (`[NEEDS FACT: GitHub repo URL]`)
-
-### Wine Journal, Cellar & Atlas
-Personal tasting journal with a 3D cellar of photo-labelled bottles and a geographic atlas of wine regions, including a demo collection for visitors.
-* **Links:** `Open Demo Collection` (`https://cellar.kellidoscope.com`)
+---
+title: Andrew Kell | Auditable AI decision systems
+description: "Kellogg MBA (Dec 2026). A 10-K research knowledge base, a venture diligence platform and a portfolio manager: how each one works and what was tested."
+hero:
+  headline: Auditable AI decision systems for finance and operations.
+  subhead: Kellogg MBA (Dec 2026). I design, direct, and evaluate end-to-end AI systems—from SEC filing knowledge graphs to multi-agent venture diligence platforms.
+flagships:
+  - name: 10-K / 10-Q research knowledge base
+    summary: Retrieval and a knowledge graph over 973 SEC filings from 186 companies, with bitemporal versioning and the source filing and section on every chunk.
+    status: In daily use, as part of my portfolio manager.
+    links:
+      - label: Inspect the query traces
+        href: /demos/10k-kb
+      - label: Case study
+        href: /projects/10k-kb
+  - name: Beckett deal-diligence platform
+    summary: A multi-agent diligence platform for an early-stage CPG venture fund. Average diligence time fell from about 60 hours per deal to about 25, on a small sample of 4 deals before and 4 after.
+    status: Still the fund's standard diligence process.
+    links:
+      - label: Case study
+        href: /projects/beckett-diligence
+  - name: Portfolio manager
+    summary: Gradient-boosted tree ensembles, market-regime models and a committee of specialist agents. Every trade recommendation needs human approval.
+    status: In daily use, running since spring 2025.
+    links:
+      - label: Case study
+        href: /projects/portfolio-manager
+personal:
+  heading: Two wine apps
+  role: On these, as on the knowledge base and the portfolio manager, I was the architect, product manager and engineering team lead; AI coding agents worked like my staff engineers and wrote most of the code.
+  cards:
+    - name: Blind-tasting game
+      summary: "A phone-motion practice round for the Wine Professional Level III deductive tasting exam: swirl, nose and sip a simulated glass, fill in the tasting sheet, and get a 25-point scored report."
+      links:
+        - label: Play it
+          href: blindTastingApp
+        - label: Code
+          href: blindTastingRepo
+          event: repo
+    - name: Wine journal
+      summary: A journal of my own tastings with stock tracking, a 3D cellar of photo-labelled bottles and an atlas of wine regions.
+      links:
+        - label: Open the demo collection
+          href: cellarApp
+---

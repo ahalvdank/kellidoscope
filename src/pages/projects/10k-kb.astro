@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Prose from "../../components/Prose.astro";
 import EvalsLedger from "../../components/EvalsLedger.astro";
+import SystemClip from "../../components/SystemClip.astro";
 import TenKArchDiagram from "../../components/diagrams/TenKArchDiagram.astro";
 import { loadCopy } from "../../lib/copy";
 import { FRAMING_BANNER, sampleBadge } from "../../lib/badge";
@@ -70,20 +71,7 @@ matrix.sections.assertAllUsed();
       </div>
     </section>
 
-    <figure data-slot="system-clip" class="max-w-3xl">
-      <div
-        role="img"
-        aria-label="Placeholder: a screen recording of the private explorer is not published yet. There is no screenshot here."
-        class="flex aspect-video w-full items-center justify-center rounded-lg border border-dashed border-editorial-border bg-slate-50 p-6 text-center"
-      >
-        <p class="max-w-sm text-sm text-editorial-muted">
-          A short screen recording of the private explorer, across all 186 companies and 973 filings, will go here.
-        </p>
-      </div>
-      <figcaption class="mt-2 text-xs text-editorial-muted">
-        The traces above show depth on a small public sample; the recording will show the full private system.
-      </figcaption>
-    </figure>
+    <SystemClip src={siteConfig.systemClipUrl} />
 
     <EvalsLedger />
 

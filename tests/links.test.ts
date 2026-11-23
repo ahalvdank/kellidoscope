@@ -17,6 +17,10 @@ describe("resolveHref", () => {
     expect(() => resolveHref("nope")).toThrow(/"nope"/);
     expect(() => resolveHref("toString")).toThrow();
   });
+
+  it("rejects a siteConfig key that has no URL yet", () => {
+    expect(() => resolveHref("systemClipUrl")).toThrow(/not set yet/);
+  });
 });
 
 describe("isExternal", () => {

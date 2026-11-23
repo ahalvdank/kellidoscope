@@ -1,0 +1,27 @@
+---
+// The 10-K explorer screen recording. Renders nothing until a clip URL exists, so the page never
+// promises a recording that is not there.
+interface Props {
+  src: string | null;
+}
+const { src } = Astro.props;
+---
+
+{
+  src && (
+    <figure data-slot="system-clip" class="max-w-3xl">
+      <video
+        src={src}
+        controls
+        muted
+        playsinline
+        preload="metadata"
+        aria-label="Screen recording of the private 10-K explorer, across 186 companies and 973 filings"
+        class="w-full rounded-lg border border-editorial-border"
+      />
+      <figcaption class="mt-2 text-xs text-editorial-muted">
+        The private explorer across all 186 companies and 973 filings. The traces above use the small public sample.
+      </figcaption>
+    </figure>
+  )
+}

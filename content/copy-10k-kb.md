@@ -15,7 +15,7 @@ A knowledge base and entity graph over 973 SEC filings from 186 companies: mostl
 
 The traces come from a public rewrite of the pipeline, run on a sample of 61 filings: 12 companies, five fiscal years each, plus one 10-K/A.
 
-For each question, retrieval takes the top 20 chunks per filing and section. Passages that score under a display cutoff of 0.35 are not shown to the model. The rest, up to 40, go to `claude-sonnet-4-6`, which answers in single sentences, each one citing the passages behind it. A trace shows that answer, every passage with its score and SEC link, the 10 best rejected candidates, and the claims behind it.
+For each question, retrieval takes the top 20 chunks per filing and section. Passages that score under a display cutoff of 0.35 are not shown to the model. The rest, up to 40, go to `claude-sonnet-4-6`, which answers in single sentences, each one citing the passages behind it. A trace shows that answer, every passage with its score and SEC link, up to 10 of the best rejected candidates (some traces have none), and the claims behind it.
 
 Thirteen questions were run. A UNH question passed the automated checks but failed my own review on three weak sentences, so it was dropped. Twelve are exported, and eight of those are featured in the demo.
 

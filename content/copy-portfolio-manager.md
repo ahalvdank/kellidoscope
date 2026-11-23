@@ -12,6 +12,7 @@ A personal research and portfolio-management system, in daily use. It has been r
 
 - **Classic ML.** Gradient-boosted tree ensembles (LightGBM, XGBoost, CatBoost) plus random forest, LSTM and transformer models, and hidden Markov models for market regimes. A model has to pass promotion gates before it is used.
 - **Agent committee.** Fundamentals, valuation, macro, catalyst, devil's-advocate and knowledge-base specialist agents, plus an aggregator.
+- **Filing signals stay out of trading.** The 10-K knowledge base's filing signals run in shadow mode and do not drive trades.
 - **Human approval.** Every trade recommendation needs human approval, given over Telegram.
 - **Tax-aware.** It accounts for holding periods, tax lots and loss harvesting.
 - **Stack.** Python, FastAPI, n8n workflows and a 25-page React dashboard.

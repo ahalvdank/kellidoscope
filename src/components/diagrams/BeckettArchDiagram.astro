@@ -13,7 +13,7 @@
   </figcaption>
 
   <!-- Desktop Horizontal SVG -->
-  <svg viewBox="0 0 920 260" class="hidden w-full sm:block" role="img" aria-label="Beckett Diligence Platform 4-column architecture">
+  <svg viewBox="0 0 920 330" class="hidden w-full sm:block" role="img" aria-label="Beckett Diligence Platform 4-column architecture">
     <defs>
       <marker id="arrow-beckett" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
         <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b" />
@@ -59,15 +59,22 @@
     <text x="575" y="199" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#3730a3">Judges · Critics</text>
 
     <!-- Col 4 -->
-    <rect x="715" y="40" width="190" height="72" rx="6" fill="#ecfdf5" stroke="#10b981" />
-    <text x="810" y="66" text-anchor="middle" font-size="12" font-weight="600" fill="#064e3b">Review Committee</text>
-    <text x="810" y="84" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#065f46">Adversarial · Assoc · Partner</text>
-    <text x="810" y="99" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#065f46">Human final quality gate</text>
+    <rect x="715" y="40" width="190" height="72" rx="6" fill="#eef2ff" stroke="#6366f1" />
+    <text x="810" y="66" text-anchor="middle" font-size="12" font-weight="600" fill="#1e1b4b">Agent Committee</text>
+    <text x="810" y="84" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#3730a3">Adversarial · Assoc · Partner</text>
+    <text x="810" y="99" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#3730a3">Reviews the full package</text>
 
-    <rect x="715" y="140" width="190" height="72" rx="6" fill="#ecfdf5" stroke="#10b981" />
-    <text x="810" y="166" text-anchor="middle" font-size="12" font-weight="600" fill="#064e3b">Retrospective Memory</text>
-    <text x="810" y="184" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#065f46">Audits reasoning logs</text>
-    <text x="810" y="199" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#065f46">Writes lessons for next deal</text>
+    <!-- Human gate: the only human step, kept in its own emerald box -->
+    <rect x="715" y="140" width="190" height="72" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="2" />
+    <text x="810" y="166" text-anchor="middle" font-size="12" font-weight="600" fill="#064e3b">Human final quality gate</text>
+    <text x="810" y="184" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#065f46">Final judge of models</text>
+    <text x="810" y="199" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#065f46">and memos</text>
+
+    <!-- Row 3 -->
+    <rect x="485" y="240" width="180" height="72" rx="6" fill="#eef2ff" stroke="#6366f1" />
+    <text x="575" y="266" text-anchor="middle" font-size="12" font-weight="600" fill="#1e1b4b">Retrospective Agent</text>
+    <text x="575" y="284" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#3730a3">Reviews the reasoning</text>
+    <text x="575" y="299" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#3730a3">Lessons to memory</text>
 
     <!-- Arrows -->
     <line x1="105" y1="112" x2="105" y2="136" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-beckett)" />
@@ -77,11 +84,12 @@
     <line x1="425" y1="176" x2="481" y2="176" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-beckett)" />
     <line x1="575" y1="112" x2="575" y2="136" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-beckett)" />
     <line x1="665" y1="165" x2="711" y2="85" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-beckett)" />
-    <line x1="665" y1="85" x2="711" y2="165" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-beckett)" />
+    <line x1="810" y1="112" x2="810" y2="136" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-beckett)" />
+    <line x1="575" y1="212" x2="575" y2="236" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-beckett)" />
   </svg>
 
   <!-- Mobile Stacked SVG -->
-  <svg viewBox="0 0 340 460" class="block w-full sm:hidden" role="img" aria-label="Beckett Diligence Platform mobile architecture">
+  <svg viewBox="0 0 340 570" class="block w-full sm:hidden" role="img" aria-label="Beckett Diligence Platform mobile architecture">
     <rect x="10" y="10" width="320" height="88" rx="6" fill="#f1f5f9" stroke="#94a3b8" />
     <text x="24" y="34" font-size="11" font-family="JetBrains Mono, monospace" fill="#475569">1. INGESTION</text>
     <text x="24" y="56" font-size="13" font-weight="600" fill="#0f172a">Deal Docs + Table/Parent Chunker</text>
@@ -90,16 +98,21 @@
     <rect x="10" y="122" width="320" height="88" rx="6" fill="#f1f5f9" stroke="#94a3b8" />
     <text x="24" y="146" font-size="11" font-family="JetBrains Mono, monospace" fill="#475569">2. TWO-LAYER RETRIEVAL</text>
     <text x="24" y="168" font-size="13" font-weight="600" fill="#0f172a">SQL/JSON Facts + pgvector</text>
-    <text x="24" y="188" font-size="11" font-family="JetBrains Mono, monospace" fill="#475569">text-embedding-3-small (6x cheaper)</text>
+    <text x="24" y="188" font-size="11" font-family="JetBrains Mono, monospace" fill="#475569">text-embedding-3-small (~6× cheaper)</text>
 
     <rect x="10" y="234" width="320" height="88" rx="6" fill="#eef2ff" stroke="#6366f1" />
     <text x="24" y="258" font-size="11" font-family="JetBrains Mono, monospace" fill="#3730a3">3. AGENT ORCHESTRATION</text>
     <text x="24" y="280" font-size="13" font-weight="600" fill="#1e1b4b">Custom Python + Specialists</text>
     <text x="24" y="300" font-size="11" font-family="JetBrains Mono, monospace" fill="#3730a3">Valuation · Drafters · Judges · Critics</text>
 
-    <rect x="10" y="346" width="320" height="88" rx="6" fill="#ecfdf5" stroke="#10b981" />
-    <text x="24" y="370" font-size="11" font-family="JetBrains Mono, monospace" fill="#065f46">4. COMMITTEE &amp; MEMORY</text>
-    <text x="24" y="392" font-size="13" font-weight="600" fill="#064e3b">Committee + Retrospective Agent</text>
-    <text x="24" y="412" font-size="11" font-family="JetBrains Mono, monospace" fill="#065f46">Adversarial review · Human final approval</text>
+    <rect x="10" y="346" width="320" height="88" rx="6" fill="#eef2ff" stroke="#6366f1" />
+    <text x="24" y="370" font-size="11" font-family="JetBrains Mono, monospace" fill="#3730a3">4. AGENT COMMITTEE &amp; MEMORY</text>
+    <text x="24" y="392" font-size="13" font-weight="600" fill="#1e1b4b">Agent Committee + Retrospective Agent</text>
+    <text x="24" y="412" font-size="11" font-family="JetBrains Mono, monospace" fill="#3730a3">Adversarial · Associate · Partner roles</text>
+
+    <rect x="10" y="458" width="320" height="88" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="2" />
+    <text x="24" y="482" font-size="11" font-family="JetBrains Mono, monospace" fill="#065f46">5. HUMAN</text>
+    <text x="24" y="504" font-size="13" font-weight="600" fill="#064e3b">Human final quality gate</text>
+    <text x="24" y="524" font-size="11" font-family="JetBrains Mono, monospace" fill="#065f46">Final judge of models and memos</text>
   </svg>
 </figure>

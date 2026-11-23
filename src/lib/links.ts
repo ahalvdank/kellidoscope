@@ -7,8 +7,12 @@ import { siteConfig, type SiteConfig } from "../data/siteConfig";
  */
 export function resolveHref(href: string, config: SiteConfig = siteConfig): string {
   if (href.startsWith("/")) return href;
-  if (Object.prototype.hasOwnProperty.call(config, href)) return config[href as keyof SiteConfig];
-  throw new Error(`Copy link "${href}" is neither a site path nor a siteConfig key`);
+  if (!Object.prototype.hasOwnProperty.call(config, href)) {
+    throw new Error(`Copy link "${href}" is neither a site path nor a siteConfig key`);
+  }
+  const url = config[href as keyof SiteConfig];
+  if (url === null) throw new Error(`Copy link "${href}" points at siteConfig.${href}, which is not set yet`);
+  return url;
 }
 
 /** True for links that leave the site, which open in a new tab. */

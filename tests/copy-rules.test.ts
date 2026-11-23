@@ -1,10 +1,12 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
+import { copyViolations, PJ4_FULL } from "../scripts/copy-rules.mjs";
 
 // Every public sentence must trace to an agreed fact. These rules catch the known ways copy drifts:
 // wrong role wording, scrubbed Beckett data, stale sample numbers, a parity figure, missing
-// disclaimers and a missing sentiment-truncation disclosure.
+// disclaimers and a missing sentiment-truncation disclosure. The banned patterns live in
+// scripts/copy-rules.mjs, which scripts/check-rendered-copy.mjs also runs over the built pages.
 
 const ROOT = join(__dirname, "..");
 const read = (rel: string): string => readFileSync(join(ROOT, rel), "utf8");
@@ -48,8 +50,6 @@ const ASTRO_SOURCES = [
 /** Everything the global rules apply to. */
 const ALL_COPY = [...CONTENT_MD, ...ASTRO_SOURCES];
 
-const PJ4_AGENTS = "AI coding agents worked like my staff engineers and wrote most of the code";
-const PJ4_FULL = `I was the architect, product manager and engineering team lead; ${PJ4_AGENTS}`;
 const BECKETT_ROLE = "designed, directed and approved";
 const BECKETT_DISCLAIMER = "All deal data, company names and fund figures omitted.";
 const PM_DISCLAIMER = "Personal research project; not investment advice.";
@@ -67,78 +67,54 @@ describe("copy-rules inputs", () => {
   });
 });
 
-describe.each(ALL_COPY)("global copy rules: %s", (rel) => {
-  const text = read(rel);
-
-  it("never says Andrew wrote or coded anything (only the PJ4 agents clause may say 'wrote')", () => {
-    const withoutAllowed = text.split(PJ4_AGENTS).join("");
-    expect(withoutAllowed).not.toMatch(/\bwrote\b|\bcoded\b/i);
-  });
-
-  it("uses 'engineering team lead' only inside the full PJ4 sentence", () => {
-    const leads = text.match(/engineering team lead/gi) ?? [];
-    const full = text.split(PJ4_FULL).length - 1;
-    expect(leads.length).toBe(full);
-  });
-
-  it("names no data vendor and no Beckett deal figure", () => {
-    expect(text).not.toMatch(/PitchBook|Mintel|IBISWorld|Euromonitor|\$4M|\$50M|8 deals|6 closed|SPV/);
-  });
-
-  it("drops 'partner permission'", () => {
-    expect(text).not.toMatch(/partner permission/i);
-  });
-
-  it("has no unfilled fact marker", () => {
-    expect(text).not.toContain("[NEEDS FACT");
-  });
-
-  it("never calls the public repo a clean-room rewrite", () => {
-    expect(text).not.toMatch(/clean[- ]?room/i);
-  });
-
-  it("publishes no parity eval or matched-claim recall figure", () => {
-    expect(text).not.toMatch(/parity/i);
-    expect(text).not.toMatch(/matched[- ]claim recall/i);
-    expect(text).not.toMatch(/\b(87\.3|97\.1|77\.8|79\.5|86\.4|84\.8|95\.9|73\.6|84\.1)%/);
+// Rule ids are listed in scripts/copy-rules.mjs; tests/rendered-copy.test.ts covers each one.
+describe("global copy rules", () => {
+  it.each(ALL_COPY)("%s", (rel) => {
+    expect(copyViolations(read(rel))).toEqual([]);
   });
 });
 
-describe.each([...PAGE_COPY, ...ASTRO_SOURCES])("rendered copy rules: %s", (rel) => {
-  const text = read(rel);
-
-  it("uses the 12-company, 61-filing sample, not the bundle's 8-company draft", () => {
-    expect(text).not.toMatch(/8[- ]compan|16[- ]filing|16 10-Ks/i);
-  });
-
-  it("drops the blind-tasting repo statistics", () => {
-    expect(text).not.toMatch(/68 test files/i);
+describe("rendered copy rules (sample size, repo statistics)", () => {
+  it.each([...PAGE_COPY, ...ASTRO_SOURCES])("%s", (rel) => {
+    expect(copyViolations(read(rel), { rendered: true })).toEqual([]);
   });
 });
 
-describe("sentiment truncation is disclosed wherever sentiment is described", () => {
-  // Diagrams are labels inside a figure; the page copy around them carries the disclosure.
+describe("sentiment truncation is disclosed where signals are described", () => {
+  // Ruling T5 r1 (minor 11): on the 10-K page the disclosure lives in Signals and Known limits
+  // only. The matrix and the diagram render on that same page, so they are exempt.
+  const EXEMPT = new Set(["content/architecture-matrix.md"]);
   const files = [...PAGE_COPY, ...PAGES, "src/components/EvalsLedger.astro", "src/components/TraceViewer.tsx"];
-  it.each(files)("%s", (rel) => {
+  it.each(files.filter((rel) => !EXEMPT.has(rel)))("%s", (rel) => {
     const text = read(rel);
     if (/FinBERT|sentiment/i.test(text)) expect(text).toMatch(/truncat/i);
   });
 
-  it("the 10-K copy states the measured truncation share", () => {
-    expect(read("content/copy-10k-kb.md")).toMatch(/747 of the 2,898 chunks/);
+  it("the 10-K copy states the truncation share in both Signals and Known limits", () => {
+    const copy = read("content/copy-10k-kb.md");
+    const signals = copy.slice(copy.indexOf("## Filing signals"), copy.indexOf("## The public rewrite"));
+    const limits = copy.slice(copy.indexOf("## Known limits"));
+    expect(signals).toMatch(/747 of the 2,898 chunks/);
+    expect(limits).toMatch(/747 of the 2,898 chunks/);
+  });
+
+  it("the matrix no longer carries its own truncation footnote", () => {
+    expect(read("content/architecture-matrix.md")).not.toMatch(/truncat/i);
   });
 });
 
 describe("no 'production' for the 10-K KB or the portfolio manager", () => {
   it.each([
+    "content/copy-home.md",
     "content/copy-10k-kb.md",
     "content/copy-portfolio-manager.md",
     "content/architecture-matrix.md",
+    "src/pages/index.astro",
     "src/pages/projects/10k-kb.astro",
     "src/pages/projects/portfolio-manager.astro",
     "src/components/EvalsLedger.astro",
   ])("%s", (rel) => {
-    expect(read(rel)).not.toMatch(/production/i);
+    expect(copyViolations(read(rel), { production: true })).toEqual([]);
   });
 });
 

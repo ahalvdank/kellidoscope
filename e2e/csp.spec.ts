@@ -131,6 +131,8 @@ test("10-K case study: teaser pills open featured trace pages and the repo link 
   await gotoWithProdHeaders(page, "/projects/10k-kb/");
   const pills = page.getByRole("navigation", { name: "Featured query traces" }).locator("li a");
   await expect(pills).toHaveCount(4);
+  // No clip URL in siteConfig yet, so the clip slot renders nothing.
+  await expect(page.locator('[data-slot="system-clip"]')).toHaveCount(0);
   const repo = page.getByRole("link", { name: /public pipeline repository/ });
   await expect(repo).toHaveAttribute("href", siteConfig.filingsKbRepo);
   await expect(repo).toHaveAttribute("data-goatcounter-click", "repo");

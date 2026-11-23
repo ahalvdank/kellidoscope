@@ -1,9 +1,9 @@
 ---
 title: Andrew Kell | Auditable AI decision systems
-description: "Kellogg MBA (Dec 2026). A 10-K research knowledge base, a venture diligence platform and a portfolio manager: how each one works and what was tested."
+description: "Kellogg MBA (Dec 2026). A 10-K research knowledge base, a venture diligence platform and a portfolio manager: how each one works and, where it was tested, the results."
 hero:
   headline: Auditable AI decision systems for finance and operations.
-  subhead: Kellogg MBA (Dec 2026). I design, direct, and evaluate end-to-end AI systems—from SEC filing knowledge graphs to multi-agent venture diligence platforms.
+  subhead: Kellogg MBA (Dec 2026). I design, direct and evaluate AI systems, from an SEC-filings knowledge base to a multi-agent venture diligence platform.
 flagships:
   - name: 10-K / 10-Q research knowledge base
     summary: Retrieval and a knowledge graph over 973 SEC filings from 186 companies, with bitemporal versioning and the source filing and section on every chunk.

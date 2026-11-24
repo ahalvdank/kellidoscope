@@ -1,6 +1,6 @@
 {
-  "build_commit": "2a37b2c99c8b773872793843d52124ed6b77d2ac",
-  "export_script_url": "https://github.com/ahalvdank/filings-kb/blob/2a37b2c99c8b773872793843d52124ed6b77d2ac/filings_kb/export.py",
+  "build_commit": "4fc371ff2585fd946565c9d83f733aea5e3fd0a6",
+  "export_script_url": "https://github.com/ahalvdank/filings-kb/blob/4fc371ff2585fd946565c9d83f733aea5e3fd0a6/filings_kb/export.py",
   "full_corpus": {
     "companies": 186,
     "filings": 973

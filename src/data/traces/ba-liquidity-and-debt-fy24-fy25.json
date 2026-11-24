@@ -799,7 +799,7 @@
     }
   ],
   "meta": {
-    "build_commit": "2a37b2c99c8b773872793843d52124ed6b77d2ac",
+    "build_commit": "4fc371ff2585fd946565c9d83f733aea5e3fd0a6",
     "display_cutoff": 0.35,
     "max_passages": 40,
     "max_rejected": 10,

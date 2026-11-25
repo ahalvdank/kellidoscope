@@ -8,6 +8,7 @@ import { loadCopy } from "../../lib/copy";
 import { FRAMING_BANNER, sampleBadge } from "../../lib/badge";
 import { getManifest } from "../../data/traces";
 import { siteConfig } from "../../data/siteConfig";
+import { assertPublicAsset } from "../../lib/assets";
 
 const TEASER_COUNT = 4;
 
@@ -29,6 +30,9 @@ const html = {
   matrix: matrix.sections.get("why-not-a-simpler-solution"),
 };
 sections.assertAllUsed();
+
+// A configured clip or poster whose file is missing fails the build; null hides the slot.
+for (const path of [siteConfig.systemClipUrl, siteConfig.systemClipPoster]) assertPublicAsset(path);
 matrix.sections.assertAllUsed();
 ---
 

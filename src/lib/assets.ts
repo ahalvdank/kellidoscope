@@ -13,3 +13,14 @@ export function publicAssetExists(
   const file = join(publicDir, path);
   return existsSync(file) && statSync(file).isFile();
 }
+
+/**
+ * Build-time guard for configured media: a null path is fine (the slot is hidden), but a set path
+ * must name a real file under public/, so a typo fails the build instead of shipping a broken image.
+ * @throws Error("Missing media file: <path>") when a non-null path does not exist.
+ */
+export function assertPublicAsset(path: string | null, publicDir?: string): void {
+  if (path !== null && !publicAssetExists(path, publicDir)) {
+    throw new Error(`Missing media file: ${path}`);
+  }
+}

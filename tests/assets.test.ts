@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { publicAssetExists } from "../src/lib/assets";
+import { assertPublicAsset, publicAssetExists } from "../src/lib/assets";
 
 describe("publicAssetExists", () => {
   it("is true for public/media/kb-explorer-poster.jpg", () => {
@@ -12,4 +12,15 @@ describe("publicAssetExists", () => {
       expect(publicAssetExists(path)).toBe(false);
     },
   );
+});
+
+describe("assertPublicAsset", () => {
+  it("passes for null and for a file that exists", () => {
+    expect(() => assertPublicAsset(null)).not.toThrow();
+    expect(() => assertPublicAsset("/media/kb-explorer-poster.jpg")).not.toThrow();
+  });
+
+  it("throws for a set path whose file is missing", () => {
+    expect(() => assertPublicAsset("/media/nope.jpg")).toThrow("Missing media file: /media/nope.jpg");
+  });
 });

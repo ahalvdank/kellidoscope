@@ -4,6 +4,7 @@ import Prose from "../../components/Prose.astro";
 import PortfolioClip from "../../components/PortfolioClip.astro";
 import TelegramApprovalPreview from "../../components/TelegramApprovalPreview.astro";
 import { siteConfig } from "../../data/siteConfig";
+import { assertPublicAsset } from "../../lib/assets";
 import { loadCopy } from "../../lib/copy";
 
 const { data, sections } = await loadCopy("copy-portfolio-manager");
@@ -16,6 +17,9 @@ const html = {
   omitted: sections.get("what-this-page-leaves-out"),
 };
 sections.assertAllUsed();
+
+// A configured clip or poster whose file is missing fails the build; null hides the slot.
+for (const path of [siteConfig.portfolioClipUrl, siteConfig.portfolioClipPoster]) assertPublicAsset(path);
 ---
 
 <BaseLayout title={data.title} description={data.description}>

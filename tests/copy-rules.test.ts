@@ -156,6 +156,18 @@ describe("fixed copy", () => {
     expect(home).toContain("label: Open the demo collection");
   });
 
+  it("home carries the class-tasting card from PJ3b", () => {
+    const home = read("content/copy-home.md");
+    expect(home).toContain(
+      "A shared tasting sheet for a wine class: the instructor reveals each wine, every student's Wine Professional 25-point sheet is scored against the answer key, each student sees why they gained or lost each point, and the class sees an anonymous comparison. Students can never read the answer key.",
+    );
+    expect(home).toContain("Built for a Level III class; first pilot not yet run.");
+    expect(home).toContain("label: See how it works");
+    expect(home).toContain("href: classTastingApp");
+    // Only the blind-tasting card has a Code link: the class-tasting repo is private.
+    expect(home.match(/label: Code/g)).toHaveLength(1);
+  });
+
   it("home hero uses the agreed headline", () => {
     expect(read("content/copy-home.md")).toContain(
       "I design and ship AI systems for financial research, venture diligence, and investing.",

@@ -10,6 +10,7 @@ describe("resolveHref", () => {
   it("maps a siteConfig key to its URL", () => {
     expect(resolveHref("blindTastingRepo")).toBe(siteConfig.blindTastingRepo);
     expect(resolveHref("cellarApp")).toBe("https://cellar.kellidoscope.com");
+    expect(resolveHref("classTastingApp")).toBe("https://class-tasting.kellidoscope.com");
   });
 
   it("rejects a raw URL or an unknown key", () => {

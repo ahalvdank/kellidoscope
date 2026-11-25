@@ -713,3 +713,91 @@ describe("claims tab long-tail collapse (phase 2)", () => {
     expect(screen.getByRole("button", { name: "Show all 60 extracted claims" })).toBeTruthy();
   });
 });
+
+describe("audit note tab (phase 2)", () => {
+  const noneCited = (md: string) => md.split("\n").filter((l) => /none cited/i.test(l)).length;
+  const hiddenN = noneCited(BA.audit_note_md as string);
+  const openAudit = () => fireEvent.click(tab(/Audit/));
+  const screenNote = () => document.querySelector("[data-audit-note]:not(.hidden)") as HTMLElement;
+  const toggleName = new RegExp(`${hiddenN} lines with no citations`);
+
+  it("audit tab renders markdown headings, not a <pre>", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    openAudit();
+    const panel = screen.getByRole("tabpanel");
+    expect(panel.querySelector("pre")).toBeNull();
+    expect(within(panel).getAllByRole("heading", { level: 1 }).length).toBeGreaterThan(0);
+    expect(panel.textContent).not.toContain("[[");
+  });
+
+  it('hides "none cited" lines on screen behind a "Show N lines with no citations" toggle', () => {
+    expect(hiddenN).toBeGreaterThan(0);
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    openAudit();
+    expect(screenNote().textContent).not.toMatch(/none cited/i);
+    const btn = screen.getByRole("button", { name: toggleName });
+    expect(btn.textContent).toMatch(/^Show /);
+    expect(btn.getAttribute("aria-expanded")).toBe("false");
+    fireEvent.click(btn);
+    expect(screenNote().textContent?.match(/none cited/gi)).toHaveLength(hiddenN);
+    const open = screen.getByRole("button", { name: toggleName });
+    expect(open.textContent).toMatch(/^Hide /);
+    expect(open.getAttribute("aria-expanded")).toBe("true");
+  });
+
+  it("keeps the none-cited lines in the DOM behind a print-only wrapper while closed", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    openAudit();
+    const printCopy = document.querySelector("[data-audit-note].hidden.print\\:block") as HTMLElement;
+    expect(printCopy.textContent?.match(/none cited/gi)).toHaveLength(hiddenN);
+    expect(screenNote().className).toContain("print:hidden");
+  });
+
+  it("a note with no none-cited lines shows no toggle", () => {
+    const trace: Trace = { ...BA, audit_note_md: "# Note\n\n- [[A]]: [1]" };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openAudit();
+    expect(screen.queryByRole("button", { name: /lines with no citations/ })).toBeNull();
+  });
+
+  it("markdown links in the audit note follow the same host allowlist as the answer", () => {
+    const trace: Trace = {
+      ...BA,
+      audit_note_md:
+        "# N\n\n[ok](https://www.sec.gov/x) [js](javascript:alert(1)) [evil](https://evil.example/x) [gh](https://github.com/a/b)",
+    };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openAudit();
+    const panel = within(screen.getByRole("tabpanel"));
+    expect(panel.getByRole("link", { name: "ok" }).getAttribute("href")).toBe("https://www.sec.gov/x");
+    expect(panel.getByRole("link", { name: "gh" }).getAttribute("href")).toBe("https://github.com/a/b");
+    expect(panel.queryByRole("link", { name: "js" })).toBeNull();
+    expect(panel.queryByRole("link", { name: "evil" })).toBeNull();
+  });
+
+  it("images render as nothing and raw HTML is not parsed", () => {
+    const trace: Trace = {
+      ...BA,
+      audit_note_md: "# N\n\nBefore ![pixel](https://evil.example/p.png) <b id=\"raw\">bold</b> after.",
+    };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openAudit();
+    const panel = screen.getByRole("tabpanel");
+    expect(panel.querySelector("img")).toBeNull();
+    expect(panel.querySelector("#raw")).toBeNull();
+    expect(panel.textContent).toContain("Before");
+  });
+
+  it("switching trace resets the none-cited toggle", async () => {
+    serve(NVDA, BA);
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    openAudit();
+    fireEvent.click(screen.getByRole("button", { name: toggleName }));
+    pick(NVDA);
+    await questionHeading(NVDA);
+    pick(BA);
+    await questionHeading(BA);
+    openAudit();
+    expect(screen.getByRole("button", { name: toggleName }).textContent).toMatch(/^Show /);
+  });
+});

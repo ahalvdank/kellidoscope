@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Claim, Passage, Trace, TraceCategory, TraceManifest } from "../data/types";
 import { getClaimBucket } from "../data/entityBuckets";
@@ -7,6 +7,7 @@ import { orderClaims, UNCITED_COLLAPSE_AT, UNCITED_PREVIEW } from "../lib/claims
 import { countEvent, countPageview } from "../lib/analytics";
 import { FRAMING_BANNER, sampleBadge } from "../lib/badge";
 import { linkCitations } from "../lib/citations";
+import { prepareAuditNote } from "../lib/auditNote";
 import { clipContext, splitIncluded } from "../lib/passages";
 import { safeUrl } from "../lib/safeUrl";
 import { siteConfig } from "../data/siteConfig";
@@ -33,12 +34,72 @@ const CATEGORY_LABELS: Record<TraceCategory | "all", string> = {
 
 type InspectorTab = "sources" | "claims" | "signals" | "audit";
 
+/**
+ * ReactMarkdown overrides shared by the answer and the audit note: links obey the host allowlist,
+ * `#cite-n` links become citation buttons, images never render. Raw HTML stays disabled.
+ */
+function buildMarkdownComponents(onCite: (citeNum: number) => void): Components {
+  return {
+    a: ({ href, children }) => {
+      if (href?.startsWith("#cite-")) {
+        const num = Number(href.replace("#cite-", ""));
+        return (
+          <button
+            type="button"
+            onClick={() => onCite(num)}
+            className="mx-0.5 inline-flex items-center rounded bg-indigo-50 px-1.5 py-0.5 font-mono text-xs font-medium text-editorial-accent hover:bg-indigo-100"
+          >
+            {children}
+          </button>
+        );
+      }
+      const safe = safeUrl(href ?? "", MARKDOWN_LINK_HOSTS);
+      if (!safe) return <span>{children}</span>;
+      return (
+        <a
+          href={safe}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="break-words text-editorial-accent underline"
+        >
+          {children}
+        </a>
+      );
+    },
+    // Images never render: no third-party requests from trace markdown.
+    img: () => null,
+    table: ({ children }) => (
+      <div className="my-4 overflow-x-auto">
+        <table className="min-w-full border-collapse border border-workspace-border text-xs">
+          {children}
+        </table>
+      </div>
+    ),
+    th: ({ children }) => (
+      <th className="border border-workspace-border bg-slate-50 px-2 py-1.5 text-left font-medium">
+        {children}
+      </th>
+    ),
+    td: ({ children }) => (
+      <td className="border border-workspace-border px-2 py-1.5">
+        {children}
+      </td>
+    ),
+    pre: ({ children }) => (
+      <pre className="overflow-x-auto rounded bg-slate-900 p-3 font-mono text-xs text-slate-100">
+        {children}
+      </pre>
+    ),
+  };
+}
+
 export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps) {
   const [selectedCategory, setSelectedCategory] = useState<TraceCategory | "all">("all");
   const [activeTrace, setActiveTrace] = useState<Trace>(initialTrace);
   const [activeTab, setActiveTab] = useState<InspectorTab>("sources");
   const [showRejected, setShowRejected] = useState(false);
   const [showUncited, setShowUncited] = useState(false);
+  const [showNoneCited, setShowNoneCited] = useState(false);
   const [expandedCtx, setExpandedCtx] = useState<Set<string>>(new Set());
   const [showAllClaims, setShowAllClaims] = useState(false);
   const [expandedJsonIdx, setExpandedJsonIdx] = useState<number | null>(null);
@@ -82,6 +143,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
     setActiveTab("sources");
     setShowRejected(false);
     setShowUncited(false);
+    setShowNoneCited(false);
     setShowAllClaims(false);
     setExpandedCtx(new Set());
     setExpandedJsonIdx(null);
@@ -205,6 +267,15 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
   );
 
   // Convert [1], [2] markers into clickable markdown links (#cite-1)
+  const auditNote = useMemo(
+    () => prepareAuditNote(activeTrace.audit_note_md ?? "", showNoneCited),
+    [activeTrace.audit_note_md, showNoneCited]
+  );
+  const printAuditNoteMd = useMemo(
+    () => prepareAuditNote(activeTrace.audit_note_md ?? "", true).md,
+    [activeTrace.audit_note_md]
+  );
+  const markdownComponents = buildMarkdownComponents(handleCitationClick);
   const linkedAnswerMd = useMemo(
     () => linkCitations(activeTrace.answer_md, validCites),
     [activeTrace, validCites]
@@ -431,58 +502,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
               <div className="prose prose-sm max-w-none text-workspace-ink">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
-                  components={{
-                    a: ({ href, children }) => {
-                      if (href?.startsWith("#cite-")) {
-                        const num = Number(href.replace("#cite-", ""));
-                        return (
-                          <button
-                            type="button"
-                            onClick={() => handleCitationClick(num)}
-                            className="mx-0.5 inline-flex items-center rounded bg-indigo-50 px-1.5 py-0.5 font-mono text-xs font-medium text-editorial-accent hover:bg-indigo-100"
-                          >
-                            {children}
-                          </button>
-                        );
-                      }
-                      const safe = safeUrl(href ?? "", MARKDOWN_LINK_HOSTS);
-                      if (!safe) return <span>{children}</span>;
-                      return (
-                        <a
-                          href={safe}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="break-words text-editorial-accent underline"
-                        >
-                          {children}
-                        </a>
-                      );
-                    },
-                    // Images never render: no third-party requests from trace markdown.
-                    img: () => null,
-                    table: ({ children }) => (
-                      <div className="my-4 overflow-x-auto">
-                        <table className="min-w-full border-collapse border border-workspace-border text-xs">
-                          {children}
-                        </table>
-                      </div>
-                    ),
-                    th: ({ children }) => (
-                      <th className="border border-workspace-border bg-slate-50 px-2 py-1.5 text-left font-medium">
-                        {children}
-                      </th>
-                    ),
-                    td: ({ children }) => (
-                      <td className="border border-workspace-border px-2 py-1.5">
-                        {children}
-                      </td>
-                    ),
-                    pre: ({ children }) => (
-                      <pre className="overflow-x-auto rounded bg-slate-900 p-3 font-mono text-xs text-slate-100">
-                        {children}
-                      </pre>
-                    ),
-                  }}
+                  components={markdownComponents}
                 >
                   {linkedAnswerMd}
                 </ReactMarkdown>
@@ -673,9 +693,37 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                 )}
 
                 {currentTab === "audit" && activeTrace.audit_note_md && (
-                  <pre className="overflow-x-auto whitespace-pre-wrap rounded bg-slate-50 p-3 font-mono text-xs text-workspace-ink">
-                    {activeTrace.audit_note_md}
-                  </pre>
+                  <div>
+                    {auditNote.hiddenCount > 0 && (
+                      <button
+                        type="button"
+                        aria-expanded={showNoneCited}
+                        onClick={() => setShowNoneCited((v) => !v)}
+                        className="mb-3 w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink print:hidden"
+                      >
+                        {showNoneCited ? "Hide" : "Show"} {auditNote.hiddenCount} lines with no citations
+                      </button>
+                    )}
+                    <div
+                      data-audit-note
+                      className={`prose prose-sm max-w-none text-workspace-ink ${showNoneCited ? "" : "print:hidden"}`}
+                    >
+                      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                        {auditNote.md}
+                      </ReactMarkdown>
+                    </div>
+                    {/* Closed: the full note stays in the DOM so print includes the "none cited" lines. */}
+                    {!showNoneCited && auditNote.hiddenCount > 0 && (
+                      <div
+                        data-audit-note
+                        className="prose prose-sm hidden max-w-none text-workspace-ink print:block"
+                      >
+                        <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                          {printAuditNoteMd}
+                        </ReactMarkdown>
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
             </aside>

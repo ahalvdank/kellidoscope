@@ -41,7 +41,12 @@ test("wine journal: demo collection tour", async ({ page }) => {
   await beat(page, 2500);
 
   // Atlas.
-  await demo.getByRole("button", { name: "Back to demo collection" }).click().catch(() => undefined);
+  const back = demo.getByRole("button", { name: "Back to demo collection" });
+  if ((await back.count()) > 0 && (await back.first().isVisible())) {
+    await back.first().click();
+  } else {
+    console.warn('wine-journal capture: no visible "Back to demo collection" button; scrolling up to the views instead.');
+  }
   await page.mouse.wheel(0, -5000);
   await beat(page, 500);
   await views.getByRole("button", { name: "Demo atlas", exact: true }).click();

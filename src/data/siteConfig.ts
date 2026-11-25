@@ -23,6 +23,10 @@ export interface SiteConfig {
   cellarClip: string | null;
   /** Poster frame for the wine journal clip; null when the clip has none. */
   cellarClipPoster: string | null;
+  /** Site path of the staged class-tasting recording (local stack, invented class); null until it exists, which hides the card's clip disclosure. */
+  classTastingClip: string | null;
+  /** Poster frame for the class-tasting clip; null when the clip has none. */
+  classTastingClipPoster: string | null;
   /** URL of the 10-K explorer screen recording; null until it exists, which hides the clip slot. */
   systemClipUrl: string | null;
   /** Poster frame shown before the clip plays; null when the clip has none. */
@@ -45,11 +49,13 @@ export const siteConfig: SiteConfig = {
   classTastingApp: "https://class-tasting.kellidoscope.com",
   blindTastingPreview: "/media/blind-tasting-thumb.jpg",
   cellarPreview: null,
-  classTastingPreview: null,
+  classTastingPreview: "/media/class-tasting-thumb.jpg",
   blindTastingClip: "/media/blind-tasting-clip.mp4",
   blindTastingClipPoster: "/media/blind-tasting-clip-poster.jpg",
   cellarClip: null,
   cellarClipPoster: null,
+  classTastingClip: "/media/class-tasting-clip.mp4",
+  classTastingClipPoster: "/media/class-tasting-clip-poster.jpg",
   systemClipUrl: "/media/kb-explorer-clip.mp4",
   systemClipPoster: "/media/kb-explorer-poster.jpg",
   portfolioClipUrl: null,

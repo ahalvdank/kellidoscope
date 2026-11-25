@@ -58,7 +58,9 @@ personal:
           href: cellarApp
     - name: Class tasting
       preview: classTastingPreview
-      previewAlt: Screenshot of the class-tasting sheet
+      previewAlt: Screenshot of the instructor's run console beside a student's class-tasting sheet
+      clip: classTastingClip
+      clipCaption: "Screen recording of a staged class on a local copy of the app: invented instructor and students, one wine, reveal and scoring. The instructor's console is on the left, one student's phone on the right."
       summary: "A shared tasting sheet for a wine class: the instructor reveals each wine, every student's Wine Professional 25-point sheet is scored against the answer key, each student sees why they gained or lost each point, and the class sees an anonymous comparison. Students can never read the answer key."
       status: Built for a Level III class; first pilot not yet run.
       links:

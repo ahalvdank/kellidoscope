@@ -41,7 +41,8 @@ describe("assertPublicAssets", () => {
 describe("resolvePreview", () => {
   it("returns the siteConfig value for a known key and null for an unset one", () => {
     expect(resolvePreview("classTastingPreview", { ...siteConfig, classTastingPreview: "/media/x.jpg" })).toBe("/media/x.jpg");
-    expect(resolvePreview("classTastingPreview")).toBeNull();
+    expect(resolvePreview("classTastingPreview", { ...siteConfig, classTastingPreview: null })).toBeNull();
+    expect(resolvePreview("classTastingPreview")).toBe("/media/class-tasting-thumb.jpg");
   });
 
   it("throws for an unknown key or a key that is not a preview", () => {
@@ -74,9 +75,9 @@ describe("resolveClip", () => {
   it("every clip key in copy-home.md resolves and has a caption", () => {
     const home = readFileSync("content/copy-home.md", "utf8");
     const keys = [...home.matchAll(/^\s+clip: (\S+)$/gm)].map((m) => m[1]);
-    expect(keys).toEqual(["blindTastingClip", "cellarClip"]);
+    expect(keys).toEqual(["blindTastingClip", "cellarClip", "classTastingClip"]);
     for (const key of keys) expect(() => resolveClip(key)).not.toThrow();
-    expect([...home.matchAll(/^\s+clipCaption: /gm)]).toHaveLength(2);
+    expect([...home.matchAll(/^\s+clipCaption: /gm)]).toHaveLength(3);
   });
 
   it("ships the configured blind-tasting clip, poster and thumbnail, the clip under 5,000,000 bytes", () => {
@@ -87,4 +88,27 @@ describe("resolveClip", () => {
     expect(bytes).toBeGreaterThan(0);
     expect(bytes).toBeLessThan(5_000_000);
   });
+
+  it("ships the configured class-tasting clip, poster and 1280x720 thumbnail, the clip under 5,000,000 bytes", () => {
+    const clip = resolveClip("classTastingClip");
+    expect(clip).toEqual({ src: "/media/class-tasting-clip.mp4", poster: "/media/class-tasting-clip-poster.jpg" });
+    for (const path of [clip!.src, clip!.poster, siteConfig.classTastingPreview]) expect(publicAssetExists(path)).toBe(true);
+    const bytes = statSync(join("public", clip!.src)).size;
+    expect(bytes).toBeGreaterThan(0);
+    expect(bytes).toBeLessThan(5_000_000);
+    expect(jpegSize(join("public", siteConfig.classTastingPreview!))).toEqual({ width: 1280, height: 720 });
+  });
 });
+
+/** Width and height from a baseline or progressive JPEG's SOF marker. */
+function jpegSize(path: string): { width: number; height: number } {
+  const b = readFileSync(path);
+  let i = 2;
+  while (i < b.length) {
+    const marker = b[i + 1]!;
+    const length = b.readUInt16BE(i + 2);
+    if (marker >= 0xc0 && marker <= 0xc3) return { height: b.readUInt16BE(i + 5), width: b.readUInt16BE(i + 7) };
+    i += 2 + length;
+  }
+  throw new Error(`no SOF marker in ${path}`);
+}

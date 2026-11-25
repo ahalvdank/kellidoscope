@@ -614,3 +614,102 @@ describe("sources tab (phase 2)", () => {
     expect(shown(again, "before")).not.toContain(lc.context.before);
   });
 });
+
+describe("claims tab long-tail collapse (phase 2)", () => {
+  const panel = () => screen.getByRole("tabpanel");
+  /** Cards on screen: jsdom has no CSS, so exclude the collapsed (`hidden`) wrapper by class. */
+  const screenCards = () =>
+    Array.from(panel().querySelectorAll("[data-claim-card]")).filter((c) => !c.closest("[data-collapsed-claims].hidden"));
+  const openClaims = () => fireEvent.click(tab(/Claims/));
+  const withUncited = (n: number): Trace => {
+    const cited = BA.claims.filter((c) => c.cite !== null);
+    const uncited = BA.claims.filter((c) => c.cite === null);
+    const pool = Array.from({ length: n }, (_, i) => ({ ...uncited[i % uncited.length], entity: `Uncited ${i}` }));
+    return { ...BA, claims: [...cited, ...pool] };
+  };
+
+  it('with more than 8 uncited claims, shows 5 and a "Show all N extracted claims" button', () => {
+    const citedCount = NVDA.claims.filter((c) => c.cite !== null).length;
+    expect(NVDA.claims).toHaveLength(60);
+    expect(citedCount).toBe(3);
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    expect(screenCards()).toHaveLength(8);
+    expect(screen.getByRole("button", { name: "Show all 60 extracted claims" })).toBeTruthy();
+  });
+
+  it("clicking the button shows every claim and offers to show fewer; a second click collapses", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    fireEvent.click(screen.getByRole("button", { name: "Show all 60 extracted claims" }));
+    expect(screenCards()).toHaveLength(60);
+    fireEvent.click(screen.getByRole("button", { name: "Show fewer claims" }));
+    expect(screenCards()).toHaveLength(8);
+  });
+
+  it("collapsed claims stay in the DOM behind a print-visible wrapper", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    expect(panel().querySelectorAll("[data-claim-card]")).toHaveLength(60);
+    const wrapper = panel().querySelector("[data-collapsed-claims]") as HTMLElement;
+    expect(wrapper.className).toMatch(/(^|\s)hidden(\s)/);
+    expect(wrapper.className).toContain("print:block");
+    expect(screen.getByRole("button", { name: /Show all 60/ }).className).toContain("print:hidden");
+  });
+
+  it("with exactly 8 uncited claims, all render and there is no button", () => {
+    const trace = withUncited(8);
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openClaims();
+    expect(screenCards()).toHaveLength(trace.claims.length);
+    expect(panel().querySelector("[data-collapsed-claims]")).toBeNull();
+    expect(screen.queryByRole("button", { name: /Show all/ })).toBeNull();
+  });
+
+  it("with 9 uncited claims it collapses", () => {
+    const trace = withUncited(9);
+    const citedCount = trace.claims.filter((c) => c.cite !== null).length;
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openClaims();
+    expect(screenCards()).toHaveLength(citedCount + 5);
+  });
+
+  it("cited claims render before uncited ones", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    const flags = Array.from(panel().querySelectorAll("[data-claim-card]")).map((c) => c.getAttribute("data-cited"));
+    expect(flags.slice(0, 3)).toEqual(["true", "true", "true"]);
+    expect(flags.slice(3).every((f) => f === "false")).toBe(true);
+  });
+
+  it("raw JSON toggles per claim even after reordering", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    const first = screenCards()[0] as HTMLElement;
+    fireEvent.click(within(first).getByRole("button", { name: "View raw extraction JSON" }));
+    expect(panel().querySelectorAll("pre")).toHaveLength(1);
+    expect(first.querySelector("pre")).not.toBeNull();
+  });
+
+  it("the pill shows the claim-type bucket label and claim type", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    const card = screenCards()[0] as HTMLElement;
+    const claim = NVDA.claims.filter((c) => c.cite !== null)[0];
+    expect(card.textContent).toContain(` · ${claim.claim_type}`);
+  });
+
+  it("switching trace collapses the list again", async () => {
+    serve(NVDA, AMD);
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    fireEvent.click(screen.getByRole("button", { name: "Show all 60 extracted claims" }));
+    pick(AMD);
+    await questionHeading(AMD);
+    pick(NVDA);
+    await questionHeading(NVDA);
+    openClaims();
+    expect(screenCards()).toHaveLength(8);
+    expect(screen.getByRole("button", { name: "Show all 60 extracted claims" })).toBeTruthy();
+  });
+});

@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import type { Passage, Trace, TraceCategory, TraceManifest } from "../data/types";
-import { getEntityBucket } from "../data/entityBuckets";
+import type { Claim, Passage, Trace, TraceCategory, TraceManifest } from "../data/types";
+import { getClaimBucket } from "../data/entityBuckets";
+import { orderClaims, UNCITED_COLLAPSE_AT, UNCITED_PREVIEW } from "../lib/claims";
 import { countEvent, countPageview } from "../lib/analytics";
 import { FRAMING_BANNER, sampleBadge } from "../lib/badge";
 import { linkCitations } from "../lib/citations";
@@ -39,6 +40,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
   const [showRejected, setShowRejected] = useState(false);
   const [showUncited, setShowUncited] = useState(false);
   const [expandedCtx, setExpandedCtx] = useState<Set<string>>(new Set());
+  const [showAllClaims, setShowAllClaims] = useState(false);
   const [expandedJsonIdx, setExpandedJsonIdx] = useState<number | null>(null);
   const [highlightedCite, setHighlightedCite] = useState<number | null>(null);
   const [scrollTick, setScrollTick] = useState(0);
@@ -80,6 +82,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
     setActiveTab("sources");
     setShowRejected(false);
     setShowUncited(false);
+    setShowAllClaims(false);
     setExpandedCtx(new Set());
     setExpandedJsonIdx(null);
     setHighlightedCite(null);
@@ -211,6 +214,11 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
     () => activeTrace.passages.filter((p) => p.included),
     [activeTrace]
   );
+  const { cited: citedClaims, uncited: uncitedClaims, indexOf: claimIndex } = useMemo(() => {
+    const { cited, uncited } = orderClaims(activeTrace.claims);
+    return { cited, uncited, indexOf: new Map(activeTrace.claims.map((c, i) => [c, i])) };
+  }, [activeTrace.claims]);
+
   const { cited: citedPassages, uncited: uncitedPassages } = useMemo(
     () => splitIncluded(activeTrace.passages),
     [activeTrace]
@@ -219,6 +227,62 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
     () => activeTrace.passages.filter((p) => !p.included),
     [activeTrace]
   );
+
+  const renderClaim = (c: Claim) => {
+    const idx = claimIndex.get(c) as number;
+    const bucket = getClaimBucket(c.claim_type, c.entity_type);
+    const isExpanded = expandedJsonIdx === idx;
+    return (
+      <div
+        key={idx}
+        data-claim-card
+        data-cited={c.cite !== null}
+        className={`rounded-md border border-workspace-border border-l-4 ${bucket.borderClass} p-3 text-xs`}
+      >
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className={`rounded border px-1.5 py-0.5 font-mono text-[10px] ${bucket.pillClass}`}>
+            {bucket.label} · {c.claim_type}
+          </span>
+          <span className="font-mono text-[11px] text-workspace-muted">
+            {c.ticker} · {c.entity_type}
+          </span>
+        </div>
+        <p className="mt-2 font-medium text-workspace-ink">{c.entity}</p>
+        <p className="mt-1 text-workspace-muted">{c.statement}</p>
+        <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-[11px]">
+          {c.cite !== null && validCites.has(c.cite) ? (
+            <button
+              type="button"
+              aria-label={`Go to citation ${c.cite}`}
+              onClick={() => handleCitationClick(c.cite as number)}
+              className="rounded bg-indigo-50 px-1.5 py-0.5 font-medium text-editorial-accent hover:bg-indigo-100"
+            >
+              [{c.cite}]
+            </button>
+          ) : (
+            <span className="text-workspace-muted">Not cited in the answer</span>
+          )}
+          {c.superseded && (
+            <span className="rounded border border-workspace-border bg-slate-50 px-1.5 py-0.5 text-workspace-muted">
+              superseded by the 10-K/A
+            </span>
+          )}
+        </div>
+        <button
+          type="button"
+          onClick={() => setExpandedJsonIdx(isExpanded ? null : idx)}
+          className="mt-2 font-mono text-[11px] text-editorial-accent underline"
+        >
+          {isExpanded ? "Hide raw JSON" : "View raw extraction JSON"}
+        </button>
+        {isExpanded && (
+          <pre className="mt-2 overflow-x-auto rounded bg-slate-900 p-2 font-mono text-[11px] text-slate-100">
+            {JSON.stringify(c.raw_extraction, null, 2)}
+          </pre>
+        )}
+      </div>
+    );
+  };
 
   const availableTabs: InspectorTab[] = [
     "sources",
@@ -543,58 +607,29 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
 
                 {currentTab === "claims" && (
                   <div className="space-y-3">
-                    {activeTrace.claims.map((c, idx) => {
-                      const bucket = getEntityBucket(c.entity_type);
-                      const isExpanded = expandedJsonIdx === idx;
-                      return (
-                        <div
-                          key={idx}
-                          className={`rounded-md border border-workspace-border border-l-4 ${bucket.borderClass} p-3 text-xs`}
+                    {citedClaims.map(renderClaim)}
+                    {uncitedClaims.length > UNCITED_COLLAPSE_AT ? (
+                      <>
+                        {uncitedClaims.slice(0, UNCITED_PREVIEW).map(renderClaim)}
+                        <button
+                          type="button"
+                          aria-expanded={showAllClaims}
+                          onClick={() => setShowAllClaims((v) => !v)}
+                          className="w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink print:hidden"
                         >
-                          <div className="flex flex-wrap items-center justify-between gap-2">
-                            <span className={`rounded border px-1.5 py-0.5 font-mono text-[10px] ${bucket.pillClass}`}>
-                              {bucket.label} · {c.entity_type}
-                            </span>
-                            <span className="font-mono text-[11px] text-workspace-muted">
-                              {c.ticker} · {c.claim_type}
-                            </span>
-                          </div>
-                          <p className="mt-2 font-medium text-workspace-ink">{c.entity}</p>
-                          <p className="mt-1 text-workspace-muted">{c.statement}</p>
-                          <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-[11px]">
-                            {c.cite !== null && validCites.has(c.cite) ? (
-                              <button
-                                type="button"
-                                aria-label={`Go to citation ${c.cite}`}
-                                onClick={() => handleCitationClick(c.cite as number)}
-                                className="rounded bg-indigo-50 px-1.5 py-0.5 font-medium text-editorial-accent hover:bg-indigo-100"
-                              >
-                                [{c.cite}]
-                              </button>
-                            ) : (
-                              <span className="text-workspace-muted">Not cited in the answer</span>
-                            )}
-                            {c.superseded && (
-                              <span className="rounded border border-workspace-border bg-slate-50 px-1.5 py-0.5 text-workspace-muted">
-                                superseded by the 10-K/A
-                              </span>
-                            )}
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => setExpandedJsonIdx(isExpanded ? null : idx)}
-                            className="mt-2 font-mono text-[11px] text-editorial-accent underline"
-                          >
-                            {isExpanded ? "Hide raw JSON" : "View raw extraction JSON"}
-                          </button>
-                          {isExpanded && (
-                            <pre className="mt-2 overflow-x-auto rounded bg-slate-900 p-2 font-mono text-[11px] text-slate-100">
-                              {JSON.stringify(c.raw_extraction, null, 2)}
-                            </pre>
-                          )}
+                          {showAllClaims ? "Show fewer claims" : `Show all ${activeTrace.claims.length} extracted claims`}
+                        </button>
+                        {/* Always in the DOM so print lists every claim; hidden on screen until expanded. */}
+                        <div
+                          data-collapsed-claims
+                          className={`space-y-3 ${showAllClaims ? "" : "hidden print:block"}`}
+                        >
+                          {uncitedClaims.slice(UNCITED_PREVIEW).map(renderClaim)}
                         </div>
-                      );
-                    })}
+                      </>
+                    ) : (
+                      uncitedClaims.map(renderClaim)
+                    )}
                   </div>
                 )}
 

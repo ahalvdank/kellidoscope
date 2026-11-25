@@ -3,8 +3,6 @@ title: 10-K / 10-Q research knowledge base | Andrew Kell
 description: A retrieval and knowledge-graph system over 973 SEC filings from 186 companies, in daily use. Replayable query traces from a public 61-filing sample, with the evals and limits.
 ---
 
-I was the architect, product manager and engineering team lead; AI coding agents worked like my staff engineers and wrote most of the code.
-
 A knowledge base and entity graph over 973 SEC filings from 186 companies: mostly 10-Ks, plus 44 10-Qs and some 20-Fs, filed 2022–2026. It is in daily use as part of my portfolio manager.
 
 - 394,913 text chunks, embedded with Qwen3-Embedding-0.6B and stored in ChromaDB
@@ -45,6 +43,10 @@ FinBERT reads at most 512 tokens. In the public sample, 747 of the 2,898 chunks 
 ## The public rewrite
 
 The public repository is a rewrite of the private pipeline: the code is rewritten, not copied. Two things come over unchanged, the v3 extraction prompt and the extractions it produced, which are committed. `make traces-from-cache` rebuilds every trace from the committed answers with no API key and no network. `make sample-refresh` re-runs extraction live, with your own API key and at your cost.
+
+## My role
+
+I was the architect, product manager and engineering team lead; AI coding agents worked like my staff engineers and wrote most of the code.
 
 ## Known limits
 

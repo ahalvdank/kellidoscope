@@ -89,6 +89,17 @@ describe("resolveClip", () => {
     expect(bytes).toBeLessThan(5_000_000);
   });
 
+  it("ships the configured wine-journal clip, poster and 1280x720 thumbnail, the clip under 5,000,000 bytes", () => {
+    const clip = resolveClip("cellarClip");
+    expect(clip).toEqual({ src: "/media/wine-journal-clip.mp4", poster: "/media/wine-journal-clip-poster.jpg" });
+    expect(siteConfig.cellarPreview).toBe("/media/wine-journal-thumb.jpg");
+    for (const path of [clip!.src, clip!.poster, siteConfig.cellarPreview]) expect(publicAssetExists(path)).toBe(true);
+    const bytes = statSync(join("public", clip!.src)).size;
+    expect(bytes).toBeGreaterThan(0);
+    expect(bytes).toBeLessThan(5_000_000);
+    expect(jpegSize(join("public", siteConfig.cellarPreview!))).toEqual({ width: 1280, height: 720 });
+  });
+
   it("ships the configured class-tasting clip, poster and 1280x720 thumbnail, the clip under 5,000,000 bytes", () => {
     const clip = resolveClip("classTastingClip");
     expect(clip).toEqual({ src: "/media/class-tasting-clip.mp4", poster: "/media/class-tasting-clip-poster.jpg" });

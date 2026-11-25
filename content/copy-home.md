@@ -49,7 +49,7 @@ personal:
           event: repo
     - name: Wine journal
       preview: cellarPreview
-      previewAlt: Screenshot of the wine journal
+      previewAlt: Screenshot of a bottle's tasting history in the wine journal
       clip: cellarClip
       clipCaption: "Screen recording of the live wine journal's read-only demo collection: the 3D cellar, the catalog, one bottle and the atlas."
       summary: A journal of my own tastings with stock tracking, a 3D cellar of photo-labelled bottles and an atlas of wine regions.

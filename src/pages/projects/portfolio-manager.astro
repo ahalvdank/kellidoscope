@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Prose from "../../components/Prose.astro";
+import PortfolioClip from "../../components/PortfolioClip.astro";
+import TelegramApprovalPreview from "../../components/TelegramApprovalPreview.astro";
+import { siteConfig } from "../../data/siteConfig";
 import { loadCopy } from "../../lib/copy";
 
 const { data, sections } = await loadCopy("copy-portfolio-manager");
@@ -23,6 +26,10 @@ sections.assertAllUsed();
       <Prose html={html.intro} />
       <p class="text-xs italic text-editorial-muted">{data.disclaimer}</p>
     </header>
+
+    <TelegramApprovalPreview />
+
+    <PortfolioClip src={siteConfig.portfolioClipUrl} poster={siteConfig.portfolioClipPoster} />
 
     <Prose html={html.how} />
     <Prose html={html.role} />

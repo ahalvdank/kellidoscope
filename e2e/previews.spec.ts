@@ -53,3 +53,14 @@ test.describe("Beckett workflow preview at phone width", () => {
     expect(scroll).toBeGreaterThan(client);
   });
 });
+
+test.describe("Portfolio manager composite card at phone width", () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test("the page does not overflow horizontally", async ({ page }) => {
+    await page.goto("/projects/portfolio-manager/");
+    await expect(page.getByRole("group", { name: /^Illustrative composite/ })).toBeVisible();
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(overflow).toBeLessThanOrEqual(0);
+  });
+});

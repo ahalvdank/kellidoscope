@@ -11,6 +11,10 @@ export interface SiteConfig {
   systemClipUrl: string | null;
   /** Poster frame shown before the clip plays; null when the clip has none. */
   systemClipPoster: string | null;
+  /** URL of the portfolio manager screen recording; null until it exists, which hides the clip slot. */
+  portfolioClipUrl: string | null;
+  /** Poster frame shown before the portfolio clip plays; null when the clip has none. */
+  portfolioClipPoster: string | null;
 }
 
 export const siteConfig: SiteConfig = {
@@ -24,4 +28,6 @@ export const siteConfig: SiteConfig = {
   cellarApp: "https://cellar.kellidoscope.com",
   systemClipUrl: "/media/kb-explorer-clip.mp4",
   systemClipPoster: "/media/kb-explorer-poster.jpg",
+  portfolioClipUrl: null,
+  portfolioClipPoster: null,
 };

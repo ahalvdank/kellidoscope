@@ -38,6 +38,8 @@ personal:
     - name: Blind-tasting game
       preview: blindTastingPreview
       previewAlt: Screenshot of the blind-tasting game
+      clip: blindTastingClip
+      clipCaption: "Screen recording of the live blind-tasting game, one practice round. The recording script simulated the phone's motion sensors for the swirl, nose and sip."
       summary: "A phone-motion practice round for the Wine Professional Level III deductive tasting exam: swirl, nose and sip a simulated glass, fill in the tasting sheet, and get a 25-point scored report."
       links:
         - label: Play it
@@ -48,6 +50,8 @@ personal:
     - name: Wine journal
       preview: cellarPreview
       previewAlt: Screenshot of the wine journal
+      clip: cellarClip
+      clipCaption: "Screen recording of the live wine journal's read-only demo collection: the 3D cellar, the catalog, one bottle and the atlas."
       summary: A journal of my own tastings with stock tracking, a 3D cellar of photo-labelled bottles and an atlas of wine regions.
       links:
         - label: Open the demo collection

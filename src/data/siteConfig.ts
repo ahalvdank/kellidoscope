@@ -15,6 +15,14 @@ export interface SiteConfig {
   cellarPreview: string | null;
   /** Site path of the class-tasting screenshot; null until it exists, which hides the card image. */
   classTastingPreview: string | null;
+  /** Site path of the blind-tasting screen recording; null until it exists, which hides the card's clip disclosure. */
+  blindTastingClip: string | null;
+  /** Poster frame for the blind-tasting clip; null when the clip has none. */
+  blindTastingClipPoster: string | null;
+  /** Site path of the wine journal demo-collection recording; null until it exists, which hides the card's clip disclosure. */
+  cellarClip: string | null;
+  /** Poster frame for the wine journal clip; null when the clip has none. */
+  cellarClipPoster: string | null;
   /** URL of the 10-K explorer screen recording; null until it exists, which hides the clip slot. */
   systemClipUrl: string | null;
   /** Poster frame shown before the clip plays; null when the clip has none. */
@@ -35,9 +43,13 @@ export const siteConfig: SiteConfig = {
   blindTastingApp: "https://blindtaste.kellidoscope.com",
   cellarApp: "https://cellar.kellidoscope.com",
   classTastingApp: "https://class-tasting.kellidoscope.com",
-  blindTastingPreview: null,
+  blindTastingPreview: "/media/blind-tasting-thumb.jpg",
   cellarPreview: null,
   classTastingPreview: null,
+  blindTastingClip: "/media/blind-tasting-clip.mp4",
+  blindTastingClipPoster: "/media/blind-tasting-clip-poster.jpg",
+  cellarClip: null,
+  cellarClipPoster: null,
   systemClipUrl: "/media/kb-explorer-clip.mp4",
   systemClipPoster: "/media/kb-explorer-poster.jpg",
   portfolioClipUrl: null,

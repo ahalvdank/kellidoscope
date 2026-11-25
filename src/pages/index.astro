@@ -6,20 +6,26 @@ import { getTrace } from "../data/traces";
 import { loadCopy } from "../lib/copy";
 import { extractFinding, LIVE_FINDING } from "../lib/liveFinding";
 import { resolveHref } from "../lib/links";
-import { assertPublicAssets, resolvePreview } from "../lib/assets";
+import { assertPublicAssets, resolveClip, resolvePreview } from "../lib/assets";
 
 const { data, sections } = await loadCopy("copy-home");
 const { hero, flagships, personal } = data;
 if (!hero || !flagships || !personal) throw new Error("content/copy-home.md needs hero, flagships and personal");
 sections.assertAllUsed();
 
-// A card's preview key must be a siteConfig *Preview key, and a set path must exist: both fail the build.
-const wineCards = personal.cards.map(({ preview, previewAlt, ...card }) => ({
-  ...card,
-  thumbnail: preview ? resolvePreview(preview) : null,
-  thumbnailAlt: previewAlt,
-}));
-assertPublicAssets(...wineCards.map((card) => card.thumbnail));
+// A card's preview and clip keys must be siteConfig *Preview / *Clip keys, and set paths must exist:
+// all fail the build. A clip needs its caption, so a recording never ships unexplained.
+const wineCards = personal.cards.map(({ preview, previewAlt, clip, clipCaption, ...card }) => {
+  const recording = clip ? resolveClip(clip) : null;
+  if (recording && !clipCaption) throw new Error(`Wine card "${card.name}" has a clip but no clipCaption`);
+  return {
+    ...card,
+    thumbnail: preview ? resolvePreview(preview) : null,
+    thumbnailAlt: previewAlt,
+    recording: recording ? { ...recording, caption: clipCaption as string } : null,
+  };
+});
+assertPublicAssets(...wineCards.flatMap((card) => [card.thumbnail, card.recording?.src ?? null, card.recording?.poster ?? null]));
 
 const trace = getTrace(LIVE_FINDING.slug);
 const finding = extractFinding(trace, LIVE_FINDING.needle);

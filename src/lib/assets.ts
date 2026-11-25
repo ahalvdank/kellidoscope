@@ -41,3 +41,21 @@ export function resolvePreview(key: string, config: SiteConfig = siteConfig): st
   }
   return config[key as keyof SiteConfig];
 }
+
+/**
+ * Resolves a card's `clip` key to its siteConfig recording and the matching `<key>Poster` frame
+ * (null while no recording exists).
+ * @throws Error when the key is not a siteConfig `*Clip` key, so a typo fails the build.
+ */
+export function resolveClip(
+  key: string,
+  config: SiteConfig = siteConfig,
+): { src: string; poster: string | null } | null {
+  const posterKey = `${key}Poster`;
+  const has = (k: string) => Object.prototype.hasOwnProperty.call(config, k);
+  if (!key.endsWith("Clip") || !has(key) || !has(posterKey)) {
+    throw new Error(`Card clip "${key}" is not a siteConfig *Clip key`);
+  }
+  const src = config[key as keyof SiteConfig];
+  return src === null ? null : { src, poster: config[posterKey as keyof SiteConfig] };
+}

@@ -20,6 +20,9 @@ const card = z.object({
   // A siteConfig "*Preview" key naming the card's screenshot, with its alt text.
   preview: z.string().optional(),
   previewAlt: z.string().optional(),
+  // A siteConfig "*Clip" key naming the card's screen recording, with its caption.
+  clip: z.string().optional(),
+  clipCaption: z.string().optional(),
   status: z.string().optional(),
   links: z.array(link).min(1),
 });

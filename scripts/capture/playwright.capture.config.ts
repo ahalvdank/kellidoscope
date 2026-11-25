@@ -23,5 +23,8 @@ export default defineConfig({
     isMobile: true,
     hasTouch: true,
     video: { mode: "on", size: VIEWPORT },
+    // Software WebGL: default headless Chromium takes ~54 s to finish the wine journal's 3D cellar,
+    // SwiftShader ~18 s (measured 2026-11-25).
+    launchOptions: { args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"] },
   },
 });

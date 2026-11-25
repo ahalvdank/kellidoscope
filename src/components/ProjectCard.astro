@@ -18,6 +18,7 @@ interface Props {
 const { name, summary, metric, thumbnail, thumbnailAlt = "", status, links, size = "flagship", recording = null } = Astro.props;
 const resolved = links.map((link) => ({ ...link, url: resolveHref(link.href) }));
 const showThumbnail = publicAssetExists(thumbnail);
+const captionId = `clip-caption-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
 
 const BUTTON = "rounded-md bg-editorial-accent px-3 py-1.5 text-white hover:opacity-90";
 const TEXT_LINK = "text-editorial-accent hover:underline";
@@ -41,7 +42,7 @@ const TEXT_LINK = "text-editorial-accent hover:underline";
     {
       recording && (
         <details data-slot="card-clip" class="mt-3 text-sm">
-          <summary class="cursor-pointer font-medium text-editorial-accent">Watch the clip</summary>
+          <summary class="cursor-pointer font-medium text-editorial-accent">Watch the clip<span class="sr-only">: {name}</span></summary>
           <figure class="mt-3">
             <ProductFrame label={`${name} screen recording`}>
               <video
@@ -51,11 +52,11 @@ const TEXT_LINK = "text-editorial-accent hover:underline";
                 muted
                 playsinline
                 preload="metadata"
-                aria-label={recording.caption}
+                aria-describedby={captionId}
                 class="mx-auto block max-h-[70vh] w-auto max-w-full"
               />
             </ProductFrame>
-            <figcaption class="mt-2 text-xs text-editorial-muted">{recording.caption}</figcaption>
+            <figcaption id={captionId} class="mt-2 text-xs text-editorial-muted">{recording.caption}</figcaption>
           </figure>
         </details>
       )

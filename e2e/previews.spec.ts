@@ -45,4 +45,11 @@ test.describe("Beckett workflow preview at phone width", () => {
       expect(overflow).toBeLessThanOrEqual(0);
     }
   });
+
+  test("the fact table scrolls inside its frame wrapper", async ({ page }) => {
+    await page.goto(PAGE);
+    const wrapper = page.getByRole("group", { name: FRAME }).locator('[data-beckett-panel="fact-basis"] .overflow-x-auto');
+    const { scroll, client } = await wrapper.evaluate((el) => ({ scroll: el.scrollWidth, client: el.clientWidth }));
+    expect(scroll).toBeGreaterThan(client);
+  });
 });

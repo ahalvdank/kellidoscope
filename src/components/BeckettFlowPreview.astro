@@ -11,17 +11,17 @@ const facts = [
   {
     fact: "Retail distribution",
     value: "~1,200 doors",
-    source: "Oatfield retail distribution summary",
+    source: "Example Crisps retail distribution summary",
     page: "14",
     date: "2025-03-12",
-    quote: "Oatfield Snacks products are stocked in approximately 1,200 doors across two regional chains.",
+    quote: "Example Crisps products are stocked in approximately 1,200 doors across two regional chains.",
     provenance: "DOC-SOURCED",
     tone: "border-emerald-300 bg-emerald-50 text-emerald-900",
   },
   {
     fact: "Active SKUs",
     value: "18 SKUs",
-    source: "Oatfield Snacks Co. website, product page",
+    source: "Example Crisps Co. website, product page",
     page: "n/a (web)",
     date: "2025-05-06",
     quote: "Browse all 18 flavors and pack sizes.",
@@ -70,10 +70,10 @@ const severityTone: Record<string, string> = {
 const journal = [
   ["stage", "committee review"],
   ["hypotheses_considered", "The co-packer statement is a plan; or it is already signed and only the document is missing."],
-  ["dead_ends", "Searching the data room for a co-packer agreement returned nothing."],
+  ["dead_ends", "No signed co-packer agreement among the company documents."],
   ["resolution", "Keep the fact as UNVERIFIED and raise a CRITICAL finding until a document confirms it."],
-  ["principle", "A forward-looking claim from management is not a fact until a document supports it."],
-  ["generalization", "Tag every planned-capacity statement UNVERIFIED at ingestion, before any specialist reads it."],
+  ["principle", "A capacity plan is not capacity."],
+  ["generalization", "Ask for a signed agreement before a memo relies on planned capacity."],
   ["confidence", "medium"],
 ] as const;
 
@@ -84,8 +84,8 @@ const tabs = [
 ];
 ---
 
-<ProductFrame label={FRAME_LABEL} title="Oatfield Snacks Co." badge="Synthetic" class="my-8">
-  <div class="relative flex flex-wrap gap-x-2 gap-y-2 px-3 pt-3 sm:px-4">
+<ProductFrame label={FRAME_LABEL} title="Example Crisps Co." badge="Synthetic" class="my-8">
+  <div role="radiogroup" aria-label="Preview sections" class="relative flex flex-wrap gap-x-2 gap-y-2 px-3 pt-3 sm:px-4">
     <input type="radio" name="beckett-tab" id="beckett-tab-fact-basis" checked class="sr-only peer/a" />
     <input type="radio" name="beckett-tab" id="beckett-tab-committee" class="sr-only peer/b" />
     <input type="radio" name="beckett-tab" id="beckett-tab-journal" class="sr-only peer/c" />
@@ -144,8 +144,8 @@ const tabs = [
 
     <div data-beckett-panel="committee" class="hidden w-full pb-4 pt-2 peer-checked/b:block">
       <p class="mb-3 text-sm text-slate-700">
-        Specialists work from the fact basis, then the committee reviews their findings. One Python orchestrator
-        runs the stages in order.
+        Specialists work from the fact basis, then the committee reviews their findings. A custom Python orchestrator
+        runs the stages.
       </p>
       <ul class="space-y-2">
         {
@@ -169,8 +169,7 @@ const tabs = [
 
     <div data-beckett-panel="journal" class="hidden w-full pb-4 pt-2 peer-checked/c:block">
       <p class="mb-3 text-sm text-slate-700">
-        After the committee, the model records its reasoning as a journal entry. A retrospective turns entries into
-        lessons.
+        The model writes its reasoning to a separate journal, with my responses.
       </p>
       <dl class="divide-y divide-slate-200 rounded-md border border-slate-200 text-sm">
         {
@@ -183,8 +182,8 @@ const tabs = [
         }
       </dl>
       <p class="mt-3 text-sm text-slate-800">
-        <span class="font-medium">Retrospective lesson:</span> mark planned-capacity statements UNVERIFIED when
-        they are ingested, not when the committee first questions them.
+        <span class="font-medium">Retrospective lesson:</span> ask for a signed agreement before a memo relies on
+        planned capacity.
       </p>
       <p class="mt-2 text-xs italic text-editorial-muted">{JOURNAL_CAPTION}</p>
     </div>

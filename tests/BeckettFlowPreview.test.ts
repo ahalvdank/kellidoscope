@@ -90,10 +90,15 @@ describe("BeckettFlowPreview", () => {
     );
   });
 
+  it("does not display the verdict rule or claim pipeline mechanics", async () => {
+    const t = text(await render());
+    expect(t).not.toMatch(/Rule:|\d\+ CRITICAL|in order|at ingestion/);
+  });
+
   it("passes the site copy rules, avoids 'sentiment' and names a plainly fictional company", async () => {
     const t = text(await render());
     expect(copyViolations(t, { rendered: true })).toEqual([]);
     expect(t).not.toMatch(/sentiment/i);
-    expect(t).toContain("Oatfield Snacks Co.");
+    expect(t).toContain("Example Crisps Co.");
   });
 });

@@ -21,16 +21,15 @@ sections.assertAllUsed();
     <header class="max-w-3xl space-y-4">
       <p class="font-mono text-xs uppercase tracking-wider text-editorial-accent">Case study</p>
       <h1 class="text-3xl font-semibold tracking-tight">Beckett deal-diligence platform</h1>
-      <p class="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">{data.disclaimer}</p>
       <Prose html={html.intro} />
+      <p class="text-xs italic text-editorial-muted">{data.disclaimer}</p>
     </header>
-
-    <section class="max-w-3xl"><Prose html={html.role} /></section>
 
     <BeckettArchDiagram />
 
     <section class="max-w-3xl space-y-10">
       <Prose html={html.how} />
+      <Prose html={html.role} />
       <Prose html={html.evaluation} />
     </section>
   </article>

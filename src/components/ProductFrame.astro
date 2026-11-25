@@ -1,0 +1,45 @@
+---
+// Window-chrome wrapper for product visuals (clips, previews, cards). The `label` is the frame's
+// single accessible name and is also shown in the header, so illustrative frames state what they
+// are right where the reader looks.
+interface Props {
+  label: string;
+  title?: string;
+  badge?: string;
+  class?: string;
+}
+const { label, title, badge, class: className } = Astro.props;
+---
+
+<div
+  role="group"
+  aria-label={label}
+  class:list={["overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm", className]}
+>
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-slate-200 bg-slate-50 px-3 py-2 text-xs">
+    <span aria-hidden="true" class="flex shrink-0 gap-1.5">
+      <span data-frame-dot class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+      <span data-frame-dot class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+      <span data-frame-dot class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
+    </span>
+    {
+      title && (
+        <span data-frame-slot="title" class="rounded border border-slate-200 bg-white px-2 py-0.5 font-mono text-slate-700">
+          {title}
+        </span>
+      )
+    }
+    <span class="text-editorial-muted">{label}</span>
+    {
+      badge && (
+        <span
+          data-frame-slot="badge"
+          class="ml-auto rounded-full border border-slate-300 bg-white px-2 py-0.5 font-medium text-slate-700"
+        >
+          {badge}
+        </span>
+      )
+    }
+  </div>
+  <slot />
+</div>

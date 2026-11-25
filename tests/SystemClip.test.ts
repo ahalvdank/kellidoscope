@@ -27,6 +27,15 @@ describe("SystemClip", () => {
     );
   });
 
+  it("renders inside a ProductFrame carrying the full-system badge", async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(SystemClip, { props: { src: "/media/x.mp4" } });
+    expect(html).toContain('role="group"');
+    expect(html).toMatch(/data-frame-slot="badge"[^>]*>\s*Full private system · 186 companies \/ 973 filings\s*</);
+    expect(html.indexOf('role="group"')).toBeLessThan(html.indexOf("<video"));
+    expect(html.indexOf("<video")).toBeLessThan(html.indexOf("</figure>"));
+  });
+
   it("omits the poster attribute when none is given", async () => {
     const container = await AstroContainer.create();
     const html = await container.renderToString(SystemClip, { props: { src: "/media/x.mp4" } });

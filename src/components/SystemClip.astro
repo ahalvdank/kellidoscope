@@ -1,6 +1,8 @@
 ---
 // The 10-K explorer screen recording. Renders nothing until a clip URL exists, so the page never
 // promises a recording that is not there.
+import ProductFrame from "./ProductFrame.astro";
+
 interface Props {
   src: string | null;
   poster?: string | null;
@@ -11,16 +13,21 @@ const { src, poster = null } = Astro.props;
 {
   src && (
     <figure data-slot="system-clip" class="max-w-3xl">
-      <video
-        src={src}
-        poster={poster ?? undefined}
-        controls
-        muted
-        playsinline
-        preload="metadata"
-        aria-label="Screen recording of the private KB Explorer, limited to sample-company screens"
-        class="w-full rounded-lg border border-editorial-border"
-      />
+      <ProductFrame
+        label="KB Explorer screen recording"
+        badge="Full private system · 186 companies / 973 filings"
+      >
+        <video
+          src={src}
+          poster={poster ?? undefined}
+          controls
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="Screen recording of the private KB Explorer, limited to sample-company screens"
+          class="block w-full"
+        />
+      </ProductFrame>
       <figcaption class="mt-2 text-xs text-editorial-muted">
         Screen recording of my private KB Explorer (973 filings, 186 companies), limited to sample-company screens.
       </figcaption>

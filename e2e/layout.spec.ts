@@ -33,6 +33,7 @@ test.describe("top bar menu without JavaScript (C2.7)", () => {
       ["10-K KB", "/projects/10k-kb"],
       ["Beckett", "/projects/beckett-diligence"],
       ["Portfolio Manager", "/projects/portfolio-manager"],
+      ["Wine apps", "/#wine-apps"],
       ["Query Traces", "/demos/10k-kb"],
       ["LinkedIn", siteConfig.linkedin],
       ["GitHub", siteConfig.github],
@@ -51,6 +52,45 @@ test.describe("top bar menu without JavaScript (C2.7)", () => {
     await expect(page.locator("header.site-topbar details")).toBeHidden();
     await expect(page.locator("header.site-topbar").getByRole("link", { name: "Query Traces" })).toBeVisible();
   });
+});
+
+for (const size of [
+  { width: 1280, height: 900 },
+  { width: 640, height: 900 },
+  { width: 390, height: 844 },
+]) {
+  test(`Wine apps scrolls to a clear wine heading on Home at ${size.width}px`, async ({ page }) => {
+    await page.setViewportSize(size);
+    await page.goto("/projects/10k-kb/");
+    const bar = page.locator("header.site-topbar");
+    if (size.width < 640) await bar.locator("summary").click();
+    await bar.getByRole("link", { name: "Wine apps", exact: true }).click();
+    await expect(page).toHaveURL(/\/#wine-apps$/);
+    await expect(page.locator("#wine-apps")).toBeInViewport();
+    const heading = page.locator("#wine-apps h2").first();
+    await expect.poll(() => heading.evaluate((el) => el.getBoundingClientRect().top)).toBeGreaterThanOrEqual(
+      await bar.evaluate((el) => el.getBoundingClientRect().bottom),
+    );
+  });
+}
+
+test("phone: tapping Wine apps on Home with the menu open leaves the heading uncovered", async ({ page }) => {
+  await page.goto("/");
+  const bar = page.locator("header.site-topbar");
+  await bar.locator("summary").click();
+  await bar.getByRole("link", { name: "Wine apps", exact: true }).click();
+  await expect(page).toHaveURL(/\/#wine-apps$/);
+  const heading = page.locator("#wine-apps h2").first();
+  await expect(heading).toBeVisible();
+  await expect
+    .poll(() =>
+      heading.evaluate((el) => {
+        const r = el.getBoundingClientRect();
+        const hit = document.elementFromPoint(r.left + 8, r.top + r.height / 2);
+        return !!hit && (hit === el || el.contains(hit));
+      }),
+    )
+    .toBe(true);
 });
 
 for (const path of OVERFLOW_PAGES) {

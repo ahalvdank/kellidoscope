@@ -1,0 +1,59 @@
+---
+// Illustrative composite of the Telegram trade-approval card, on a synthetic ticker. The real alert
+// is shorter; this card gathers what feeds one decision. Rows illustrate facts stated in
+// content/copy-portfolio-manager.md; example values describe this synthetic trade only and carry no
+// price or return.
+// The buttons are styled spans, not controls: nothing here is interactive.
+import ProductFrame from "./ProductFrame.astro";
+
+const LABEL =
+  "Illustrative composite · synthetic ticker (not a real position). The real Telegram alert is shorter; this card gathers what feeds one decision.";
+const BUTTONS = ["✅ Execute", "⏰ Wait", "❌ Cancel"];
+const ROWS = [
+  { name: "ML ensemble", body: "Gradient-boosted tree ensemble leans buy (example)." },
+  { name: "Market regime", body: "Hidden Markov model regime: supportive." },
+  {
+    name: "Agent committee",
+    body: "Fundamentals, valuation, macro, catalyst, devil's advocate and knowledge-base specialist agents, plus an aggregator, weigh in.",
+  },
+  { name: "Devil's advocate", body: "Valuation already prices in two more quarters of growth." },
+  {
+    name: "Tax lots",
+    body: "Tax-lot check (example): holding period would start at the fill; short- vs long-term noted for any later sale.",
+  },
+  { name: "10-K signals [shadow]", body: "not used for this trade" },
+];
+---
+
+<figure data-slot="telegram-approval-preview" class="max-w-xl">
+  <ProductFrame label={LABEL}>
+    <div class="space-y-3 bg-white p-4 text-sm">
+      <div>
+        <p class="font-semibold">🟢 BUY EXAMPLE</p>
+        <p class="font-mono text-xs text-editorial-muted">Qty: 10 | Type: limit</p>
+        <p class="font-mono text-xs text-editorial-muted">Account: EXAMPLE</p>
+      </div>
+      <ul class="space-y-2 border-t border-slate-200 pt-3">
+        {
+          ROWS.map((row) => (
+            <li class="break-words">
+              <span class="font-medium">{row.name}:</span> {row.body}
+            </li>
+          ))
+        }
+      </ul>
+      <div class="flex flex-wrap gap-2 border-t border-slate-200 pt-3">
+        {
+          BUTTONS.map((label) => (
+            <span class="rounded-md border border-slate-300 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700">
+              {label}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </ProductFrame>
+  <figcaption class="mt-2 text-xs text-editorial-muted">
+    ML ensemble → regime model → agent committee → my approval on Telegram
+  </figcaption>
+</figure>

@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Prose from "../../components/Prose.astro";
+import PortfolioClip from "../../components/PortfolioClip.astro";
+import TelegramApprovalPreview from "../../components/TelegramApprovalPreview.astro";
+import { siteConfig } from "../../data/siteConfig";
+import { assertPublicAssets } from "../../lib/assets";
 import { loadCopy } from "../../lib/copy";
 
 const { data, sections } = await loadCopy("copy-portfolio-manager");
@@ -9,9 +13,13 @@ if (!data.disclaimer) throw new Error("content/copy-portfolio-manager.md needs i
 const html = {
   intro: sections.get("intro"),
   how: sections.get("how-it-works"),
+  role: sections.get("my-role"),
   omitted: sections.get("what-this-page-leaves-out"),
 };
 sections.assertAllUsed();
+
+// A configured clip or poster whose file is missing fails the build; null hides the slot.
+assertPublicAssets(siteConfig.portfolioClipUrl, siteConfig.portfolioClipPoster);
 ---
 
 <BaseLayout title={data.title} description={data.description}>
@@ -19,11 +27,16 @@ sections.assertAllUsed();
     <header class="space-y-4">
       <p class="font-mono text-xs uppercase tracking-wider text-editorial-accent">Case study</p>
       <h1 class="text-3xl font-semibold tracking-tight">Portfolio manager</h1>
-      <p class="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">{data.disclaimer}</p>
       <Prose html={html.intro} />
+      <p class="text-xs italic text-editorial-muted">{data.disclaimer}</p>
     </header>
 
+    <TelegramApprovalPreview />
+
+    <PortfolioClip src={siteConfig.portfolioClipUrl} poster={siteConfig.portfolioClipPoster} />
+
     <Prose html={html.how} />
+    <Prose html={html.role} />
     <Prose html={html.omitted} />
   </article>
 </BaseLayout>

@@ -8,6 +8,7 @@ import { loadCopy } from "../../lib/copy";
 import { FRAMING_BANNER, sampleBadge } from "../../lib/badge";
 import { getManifest } from "../../data/traces";
 import { siteConfig } from "../../data/siteConfig";
+import { assertPublicAssets } from "../../lib/assets";
 
 const TEASER_COUNT = 4;
 
@@ -24,11 +25,16 @@ const html = {
   pipeline: sections.get("how-the-private-pipeline-works"),
   signals: sections.get("filing-signals-shadow-mode-only"),
   rewrite: sections.get("the-public-rewrite"),
+  role: sections.get("my-role"),
   limits: sections.get("known-limits"),
   matrix: matrix.sections.get("why-not-a-simpler-solution"),
 };
 sections.assertAllUsed();
+
 matrix.sections.assertAllUsed();
+
+// A configured clip or poster whose file is missing fails the build; null hides the slot.
+assertPublicAssets(siteConfig.systemClipUrl, siteConfig.systemClipPoster);
 ---
 
 <BaseLayout title={data.title} description={data.description}>
@@ -98,7 +104,14 @@ matrix.sections.assertAllUsed();
           </a>
         </p>
       </div>
-      <Prose html={html.limits} />
+      <Prose html={html.role} />
+      <!-- Closed on screen; print shows the whole disclosure (::details-content), so paper keeps the caveats. -->
+      <details class="rounded-md border border-editorial-border bg-white px-4 py-3 print:[&::details-content]:block print:[&::details-content]:[content-visibility:visible]">
+        <summary class="cursor-pointer font-medium text-editorial-ink">Known limits &amp; sample caveats</summary>
+        <div class="mt-4">
+          <Prose html={html.limits} />
+        </div>
+      </details>
     </section>
   </article>
 </BaseLayout>

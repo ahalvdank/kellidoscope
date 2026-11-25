@@ -1,0 +1,30 @@
+---
+// The portfolio manager screen recording. Renders nothing until a clip URL exists, so the page never
+// promises a recording that is not there.
+import ProductFrame from "./ProductFrame.astro";
+
+interface Props {
+  src: string | null;
+  poster?: string | null;
+}
+const { src, poster = null } = Astro.props;
+---
+
+{
+  src && (
+    <figure data-slot="portfolio-clip" class="max-w-3xl">
+      <ProductFrame label="Portfolio manager screen recording">
+        <video
+          src={src}
+          poster={poster ?? undefined}
+          controls
+          muted
+          playsinline
+          preload="metadata"
+          aria-label="Screen recording of the private portfolio manager"
+          class="block w-full"
+        />
+      </ProductFrame>
+    </figure>
+  )
+}

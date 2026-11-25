@@ -113,6 +113,9 @@ describe("no 'production' for the 10-K KB or the portfolio manager", () => {
     "src/pages/projects/10k-kb.astro",
     "src/pages/projects/portfolio-manager.astro",
     "src/components/EvalsLedger.astro",
+    "src/components/LiveFinding.astro",
+    "src/components/TelegramApprovalPreview.astro",
+    "src/components/PortfolioClip.astro",
   ])("%s", (rel) => {
     expect(copyViolations(read(rel), { production: true })).toEqual([]);
   });
@@ -152,6 +155,41 @@ describe("fixed copy", () => {
     expect(home).toContain("label: Play it");
     expect(home).toContain("label: Code");
     expect(home).toContain("label: Open the demo collection");
+  });
+
+  it("home carries the class-tasting card from PJ3b", () => {
+    const home = read("content/copy-home.md");
+    expect(home).toContain(
+      "A shared tasting sheet for a wine class: the instructor reveals each wine, every student's Wine Professional 25-point sheet is scored against the answer key, each student sees why they gained or lost each point, and the class sees an anonymous comparison. Students can never read the answer key.",
+    );
+    expect(home).toContain("Built for a Level III class; first pilot not yet run.");
+    expect(home).toContain("label: See how it works");
+    expect(home).toContain("href: classTastingApp");
+    // Only the blind-tasting card has a Code link: the class-tasting repo is private.
+    expect(home.match(/label: Code/g)).toHaveLength(1);
+  });
+
+  it("home hero uses the agreed headline", () => {
+    expect(read("content/copy-home.md")).toContain(
+      "I design and ship AI systems for financial research, venture diligence, and investing.",
+    );
+  });
+
+  it("home carries the agreed card metrics", () => {
+    const home = read("content/copy-home.md");
+    expect(home).toContain("973 filings · 186 companies");
+    expect(home).toContain("~60h → ~25h per deal");
+    expect(home).toContain("Daily use since spring 2025");
+  });
+
+  it("the Beckett card keeps its sample size", () => {
+    expect(read("content/copy-home.md")).toContain("4 deals before and 4 after");
+  });
+
+  it("the top bar links Wine apps to the home section", () => {
+    const topBar = read("src/components/TopBar.astro");
+    expect(topBar.split('href="/#wine-apps"')).toHaveLength(3); // desktop and phone nav
+    expect(topBar).toContain("Wine apps");
   });
 
   it("the top bar says Résumé", () => {

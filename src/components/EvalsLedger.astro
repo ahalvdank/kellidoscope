@@ -3,7 +3,6 @@ interface EvalRow {
   eval: string;
   tested: string;
   result: string;
-  status: "measured" | "v2";
 }
 
 const rows: EvalRow[] = [
@@ -11,73 +10,41 @@ const rows: EvalRow[] = [
     eval: "Extraction model A/B (119 sections)",
     tested: "Private pipeline: Claude Sonnet 4.6 against Sonnet 5 on entity extraction",
     result: "Kept Sonnet 4.6. Sonnet 5 found 84% fewer company entities.",
-    status: "measured",
   },
   {
     eval: "Open-model extraction benchmark",
     tested: "Private pipeline: open models from 7B to 70B on high-yield filing sections",
     result: "Rejected. The best reached about 48% recall, and one hallucinated facts.",
-    status: "measured",
   },
   {
     eval: "Noise floor and cheaper effort setting",
     tested: "Private pipeline: the same model run against itself, as the bar for judging a cheaper setting",
     result: "The cheaper setting would cut cost per section about 56%, from $0.300 to $0.133. Not adopted.",
-    status: "measured",
   },
   {
     eval: "Pipeline audit",
     tested: "Private pipeline: dropped entity links and empty filing-years",
     result: "Found 7 tickers with dropped entity links and 12 of 126 filing-years that were empty table-of-contents stubs. Both fixed to zero.",
-    status: "measured",
   },
   {
     eval: "Section-text fidelity",
     tested: "Public sample: whether the public section detector produces the same text as the private pipeline",
     result: "681 of the 682 comparable sections match (99.9%). Coverage: only 682 of 824 sections could be compared (82.8%).",
-    status: "measured",
   },
   {
     eval: "Per-sentence citation, number and scale checks",
     tested: "Public sample: every sentence cites a passage, and every number appears in a passage it cites, at the same scale",
     result: "12 traces, 0 problems. 8 of the 144 numbers appear in their passage without a scale, such as a table cell under an \"in millions\" header, and go to a human audit list.",
-    status: "measured",
   },
   {
     eval: "SEC links",
     tested: "Public sample: each distinct SEC link in the traces is requested once",
     result: "19 of 19 returned HTTP 200.",
-    status: "measured",
   },
   {
     eval: "Human audit",
     tested: "Public sample: my own review, on top of the automated checks",
     result: "13 questions run. One passed the automated checks but failed my review on three weak sentences and was dropped; 12 are exported.",
-    status: "measured",
-  },
-  {
-    eval: "Retrieval recall@k",
-    tested: "Whether retrieval finds the passages a question needs",
-    result: "Planned: v2",
-    status: "v2",
-  },
-  {
-    eval: "Citation faithfulness",
-    tested: "Whether each cited passage supports its sentence: an LLM judge checked against human labels",
-    result: "Planned: v2",
-    status: "v2",
-  },
-  {
-    eval: "Claim extraction audit",
-    tested: "Precision and a breakdown of failure modes, by manual review",
-    result: "Planned: v2",
-    status: "v2",
-  },
-  {
-    eval: "Cost per 10-K ingested",
-    tested: "Cost and time per filing, by pipeline stage",
-    result: "Planned: v2",
-    status: "v2",
   },
 ];
 ---
@@ -86,7 +53,7 @@ const rows: EvalRow[] = [
   <div>
     <h2 class="text-xl font-semibold text-editorial-ink">Verification &amp; Evals Ledger</h2>
     <p class="mt-1 text-sm text-editorial-muted">
-      Checks already run on the private pipeline and the public sample, and the evals planned for v2. v2 rows have no numbers until they are measured.
+      Checks already run on the private pipeline and the public sample.
     </p>
   </div>
 
@@ -107,21 +74,19 @@ const rows: EvalRow[] = [
             <td class="px-4 py-3 text-editorial-muted">{r.tested}</td>
             <td class="px-4 py-3 text-editorial-ink">{r.result}</td>
             <td class="px-4 py-3 font-mono text-xs">
-              {r.status === "measured" ? (
-                <span class="rounded bg-emerald-50 px-2 py-0.5 text-emerald-800 border border-emerald-200">
-                  Measured
-                </span>
-              ) : (
-                <span class="rounded bg-slate-100 px-2 py-0.5 text-slate-600 border border-slate-200">
-                  Planned: v2
-                </span>
-              )}
+              <span class="rounded bg-emerald-50 px-2 py-0.5 text-emerald-800 border border-emerald-200">
+                Measured
+              </span>
             </td>
           </tr>
         ))}
       </tbody>
     </table>
   </div>
+
+  <p class="text-sm text-editorial-muted">
+    Planned for v2: retrieval recall@k, citation faithfulness, a claim-extraction audit, and cost per 10-K ingested. They get numbers when they are measured.
+  </p>
 
   <!-- Failure Modes Caught -->
   <div class="grid gap-4 sm:grid-cols-2">

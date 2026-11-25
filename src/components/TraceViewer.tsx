@@ -1,11 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
-import type { Passage, Trace, TraceCategory, TraceManifest } from "../data/types";
-import { getEntityBucket } from "../data/entityBuckets";
+import type { Claim, Passage, Trace, TraceCategory, TraceManifest } from "../data/types";
+import { getClaimBucket } from "../data/entityBuckets";
+import { orderClaims, UNCITED_COLLAPSE_AT, UNCITED_PREVIEW } from "../lib/claims";
 import { countEvent, countPageview } from "../lib/analytics";
 import { FRAMING_BANNER, sampleBadge } from "../lib/badge";
 import { linkCitations } from "../lib/citations";
+import { prepareAuditNote } from "../lib/auditNote";
+import { clipContext, splitIncluded } from "../lib/passages";
 import { safeUrl } from "../lib/safeUrl";
 import { siteConfig } from "../data/siteConfig";
 
@@ -31,11 +34,74 @@ const CATEGORY_LABELS: Record<TraceCategory | "all", string> = {
 
 type InspectorTab = "sources" | "claims" | "signals" | "audit";
 
+/**
+ * ReactMarkdown overrides shared by the answer and the audit note: links obey the host allowlist,
+ * `#cite-n` links become citation buttons, images never render. Raw HTML stays disabled.
+ */
+function buildMarkdownComponents(onCite: (citeNum: number) => void): Components {
+  return {
+    a: ({ href, children }) => {
+      if (href?.startsWith("#cite-")) {
+        const num = Number(href.replace("#cite-", ""));
+        return (
+          <button
+            type="button"
+            onClick={() => onCite(num)}
+            className="mx-0.5 inline-flex items-center rounded bg-indigo-50 px-1.5 py-0.5 font-mono text-xs font-medium text-editorial-accent hover:bg-indigo-100"
+          >
+            {children}
+          </button>
+        );
+      }
+      const safe = safeUrl(href ?? "", MARKDOWN_LINK_HOSTS);
+      if (!safe) return <span>{children}</span>;
+      return (
+        <a
+          href={safe}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="break-words text-editorial-accent underline"
+        >
+          {children}
+        </a>
+      );
+    },
+    // Images never render: no third-party requests from trace markdown.
+    img: () => null,
+    table: ({ children }) => (
+      <div className="my-4 overflow-x-auto">
+        <table className="min-w-full border-collapse border border-workspace-border text-xs">
+          {children}
+        </table>
+      </div>
+    ),
+    th: ({ children }) => (
+      <th className="border border-workspace-border bg-slate-50 px-2 py-1.5 text-left font-medium">
+        {children}
+      </th>
+    ),
+    td: ({ children }) => (
+      <td className="border border-workspace-border px-2 py-1.5">
+        {children}
+      </td>
+    ),
+    pre: ({ children }) => (
+      <pre className="overflow-x-auto rounded bg-slate-900 p-3 font-mono text-xs text-slate-100">
+        {children}
+      </pre>
+    ),
+  };
+}
+
 export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps) {
   const [selectedCategory, setSelectedCategory] = useState<TraceCategory | "all">("all");
   const [activeTrace, setActiveTrace] = useState<Trace>(initialTrace);
   const [activeTab, setActiveTab] = useState<InspectorTab>("sources");
   const [showRejected, setShowRejected] = useState(false);
+  const [showUncited, setShowUncited] = useState(false);
+  const [showNoneCited, setShowNoneCited] = useState(false);
+  const [expandedCtx, setExpandedCtx] = useState<Set<string>>(new Set());
+  const [showAllClaims, setShowAllClaims] = useState(false);
   const [expandedJsonIdx, setExpandedJsonIdx] = useState<number | null>(null);
   const [highlightedCite, setHighlightedCite] = useState<number | null>(null);
   const [scrollTick, setScrollTick] = useState(0);
@@ -76,6 +142,10 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
     setActiveTrace(trace);
     setActiveTab("sources");
     setShowRejected(false);
+    setShowUncited(false);
+    setShowNoneCited(false);
+    setShowAllClaims(false);
+    setExpandedCtx(new Set());
     setExpandedJsonIdx(null);
     setHighlightedCite(null);
     setModalPassage(null);
@@ -169,7 +239,16 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
 
     setActiveTab("sources");
     setHighlightedCite(citeNum);
+    setExpandedCtx((prev) => new Set(prev).add(passageKey(activeTrace, passage)));
     setScrollTick((n) => n + 1);
+  }
+
+  function toggleContext(key: string) {
+    setExpandedCtx((prev) => {
+      const next = new Set(prev);
+      if (!next.delete(key)) next.add(key);
+      return next;
+    });
   }
 
   useEffect(() => {
@@ -188,6 +267,15 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
   );
 
   // Convert [1], [2] markers into clickable markdown links (#cite-1)
+  const auditNote = useMemo(
+    () => prepareAuditNote(activeTrace.audit_note_md ?? "", showNoneCited),
+    [activeTrace.audit_note_md, showNoneCited]
+  );
+  const printAuditNoteMd = useMemo(
+    () => prepareAuditNote(activeTrace.audit_note_md ?? "", true).md,
+    [activeTrace.audit_note_md]
+  );
+  const markdownComponents = buildMarkdownComponents(handleCitationClick);
   const linkedAnswerMd = useMemo(
     () => linkCitations(activeTrace.answer_md, validCites),
     [activeTrace, validCites]
@@ -197,10 +285,75 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
     () => activeTrace.passages.filter((p) => p.included),
     [activeTrace]
   );
+  const { cited: citedClaims, uncited: uncitedClaims, indexOf: claimIndex } = useMemo(() => {
+    const { cited, uncited } = orderClaims(activeTrace.claims);
+    return { cited, uncited, indexOf: new Map(activeTrace.claims.map((c, i) => [c, i])) };
+  }, [activeTrace.claims]);
+
+  const { cited: citedPassages, uncited: uncitedPassages } = useMemo(
+    () => splitIncluded(activeTrace.passages),
+    [activeTrace]
+  );
   const rejectedPassages = useMemo(
     () => activeTrace.passages.filter((p) => !p.included),
     [activeTrace]
   );
+
+  const renderClaim = (c: Claim) => {
+    const idx = claimIndex.get(c) as number;
+    const bucket = getClaimBucket(c.claim_type, c.entity_type);
+    const isExpanded = expandedJsonIdx === idx;
+    return (
+      <div
+        key={idx}
+        data-claim-card
+        data-cited={c.cite !== null}
+        className={`rounded-md border border-workspace-border border-l-4 ${bucket.borderClass} p-3 text-xs`}
+      >
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className={`rounded border px-1.5 py-0.5 font-mono text-[10px] ${bucket.pillClass}`}>
+            {bucket.label} · {c.claim_type}
+          </span>
+          <span className="font-mono text-[11px] text-workspace-muted">
+            {c.ticker} · {c.entity_type}
+          </span>
+        </div>
+        <p className="mt-2 font-medium text-workspace-ink">{c.entity}</p>
+        <p className="mt-1 text-workspace-muted">{c.statement}</p>
+        <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-[11px]">
+          {c.cite !== null && validCites.has(c.cite) ? (
+            <button
+              type="button"
+              aria-label={`Go to citation ${c.cite}`}
+              onClick={() => handleCitationClick(c.cite as number)}
+              className="rounded bg-indigo-50 px-1.5 py-0.5 font-medium text-editorial-accent hover:bg-indigo-100"
+            >
+              [{c.cite}]
+            </button>
+          ) : (
+            <span className="text-workspace-muted">Not cited in the answer</span>
+          )}
+          {c.superseded && (
+            <span className="rounded border border-workspace-border bg-slate-50 px-1.5 py-0.5 text-workspace-muted">
+              superseded by the 10-K/A
+            </span>
+          )}
+        </div>
+        <button
+          type="button"
+          onClick={() => setExpandedJsonIdx(isExpanded ? null : idx)}
+          className="mt-2 font-mono text-[11px] text-editorial-accent underline"
+        >
+          {isExpanded ? "Hide raw JSON" : "View raw extraction JSON"}
+        </button>
+        {isExpanded && (
+          <pre className="mt-2 overflow-x-auto rounded bg-slate-900 p-2 font-mono text-[11px] text-slate-100">
+            {JSON.stringify(c.raw_extraction, null, 2)}
+          </pre>
+        )}
+      </div>
+    );
+  };
 
   const availableTabs: InspectorTab[] = [
     "sources",
@@ -257,36 +410,33 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
           ))}
         </div>
 
-        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {filteredSummaries.map((item) => {
-            const isSelected = activeTrace.slug === item.slug;
-            return (
-              <button
-                key={item.slug}
-                type="button"
-                aria-current={isSelected ? "true" : undefined}
-                onClick={() => selectTrace(item.slug)}
-                className={`rounded-md border p-3 text-left transition ${
-                  isSelected
-                    ? "border-editorial-accent bg-indigo-50/40 ring-1 ring-editorial-accent"
-                    : "border-workspace-border bg-workspace-surface hover:border-slate-400"
-                }`}
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[11px] font-medium text-editorial-accent">
+        <nav aria-label="Featured traces">
+          <div className="flex flex-nowrap gap-2 overflow-x-auto p-px pb-1">
+            {filteredSummaries.map((item) => {
+              const isSelected = activeTrace.slug === item.slug;
+              return (
+                <button
+                  key={item.slug}
+                  type="button"
+                  aria-current={isSelected ? "true" : undefined}
+                  onClick={() => selectTrace(item.slug)}
+                  className={`flex w-56 shrink-0 items-center gap-2 rounded-full border px-3 py-1.5 text-left transition ${
+                    isSelected
+                      ? "border-editorial-accent bg-indigo-50/40 ring-1 ring-editorial-accent"
+                      : "border-workspace-border bg-workspace-surface hover:border-slate-400"
+                  }`}
+                >
+                  <span className="shrink-0 font-mono text-[11px] font-medium text-editorial-accent">
                     {item.tickers.join(", ")}
                   </span>
-                  <span className="font-mono text-[10px] text-workspace-muted">
-                    {CATEGORY_LABELS[item.category]}
+                  <span className="line-clamp-1 text-xs font-medium text-workspace-ink">
+                    {item.title}
                   </span>
-                </div>
-                <p className="mt-1 line-clamp-2 text-xs font-medium text-workspace-ink">
-                  {item.title}
-                </p>
-              </button>
-            );
-          })}
-        </div>
+                </button>
+              );
+            })}
+          </div>
+        </nav>
       </div>
 
       {/* Error / Skeleton States */}
@@ -306,29 +456,6 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
       {/* Active Trace Content */}
       {!loading && (
         <>
-          {/* Always-visible technical metadata strip */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-md border border-workspace-border bg-workspace-surface px-3 py-2 font-mono text-[11px] text-workspace-muted">
-            <span>Embed: {activeTrace.meta.models.embedding}</span>
-            <span>Extract: {activeTrace.meta.models.extraction}</span>
-            <span>Synthesize: {activeTrace.meta.models.synthesis}</span>
-            <span>Sentiment: {activeTrace.meta.models.sentiment}</span>
-            <span>Top-k: {activeTrace.meta.top_k}</span>
-            <span>Demo cutoff: score ≥ {cutoff}</span>
-            {commitUrl ? (
-              <a
-                href={commitUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => countEvent("repo")}
-                className="text-editorial-accent underline"
-              >
-                exported at commit {shortCommit}
-              </a>
-            ) : (
-              <span>exported at commit {shortCommit}</span>
-            )}
-          </div>
-
           {/* 60 / 40 Desktop Split */}
           <div className="grid gap-6 lg:grid-cols-12">
             {/* Left Column (60% -> 7 cols): Question + Cited Answer */}
@@ -346,61 +473,10 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                 <span>{activeTrace.claims.length} extracted claims</span>
               </div>
 
-              <div className="prose prose-sm max-w-none text-workspace-ink">
+              <div data-trace-answer className="prose prose-base max-w-none leading-relaxed text-workspace-ink">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
-                  components={{
-                    a: ({ href, children }) => {
-                      if (href?.startsWith("#cite-")) {
-                        const num = Number(href.replace("#cite-", ""));
-                        return (
-                          <button
-                            type="button"
-                            onClick={() => handleCitationClick(num)}
-                            className="mx-0.5 inline-flex items-center rounded bg-indigo-50 px-1.5 py-0.5 font-mono text-xs font-medium text-editorial-accent hover:bg-indigo-100"
-                          >
-                            {children}
-                          </button>
-                        );
-                      }
-                      const safe = safeUrl(href ?? "", MARKDOWN_LINK_HOSTS);
-                      if (!safe) return <span>{children}</span>;
-                      return (
-                        <a
-                          href={safe}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="break-words text-editorial-accent underline"
-                        >
-                          {children}
-                        </a>
-                      );
-                    },
-                    // Images never render: no third-party requests from trace markdown.
-                    img: () => null,
-                    table: ({ children }) => (
-                      <div className="my-4 overflow-x-auto">
-                        <table className="min-w-full border-collapse border border-workspace-border text-xs">
-                          {children}
-                        </table>
-                      </div>
-                    ),
-                    th: ({ children }) => (
-                      <th className="border border-workspace-border bg-slate-50 px-2 py-1.5 text-left font-medium">
-                        {children}
-                      </th>
-                    ),
-                    td: ({ children }) => (
-                      <td className="border border-workspace-border px-2 py-1.5">
-                        {children}
-                      </td>
-                    ),
-                    pre: ({ children }) => (
-                      <pre className="overflow-x-auto rounded bg-slate-900 p-3 font-mono text-xs text-slate-100">
-                        {children}
-                      </pre>
-                    ),
-                  }}
+                  components={markdownComponents}
                 >
                   {linkedAnswerMd}
                 </ReactMarkdown>
@@ -442,13 +518,49 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
               >
                 {currentTab === "sources" && (
                   <>
-                    {includedPassages.map((p, idx) => (
-                      <PassageCard
-                        key={`${p.accession}-${idx}`}
-                        passage={p}
-                        highlighted={p.cite !== null && p.cite === highlightedCite}
-                      />
-                    ))}
+                    {citedPassages.map((p) => {
+                      const key = passageKey(activeTrace, p);
+                      return (
+                        <PassageCard
+                          key={key}
+                          passage={p}
+                          highlighted={p.cite !== null && p.cite === highlightedCite}
+                          expanded={expandedCtx.has(key)}
+                          onToggleExpand={() => toggleContext(key)}
+                        />
+                      );
+                    })}
+
+                    {uncitedPassages.length > 0 && (
+                      <div className="pt-2">
+                        <button
+                          type="button"
+                          aria-expanded={showUncited}
+                          onClick={() => setShowUncited((v) => !v)}
+                          className="w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink print:hidden"
+                        >
+                          {showUncited ? "Hide" : "Show"} {uncitedPassages.length} additional retrieved passages (not cited)
+                        </button>
+                        {/* Always in the DOM so print shows every retrieved passage; hidden on screen until toggled. */}
+                        <div
+                          data-uncited-list
+                          className={`mt-3 space-y-3 ${showUncited ? "" : "hidden print:block"}`}
+                        >
+                          {uncitedPassages.map((p) => {
+                            const key = passageKey(activeTrace, p);
+                            return (
+                              <PassageCard
+                                key={key}
+                                passage={p}
+                                highlighted={false}
+                                expanded={expandedCtx.has(key)}
+                                onToggleExpand={() => toggleContext(key)}
+                              />
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
 
                     <div className="pt-2">
                       {rejectedPassages.length > 0 ? (
@@ -463,9 +575,18 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                           </button>
                           {showRejected && (
                             <div className="mt-3 space-y-3 opacity-80">
-                              {rejectedPassages.map((p, idx) => (
-                                <PassageCard key={`rej-${idx}`} passage={p} highlighted={false} />
-                              ))}
+                              {rejectedPassages.map((p) => {
+                                const key = passageKey(activeTrace, p);
+                                return (
+                                  <PassageCard
+                                    key={key}
+                                    passage={p}
+                                    highlighted={false}
+                                    expanded={expandedCtx.has(key)}
+                                    onToggleExpand={() => toggleContext(key)}
+                                  />
+                                );
+                              })}
                             </div>
                           )}
                         </>
@@ -480,58 +601,29 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
 
                 {currentTab === "claims" && (
                   <div className="space-y-3">
-                    {activeTrace.claims.map((c, idx) => {
-                      const bucket = getEntityBucket(c.entity_type);
-                      const isExpanded = expandedJsonIdx === idx;
-                      return (
-                        <div
-                          key={idx}
-                          className={`rounded-md border border-workspace-border border-l-4 ${bucket.borderClass} p-3 text-xs`}
+                    {citedClaims.map(renderClaim)}
+                    {uncitedClaims.length > UNCITED_COLLAPSE_AT ? (
+                      <>
+                        {uncitedClaims.slice(0, UNCITED_PREVIEW).map(renderClaim)}
+                        <button
+                          type="button"
+                          aria-expanded={showAllClaims}
+                          onClick={() => setShowAllClaims((v) => !v)}
+                          className="w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink print:hidden"
                         >
-                          <div className="flex flex-wrap items-center justify-between gap-2">
-                            <span className={`rounded border px-1.5 py-0.5 font-mono text-[10px] ${bucket.pillClass}`}>
-                              {bucket.label} · {c.entity_type}
-                            </span>
-                            <span className="font-mono text-[11px] text-workspace-muted">
-                              {c.ticker} · {c.claim_type}
-                            </span>
-                          </div>
-                          <p className="mt-2 font-medium text-workspace-ink">{c.entity}</p>
-                          <p className="mt-1 text-workspace-muted">{c.statement}</p>
-                          <div className="mt-2 flex flex-wrap items-center gap-2 font-mono text-[11px]">
-                            {c.cite !== null && validCites.has(c.cite) ? (
-                              <button
-                                type="button"
-                                aria-label={`Go to citation ${c.cite}`}
-                                onClick={() => handleCitationClick(c.cite as number)}
-                                className="rounded bg-indigo-50 px-1.5 py-0.5 font-medium text-editorial-accent hover:bg-indigo-100"
-                              >
-                                [{c.cite}]
-                              </button>
-                            ) : (
-                              <span className="text-workspace-muted">Not cited in the answer</span>
-                            )}
-                            {c.superseded && (
-                              <span className="rounded border border-workspace-border bg-slate-50 px-1.5 py-0.5 text-workspace-muted">
-                                superseded by the 10-K/A
-                              </span>
-                            )}
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => setExpandedJsonIdx(isExpanded ? null : idx)}
-                            className="mt-2 font-mono text-[11px] text-editorial-accent underline"
-                          >
-                            {isExpanded ? "Hide raw JSON" : "View raw extraction JSON"}
-                          </button>
-                          {isExpanded && (
-                            <pre className="mt-2 overflow-x-auto rounded bg-slate-900 p-2 font-mono text-[11px] text-slate-100">
-                              {JSON.stringify(c.raw_extraction, null, 2)}
-                            </pre>
-                          )}
+                          {showAllClaims ? "Show fewer claims" : `Show all ${activeTrace.claims.length} extracted claims`}
+                        </button>
+                        {/* Always in the DOM so print lists every claim; hidden on screen until expanded. */}
+                        <div
+                          data-collapsed-claims
+                          className={`space-y-3 ${showAllClaims ? "" : "hidden print:block"}`}
+                        >
+                          {uncitedClaims.slice(UNCITED_PREVIEW).map(renderClaim)}
                         </div>
-                      );
-                    })}
+                      </>
+                    ) : (
+                      uncitedClaims.map(renderClaim)
+                    )}
                   </div>
                 )}
 
@@ -575,12 +667,63 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                 )}
 
                 {currentTab === "audit" && activeTrace.audit_note_md && (
-                  <pre className="overflow-x-auto whitespace-pre-wrap rounded bg-slate-50 p-3 font-mono text-xs text-workspace-ink">
-                    {activeTrace.audit_note_md}
-                  </pre>
+                  <div>
+                    {auditNote.hiddenCount > 0 && (
+                      <button
+                        type="button"
+                        aria-expanded={showNoneCited}
+                        onClick={() => setShowNoneCited((v) => !v)}
+                        className="mb-3 w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink print:hidden"
+                      >
+                        {showNoneCited ? "Hide" : "Show"} {auditNote.hiddenCount} lines with no citations
+                      </button>
+                    )}
+                    <div
+                      data-audit-note
+                      className={`prose prose-sm max-w-none text-workspace-ink ${!showNoneCited && auditNote.hiddenCount > 0 ? "print:hidden" : ""}`}
+                    >
+                      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                        {auditNote.md}
+                      </ReactMarkdown>
+                    </div>
+                    {/* Closed: the full note stays in the DOM so print includes the "none cited" lines. */}
+                    {!showNoneCited && auditNote.hiddenCount > 0 && (
+                      <div
+                        data-audit-note
+                        className="prose prose-sm hidden max-w-none text-workspace-ink print:block"
+                      >
+                        <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                          {printAuditNoteMd}
+                        </ReactMarkdown>
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
             </aside>
+          </div>
+
+          {/* Technical metadata footer */}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-workspace-border px-1 pt-3 font-mono text-[11px] text-workspace-muted">
+            <span>Embed: {activeTrace.meta.models.embedding}</span>
+            <span>Extract: {activeTrace.meta.models.extraction}</span>
+            <span>Synthesize: {activeTrace.meta.models.synthesis}</span>
+            <span>Sentiment: {activeTrace.meta.models.sentiment}</span>
+            <span>Top-k: {activeTrace.meta.top_k}</span>
+            <span>Demo cutoff: score ≥ {cutoff}</span>
+            {commitUrl ? (
+              <a
+                href={commitUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => countEvent("repo")}
+                className="text-editorial-accent underline"
+              >
+                exported at commit {shortCommit}
+              </a>
+            ) : (
+              <span>exported at commit {shortCommit}</span>
+            )}
           </div>
         </>
       )}
@@ -609,7 +752,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                 Close
               </button>
             </div>
-            <PassageCard passage={modalPassage} highlighted={false} />
+            <PassageCard passage={modalPassage} highlighted={false} expanded />
           </div>
         )}
       </dialog>
@@ -630,14 +773,29 @@ function tabLabel(tab: InspectorTab, passageCount: number, claimCount: number): 
   }
 }
 
+/** Stable per-trace key for a passage: accession plus its position in `trace.passages`. */
+function passageKey(trace: Trace, passage: Passage): string {
+  return `${passage.accession}-${trace.passages.indexOf(passage)}`;
+}
+
 function PassageCard({
   passage,
   highlighted,
+  expanded,
+  onToggleExpand,
 }: {
   passage: Passage;
   highlighted: boolean;
+  /** Show the full context instead of the clipped one. Highlighted cards always show it. */
+  expanded: boolean;
+  /** Omit where the context is always shown in full (the modal). */
+  onToggleExpand?: () => void;
 }) {
   const secUrl = safeUrl(passage.sec_url, SEC_HOSTS);
+  const showFull = expanded || highlighted;
+  const clip = clipContext(passage.context);
+  const before = showFull ? passage.context.before : clip.before;
+  const after = showFull ? passage.context.after : clip.after;
   return (
     <article
       id={passage.cite !== null ? `passage-cite-${passage.cite}` : undefined}
@@ -661,12 +819,36 @@ function PassageCard({
         {passage.section} · Filed {passage.filed}
       </p>
       <p className="mt-2 leading-relaxed text-workspace-muted">
-        {passage.context.before}{" "}
+        {showFull ? (
+          <span data-ctx="before">{before}</span>
+        ) : (
+          <>
+            <span data-ctx="before-clipped" className="print:hidden">{before}</span>
+            <span data-ctx="before" className="hidden print:inline">{passage.context.before}</span>
+          </>
+        )}{" "}
         <mark className="rounded bg-amber-100 px-0.5 text-workspace-ink">
           {passage.context.match}
         </mark>{" "}
-        {passage.context.after}
+        {showFull ? (
+          <span data-ctx="after">{after}</span>
+        ) : (
+          <>
+            <span data-ctx="after-clipped" className="print:hidden">{after}</span>
+            <span data-ctx="after" className="hidden print:inline">{passage.context.after}</span>
+          </>
+        )}
       </p>
+      {clip.clipped && onToggleExpand && !highlighted && (
+        <button
+          type="button"
+          aria-expanded={expanded}
+          onClick={onToggleExpand}
+          className="mt-1 font-mono text-[11px] text-editorial-accent underline print:hidden"
+        >
+          {expanded ? "Collapse context" : "Expand full context"}
+        </button>
+      )}
       <div className="mt-2 flex items-center justify-between font-mono text-[10px] text-workspace-muted">
         <span className="truncate">Acc: {passage.accession}</span>
         {secUrl ? (

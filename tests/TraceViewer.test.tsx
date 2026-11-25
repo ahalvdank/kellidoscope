@@ -374,6 +374,8 @@ describe("URL safety (C1.9)", () => {
   it("a passage with an unsafe sec_url shows no SEC link", () => {
     const passages = BA.passages.map((p, i) => (i === 0 ? { ...p, sec_url: "javascript:alert(1)" } : p));
     render(<TraceViewer initialTrace={{ ...BA, passages }} manifest={MANIFEST} />);
+    // Uncited passages sit behind a toggle; open it so every included passage is rendered.
+    fireEvent.click(screen.getByRole("button", { name: /additional retrieved passages \(not cited\)/ }));
     const links = screen.getAllByRole("link", { name: /Open official SEC filing/ });
     expect(links).toHaveLength(passages.filter((p) => p.included).length - 1);
     expect(links.every((l) => l.getAttribute("href")!.startsWith("https://www.sec.gov/"))).toBe(true);
@@ -396,7 +398,8 @@ describe("typography (C1.6)", () => {
     const trace: Trace = { ...BA, answer_md: "## Heading\n\n- one\n- two\n" };
     render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
     const prose = document.querySelector(".prose") as HTMLElement;
-    expect(prose.className).toContain("prose");
+    expect(prose.className).toContain("prose-base");
+    expect(prose.className).toContain("leading-relaxed");
     expect(within(prose).getByRole("heading", { name: "Heading" })).toBeTruthy();
     expect(within(prose).getAllByRole("listitem")).toHaveLength(2);
     expect(tailwindConfig.plugins).toContain(typography);
@@ -500,6 +503,334 @@ describe("carry items from Task 3 review", () => {
     const manifest = { ...MANIFEST, traces: [...MANIFEST.traces, hidden] };
     render(<TraceViewer initialTrace={BA} manifest={manifest} />);
     expect(screen.queryByText("Hidden unfeatured trace")).toBeNull();
-    for (const t of MANIFEST.traces) expect(screen.getByText(t.title)).toBeTruthy();
+    const strip = screen.getByRole("navigation", { name: "Featured traces" });
+    expect(within(strip).queryByText("Hidden unfeatured trace")).toBeNull();
+    for (const t of MANIFEST.traces) expect(within(strip).getByText(t.title)).toBeTruthy();
+  });
+
+  it("the featured-trace strip is one scrollable row", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const strip = screen.getByRole("navigation", { name: "Featured traces" });
+    const row = strip.firstElementChild as HTMLElement;
+    expect(row.className).toContain("overflow-x-auto");
+    expect(row.className).toContain("flex-nowrap");
+    // The scroll container clips overflow, so it needs 1px of padding for the selected pill's ring.
+    expect(row.className.split(/\s+/)).toContain("p-px");
+    const current = within(strip).getAllByRole("button").filter((b) => b.getAttribute("aria-current") === "true");
+    expect(current).toHaveLength(1);
+    expect(current[0].textContent).toContain(BA.title);
+  });
+
+  it("the metadata bar renders after the answer and inspector", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const commit = screen.getByRole("link", { name: /exported at commit/ });
+    const inspector = document.getElementById("inspector-panel") as HTMLElement;
+    expect(inspector.compareDocumentPosition(commit) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+});
+
+describe("sources tab (phase 2)", () => {
+  const uncitedCount = BA.passages.filter((x) => x.included && x.cite === null).length;
+  const toggleName = new RegExp(`${uncitedCount} additional retrieved passages \\(not cited\\)`);
+  const panel = () => screen.getByRole("tabpanel");
+  const uncitedList = () => panel().querySelector("[data-uncited-list]") as HTMLElement;
+  /** Cards shown on screen: jsdom has no CSS, so exclude the closed (`hidden`) uncited wrapper by class. */
+  const screenCards = () =>
+    Array.from(panel().querySelectorAll("article")).filter((a) => !a.closest("[data-uncited-list].hidden"));
+  const shown = (card: Element, side: "before" | "after") =>
+    (card.querySelector(`[data-ctx="${side}-clipped"], [data-ctx="${side}"]:not(.hidden)`) as HTMLElement).textContent;
+  const longCited = () =>
+    BA.passages.find((x) => x.cite !== null && x.context.before.length > 160) as Trace["passages"][number];
+
+  it("renders only cited passages on screen by default, in [1], [2], [3] order", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const cited = BA.passages.filter((x) => x.included && x.cite !== null);
+    expect(uncitedCount).toBeGreaterThan(0);
+    expect(screenCards().map((a) => a.id)).toEqual(
+      cited.map((x) => x.cite as number).sort((a, b) => a - b).map((n) => `passage-cite-${n}`)
+    );
+  });
+
+  it('the toggle reads "Show N additional retrieved passages (not cited)" and reveals them', () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const before = screenCards().length;
+    const btn = screen.getByRole("button", { name: toggleName });
+    expect(btn.textContent).toMatch(/^Show /);
+    fireEvent.click(btn);
+    expect(screen.getByRole("button", { name: toggleName }).textContent).toMatch(/^Hide /);
+    expect(screenCards().length).toBe(before + uncitedCount);
+  });
+
+  it("uncited passages are in the DOM behind a print-visible wrapper when the toggle is closed", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const list = uncitedList();
+    expect(list.className).toContain("hidden");
+    expect(list.className).toContain("print:block");
+    expect(list.querySelectorAll("article")).toHaveLength(uncitedCount);
+    expect(screen.getByRole("button", { name: toggleName }).className).toContain("print:hidden");
+    fireEvent.click(screen.getByRole("button", { name: toggleName }));
+    expect(uncitedList().className).not.toMatch(/(^|\s)hidden(\s|$)/);
+  });
+
+  it("the rejected-candidates toggle still follows the uncited toggle", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    const uncited = screen.getByRole("button", { name: /additional retrieved passages/ });
+    const rejected = screen.getByRole("button", { name: /rejected candidates/ });
+    expect(uncited.compareDocumentPosition(rejected) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
+  it('long context is clipped with an "Expand full context" toggle per card, full text kept for print', () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const lc = longCited();
+    const card = document.getElementById(`passage-cite-${lc.cite}`) as HTMLElement;
+    expect(shown(card, "before")).not.toContain(lc.context.before);
+    expect(shown(card, "before").startsWith("…")).toBe(true);
+    const clippedSpan = card.querySelector('[data-ctx="before-clipped"]') as HTMLElement;
+    expect(clippedSpan.className).toContain("print:hidden");
+    const printSpan = card.querySelector('[data-ctx="before"]') as HTMLElement;
+    expect(printSpan.className).toContain("hidden");
+    expect(printSpan.className).toContain("print:inline");
+    expect(printSpan.textContent).toBe(lc.context.before);
+    fireEvent.click(within(card).getByRole("button", { name: "Expand full context" }));
+    expect(shown(card, "before")).toBe(lc.context.before);
+    fireEvent.click(within(card).getByRole("button", { name: "Collapse context" }));
+    expect(shown(card, "before")).not.toContain(lc.context.before);
+  });
+
+  it("a citation click expands that card's context and highlights it", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const target = BA.passages.find((x) => x.cite === 1) as Trace["passages"][number];
+    const answer = within(document.querySelector(".prose") as HTMLElement);
+    fireEvent.click(answer.getAllByRole("button", { name: "[1]" })[0]);
+    const card = document.getElementById("passage-cite-1") as HTMLElement;
+    expect(card.getAttribute("data-highlighted")).toBe("true");
+    expect(shown(card, "before")).toBe(target.context.before);
+    expect(shown(card, "after")).toBe(target.context.after);
+  });
+
+  it("a trace with no cited passages shows the uncited toggle, not an empty panel", () => {
+    const trace: Trace = {
+      ...BA,
+      answer_md: "No citations here.",
+      passages: BA.passages.map((x) => ({ ...x, cite: null })),
+    };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    const n = trace.passages.filter((x) => x.included).length;
+    expect(screenCards()).toHaveLength(0);
+    fireEvent.click(screen.getByRole("button", { name: new RegExp(`${n} additional retrieved passages`) }));
+    expect(screenCards()).toHaveLength(n);
+  });
+
+  it("switching trace resets show-uncited and expanded contexts", async () => {
+    serve(BA, AMD);
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    fireEvent.click(screen.getByRole("button", { name: toggleName }));
+    const lc = longCited();
+    const card = document.getElementById(`passage-cite-${lc.cite}`) as HTMLElement;
+    fireEvent.click(within(card).getByRole("button", { name: "Expand full context" }));
+    pick(AMD);
+    await questionHeading(AMD);
+    pick(BA);
+    await questionHeading(BA);
+    expect(screen.getByRole("button", { name: toggleName }).textContent).toMatch(/^Show /);
+    const again = document.getElementById(`passage-cite-${lc.cite}`) as HTMLElement;
+    expect(shown(again, "before")).not.toContain(lc.context.before);
+  });
+});
+
+describe("claims tab long-tail collapse (phase 2)", () => {
+  const panel = () => screen.getByRole("tabpanel");
+  /** Cards on screen: jsdom has no CSS, so exclude the collapsed (`hidden`) wrapper by class. */
+  const screenCards = () =>
+    Array.from(panel().querySelectorAll("[data-claim-card]")).filter((c) => !c.closest("[data-collapsed-claims].hidden"));
+  const openClaims = () => fireEvent.click(tab(/Claims/));
+  const withUncited = (n: number): Trace => {
+    const cited = BA.claims.filter((c) => c.cite !== null);
+    const uncited = BA.claims.filter((c) => c.cite === null);
+    const pool = Array.from({ length: n }, (_, i) => ({ ...uncited[i % uncited.length], entity: `Uncited ${i}` }));
+    return { ...BA, claims: [...cited, ...pool] };
+  };
+
+  it('with more than 8 uncited claims, shows 5 and a "Show all N extracted claims" button', () => {
+    const citedCount = NVDA.claims.filter((c) => c.cite !== null).length;
+    expect(NVDA.claims).toHaveLength(60);
+    expect(citedCount).toBe(3);
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    expect(screenCards()).toHaveLength(8);
+    expect(screen.getByRole("button", { name: "Show all 60 extracted claims" })).toBeTruthy();
+  });
+
+  it("clicking the button shows every claim and offers to show fewer; a second click collapses", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    fireEvent.click(screen.getByRole("button", { name: "Show all 60 extracted claims" }));
+    expect(screenCards()).toHaveLength(60);
+    fireEvent.click(screen.getByRole("button", { name: "Show fewer claims" }));
+    expect(screenCards()).toHaveLength(8);
+  });
+
+  it("collapsed claims stay in the DOM behind a print-visible wrapper", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    expect(panel().querySelectorAll("[data-claim-card]")).toHaveLength(60);
+    const wrapper = panel().querySelector("[data-collapsed-claims]") as HTMLElement;
+    expect(wrapper.className).toMatch(/(^|\s)hidden(\s)/);
+    expect(wrapper.className).toContain("print:block");
+    expect(screen.getByRole("button", { name: /Show all 60/ }).className).toContain("print:hidden");
+  });
+
+  it("with exactly 8 uncited claims, all render and there is no button", () => {
+    const trace = withUncited(8);
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openClaims();
+    expect(screenCards()).toHaveLength(trace.claims.length);
+    expect(panel().querySelector("[data-collapsed-claims]")).toBeNull();
+    expect(screen.queryByRole("button", { name: /Show all/ })).toBeNull();
+  });
+
+  it("with 9 uncited claims it collapses", () => {
+    const trace = withUncited(9);
+    const citedCount = trace.claims.filter((c) => c.cite !== null).length;
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openClaims();
+    expect(screenCards()).toHaveLength(citedCount + 5);
+  });
+
+  it("cited claims render before uncited ones", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    const flags = Array.from(panel().querySelectorAll("[data-claim-card]")).map((c) => c.getAttribute("data-cited"));
+    expect(flags.slice(0, 3)).toEqual(["true", "true", "true"]);
+    expect(flags.slice(3).every((f) => f === "false")).toBe(true);
+  });
+
+  it("raw JSON toggles per claim even after reordering", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    const first = screenCards()[0] as HTMLElement;
+    fireEvent.click(within(first).getByRole("button", { name: "View raw extraction JSON" }));
+    expect(panel().querySelectorAll("pre")).toHaveLength(1);
+    expect(first.querySelector("pre")).not.toBeNull();
+  });
+
+  it("the pill shows the claim-type bucket label and claim type", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    const card = screenCards()[0] as HTMLElement;
+    const claim = NVDA.claims.filter((c) => c.cite !== null)[0];
+    expect(card.textContent).toContain(` · ${claim.claim_type}`);
+  });
+
+  it("switching trace collapses the list again", async () => {
+    serve(NVDA, AMD);
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    openClaims();
+    fireEvent.click(screen.getByRole("button", { name: "Show all 60 extracted claims" }));
+    pick(AMD);
+    await questionHeading(AMD);
+    pick(NVDA);
+    await questionHeading(NVDA);
+    openClaims();
+    expect(screenCards()).toHaveLength(8);
+    expect(screen.getByRole("button", { name: "Show all 60 extracted claims" })).toBeTruthy();
+  });
+});
+
+describe("audit note tab (phase 2)", () => {
+  const noneCited = (md: string) => md.split("\n").filter((l) => /none cited/i.test(l)).length;
+  const hiddenN = noneCited(BA.audit_note_md as string);
+  const openAudit = () => fireEvent.click(tab(/Audit/));
+  const screenNote = () => document.querySelector("[data-audit-note]:not(.hidden)") as HTMLElement;
+  const toggleName = new RegExp(`${hiddenN} lines with no citations`);
+
+  it("audit tab renders markdown headings, not a <pre>", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    openAudit();
+    const panel = screen.getByRole("tabpanel");
+    expect(panel.querySelector("pre")).toBeNull();
+    expect(within(panel).getAllByRole("heading", { level: 1 }).length).toBeGreaterThan(0);
+    expect(panel.textContent).not.toContain("[[");
+  });
+
+  it('hides "none cited" lines on screen behind a "Show N lines with no citations" toggle', () => {
+    expect(hiddenN).toBeGreaterThan(0);
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    openAudit();
+    expect(screenNote().textContent).not.toMatch(/none cited/i);
+    const btn = screen.getByRole("button", { name: toggleName });
+    expect(btn.textContent).toMatch(/^Show /);
+    expect(btn.getAttribute("aria-expanded")).toBe("false");
+    fireEvent.click(btn);
+    expect(screenNote().textContent?.match(/none cited/gi)).toHaveLength(hiddenN);
+    const open = screen.getByRole("button", { name: toggleName });
+    expect(open.textContent).toMatch(/^Hide /);
+    expect(open.getAttribute("aria-expanded")).toBe("true");
+  });
+
+  it("keeps the none-cited lines in the DOM behind a print-only wrapper while closed", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    openAudit();
+    const printCopy = document.querySelector("[data-audit-note].hidden.print\\:block") as HTMLElement;
+    expect(printCopy.textContent?.match(/none cited/gi)).toHaveLength(hiddenN);
+    expect(screenNote().className).toContain("print:hidden");
+  });
+
+  it("a note with no none-cited lines shows no toggle", () => {
+    const trace: Trace = { ...BA, audit_note_md: "# Note\n\n- [[A]]: [1]" };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openAudit();
+    expect(screen.queryByRole("button", { name: /lines with no citations/ })).toBeNull();
+  });
+
+  it("a note with no none-cited lines still prints: the on-screen note is not print:hidden and no print copy is added", () => {
+    const trace: Trace = { ...BA, audit_note_md: "# Note\n\n- [[A]]: [1]" };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openAudit();
+    const notes = document.querySelectorAll("[data-audit-note]");
+    expect(notes).toHaveLength(1);
+    expect(notes[0].className).not.toContain("print:hidden");
+    expect(notes[0].textContent).toContain("Note");
+  });
+
+  it("markdown links in the audit note follow the same host allowlist as the answer", () => {
+    const trace: Trace = {
+      ...BA,
+      audit_note_md:
+        "# N\n\n[ok](https://www.sec.gov/x) [js](javascript:alert(1)) [evil](https://evil.example/x) [gh](https://github.com/a/b)",
+    };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openAudit();
+    const panel = within(screen.getByRole("tabpanel"));
+    expect(panel.getByRole("link", { name: "ok" }).getAttribute("href")).toBe("https://www.sec.gov/x");
+    expect(panel.getByRole("link", { name: "gh" }).getAttribute("href")).toBe("https://github.com/a/b");
+    expect(panel.queryByRole("link", { name: "js" })).toBeNull();
+    expect(panel.queryByRole("link", { name: "evil" })).toBeNull();
+  });
+
+  it("images render as nothing and raw HTML is not parsed", () => {
+    const trace: Trace = {
+      ...BA,
+      audit_note_md: "# N\n\nBefore ![pixel](https://evil.example/p.png) <b id=\"raw\">bold</b> after.",
+    };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openAudit();
+    const panel = screen.getByRole("tabpanel");
+    expect(panel.querySelector("img")).toBeNull();
+    expect(panel.querySelector("#raw")).toBeNull();
+    expect(panel.textContent).toContain("Before");
+  });
+
+  it("switching trace resets the none-cited toggle", async () => {
+    serve(NVDA, BA);
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    openAudit();
+    fireEvent.click(screen.getByRole("button", { name: toggleName }));
+    pick(NVDA);
+    await questionHeading(NVDA);
+    pick(BA);
+    await questionHeading(BA);
+    openAudit();
+    expect(screen.getByRole("button", { name: toggleName }).textContent).toMatch(/^Show /);
   });
 });

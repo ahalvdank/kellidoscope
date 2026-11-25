@@ -1,4 +1,15 @@
-export type BucketId = "company" | "risk" | "capital" | "people" | "research" | "other";
+import type { ClaimType } from "./types";
+
+export type BucketId =
+  | "company"
+  | "risk"
+  | "event"
+  | "legal"
+  | "capital"
+  | "people"
+  | "esg"
+  | "research"
+  | "other";
 export type EntityBucketId = BucketId;
 
 export interface EntityBucketMeta {
@@ -17,9 +28,21 @@ export const ENTITY_BUCKETS: Record<EntityBucketId, EntityBucketMeta> = {
   },
   risk: {
     id: "risk",
-    label: "Risk & Legal",
+    label: "Risk",
     pillClass: "bg-rose-50 text-rose-800 border-rose-200",
     borderClass: "border-l-rose-600",
+  },
+  event: {
+    id: "event",
+    label: "Material Event",
+    pillClass: "bg-orange-50 text-orange-800 border-orange-200",
+    borderClass: "border-l-orange-600",
+  },
+  legal: {
+    id: "legal",
+    label: "Legal Proceeding",
+    pillClass: "bg-violet-50 text-violet-800 border-violet-200",
+    borderClass: "border-l-violet-600",
   },
   capital: {
     id: "capital",
@@ -32,6 +55,12 @@ export const ENTITY_BUCKETS: Record<EntityBucketId, EntityBucketMeta> = {
     label: "People & Governance",
     pillClass: "bg-amber-50 text-amber-800 border-amber-200",
     borderClass: "border-l-amber-600",
+  },
+  esg: {
+    id: "esg",
+    label: "ESG Commitment",
+    pillClass: "bg-teal-50 text-teal-800 border-teal-200",
+    borderClass: "border-l-teal-600",
   },
   research: {
     id: "research",
@@ -47,7 +76,7 @@ export const ENTITY_BUCKETS: Record<EntityBucketId, EntityBucketMeta> = {
   },
 };
 
-export const INTERNAL_TYPE_TO_BUCKET: Readonly<Record<string, Exclude<BucketId, "other">>> = {
+export const INTERNAL_TYPE_TO_BUCKET: Readonly<Record<string, Exclude<BucketId, "other" | "event" | "legal" | "esg">>> = {
   Company: "company",
   Filing: "company",
   Security: "company",
@@ -77,4 +106,28 @@ export function bucketFor(entityType: string): BucketId {
 
 export function getEntityBucket(entityType: string): EntityBucketMeta {
   return ENTITY_BUCKETS[bucketFor(entityType)];
+}
+
+/** Claim types, each with its own bucket so the claims list reads by what was extracted. */
+const CLAIM_TYPE_TO_BUCKET: Readonly<Record<ClaimType, EntityBucketId>> = {
+  Risk: "risk",
+  MaterialEvent: "event",
+  LegalProceeding: "legal",
+  CapitalStructureEvent: "capital",
+  CapitalReturn: "capital",
+  GuidanceUpdate: "capital",
+  RevenueSegment: "company",
+  ESGCommitment: "esg",
+  InsiderTransaction: "people",
+};
+
+/** Bucket for a claim: its claim type first, the entity-type bucket when the claim type is missing or unknown. */
+export function getClaimBucket(
+  claimType: string | null | undefined,
+  entityType: string
+): EntityBucketMeta {
+  if (claimType && Object.hasOwn(CLAIM_TYPE_TO_BUCKET, claimType)) {
+    return ENTITY_BUCKETS[CLAIM_TYPE_TO_BUCKET[claimType as ClaimType]];
+  }
+  return getEntityBucket(entityType);
 }

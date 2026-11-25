@@ -6,10 +6,6 @@ disclaimer: All deal data, company names and fund figures omitted.
 
 An agentic diligence platform for an early-stage CPG venture fund. It is still the fund's standard diligence process. Average diligence time fell from about 60 hours per deal to about 25, roughly 58% less. The sample is small: 4 deals before and 4 after.
 
-## My role
-
-I designed, directed and approved the platform. I set the direction, designed the system and the agent flow, inspected the work, approved the pull requests, and was the final judge of quality on the financial models and memos. The technical decisions that were mine: the database schema, the embedding model, the chunking strategy, the repo and branching workflow, and the evaluation protocol.
-
 ## How it works
 
 - **Knowledge base.** Prior deal data, licensed market data and industry research, and the target company's own documents.
@@ -21,12 +17,16 @@ I designed, directed and approved the platform. I set the direction, designed th
 
 - **Specialists:** valuation and model builders, drafting agents that each own one memo section, judge agents, and critics.
 - **A committee** that reviews the full package, with distinct roles: an adversarial reviewer, an associate, a partner and others.
-- **One orchestrator,** in custom Python rather than an agent framework. It writes its reasoning out separately, so the reasoning can be reviewed independently of the result.
-- **A retrospective agent** that reviews that reasoning and writes lessons into persistent memory for the next diligence.
+- **One orchestrator,** in custom Python rather than an agent framework, runs the stages. The model writes its reasoning to a separate journal, with my responses, so the reasoning can be reviewed independently of the result.
+- **A retrospective** reviews that journal after a deal and records lessons for the next diligence; so far I have run it by hand.
 
 ### Engineering
 
 Stages are idempotent and resumable. The harness is model- and provider-agnostic: OpenAI, Anthropic or local models, assignable per role.
+
+## My role
+
+I designed, directed and approved the platform. I set the direction, designed the system and the agent flow, inspected the work, approved the pull requests, and was the final judge of quality on the financial models and memos. The technical decisions that were mine: the database schema, the embedding model, the chunking strategy, the repo and branching workflow, and the evaluation protocol.
 
 ## Evaluation
 

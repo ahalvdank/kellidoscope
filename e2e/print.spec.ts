@@ -58,3 +58,30 @@ test("10-K case study prints its last paragraph and hides the top bar", async ({
   expectEndsPrinted(printed, last, "last paragraph");
   expect(normalise(printed)).not.toContain("Query Traces");
 });
+
+test("10-K case study prints the closed Known limits disclosure", async ({ page }) => {
+  await page.goto("/projects/10k-kb/");
+  const details = page.locator("details", { has: page.locator("summary", { hasText: "Known limits & sample caveats" }) });
+  expect(await details.evaluate((el) => (el as HTMLDetailsElement).open)).toBe(false);
+  // textContent, not innerText: the closed disclosure's body is not rendered on screen.
+  const limits = (await details.locator(":scope > :not(summary)").first().textContent()) ?? "";
+  await page.emulateMedia({ media: "print" });
+  const printed = await printedText(page);
+  expectEndsPrinted(printed, limits, "Known limits");
+  // Screen behaviour is unchanged: the disclosure is still closed.
+  expect(await details.evaluate((el) => (el as HTMLDetailsElement).open)).toBe(false);
+});
+
+test("Beckett case study prints all three preview panels", async ({ page }) => {
+  await page.goto("/projects/beckett-diligence/");
+  await expect(page.locator("[data-beckett-panel]")).toHaveCount(3);
+  await expect(page.locator('[data-beckett-panel="committee"]')).toBeHidden();
+  await page.emulateMedia({ media: "print" });
+  for (const panel of ["fact-basis", "committee", "journal"]) {
+    await expect(page.locator(`[data-beckett-panel="${panel}"]`), panel).toBeVisible();
+  }
+  const printed = compact(await printedText(page));
+  for (const marker of ["DOC-SOURCED", "Combined verdict", "hypotheses_considered"]) {
+    expect(printed, marker).toContain(compact(marker));
+  }
+});

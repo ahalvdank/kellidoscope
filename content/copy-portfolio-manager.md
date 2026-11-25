@@ -4,8 +4,6 @@ description: A personal research and portfolio-management system, in daily use a
 disclaimer: Personal research project; not investment advice.
 ---
 
-I was the architect, product manager and engineering team lead; AI coding agents worked like my staff engineers and wrote most of the code.
-
 A personal research and portfolio-management system, in daily use. It has been running since spring 2025, with new features added continuously. It trades some live money; new features run first in paper trading / shadow mode before they touch live money.
 
 ## How it works
@@ -16,6 +14,10 @@ A personal research and portfolio-management system, in daily use. It has been r
 - **Human approval.** Every trade recommendation needs human approval, given over Telegram.
 - **Tax-aware.** It accounts for holding periods, tax lots and loss harvesting.
 - **Stack.** Python, FastAPI, n8n workflows and a 25-page React dashboard.
+
+## My role
+
+I was the architect, product manager and engineering team lead; AI coding agents worked like my staff engineers and wrote most of the code.
 
 ## What this page leaves out
 

@@ -374,6 +374,8 @@ describe("URL safety (C1.9)", () => {
   it("a passage with an unsafe sec_url shows no SEC link", () => {
     const passages = BA.passages.map((p, i) => (i === 0 ? { ...p, sec_url: "javascript:alert(1)" } : p));
     render(<TraceViewer initialTrace={{ ...BA, passages }} manifest={MANIFEST} />);
+    // Uncited passages sit behind a toggle; open it so every included passage is rendered.
+    fireEvent.click(screen.getByRole("button", { name: /additional retrieved passages \(not cited\)/ }));
     const links = screen.getAllByRole("link", { name: /Open official SEC filing/ });
     expect(links).toHaveLength(passages.filter((p) => p.included).length - 1);
     expect(links.every((l) => l.getAttribute("href")!.startsWith("https://www.sec.gov/"))).toBe(true);

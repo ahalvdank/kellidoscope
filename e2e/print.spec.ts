@@ -12,8 +12,8 @@ test.skip(({ browserName }) => browserName !== "chromium", "page.pdf() is Chromi
 const TRACE = "/demos/10k-kb/q/ba-liquidity-and-debt-fy24-fy25/";
 
 const normalise = (s: string) => s.normalize("NFKC").replace(/\s+/g, " ").trim();
-/** Whitespace-free form: pdftotext spaces table-like text differently from the DOM, but never drops characters. */
-const compact = (s: string) => s.normalize("NFKC").replace(/\s+/g, "");
+/** Whitespace-free form: pdftotext spaces table-like text differently from the DOM, but never drops characters, except that it can lose a hyphen between table figures ("3.25%-3.90%"), so dashes are ignored too. */
+const compact = (s: string) => s.normalize("NFKC").replace(/[\s\-\u2010-\u2015\u2212]+/g, "");
 const EDGE = 40;
 
 async function printedText(page: Page): Promise<string> {

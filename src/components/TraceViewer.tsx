@@ -6,6 +6,7 @@ import { getEntityBucket } from "../data/entityBuckets";
 import { countEvent, countPageview } from "../lib/analytics";
 import { FRAMING_BANNER, sampleBadge } from "../lib/badge";
 import { linkCitations } from "../lib/citations";
+import { clipContext, splitIncluded } from "../lib/passages";
 import { safeUrl } from "../lib/safeUrl";
 import { siteConfig } from "../data/siteConfig";
 
@@ -36,6 +37,8 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
   const [activeTrace, setActiveTrace] = useState<Trace>(initialTrace);
   const [activeTab, setActiveTab] = useState<InspectorTab>("sources");
   const [showRejected, setShowRejected] = useState(false);
+  const [showUncited, setShowUncited] = useState(false);
+  const [expandedCtx, setExpandedCtx] = useState<Set<string>>(new Set());
   const [expandedJsonIdx, setExpandedJsonIdx] = useState<number | null>(null);
   const [highlightedCite, setHighlightedCite] = useState<number | null>(null);
   const [scrollTick, setScrollTick] = useState(0);
@@ -76,6 +79,8 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
     setActiveTrace(trace);
     setActiveTab("sources");
     setShowRejected(false);
+    setShowUncited(false);
+    setExpandedCtx(new Set());
     setExpandedJsonIdx(null);
     setHighlightedCite(null);
     setModalPassage(null);
@@ -169,7 +174,16 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
 
     setActiveTab("sources");
     setHighlightedCite(citeNum);
+    setExpandedCtx((prev) => new Set(prev).add(passageKey(activeTrace, passage)));
     setScrollTick((n) => n + 1);
+  }
+
+  function toggleContext(key: string) {
+    setExpandedCtx((prev) => {
+      const next = new Set(prev);
+      if (!next.delete(key)) next.add(key);
+      return next;
+    });
   }
 
   useEffect(() => {
@@ -195,6 +209,10 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
 
   const includedPassages = useMemo(
     () => activeTrace.passages.filter((p) => p.included),
+    [activeTrace]
+  );
+  const { cited: citedPassages, uncited: uncitedPassages } = useMemo(
+    () => splitIncluded(activeTrace.passages),
     [activeTrace]
   );
   const rejectedPassages = useMemo(
@@ -442,13 +460,47 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
               >
                 {currentTab === "sources" && (
                   <>
-                    {includedPassages.map((p, idx) => (
-                      <PassageCard
-                        key={`${p.accession}-${idx}`}
-                        passage={p}
-                        highlighted={p.cite !== null && p.cite === highlightedCite}
-                      />
-                    ))}
+                    {citedPassages.map((p) => {
+                      const key = passageKey(activeTrace, p);
+                      return (
+                        <PassageCard
+                          key={key}
+                          passage={p}
+                          highlighted={p.cite !== null && p.cite === highlightedCite}
+                          expanded={expandedCtx.has(key)}
+                          onToggleExpand={() => toggleContext(key)}
+                        />
+                      );
+                    })}
+
+                    {uncitedPassages.length > 0 && (
+                      <div className="pt-2">
+                        <button
+                          type="button"
+                          aria-expanded={showUncited}
+                          onClick={() => setShowUncited((v) => !v)}
+                          className="w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink"
+                        >
+                          {showUncited ? "Hide" : "Show"} {uncitedPassages.length} additional retrieved passages (not cited)
+                        </button>
+                        {showUncited && (
+                          <div className="mt-3 space-y-3">
+                            {uncitedPassages.map((p) => {
+                              const key = passageKey(activeTrace, p);
+                              return (
+                                <PassageCard
+                                  key={key}
+                                  passage={p}
+                                  highlighted={false}
+                                  expanded={expandedCtx.has(key)}
+                                  onToggleExpand={() => toggleContext(key)}
+                                />
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    )}
 
                     <div className="pt-2">
                       {rejectedPassages.length > 0 ? (
@@ -463,9 +515,18 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                           </button>
                           {showRejected && (
                             <div className="mt-3 space-y-3 opacity-80">
-                              {rejectedPassages.map((p, idx) => (
-                                <PassageCard key={`rej-${idx}`} passage={p} highlighted={false} />
-                              ))}
+                              {rejectedPassages.map((p) => {
+                                const key = passageKey(activeTrace, p);
+                                return (
+                                  <PassageCard
+                                    key={key}
+                                    passage={p}
+                                    highlighted={false}
+                                    expanded={expandedCtx.has(key)}
+                                    onToggleExpand={() => toggleContext(key)}
+                                  />
+                                );
+                              })}
                             </div>
                           )}
                         </>
@@ -609,7 +670,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                 Close
               </button>
             </div>
-            <PassageCard passage={modalPassage} highlighted={false} />
+            <PassageCard passage={modalPassage} highlighted={false} expanded />
           </div>
         )}
       </dialog>
@@ -630,14 +691,29 @@ function tabLabel(tab: InspectorTab, passageCount: number, claimCount: number): 
   }
 }
 
+/** Stable per-trace key for a passage: accession plus its position in `trace.passages`. */
+function passageKey(trace: Trace, passage: Passage): string {
+  return `${passage.accession}-${trace.passages.indexOf(passage)}`;
+}
+
 function PassageCard({
   passage,
   highlighted,
+  expanded,
+  onToggleExpand,
 }: {
   passage: Passage;
   highlighted: boolean;
+  /** Show the full context instead of the clipped one. Highlighted cards always show it. */
+  expanded: boolean;
+  /** Omit where the context is always shown in full (the modal). */
+  onToggleExpand?: () => void;
 }) {
   const secUrl = safeUrl(passage.sec_url, SEC_HOSTS);
+  const showFull = expanded || highlighted;
+  const clip = clipContext(passage.context);
+  const before = showFull ? passage.context.before : clip.before;
+  const after = showFull ? passage.context.after : clip.after;
   return (
     <article
       id={passage.cite !== null ? `passage-cite-${passage.cite}` : undefined}
@@ -661,12 +737,22 @@ function PassageCard({
         {passage.section} · Filed {passage.filed}
       </p>
       <p className="mt-2 leading-relaxed text-workspace-muted">
-        {passage.context.before}{" "}
+        {before}{" "}
         <mark className="rounded bg-amber-100 px-0.5 text-workspace-ink">
           {passage.context.match}
         </mark>{" "}
-        {passage.context.after}
+        {after}
       </p>
+      {clip.clipped && onToggleExpand && !highlighted && (
+        <button
+          type="button"
+          aria-expanded={expanded}
+          onClick={onToggleExpand}
+          className="mt-1 font-mono text-[11px] text-editorial-accent underline"
+        >
+          {expanded ? "Collapse context" : "Expand full context"}
+        </button>
+      )}
       <div className="mt-2 flex items-center justify-between font-mono text-[10px] text-workspace-muted">
         <span className="truncate">Acc: {passage.accession}</span>
         {secUrl ? (

@@ -479,26 +479,28 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                           type="button"
                           aria-expanded={showUncited}
                           onClick={() => setShowUncited((v) => !v)}
-                          className="w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink"
+                          className="w-full rounded border border-dashed border-workspace-border py-2 font-mono text-xs text-workspace-muted hover:text-workspace-ink print:hidden"
                         >
                           {showUncited ? "Hide" : "Show"} {uncitedPassages.length} additional retrieved passages (not cited)
                         </button>
-                        {showUncited && (
-                          <div className="mt-3 space-y-3">
-                            {uncitedPassages.map((p) => {
-                              const key = passageKey(activeTrace, p);
-                              return (
-                                <PassageCard
-                                  key={key}
-                                  passage={p}
-                                  highlighted={false}
-                                  expanded={expandedCtx.has(key)}
-                                  onToggleExpand={() => toggleContext(key)}
-                                />
-                              );
-                            })}
-                          </div>
-                        )}
+                        {/* Always in the DOM so print shows every retrieved passage; hidden on screen until toggled. */}
+                        <div
+                          data-uncited-list
+                          className={`mt-3 space-y-3 ${showUncited ? "" : "hidden print:block"}`}
+                        >
+                          {uncitedPassages.map((p) => {
+                            const key = passageKey(activeTrace, p);
+                            return (
+                              <PassageCard
+                                key={key}
+                                passage={p}
+                                highlighted={false}
+                                expanded={expandedCtx.has(key)}
+                                onToggleExpand={() => toggleContext(key)}
+                              />
+                            );
+                          })}
+                        </div>
                       </div>
                     )}
 
@@ -737,18 +739,32 @@ function PassageCard({
         {passage.section} · Filed {passage.filed}
       </p>
       <p className="mt-2 leading-relaxed text-workspace-muted">
-        {before}{" "}
+        {showFull ? (
+          <span data-ctx="before">{before}</span>
+        ) : (
+          <>
+            <span data-ctx="before-clipped" className="print:hidden">{before}</span>
+            <span data-ctx="before" className="hidden print:inline">{passage.context.before}</span>
+          </>
+        )}{" "}
         <mark className="rounded bg-amber-100 px-0.5 text-workspace-ink">
           {passage.context.match}
         </mark>{" "}
-        {after}
+        {showFull ? (
+          <span data-ctx="after">{after}</span>
+        ) : (
+          <>
+            <span data-ctx="after-clipped" className="print:hidden">{after}</span>
+            <span data-ctx="after" className="hidden print:inline">{passage.context.after}</span>
+          </>
+        )}
       </p>
       {clip.clipped && onToggleExpand && !highlighted && (
         <button
           type="button"
           aria-expanded={expanded}
           onClick={onToggleExpand}
-          className="mt-1 font-mono text-[11px] text-editorial-accent underline"
+          className="mt-1 font-mono text-[11px] text-editorial-accent underline print:hidden"
         >
           {expanded ? "Collapse context" : "Expand full context"}
         </button>

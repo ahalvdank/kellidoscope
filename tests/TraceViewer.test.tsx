@@ -505,3 +505,112 @@ describe("carry items from Task 3 review", () => {
     for (const t of MANIFEST.traces) expect(screen.getByText(t.title)).toBeTruthy();
   });
 });
+
+describe("sources tab (phase 2)", () => {
+  const uncitedCount = BA.passages.filter((x) => x.included && x.cite === null).length;
+  const toggleName = new RegExp(`${uncitedCount} additional retrieved passages \\(not cited\\)`);
+  const panel = () => screen.getByRole("tabpanel");
+  const uncitedList = () => panel().querySelector("[data-uncited-list]") as HTMLElement;
+  /** Cards shown on screen: jsdom has no CSS, so exclude the closed (`hidden`) uncited wrapper by class. */
+  const screenCards = () =>
+    Array.from(panel().querySelectorAll("article")).filter((a) => !a.closest("[data-uncited-list].hidden"));
+  const shown = (card: Element, side: "before" | "after") =>
+    (card.querySelector(`[data-ctx="${side}-clipped"], [data-ctx="${side}"]:not(.hidden)`) as HTMLElement).textContent;
+  const longCited = () =>
+    BA.passages.find((x) => x.cite !== null && x.context.before.length > 160) as Trace["passages"][number];
+
+  it("renders only cited passages on screen by default, in [1], [2], [3] order", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const cited = BA.passages.filter((x) => x.included && x.cite !== null);
+    expect(uncitedCount).toBeGreaterThan(0);
+    expect(screenCards().map((a) => a.id)).toEqual(
+      cited.map((x) => x.cite as number).sort((a, b) => a - b).map((n) => `passage-cite-${n}`)
+    );
+  });
+
+  it('the toggle reads "Show N additional retrieved passages (not cited)" and reveals them', () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const before = screenCards().length;
+    const btn = screen.getByRole("button", { name: toggleName });
+    expect(btn.textContent).toMatch(/^Show /);
+    fireEvent.click(btn);
+    expect(screen.getByRole("button", { name: toggleName }).textContent).toMatch(/^Hide /);
+    expect(screenCards().length).toBe(before + uncitedCount);
+  });
+
+  it("uncited passages are in the DOM behind a print-visible wrapper when the toggle is closed", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const list = uncitedList();
+    expect(list.className).toContain("hidden");
+    expect(list.className).toContain("print:block");
+    expect(list.querySelectorAll("article")).toHaveLength(uncitedCount);
+    expect(screen.getByRole("button", { name: toggleName }).className).toContain("print:hidden");
+    fireEvent.click(screen.getByRole("button", { name: toggleName }));
+    expect(uncitedList().className).not.toMatch(/(^|\s)hidden(\s|$)/);
+  });
+
+  it("the rejected-candidates toggle still follows the uncited toggle", () => {
+    render(<TraceViewer initialTrace={NVDA} manifest={MANIFEST} />);
+    const uncited = screen.getByRole("button", { name: /additional retrieved passages/ });
+    const rejected = screen.getByRole("button", { name: /rejected candidates/ });
+    expect(uncited.compareDocumentPosition(rejected) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
+  it('long context is clipped with an "Expand full context" toggle per card, full text kept for print', () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const lc = longCited();
+    const card = document.getElementById(`passage-cite-${lc.cite}`) as HTMLElement;
+    expect(shown(card, "before")).not.toContain(lc.context.before);
+    expect(shown(card, "before").startsWith("…")).toBe(true);
+    const clippedSpan = card.querySelector('[data-ctx="before-clipped"]') as HTMLElement;
+    expect(clippedSpan.className).toContain("print:hidden");
+    const printSpan = card.querySelector('[data-ctx="before"]') as HTMLElement;
+    expect(printSpan.className).toContain("hidden");
+    expect(printSpan.className).toContain("print:inline");
+    expect(printSpan.textContent).toBe(lc.context.before);
+    fireEvent.click(within(card).getByRole("button", { name: "Expand full context" }));
+    expect(shown(card, "before")).toBe(lc.context.before);
+    fireEvent.click(within(card).getByRole("button", { name: "Collapse context" }));
+    expect(shown(card, "before")).not.toContain(lc.context.before);
+  });
+
+  it("a citation click expands that card's context and highlights it", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const target = BA.passages.find((x) => x.cite === 1) as Trace["passages"][number];
+    const answer = within(document.querySelector(".prose") as HTMLElement);
+    fireEvent.click(answer.getAllByRole("button", { name: "[1]" })[0]);
+    const card = document.getElementById("passage-cite-1") as HTMLElement;
+    expect(card.getAttribute("data-highlighted")).toBe("true");
+    expect(shown(card, "before")).toBe(target.context.before);
+    expect(shown(card, "after")).toBe(target.context.after);
+  });
+
+  it("a trace with no cited passages shows the uncited toggle, not an empty panel", () => {
+    const trace: Trace = {
+      ...BA,
+      answer_md: "No citations here.",
+      passages: BA.passages.map((x) => ({ ...x, cite: null })),
+    };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    const n = trace.passages.filter((x) => x.included).length;
+    expect(screenCards()).toHaveLength(0);
+    fireEvent.click(screen.getByRole("button", { name: new RegExp(`${n} additional retrieved passages`) }));
+    expect(screenCards()).toHaveLength(n);
+  });
+
+  it("switching trace resets show-uncited and expanded contexts", async () => {
+    serve(BA, AMD);
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    fireEvent.click(screen.getByRole("button", { name: toggleName }));
+    const lc = longCited();
+    const card = document.getElementById(`passage-cite-${lc.cite}`) as HTMLElement;
+    fireEvent.click(within(card).getByRole("button", { name: "Expand full context" }));
+    pick(AMD);
+    await questionHeading(AMD);
+    pick(BA);
+    await questionHeading(BA);
+    expect(screen.getByRole("button", { name: toggleName }).textContent).toMatch(/^Show /);
+    const again = document.getElementById(`passage-cite-${lc.cite}`) as HTMLElement;
+    expect(shown(again, "before")).not.toContain(lc.context.before);
+  });
+});

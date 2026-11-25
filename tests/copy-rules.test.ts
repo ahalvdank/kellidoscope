@@ -172,6 +172,12 @@ describe("fixed copy", () => {
     expect(read("content/copy-home.md")).toContain("4 deals before and 4 after");
   });
 
+  it("the top bar links Wine apps to the home section", () => {
+    const topBar = read("src/components/TopBar.astro");
+    expect(topBar.split('href="/#wine-apps"')).toHaveLength(3); // desktop and phone nav
+    expect(topBar).toContain("Wine apps");
+  });
+
   it("the top bar says Résumé", () => {
     const topBar = read("src/components/TopBar.astro");
     expect(topBar).toContain("Résumé");

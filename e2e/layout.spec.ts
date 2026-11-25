@@ -33,6 +33,7 @@ test.describe("top bar menu without JavaScript (C2.7)", () => {
       ["10-K KB", "/projects/10k-kb"],
       ["Beckett", "/projects/beckett-diligence"],
       ["Portfolio Manager", "/projects/portfolio-manager"],
+      ["Wine apps", "/#wine-apps"],
       ["Query Traces", "/demos/10k-kb"],
       ["LinkedIn", siteConfig.linkedin],
       ["GitHub", siteConfig.github],
@@ -51,6 +52,17 @@ test.describe("top bar menu without JavaScript (C2.7)", () => {
     await expect(page.locator("header.site-topbar details")).toBeHidden();
     await expect(page.locator("header.site-topbar").getByRole("link", { name: "Query Traces" })).toBeVisible();
   });
+});
+
+test("Wine apps scrolls to the wine section on Home", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/projects/10k-kb/");
+  await page.locator("header.site-topbar").getByRole("link", { name: "Wine apps", exact: true }).click();
+  await expect(page).toHaveURL(/\/#wine-apps$/);
+  await expect(page.locator("#wine-apps")).toBeInViewport();
+  const headingTop = await page.locator("#wine-apps h2").first().evaluate((el) => el.getBoundingClientRect().top);
+  const barBottom = await page.locator("header.site-topbar").evaluate((el) => el.getBoundingClientRect().bottom);
+  expect(headingTop).toBeGreaterThanOrEqual(barBottom);
 });
 
 for (const path of OVERFLOW_PAGES) {

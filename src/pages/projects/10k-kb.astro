@@ -8,7 +8,7 @@ import { loadCopy } from "../../lib/copy";
 import { FRAMING_BANNER, sampleBadge } from "../../lib/badge";
 import { getManifest } from "../../data/traces";
 import { siteConfig } from "../../data/siteConfig";
-import { assertPublicAsset } from "../../lib/assets";
+import { assertPublicAssets } from "../../lib/assets";
 
 const TEASER_COUNT = 4;
 
@@ -31,9 +31,10 @@ const html = {
 };
 sections.assertAllUsed();
 
-// A configured clip or poster whose file is missing fails the build; null hides the slot.
-for (const path of [siteConfig.systemClipUrl, siteConfig.systemClipPoster]) assertPublicAsset(path);
 matrix.sections.assertAllUsed();
+
+// A configured clip or poster whose file is missing fails the build; null hides the slot.
+assertPublicAssets(siteConfig.systemClipUrl, siteConfig.systemClipPoster);
 ---
 
 <BaseLayout title={data.title} description={data.description}>

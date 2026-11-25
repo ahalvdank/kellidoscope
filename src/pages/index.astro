@@ -6,22 +6,20 @@ import { getTrace } from "../data/traces";
 import { loadCopy } from "../lib/copy";
 import { extractFinding, LIVE_FINDING } from "../lib/liveFinding";
 import { resolveHref } from "../lib/links";
-import { assertPublicAsset } from "../lib/assets";
-import { siteConfig } from "../data/siteConfig";
+import { assertPublicAssets, resolvePreview } from "../lib/assets";
 
 const { data, sections } = await loadCopy("copy-home");
 const { hero, flagships, personal } = data;
 if (!hero || !flagships || !personal) throw new Error("content/copy-home.md needs hero, flagships and personal");
 sections.assertAllUsed();
 
-// A configured media path whose file is missing fails the build; null keeps the slot hidden.
-for (const path of [siteConfig.blindTastingPreview, siteConfig.cellarPreview, siteConfig.classTastingPreview]) assertPublicAsset(path);
-
-const wineThumbnails: Record<string, { thumbnail: string | null; thumbnailAlt: string }> = {
-  "Blind-tasting game": { thumbnail: siteConfig.blindTastingPreview, thumbnailAlt: "Screenshot of the blind-tasting game" },
-  "Wine journal": { thumbnail: siteConfig.cellarPreview, thumbnailAlt: "Screenshot of the wine journal" },
-  "Class tasting": { thumbnail: siteConfig.classTastingPreview, thumbnailAlt: "Screenshot of the class-tasting sheet" },
-};
+// A card's preview key must be a siteConfig *Preview key, and a set path must exist: both fail the build.
+const wineCards = personal.cards.map(({ preview, previewAlt, ...card }) => ({
+  ...card,
+  thumbnail: preview ? resolvePreview(preview) : null,
+  thumbnailAlt: previewAlt,
+}));
+assertPublicAssets(...wineCards.map((card) => card.thumbnail));
 
 const trace = getTrace(LIVE_FINDING.slug);
 const finding = extractFinding(trace, LIVE_FINDING.needle);
@@ -54,7 +52,7 @@ const findingSource = "Live finding · NVIDIA 10-K, FY2022 → FY2026 trace";
   <section id="wine-apps" class="mt-14 scroll-mt-20 [body:has(.site-topbar_details[open])_&]:scroll-mt-[22rem]" aria-labelledby="personal">
     <h2 id="personal" class="text-xl font-semibold tracking-tight">{personal.heading}</h2>
     <div class="mt-4 grid gap-4 sm:grid-cols-2">
-      {personal.cards.map((card) => <ProjectCard {...card} {...wineThumbnails[card.name]} size="secondary" />)}
+      {wineCards.map((card) => <ProjectCard {...card} size="secondary" />)}
     </div>
     <p class="mt-3 max-w-3xl text-xs text-editorial-muted">{personal.role}</p>
   </section>

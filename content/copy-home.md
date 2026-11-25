@@ -36,6 +36,8 @@ personal:
   role: On these, as on the knowledge base and the portfolio manager, I was the architect, product manager and engineering team lead; AI coding agents worked like my staff engineers and wrote most of the code.
   cards:
     - name: Blind-tasting game
+      preview: blindTastingPreview
+      previewAlt: Screenshot of the blind-tasting game
       summary: "A phone-motion practice round for the Wine Professional Level III deductive tasting exam: swirl, nose and sip a simulated glass, fill in the tasting sheet, and get a 25-point scored report."
       links:
         - label: Play it
@@ -44,11 +46,15 @@ personal:
           href: blindTastingRepo
           event: repo
     - name: Wine journal
+      preview: cellarPreview
+      previewAlt: Screenshot of the wine journal
       summary: A journal of my own tastings with stock tracking, a 3D cellar of photo-labelled bottles and an atlas of wine regions.
       links:
         - label: Open the demo collection
           href: cellarApp
     - name: Class tasting
+      preview: classTastingPreview
+      previewAlt: Screenshot of the class-tasting sheet
       summary: "A shared tasting sheet for a wine class: the instructor reveals each wine, every student's Wine Professional 25-point sheet is scored against the answer key, each student sees why they gained or lost each point, and the class sees an anonymous comparison. Students can never read the answer key."
       status: Built for a Level III class; first pilot not yet run.
       links:

@@ -17,6 +17,9 @@ const card = z.object({
   // Site path under public/; the card shows no image when it is unset or the file is missing.
   thumbnail: z.string().nullable().optional(),
   thumbnailAlt: z.string().optional(),
+  // A siteConfig "*Preview" key naming the card's screenshot, with its alt text.
+  preview: z.string().optional(),
+  previewAlt: z.string().optional(),
   status: z.string().optional(),
   links: z.array(link).min(1),
 });

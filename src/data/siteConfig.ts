@@ -7,6 +7,7 @@ export interface SiteConfig {
   blindTastingRepo: string;
   blindTastingApp: string;
   cellarApp: string;
+  /** URL of the class-tasting app's public page; the card links here. */
   classTastingApp: string;
   /** Site path of the blind-tasting game screenshot; null until it exists, which hides the card image. */
   blindTastingPreview: string | null;

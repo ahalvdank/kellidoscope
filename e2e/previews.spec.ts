@@ -64,3 +64,8 @@ test.describe("Portfolio manager composite card at phone width", () => {
     expect(overflow).toBeLessThanOrEqual(0);
   });
 });
+
+test("the portfolio clip slot is absent while no clip is configured", async ({ page }) => {
+  await page.goto("/projects/portfolio-manager/");
+  await expect(page.locator('[data-slot="portfolio-clip"]')).toHaveCount(0);
+});

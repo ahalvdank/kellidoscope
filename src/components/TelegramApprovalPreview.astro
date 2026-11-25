@@ -1,7 +1,8 @@
 ---
 // Illustrative composite of the Telegram trade-approval card, on a synthetic ticker. The real alert
-// is shorter; this card gathers what feeds one decision. Every row traces to a sentence in
-// content/copy-portfolio-manager.md. Values are invented and round, and carry no price or return.
+// is shorter; this card gathers what feeds one decision. Rows illustrate facts stated in
+// content/copy-portfolio-manager.md; example values describe this synthetic trade only and carry no
+// price or return.
 // The buttons are styled spans, not controls: nothing here is interactive.
 import ProductFrame from "./ProductFrame.astro";
 
@@ -9,7 +10,7 @@ const LABEL =
   "Illustrative composite · synthetic ticker (not a real position). The real Telegram alert is shorter; this card gathers what feeds one decision.";
 const BUTTONS = ["✅ Execute", "⏰ Wait", "❌ Cancel"];
 const ROWS = [
-  { name: "ML ensemble", body: "Gradient-boosted tree ensemble leans buy; the model cleared its promotion gates." },
+  { name: "ML ensemble", body: "Gradient-boosted tree ensemble leans buy (example)." },
   { name: "Market regime", body: "Hidden Markov model regime: supportive." },
   {
     name: "Agent committee",
@@ -18,7 +19,7 @@ const ROWS = [
   { name: "Devil's advocate", body: "Valuation already prices in two more quarters of growth." },
   {
     name: "Tax lots",
-    body: "A new tax lot opens at the fill and its holding period starts then; any later sale is treated as short- vs long-term by that period.",
+    body: "Tax-lot check (example): holding period would start at the fill; short- vs long-term noted for any later sale.",
   },
   { name: "10-K signals [shadow]", body: "not used for this trade" },
 ];

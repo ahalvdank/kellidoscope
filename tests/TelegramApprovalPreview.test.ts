@@ -55,8 +55,8 @@ describe("TelegramApprovalPreview", () => {
 
   it("has a tax-lot line naming holding period and short- vs long-term", async () => {
     const t = text(await render());
-    expect(t).toMatch(/tax lot/i);
-    expect(t).toMatch(/holding period/i);
+    expect(t).toMatch(/tax-lot check \(example\)/i);
+    expect(t).toMatch(/holding period would start at the fill/i);
     expect(t).toMatch(/short- vs long-term/i);
   });
 

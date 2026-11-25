@@ -1,0 +1,192 @@
+---
+// Synthetic, clearly labelled illustration of the Beckett diligence workflow for an invented
+// company. No real deal data. CSS-only tabs (radio + label, no script): the radios stay in the
+// tab order via `sr-only`, and the checked tab's panel is shown with Tailwind named peers.
+import ProductFrame from "./ProductFrame.astro";
+
+const FRAME_LABEL = "Synthetic CPG example · illustrative workflow (no real deal data)";
+const JOURNAL_CAPTION = "The model writes this journal, with my responses; I have run the retrospective by hand so far.";
+
+const facts = [
+  {
+    fact: "Retail distribution",
+    value: "~1,200 doors",
+    source: "Oatfield retail distribution summary",
+    page: "14",
+    date: "2025-03-12",
+    quote: "Oatfield Snacks products are stocked in approximately 1,200 doors across two regional chains.",
+    provenance: "DOC-SOURCED",
+    tone: "border-emerald-300 bg-emerald-50 text-emerald-900",
+  },
+  {
+    fact: "Active SKUs",
+    value: "18 SKUs",
+    source: "Oatfield Snacks Co. website, product page",
+    page: "n/a (web)",
+    date: "2025-05-06",
+    quote: "Browse all 18 flavors and pack sizes.",
+    provenance: "WEB-VERIFIED",
+    tone: "border-sky-300 bg-sky-50 text-sky-900",
+  },
+  {
+    fact: "Second co-packer",
+    value: "Planned, not confirmed",
+    source: "Management call notes",
+    page: "2",
+    date: "2025-04-02",
+    quote: "We expect to add a second co-packer before the fall reset.",
+    provenance: "UNVERIFIED",
+    tone: "border-amber-300 bg-amber-50 text-amber-900",
+  },
+];
+
+const committee = [
+  {
+    role: "adversarial reviewer",
+    severity: "CRITICAL",
+    verdict: "CONDITIONAL APPROVE",
+    note: "The second co-packer rests on one management statement with no supporting document.",
+  },
+  {
+    role: "associate",
+    severity: "INFO",
+    verdict: "APPROVE",
+    note: "Door count and SKU count both trace to a source and a date.",
+  },
+  {
+    role: "partner",
+    severity: "WARNING",
+    verdict: "CONDITIONAL APPROVE",
+    note: "Proceed once the co-packer plan is confirmed in a document.",
+  },
+];
+
+const severityTone: Record<string, string> = {
+  CRITICAL: "border-red-300 bg-red-50 text-red-900",
+  WARNING: "border-amber-300 bg-amber-50 text-amber-900",
+  INFO: "border-slate-300 bg-slate-50 text-slate-800",
+};
+
+const journal = [
+  ["stage", "committee review"],
+  ["hypotheses_considered", "The co-packer statement is a plan; or it is already signed and only the document is missing."],
+  ["dead_ends", "Searching the data room for a co-packer agreement returned nothing."],
+  ["resolution", "Keep the fact as UNVERIFIED and raise a CRITICAL finding until a document confirms it."],
+  ["principle", "A forward-looking claim from management is not a fact until a document supports it."],
+  ["generalization", "Tag every planned-capacity statement UNVERIFIED at ingestion, before any specialist reads it."],
+  ["confidence", "medium"],
+] as const;
+
+const tabs = [
+  { title: "Structured fact basis" },
+  { title: "Committee review" },
+  { title: "Reasoning journal → retrospective lesson" },
+];
+---
+
+<ProductFrame label={FRAME_LABEL} title="Oatfield Snacks Co." badge="Synthetic" class="my-8">
+  <div class="relative flex flex-wrap gap-x-2 gap-y-2 px-3 pt-3 sm:px-4">
+    <input type="radio" name="beckett-tab" id="beckett-tab-fact-basis" checked class="sr-only peer/a" />
+    <input type="radio" name="beckett-tab" id="beckett-tab-committee" class="sr-only peer/b" />
+    <input type="radio" name="beckett-tab" id="beckett-tab-journal" class="sr-only peer/c" />
+
+    <label
+      for="beckett-tab-fact-basis"
+      class="cursor-pointer rounded-md border border-slate-200 px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50 peer-checked/a:border-slate-900 peer-checked/a:bg-slate-900 peer-checked/a:text-white peer-focus-visible/a:ring-2 peer-focus-visible/a:ring-offset-2 peer-focus-visible/a:ring-slate-900"
+    >{tabs[0].title}</label>
+    <label
+      for="beckett-tab-committee"
+      class="cursor-pointer rounded-md border border-slate-200 px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50 peer-checked/b:border-slate-900 peer-checked/b:bg-slate-900 peer-checked/b:text-white peer-focus-visible/b:ring-2 peer-focus-visible/b:ring-offset-2 peer-focus-visible/b:ring-slate-900"
+    >{tabs[1].title}</label>
+    <label
+      for="beckett-tab-journal"
+      class="cursor-pointer rounded-md border border-slate-200 px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50 peer-checked/c:border-slate-900 peer-checked/c:bg-slate-900 peer-checked/c:text-white peer-focus-visible/c:ring-2 peer-focus-visible/c:ring-offset-2 peer-focus-visible/c:ring-slate-900"
+    >{tabs[2].title}</label>
+
+    <div data-beckett-panel="fact-basis" class="hidden w-full pb-4 pt-2 peer-checked/a:block">
+      <p class="mb-3 text-sm text-slate-700">
+        Every fact carries its source document, page, date and the exact original wording. Where no document
+        supports a claim, it says so.
+      </p>
+      <div class="overflow-x-auto rounded-md border border-slate-200">
+        <table class="w-full min-w-[46rem] border-collapse text-left text-xs">
+          <thead class="bg-slate-50 text-slate-600">
+            <tr>
+              <th scope="col" class="px-3 py-2 font-medium">Fact</th>
+              <th scope="col" class="px-3 py-2 font-medium">Value</th>
+              <th scope="col" class="px-3 py-2 font-medium">Source document</th>
+              <th scope="col" class="px-3 py-2 font-medium">Page</th>
+              <th scope="col" class="px-3 py-2 font-medium">Date</th>
+              <th scope="col" class="px-3 py-2 font-medium">Exact quote</th>
+              <th scope="col" class="px-3 py-2 font-medium">Provenance</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 align-top text-slate-800">
+            {
+              facts.map((f) => (
+                <tr>
+                  <td class="px-3 py-2 font-medium">{f.fact}</td>
+                  <td class="px-3 py-2">{f.value}</td>
+                  <td class="px-3 py-2">{f.source}</td>
+                  <td class="px-3 py-2">{f.page}</td>
+                  <td class="whitespace-nowrap px-3 py-2">{f.date}</td>
+                  <td class="px-3 py-2 italic">“{f.quote}”</td>
+                  <td class="px-3 py-2">
+                    <span class={`inline-block whitespace-nowrap rounded border px-1.5 py-0.5 font-mono ${f.tone}`}>{f.provenance}</span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div data-beckett-panel="committee" class="hidden w-full pb-4 pt-2 peer-checked/b:block">
+      <p class="mb-3 text-sm text-slate-700">
+        Specialists work from the fact basis, then the committee reviews their findings. One Python orchestrator
+        runs the stages in order.
+      </p>
+      <ul class="space-y-2">
+        {
+          committee.map((c) => (
+            <li data-committee-role={c.role} class="rounded-md border border-slate-200 p-3 text-sm">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="font-medium capitalize text-slate-900">{c.role}</span>
+                <span class={`rounded border px-1.5 py-0.5 font-mono text-xs ${severityTone[c.severity]}`}>{c.severity}</span>
+                <span class="rounded border border-slate-300 bg-white px-1.5 py-0.5 font-mono text-xs text-slate-800">{c.verdict}</span>
+              </div>
+              <p class="mt-1.5 text-slate-700">{c.note}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-3 rounded-md bg-slate-900 px-3 py-2 text-sm text-white">
+        <span class="font-medium">Combined verdict:</span>
+        <span class="ml-1 font-mono">CONDITIONAL APPROVE</span>
+      </p>
+    </div>
+
+    <div data-beckett-panel="journal" class="hidden w-full pb-4 pt-2 peer-checked/c:block">
+      <p class="mb-3 text-sm text-slate-700">
+        After the committee, the model records its reasoning as a journal entry. A retrospective turns entries into
+        lessons.
+      </p>
+      <dl class="divide-y divide-slate-200 rounded-md border border-slate-200 text-sm">
+        {
+          journal.map(([key, value]) => (
+            <div class="grid gap-x-3 gap-y-0.5 px-3 py-2 sm:grid-cols-[13rem_1fr]">
+              <dt class="break-words font-mono text-xs text-slate-600">{key}</dt>
+              <dd class="text-slate-800">{value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="mt-3 text-sm text-slate-800">
+        <span class="font-medium">Retrospective lesson:</span> mark planned-capacity statements UNVERIFIED when
+        they are ingested, not when the committee first questions them.
+      </p>
+      <p class="mt-2 text-xs italic text-editorial-muted">{JOURNAL_CAPTION}</p>
+    </div>
+  </div>
+</ProductFrame>

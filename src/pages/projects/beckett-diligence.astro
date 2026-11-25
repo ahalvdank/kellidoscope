@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Prose from "../../components/Prose.astro";
+import BeckettFlowPreview from "../../components/BeckettFlowPreview.astro";
 import BeckettArchDiagram from "../../components/diagrams/BeckettArchDiagram.astro";
 import { loadCopy } from "../../lib/copy";
 
@@ -25,6 +26,7 @@ sections.assertAllUsed();
       <p class="text-xs italic text-editorial-muted">{data.disclaimer}</p>
     </header>
 
+    <BeckettFlowPreview />
     <BeckettArchDiagram />
 
     <section class="max-w-3xl space-y-10">

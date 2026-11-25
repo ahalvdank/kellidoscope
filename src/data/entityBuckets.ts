@@ -28,7 +28,7 @@ export const ENTITY_BUCKETS: Record<EntityBucketId, EntityBucketMeta> = {
   },
   risk: {
     id: "risk",
-    label: "Risk & Legal",
+    label: "Risk",
     pillClass: "bg-rose-50 text-rose-800 border-rose-200",
     borderClass: "border-l-rose-600",
   },

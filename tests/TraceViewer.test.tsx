@@ -514,6 +514,8 @@ describe("carry items from Task 3 review", () => {
     const row = strip.firstElementChild as HTMLElement;
     expect(row.className).toContain("overflow-x-auto");
     expect(row.className).toContain("flex-nowrap");
+    // The scroll container clips overflow, so it needs 1px of padding for the selected pill's ring.
+    expect(row.className.split(/\s+/)).toContain("p-px");
     const current = within(strip).getAllByRole("button").filter((b) => b.getAttribute("aria-current") === "true");
     expect(current).toHaveLength(1);
     expect(current[0].textContent).toContain(BA.title);
@@ -779,6 +781,16 @@ describe("audit note tab (phase 2)", () => {
     render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
     openAudit();
     expect(screen.queryByRole("button", { name: /lines with no citations/ })).toBeNull();
+  });
+
+  it("a note with no none-cited lines still prints: the on-screen note is not print:hidden and no print copy is added", () => {
+    const trace: Trace = { ...BA, audit_note_md: "# Note\n\n- [[A]]: [1]" };
+    render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
+    openAudit();
+    const notes = document.querySelectorAll("[data-audit-note]");
+    expect(notes).toHaveLength(1);
+    expect(notes[0].className).not.toContain("print:hidden");
+    expect(notes[0].textContent).toContain("Note");
   });
 
   it("markdown links in the audit note follow the same host allowlist as the answer", () => {

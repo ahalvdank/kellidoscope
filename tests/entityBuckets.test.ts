@@ -46,6 +46,11 @@ describe("bucketFor", () => {
     expect(getEntityBucket("SomethingNew").id).toBe("other");
     expect(getEntityBucket("Risk").id).toBe("risk");
   });
+
+  it('labels the risk bucket "Risk", distinct from the "Legal Proceeding" bucket', () => {
+    expect(ENTITY_BUCKETS.risk.label).toBe("Risk");
+    expect(ENTITY_BUCKETS.legal.label).toBe("Legal Proceeding");
+  });
 });
 
 const CLAIM_TYPES: ClaimType[] = [

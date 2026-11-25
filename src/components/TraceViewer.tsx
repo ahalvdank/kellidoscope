@@ -411,7 +411,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
         </div>
 
         <nav aria-label="Featured traces">
-          <div className="flex flex-nowrap gap-2 overflow-x-auto pb-1">
+          <div className="flex flex-nowrap gap-2 overflow-x-auto p-px pb-1">
             {filteredSummaries.map((item) => {
               const isSelected = activeTrace.slug === item.slug;
               return (
@@ -680,7 +680,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                     )}
                     <div
                       data-audit-note
-                      className={`prose prose-sm max-w-none text-workspace-ink ${showNoneCited ? "" : "print:hidden"}`}
+                      className={`prose prose-sm max-w-none text-workspace-ink ${!showNoneCited && auditNote.hiddenCount > 0 ? "print:hidden" : ""}`}
                     >
                       <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
                         {auditNote.md}

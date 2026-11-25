@@ -103,7 +103,7 @@ const tabs = [
       class="cursor-pointer rounded-md border border-slate-200 px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50 peer-checked/c:border-slate-900 peer-checked/c:bg-slate-900 peer-checked/c:text-white peer-focus-visible/c:ring-2 peer-focus-visible/c:ring-offset-2 peer-focus-visible/c:ring-slate-900"
     >{tabs[2].title}</label>
 
-    <div data-beckett-panel="fact-basis" class="hidden w-full pb-4 pt-2 peer-checked/a:block">
+    <div data-beckett-panel="fact-basis" class="hidden w-full pb-4 pt-2 peer-checked/a:block print:block">
       <p class="mb-3 text-sm text-slate-700">
         Every fact carries its source document, page, date and the exact original wording. Where no document
         supports a claim, it says so.
@@ -142,7 +142,7 @@ const tabs = [
       </div>
     </div>
 
-    <div data-beckett-panel="committee" class="hidden w-full pb-4 pt-2 peer-checked/b:block">
+    <div data-beckett-panel="committee" class="hidden w-full pb-4 pt-2 peer-checked/b:block print:block">
       <p class="mb-3 text-sm text-slate-700">
         Specialists work from the fact basis, then the committee reviews their findings. A custom Python orchestrator
         runs the stages.
@@ -167,7 +167,7 @@ const tabs = [
       </p>
     </div>
 
-    <div data-beckett-panel="journal" class="hidden w-full pb-4 pt-2 peer-checked/c:block">
+    <div data-beckett-panel="journal" class="hidden w-full pb-4 pt-2 peer-checked/c:block print:block">
       <p class="mb-3 text-sm text-slate-700">
         The model writes its reasoning to a separate journal, with my responses.
       </p>

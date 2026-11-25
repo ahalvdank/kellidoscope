@@ -56,6 +56,7 @@ test.describe("top bar menu without JavaScript (C2.7)", () => {
 
 for (const size of [
   { width: 1280, height: 900 },
+  { width: 640, height: 900 },
   { width: 390, height: 844 },
 ]) {
   test(`Wine apps scrolls to a clear wine heading on Home at ${size.width}px`, async ({ page }) => {

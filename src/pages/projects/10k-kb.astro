@@ -105,7 +105,8 @@ assertPublicAssets(siteConfig.systemClipUrl, siteConfig.systemClipPoster);
         </p>
       </div>
       <Prose html={html.role} />
-      <details class="rounded-md border border-editorial-border bg-white px-4 py-3">
+      <!-- Closed on screen; print shows the whole disclosure (::details-content), so paper keeps the caveats. -->
+      <details class="rounded-md border border-editorial-border bg-white px-4 py-3 print:[&::details-content]:block print:[&::details-content]:[content-visibility:visible]">
         <summary class="cursor-pointer font-medium text-editorial-ink">Known limits &amp; sample caveats</summary>
         <div class="mt-4">
           <Prose html={html.limits} />

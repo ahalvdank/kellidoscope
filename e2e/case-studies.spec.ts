@@ -12,7 +12,9 @@ test.describe("10-K case study layout", () => {
   test("the role sentence is in My role after The public rewrite, not in the opening", async ({ page }) => {
     await page.goto("/projects/10k-kb/");
     const role = "I was the architect, product manager and engineering team lead";
-    await expect(page.locator("header").first()).not.toContainText(role);
+    const opening = page.locator("article header");
+    await expect(opening).toHaveCount(1);
+    await expect(opening).not.toContainText(role);
     const text = await page.locator("article").innerText();
     expect(text.split(role)).toHaveLength(2);
     expect(text.indexOf("The public rewrite")).toBeLessThan(text.indexOf(role));

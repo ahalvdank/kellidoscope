@@ -55,7 +55,7 @@ const findingSource = "Live finding · NVIDIA 10-K, FY2022 → FY2026 trace";
     </div>
   </section>
 
-  <section id="wine-apps" class="mt-14 scroll-mt-20 [body:has(.site-topbar_details[open])_&]:scroll-mt-[22rem]" aria-labelledby="personal">
+  <section id="wine-apps" class="mt-14 scroll-mt-20 sm:scroll-mt-24 [body:has(.site-topbar_details[open])_&]:scroll-mt-[22rem]" aria-labelledby="personal">
     <h2 id="personal" class="text-xl font-semibold tracking-tight">{personal.heading}</h2>
     <div class="mt-4 grid gap-4 sm:grid-cols-2">
       {wineCards.map((card) => <ProjectCard {...card} size="secondary" />)}

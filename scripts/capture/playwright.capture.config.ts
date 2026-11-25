@@ -4,6 +4,7 @@ import { defineConfig } from "@playwright/test";
 // (testDir "e2e"), so `npm run test:e2e` never runs these. Run with:
 //   npx playwright test -c scripts/capture/playwright.capture.config.ts
 // Raw .webm videos land in scripts/capture/out/ (gitignored); move them to media/raw/.
+// The class-tasting capture lives in the private class-tasting workflow (gitignored scripts/capture/private/), not here.
 const VIEWPORT = { width: 390, height: 844 };
 
 export default defineConfig({

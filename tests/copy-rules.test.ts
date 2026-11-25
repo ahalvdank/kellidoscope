@@ -115,6 +115,7 @@ describe("no 'production' for the 10-K KB or the portfolio manager", () => {
     "src/components/EvalsLedger.astro",
     "src/components/LiveFinding.astro",
     "src/components/TelegramApprovalPreview.astro",
+    "src/components/PortfolioClip.astro",
   ])("%s", (rel) => {
     expect(copyViolations(read(rel), { production: true })).toEqual([]);
   });

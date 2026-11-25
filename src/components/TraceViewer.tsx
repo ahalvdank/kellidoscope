@@ -410,36 +410,33 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
           ))}
         </div>
 
-        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {filteredSummaries.map((item) => {
-            const isSelected = activeTrace.slug === item.slug;
-            return (
-              <button
-                key={item.slug}
-                type="button"
-                aria-current={isSelected ? "true" : undefined}
-                onClick={() => selectTrace(item.slug)}
-                className={`rounded-md border p-3 text-left transition ${
-                  isSelected
-                    ? "border-editorial-accent bg-indigo-50/40 ring-1 ring-editorial-accent"
-                    : "border-workspace-border bg-workspace-surface hover:border-slate-400"
-                }`}
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[11px] font-medium text-editorial-accent">
+        <nav aria-label="Featured traces">
+          <div className="flex flex-nowrap gap-2 overflow-x-auto pb-1">
+            {filteredSummaries.map((item) => {
+              const isSelected = activeTrace.slug === item.slug;
+              return (
+                <button
+                  key={item.slug}
+                  type="button"
+                  aria-current={isSelected ? "true" : undefined}
+                  onClick={() => selectTrace(item.slug)}
+                  className={`flex w-56 shrink-0 items-center gap-2 rounded-full border px-3 py-1.5 text-left transition ${
+                    isSelected
+                      ? "border-editorial-accent bg-indigo-50/40 ring-1 ring-editorial-accent"
+                      : "border-workspace-border bg-workspace-surface hover:border-slate-400"
+                  }`}
+                >
+                  <span className="shrink-0 font-mono text-[11px] font-medium text-editorial-accent">
                     {item.tickers.join(", ")}
                   </span>
-                  <span className="font-mono text-[10px] text-workspace-muted">
-                    {CATEGORY_LABELS[item.category]}
+                  <span className="line-clamp-1 text-xs font-medium text-workspace-ink">
+                    {item.title}
                   </span>
-                </div>
-                <p className="mt-1 line-clamp-2 text-xs font-medium text-workspace-ink">
-                  {item.title}
-                </p>
-              </button>
-            );
-          })}
-        </div>
+                </button>
+              );
+            })}
+          </div>
+        </nav>
       </div>
 
       {/* Error / Skeleton States */}
@@ -459,29 +456,6 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
       {/* Active Trace Content */}
       {!loading && (
         <>
-          {/* Always-visible technical metadata strip */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-md border border-workspace-border bg-workspace-surface px-3 py-2 font-mono text-[11px] text-workspace-muted">
-            <span>Embed: {activeTrace.meta.models.embedding}</span>
-            <span>Extract: {activeTrace.meta.models.extraction}</span>
-            <span>Synthesize: {activeTrace.meta.models.synthesis}</span>
-            <span>Sentiment: {activeTrace.meta.models.sentiment}</span>
-            <span>Top-k: {activeTrace.meta.top_k}</span>
-            <span>Demo cutoff: score ≥ {cutoff}</span>
-            {commitUrl ? (
-              <a
-                href={commitUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => countEvent("repo")}
-                className="text-editorial-accent underline"
-              >
-                exported at commit {shortCommit}
-              </a>
-            ) : (
-              <span>exported at commit {shortCommit}</span>
-            )}
-          </div>
-
           {/* 60 / 40 Desktop Split */}
           <div className="grid gap-6 lg:grid-cols-12">
             {/* Left Column (60% -> 7 cols): Question + Cited Answer */}
@@ -499,7 +473,7 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                 <span>{activeTrace.claims.length} extracted claims</span>
               </div>
 
-              <div className="prose prose-sm max-w-none text-workspace-ink">
+              <div data-trace-answer className="prose prose-base max-w-none leading-relaxed text-workspace-ink">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={markdownComponents}
@@ -727,6 +701,29 @@ export default function TraceViewer({ manifest, initialTrace }: TraceViewerProps
                 )}
               </div>
             </aside>
+          </div>
+
+          {/* Technical metadata footer */}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-workspace-border px-1 pt-3 font-mono text-[11px] text-workspace-muted">
+            <span>Embed: {activeTrace.meta.models.embedding}</span>
+            <span>Extract: {activeTrace.meta.models.extraction}</span>
+            <span>Synthesize: {activeTrace.meta.models.synthesis}</span>
+            <span>Sentiment: {activeTrace.meta.models.sentiment}</span>
+            <span>Top-k: {activeTrace.meta.top_k}</span>
+            <span>Demo cutoff: score ≥ {cutoff}</span>
+            {commitUrl ? (
+              <a
+                href={commitUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => countEvent("repo")}
+                className="text-editorial-accent underline"
+              >
+                exported at commit {shortCommit}
+              </a>
+            ) : (
+              <span>exported at commit {shortCommit}</span>
+            )}
           </div>
         </>
       )}

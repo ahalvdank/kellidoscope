@@ -118,6 +118,14 @@ test.describe("trace viewer in the browser", () => {
     await expect(link).toContainText(manifest.build_commit.slice(0, 7));
   });
 
+  test("the answer starts above the fold at 1280x800", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto(`/demos/10k-kb/q/${featured[0].slug}/`);
+    const box = await page.locator("[data-trace-answer]").boundingBox();
+    expect(box).not.toBeNull();
+    expect(box!.y).toBeLessThan(800);
+  });
+
   test("switching trace fetches /data/traces/<slug>.json and updates the URL", async ({ page }) => {
     const target = featured[1];
     await page.goto(`/demos/10k-kb/q/${featured[0].slug}/`);

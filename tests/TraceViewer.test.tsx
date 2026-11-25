@@ -398,7 +398,8 @@ describe("typography (C1.6)", () => {
     const trace: Trace = { ...BA, answer_md: "## Heading\n\n- one\n- two\n" };
     render(<TraceViewer initialTrace={trace} manifest={MANIFEST} />);
     const prose = document.querySelector(".prose") as HTMLElement;
-    expect(prose.className).toContain("prose");
+    expect(prose.className).toContain("prose-base");
+    expect(prose.className).toContain("leading-relaxed");
     expect(within(prose).getByRole("heading", { name: "Heading" })).toBeTruthy();
     expect(within(prose).getAllByRole("listitem")).toHaveLength(2);
     expect(tailwindConfig.plugins).toContain(typography);
@@ -502,7 +503,27 @@ describe("carry items from Task 3 review", () => {
     const manifest = { ...MANIFEST, traces: [...MANIFEST.traces, hidden] };
     render(<TraceViewer initialTrace={BA} manifest={manifest} />);
     expect(screen.queryByText("Hidden unfeatured trace")).toBeNull();
-    for (const t of MANIFEST.traces) expect(screen.getByText(t.title)).toBeTruthy();
+    const strip = screen.getByRole("navigation", { name: "Featured traces" });
+    expect(within(strip).queryByText("Hidden unfeatured trace")).toBeNull();
+    for (const t of MANIFEST.traces) expect(within(strip).getByText(t.title)).toBeTruthy();
+  });
+
+  it("the featured-trace strip is one scrollable row", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const strip = screen.getByRole("navigation", { name: "Featured traces" });
+    const row = strip.firstElementChild as HTMLElement;
+    expect(row.className).toContain("overflow-x-auto");
+    expect(row.className).toContain("flex-nowrap");
+    const current = within(strip).getAllByRole("button").filter((b) => b.getAttribute("aria-current") === "true");
+    expect(current).toHaveLength(1);
+    expect(current[0].textContent).toContain(BA.title);
+  });
+
+  it("the metadata bar renders after the answer and inspector", () => {
+    render(<TraceViewer initialTrace={BA} manifest={MANIFEST} />);
+    const commit = screen.getByRole("link", { name: /exported at commit/ });
+    const inspector = document.getElementById("inspector-panel") as HTMLElement;
+    expect(inspector.compareDocumentPosition(commit) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 });
 

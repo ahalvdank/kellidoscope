@@ -1,18 +1,36 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import LiveFinding from "../components/LiveFinding.astro";
+import { getTrace } from "../data/traces";
 import { loadCopy } from "../lib/copy";
+import { extractFinding, LIVE_FINDING } from "../lib/liveFinding";
+import { resolveHref } from "../lib/links";
 
 const { data, sections } = await loadCopy("copy-home");
 const { hero, flagships, personal } = data;
 if (!hero || !flagships || !personal) throw new Error("content/copy-home.md needs hero, flagships and personal");
 sections.assertAllUsed();
+
+const trace = getTrace(LIVE_FINDING.slug);
+const finding = extractFinding(trace, LIVE_FINDING.needle);
+const findingSource = "Live finding · NVIDIA 10-K, FY2022 → FY2026 trace";
 ---
 
 <BaseLayout title={data.title} description={data.description}>
-  <section class="max-w-3xl">
-    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{hero.headline}</h1>
-    <p class="mt-4 text-lg leading-relaxed text-editorial-muted">{hero.subhead}</p>
+  <section class="grid items-start gap-8 md:grid-cols-2">
+    <div>
+      <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{hero.headline}</h1>
+      <p class="mt-4 text-lg leading-relaxed text-editorial-muted">{hero.subhead}</p>
+      <a
+        href={resolveHref(hero.cta.href)}
+        data-goatcounter-click="hero-cta"
+        class="mt-6 inline-block rounded-md bg-editorial-accent px-5 py-3 text-base font-medium text-white hover:opacity-90"
+      >
+        {hero.cta.label} →
+      </a>
+    </div>
+    <LiveFinding {...finding} source={findingSource} />
   </section>
 
   <section class="mt-10" aria-labelledby="systems">
@@ -22,11 +40,11 @@ sections.assertAllUsed();
     </div>
   </section>
 
-  <section class="mt-14" aria-labelledby="personal">
+  <section id="wine-apps" class="mt-14" aria-labelledby="personal">
     <h2 id="personal" class="text-xl font-semibold tracking-tight">{personal.heading}</h2>
-    <p class="mt-2 max-w-3xl text-sm text-editorial-muted">{personal.role}</p>
     <div class="mt-4 grid gap-4 sm:grid-cols-2">
       {personal.cards.map((card) => <ProjectCard {...card} size="secondary" />)}
     </div>
+    <p class="mt-3 max-w-3xl text-xs text-editorial-muted">{personal.role}</p>
   </section>
 </BaseLayout>

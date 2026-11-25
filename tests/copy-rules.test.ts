@@ -113,6 +113,7 @@ describe("no 'production' for the 10-K KB or the portfolio manager", () => {
     "src/pages/projects/10k-kb.astro",
     "src/pages/projects/portfolio-manager.astro",
     "src/components/EvalsLedger.astro",
+    "src/components/LiveFinding.astro",
   ])("%s", (rel) => {
     expect(copyViolations(read(rel), { production: true })).toEqual([]);
   });
@@ -152,6 +153,23 @@ describe("fixed copy", () => {
     expect(home).toContain("label: Play it");
     expect(home).toContain("label: Code");
     expect(home).toContain("label: Open the demo collection");
+  });
+
+  it("home hero uses the agreed headline", () => {
+    expect(read("content/copy-home.md")).toContain(
+      "I design and ship AI systems for financial research, venture diligence, and investing.",
+    );
+  });
+
+  it("home carries the agreed card metrics", () => {
+    const home = read("content/copy-home.md");
+    expect(home).toContain("973 filings · 186 companies");
+    expect(home).toContain("~60h → ~25h per deal");
+    expect(home).toContain("Daily use since spring 2025");
+  });
+
+  it("the Beckett card keeps its sample size", () => {
+    expect(read("content/copy-home.md")).toContain("4 deals before and 4 after");
   });
 
   it("the top bar says Résumé", () => {

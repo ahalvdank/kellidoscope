@@ -112,7 +112,7 @@ test("top bar uses siteConfig links, counts resume/repo clicks, and has no email
 });
 
 const CONTENT_PAGES: [string, string][] = [
-  ["/", "Auditable AI decision systems for finance and investing."],
+  ["/", "I design and ship AI systems for financial research, venture diligence, and investing."],
   ["/projects/10k-kb/", "10-K / 10-Q research knowledge base"],
   ["/projects/beckett-diligence/", "Beckett deal-diligence platform"],
   ["/projects/portfolio-manager/", "Portfolio manager"],

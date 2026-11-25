@@ -12,6 +12,11 @@ const link = z.object({
 const card = z.object({
   name: z.string(),
   summary: z.string(),
+  // One short proof line shown at the top of the card.
+  metric: z.string().optional(),
+  // Site path under public/; the card shows no image when it is unset or the file is missing.
+  thumbnail: z.string().nullable().optional(),
+  thumbnailAlt: z.string().optional(),
   status: z.string().optional(),
   links: z.array(link).min(1),
 });
@@ -22,7 +27,7 @@ const copy = defineCollection({
     title: z.string(),
     description: z.string(),
     disclaimer: z.string().optional(),
-    hero: z.object({ headline: z.string(), subhead: z.string() }).optional(),
+    hero: z.object({ headline: z.string(), subhead: z.string(), cta: link.pick({ label: true, href: true }) }).optional(),
     flagships: z.array(card).optional(),
     personal: z.object({ heading: z.string(), role: z.string(), cards: z.array(card) }).optional(),
   }),

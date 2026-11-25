@@ -1,0 +1,24 @@
+---
+interface Props {
+  text: string;
+  cites: number[];
+  href: string;
+  source: string;
+}
+const { text, cites, href, source } = Astro.props;
+---
+
+<aside class="rounded-lg border border-editorial-border bg-white p-5" aria-labelledby="live-finding-label">
+  <p id="live-finding-label" class="font-mono text-xs text-editorial-muted">{source}</p>
+  <blockquote class="mt-3 border-l-2 border-editorial-accent pl-4 text-base leading-relaxed text-editorial-ink">
+    “{text}”
+    {cites.map((cite) => <sup class="ml-0.5 font-mono text-xs text-editorial-accent">[{cite}]</sup>)}
+  </blockquote>
+  <a
+    href={href}
+    data-goatcounter-click="live-finding"
+    class="mt-4 inline-block text-sm font-medium text-editorial-accent hover:underline"
+  >
+    Read the full trace →
+  </a>
+</aside>

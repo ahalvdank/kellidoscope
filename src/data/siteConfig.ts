@@ -9,6 +9,8 @@ export interface SiteConfig {
   cellarApp: string;
   /** URL of the class-tasting app's public page; the card links here. */
   classTastingApp: string;
+  /** URL of the class-tasting app's demo class; the card's "Try the demo class" link goes here. */
+  classTastingDemo: string;
   /** Site path of the blind-tasting game screenshot; null until it exists, which hides the card image. */
   blindTastingPreview: string | null;
   /** Site path of the wine journal screenshot; null until it exists, which hides the card image. */
@@ -47,6 +49,7 @@ export const siteConfig: SiteConfig = {
   blindTastingApp: "https://blindtaste.kellidoscope.com",
   cellarApp: "https://cellar.kellidoscope.com",
   classTastingApp: "https://class-tasting.kellidoscope.com",
+  classTastingDemo: "https://class-tasting.kellidoscope.com/demo",
   blindTastingPreview: "/media/blind-tasting-thumb.jpg",
   cellarPreview: "/media/wine-journal-thumb.jpg",
   classTastingPreview: "/media/class-tasting-thumb.jpg",

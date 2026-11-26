@@ -165,6 +165,9 @@ describe("fixed copy", () => {
     expect(home).toContain("Built for a Level III class; first pilot not yet run.");
     expect(home).toContain("label: See how it works");
     expect(home).toContain("href: classTastingApp");
+    // The demo link comes first (it renders as the primary button) and is counted as "demo-class".
+    expect(home).toContain("- label: Try the demo class\n          href: classTastingDemo\n          event: demo-class");
+    expect(home.indexOf("label: Try the demo class")).toBeLessThan(home.indexOf("label: See how it works"));
     // Only the blind-tasting card has a Code link: the class-tasting repo is private.
     expect(home.match(/label: Code/g)).toHaveLength(1);
   });

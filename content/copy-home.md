@@ -64,6 +64,9 @@ personal:
       summary: "A shared tasting sheet for a wine class: the instructor reveals each wine, every student's Wine Professional 25-point sheet is scored against the answer key, each student sees why they gained or lost each point, and the class sees an anonymous comparison. Students can never read the answer key."
       status: Built for a Level III class; first pilot not yet run.
       links:
+        - label: Try the demo class
+          href: classTastingDemo
+          event: demo-class
         - label: See how it works
           href: classTastingApp
 ---

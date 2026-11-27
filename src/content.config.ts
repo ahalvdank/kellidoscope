@@ -6,7 +6,7 @@ const link = z.object({
   label: z.string(),
   // A site path ("/projects/10k-kb") or a key of siteConfig ("blindTastingRepo").
   href: z.string(),
-  event: z.enum(["repo"]).optional(),
+  event: z.enum(["repo", "demo-class"]).optional(),
 });
 
 const card = z.object({

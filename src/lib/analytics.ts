@@ -1,5 +1,5 @@
 /** Click events counted in GoatCounter. Each is recorded as an event whose path is the name. */
-export type CountedEvent = "citation" | "sec-link" | "repo" | "resume";
+export type CountedEvent = "citation" | "sec-link" | "repo" | "resume" | "demo-class";
 
 interface GoatCounterCountVars {
   path: string;

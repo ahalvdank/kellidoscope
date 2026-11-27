@@ -1,6 +1,7 @@
 ---
 import { publicAssetExists } from "../lib/assets";
 import { isExternal, resolveHref } from "../lib/links";
+import type { CountedEvent } from "../lib/analytics";
 import ProductFrame from "./ProductFrame.astro";
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
   thumbnail?: string | null;
   thumbnailAlt?: string;
   status?: string;
-  links: { label: string; href: string; event?: "repo" }[];
+  links: { label: string; href: string; event?: CountedEvent }[];
   size?: "flagship" | "secondary";
   /** A screen recording shown in a closed "Watch the clip" disclosure (no script needed). */
   recording?: { src: string; poster: string | null; caption: string } | null;

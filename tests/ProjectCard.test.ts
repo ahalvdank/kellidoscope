@@ -98,3 +98,25 @@ describe("ProjectCard layout", () => {
     expect(anchors[1]).toMatch(/class="[^"]*hover:underline/);
   });
 });
+
+describe("ProjectCard class-tasting links", () => {
+  it("renders 'Try the demo class' as the counted primary button, then 'See how it works' as a text link", async () => {
+    const html = await render({
+      name: "Class tasting",
+      links: [
+        { label: "Try the demo class", href: "classTastingDemo", event: "demo-class" },
+        { label: "See how it works", href: "classTastingApp" },
+      ],
+    });
+    const anchors = html.match(/<a\b[^>]*>[^<]*/g)!;
+    expect(anchors).toHaveLength(2);
+    expect(anchors[0]).toContain('href="https://class-tasting.kellidoscope.com/demo"');
+    expect(anchors[0]).toContain('data-goatcounter-click="demo-class"');
+    expect(anchors[0]).toContain("bg-editorial-accent");
+    expect(anchors[0]).toContain("Try the demo class");
+    expect(anchors[1]).toContain('href="https://class-tasting.kellidoscope.com"');
+    expect(anchors[1]).not.toContain("data-goatcounter-click");
+    expect(anchors[1]).toContain("See how it works");
+  });
+});
+

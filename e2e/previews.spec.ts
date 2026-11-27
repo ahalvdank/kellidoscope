@@ -65,7 +65,13 @@ test.describe("Portfolio manager composite card at phone width", () => {
   });
 });
 
-test("the portfolio clip slot is absent while no clip is configured", async ({ page }) => {
+test("the portfolio clip slot shows the demo recording with its caption", async ({ page }) => {
   await page.goto("/projects/portfolio-manager/");
-  await expect(page.locator('[data-slot="portfolio-clip"]')).toHaveCount(0);
+  const slot = page.locator('[data-slot="portfolio-clip"]');
+  await expect(slot).toHaveCount(1);
+  await expect(slot.locator("video")).toHaveAttribute("src", "/media/portfolio-demo-clip.mp4");
+  await expect(slot.locator("figcaption")).toBeVisible();
+  await expect(slot.locator("figcaption")).toHaveText(
+    "Demo mode on synthetic data. Personal research project; not investment advice.",
+  );
 });

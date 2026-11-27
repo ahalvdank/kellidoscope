@@ -75,17 +75,33 @@ describe("TelegramApprovalPreview", () => {
 });
 
 describe("portfolio manager clip slot", () => {
-  it("ships with no clip configured", () => {
-    expect(siteConfig.portfolioClipUrl).toBeNull();
-    expect(siteConfig.portfolioClipPoster).toBeNull();
+  it("ships with the approved demo clip and poster configured", () => {
+    expect(siteConfig.portfolioClipUrl).toBe("/media/portfolio-demo-clip.mp4");
+    expect(siteConfig.portfolioClipPoster).toBe("/media/portfolio-demo-clip-poster.jpg");
   });
 
-  it("the PM page hides the clip slot while portfolioClipUrl is null", async () => {
+  it("the PM page renders the clip slot with the video src, poster, aria-label and caption", async () => {
     const container = await AstroContainer.create();
-    const html = await container.renderToString(PortfolioClip, { props: { src: siteConfig.portfolioClipUrl } });
-    expect(html.trim()).toBe("");
+    const html = await container.renderToString(PortfolioClip, {
+      props: { src: siteConfig.portfolioClipUrl, poster: siteConfig.portfolioClipPoster },
+    });
+    expect(html).toContain('data-slot="portfolio-clip"');
+    expect(html).toContain('src="/media/portfolio-demo-clip.mp4"');
+    expect(html).toContain('poster="/media/portfolio-demo-clip-poster.jpg"');
+    expect(html).toContain(
+      `aria-label="Screen recording of the portfolio manager's demo mode on synthetic data"`,
+    );
+    expect(html).toMatch(
+      /<figcaption[^>]*>\s*Demo mode on synthetic data\. Personal research project; not investment advice\.\s*<\/figcaption>/,
+    );
     const page = readFileSync("src/pages/projects/portfolio-manager.astro", "utf8");
     expect(page).toContain("<PortfolioClip src={siteConfig.portfolioClipUrl}");
+  });
+
+  it("renders nothing when src is null", async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(PortfolioClip, { props: { src: null } });
+    expect(html.trim()).toBe("");
   });
 
   it("renders a framed video once a clip URL exists", async () => {

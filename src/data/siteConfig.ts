@@ -58,6 +58,6 @@ export const siteConfig: SiteConfig = {
   classTastingClipPoster: "/media/class-tasting-clip-poster.jpg",
   systemClipUrl: "/media/kb-explorer-clip.mp4",
   systemClipPoster: "/media/kb-explorer-poster.jpg",
-  portfolioClipUrl: null,
-  portfolioClipPoster: null,
+  portfolioClipUrl: "/media/portfolio-demo-clip.mp4",
+  portfolioClipPoster: "/media/portfolio-demo-clip-poster.jpg",
 };
